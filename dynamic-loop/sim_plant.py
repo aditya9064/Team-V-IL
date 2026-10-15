@@ -13,16 +13,18 @@ import scene_config as C
 import fk,ik,cell
 from sort_scene import ease,turn,segments
 from supervisor import CALIBRATION_ID,MODEL_ID,Hold,sensor_identifier
-from vision import detect
+from detector_backend import GeometricBackend
+from detector_contract import DetectorContractError
 
 class Plant:
-    def __init__(self,folder,harness):
+    def __init__(self,folder,harness,detector=None):
         import omni.usd
         from pxr import UsdGeom
         from isaacsim.core.api import World
         from isaacsim.core.prims import SingleArticulation
         from isaacsim.sensors.camera import Camera
         self.UsdGeom=UsdGeom;self.folder=Path(folder);self.harness=harness
+        self.detector=detector if detector is not None else GeometricBackend()
         # Test PGS to avoid stiff-drive TGS substep velocity reporting residuals.
         # Preserve 30 Hz command durations and the historical 60 Hz settle units.
         self.physics_dt=1/60
@@ -100,6 +102,7 @@ class Plant:
             table_top_z=float(C.TABLE_TOP_Z+C.SURFACE_DZ),robot_base_xy=[0.,0.])
 
     def capture(self,label,perceive=True):
+        self.harness.before_capture(self,label)
         # Render while testing stability: rendering advances physics, so a
         # non-rendering stability sample cannot certify a later camera frame.
         self.settle(18,render=True)
@@ -146,12 +149,16 @@ class Plant:
                              capture_monotonic_lower_bound=render_step[2],
                              capture_wall_interval_s=[render_step[2],render_step[3]],
                              path=str(path.relative_to(self.folder)),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
-        detected,rejected=detect(images['table'],models['table']) if perceive else ([],[])
+        try:
+            detected,rejected=self.detector.predict(images['table'],models['table']) if perceive else ([],[])
+        except (DetectorContractError,ValueError) as error:
+            raise Hold('detector_output_invalid:'+str(error)) from error
         velocities=self.arm.get_joint_velocities()[self.arm_idx]
         idle=bool(np.all(np.isfinite(velocities)) and np.max(np.abs(velocities))<.02)
         result=dict(observation_id=self.observation,
                     captured_monotonic=min(v['capture_monotonic_lower_bound'] for v in views.values()),
-                    received_unix=time.time(),calibration_id=CALIBRATION_ID,model_id=MODEL_ID,
+                    received_unix=time.time(),calibration_id=CALIBRATION_ID,model_id=self.detector.model_id,
+                    detector_metadata=self.detector.metadata,
                     views=views,robot_idle=idle,detections=detected,rejected=rejected,
                     world_time_at_readback=float(self.world.current_time),
                     robot_joint_velocity_max=float(np.max(np.abs(velocities))),

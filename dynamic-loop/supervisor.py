@@ -26,8 +26,8 @@ def recipe(colours):
     return [dict(slot_id=f'slot-{i}',colour=c,xy=[.21+.044*i,-.27])
             for i,c in enumerate(colours)]
 
-def validate_frame(frame,now,max_age=30.,previous=None):
-    if frame.get('calibration_id')!=CALIBRATION_ID or frame.get('model_id')!=MODEL_ID:
+def validate_frame(frame,now,max_age=30.,previous=None,expected_model_id=MODEL_ID):
+    if frame.get('calibration_id')!=CALIBRATION_ID or frame.get('model_id')!=expected_model_id:
         raise Hold('observation_version_mismatch')
     if frame.get('robot_idle') is not True: raise Hold('robot_not_stationary')
     age=now-frame['captured_monotonic']

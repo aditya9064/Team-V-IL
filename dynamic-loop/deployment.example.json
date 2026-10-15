@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "architecture": "fasterrcnn_resnet50_fpn_v2",
+  "classes": [
+    "yellow",
+    "blue",
+    "red"
+  ],
+  "foreground_labels": [
+    1,
+    2,
+    3
+  ],
+  "full_resolution": [
+    3840,
+    2160
+  ],
+  "crop_rect_px": [
+    960,
+    1080,
+    2880,
+    1944
+  ],
+  "inference_resolution": [
+    1920,
+    864
+  ],
+  "min_size": 864,
+  "max_size": 1920,
+  "score_threshold": null,
+  "threshold_source": null,
+  "checkpoint_sha256": null
+}

@@ -12,9 +12,18 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--starter',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--scenario',choices=['nominal','empty','missing','moved','miss_once','miss_twice','stale'],default='nominal')
+    p.add_argument('--scenario',choices=['nominal','empty','missing','moved','miss_once','miss_twice','stale','late_arrival','occupied_destination','placed_moved','occluded_view','missing_view'],default='nominal')
     p.add_argument('--colours',nargs='+',default=['yellow','yellow','blue','blue','red','red'])
+    p.add_argument('--backend',choices=['geometric','torchvision'],default='geometric')
+    p.add_argument('--checkpoint',type=Path)
+    p.add_argument('--deployment',type=Path)
+    p.add_argument('--training-code',type=Path,default=Path(__file__).resolve().parent.parent/'mentor-training')
+    p.add_argument('--device',default='cuda')
     a=p.parse_args();a.out=a.out.resolve();a.starter=a.starter.resolve()
+    if a.backend=='torchvision' and (a.checkpoint is None or a.deployment is None):
+        p.error('Torchvision backend requires checkpoint and deployment config; no fallback')
+    if a.backend=='geometric' and (a.checkpoint is not None or a.deployment is not None):
+        p.error('Checkpoint/config provided but torchvision backend not selected')
     if a.out.exists():p.error('Use a fresh output directory; previous trials are preserved')
     a.out.mkdir(parents=True)
     sys.path.insert(1,str(a.starter))
@@ -25,12 +34,13 @@ def main():
     report=dict(scenario=a.scenario,task='adaptive_flat_slot_kitting',status='STARTING',
                 task_complete=False,slots=slots,completed_slots=[],attempts=[],events=[],
                 runtime_inputs='RGB, camera calibration, robot joint feedback and recipe only',
+                detector_backend=a.backend,
                 truth_used_for_runtime=False,source_sha256=source_hashes,
                 limits=['simulation-only provisional thresholds','upright known 10mm cubes',
                         'at most one retry after camera-confirmed empty grasp',
                         'bounded wait; not an unattended production controller'])
     report['runtime_sha256']={name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
-                             for name in ('runner.py','supervisor.py','vision.py','sim_plant.py','trial_harness.py')}
+                             for name in ('runner.py','supervisor.py','vision.py','sim_plant.py','trial_harness.py','detector_backend.py','detector_contract.py')}
     def save():
         (a.out/'execution_report.json').write_text(json.dumps(report,indent=2)+'\n')
     def event(state,**details):
@@ -50,13 +60,20 @@ def main():
         from supervisor import (Hold,validate_frame,choose,recheck,matches,pickup_decision,
                                 placement_decision)
         from vision import colour_evidence
-        harness=Harness(a.scenario);plant=Plant(a.out,harness)
+        from detector_backend import GeometricBackend,TorchvisionBackend
+        detector=(GeometricBackend() if a.backend=='geometric' else
+                  TorchvisionBackend(a.checkpoint,a.deployment,a.training_code,a.device))
+        expected_model_id=detector.model_id
+        report['detector_metadata']=detector.metadata;report['model_id']=expected_model_id;save()
+        harness=Harness(a.scenario,slots);plant=Plant(a.out,harness,detector=detector)
         report['physics_configuration']=plant.physics_configuration;save()
         completed=[];retry=0;replans=0;waits=0;previous=None
+        def check_frame(frame,**kwargs):
+            validate_frame(frame,time.monotonic(),expected_model_id=expected_model_id,**kwargs)
         def observe(label,perceive=True):
             nonlocal previous
             frame,images,models=plant.capture(label,perceive)
-            validate_frame(frame,time.monotonic(),previous=previous)
+            check_frame(frame,previous=previous)
             previous=frame
             return frame,images,models
         while len(completed)<len(slots):
@@ -64,11 +81,12 @@ def main():
             frame,_,_=observe('source')
             if a.scenario=='stale':
                 frame['captured_monotonic']-=60
-                validate_frame(frame,time.monotonic())
+                check_frame(frame)
             proposal,state=choose(frame,slots,completed)
             if state=='WAIT_FOR_PART':
                 waits+=1;event('WAIT_FOR_PART',required_colour=next(s['colour'] for s in slots if s['slot_id'] not in completed),
                               observations=waits)
+                harness.on_wait(plant)
                 if waits>=2:break
                 continue
             if state=='COMPLETE':break
@@ -83,7 +101,7 @@ def main():
             choose(fresh,slots,completed)
             target=matches(fresh['detections'],proposal['target']['xy'],proposal['target']['colour'],radius=.003)[0]
             plan=plant.prepare(target,proposal['slot'])
-            validate_frame(fresh,time.monotonic())
+            check_frame(fresh)
             attempt=dict(number=len(report['attempts'])+1,retry=retry,target=target,slot=proposal['slot'],
                          source_observation_id=fresh['observation_id'],pickup_verified=False,
                          placement_verified=False,trajectory_ik_failures=0)
@@ -92,11 +110,12 @@ def main():
                   observation_age_s=time.monotonic()-fresh['captured_monotonic'])
             plant.move(plan,['approach'],attempt)
             open_ref,closed_ref=plant.reference()
-            validate_frame(open_ref[0],time.monotonic(),previous=previous)
-            validate_frame(closed_ref[0],time.monotonic(),previous=open_ref[0])
+            check_frame(open_ref[0],previous=previous)
+            check_frame(closed_ref[0],previous=open_ref[0])
             previous=closed_ref[0]
             plant.move(plan,['descend','close','dwell','lift'],attempt)
             event('VERIFY_PICKUP',attempt=attempt['number'])
+            harness.before_pickup_check(plant)
             decisions=[]
             for sample in range(2):
                 check,images,models=observe('lift-check')
@@ -135,6 +154,7 @@ def main():
             attempt['placement_verified']=True;completed.append(proposal['slot']['slot_id'])
             report['completed_slots']=completed.copy();retry=0;replans=0;waits=0
             event('SLOT_VERIFIED',slot_id=proposal['slot']['slot_id'])
+            harness.after_placement(plant,proposal['slot'])
         if len(completed)==len(slots):
             report['task_complete']=True;event('COMPLETE')
         report['simulator_score']=harness.score(slots,completed)
@@ -151,7 +171,9 @@ def main():
         if 'plant' in locals():
             try:
                 plant.capture('held-final',perceive=False)
-                report['simulator_score']=harness.score(slots,completed)
+            except Exception as capture_error:report['held_capture_error']=str(capture_error)
+            # A missing camera must not prevent independent post-run scoring.
+            try:report['simulator_score']=harness.score(slots,completed)
             except Exception as scoring_error:report['evaluation_error']=str(scoring_error)
     finally:
         report['verified_pickups']=sum(t['pickup_verified'] for t in report['attempts'])

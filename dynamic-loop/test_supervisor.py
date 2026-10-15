@@ -83,4 +83,10 @@ class SupervisorTests(unittest.TestCase):
         g['detections'][0]['colour']='red'
         self.assertFalse(placement_decision([f,g],slot,good))
 
+    def test_requested_backend_identity_is_pinned(self):
+        f=frame();f['model_id']='pinned-checkpoint-identity'
+        with self.assertRaises(Hold):validate_frame(f,101.)
+        validate_frame(f,101.,expected_model_id='pinned-checkpoint-identity')
+        with self.assertRaises(Hold):validate_frame(f,101.,expected_model_id='different-checkpoint')
+
 if __name__=='__main__':unittest.main()

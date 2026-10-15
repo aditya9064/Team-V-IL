@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "task": "model_plugin_and_additional_failure_validation",
+  "motion_backend": "geometric",
+  "trained_checkpoint_received": false,
+  "physical_arm_validated": false,
+  "all_six_cases_passed": true,
+  "cases": [
+    {
+      "case": "occupied_destination",
+      "job": "284313",
+      "acceptance_passed": true,
+      "status": "HOLD_FOR_OPERATOR",
+      "reason": "unconfirmed_destination_occupied",
+      "attempts": 0,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "completed_slots": [],
+      "independent_score": [
+        {
+          "slot_id": "slot-0",
+          "camera_completed": false,
+          "truth_correct": false,
+          "objects": [
+            [
+              "SortCube2",
+              {
+                "colour": "red",
+                "centre": [
+                  0.20999999344348907,
+                  -0.27000001072883606,
+                  0.8998999643325806
+                ],
+                "yaw_deg": 0.0,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        }
+      ],
+      "injections": [
+        {
+          "kind": "destination_occupied",
+          "colour": "red",
+          "slot_id": "slot-0",
+          "fixture_only": true
+        }
+      ],
+      "camera_audit": {
+        "accepted_captures": 2,
+        "peak_raw_joint_speed_rad_s": 2.0895322450087406e-07
+      },
+      "max_settled_tcp_error_mm": null,
+      "report_sha256": "0dc3381b292d90e1bdaf27c3ee6358515bc08587650bd569c166a9a939eb3131",
+      "observation_sha256": {
+        "001-source": "ba5dc62057fb5124f28182075d916be717437c83b7d04f43e7d65dd5e06be86d",
+        "002-held-final": "c4072796dcce57d274d3618b08a2dd0d99bf459444b2a465470446caed9bf74a"
+      },
+      "runtime_sha256": {
+        "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+        "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+        "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+        "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+        "trial_harness.py": "8e4f403019df2b305ad82ec0a457dc6c7cdc8410fb9ecad9f896c6c231ef0283",
+        "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+        "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+      },
+      "starter_sha256": {
+        "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+        "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+        "sort_scene.py": "75dba192bf41cf0e51b0264ad73145b526e44706339ac8ccf724d9f41656f14a",
+        "cube_pose.py": "d49f9d25aecbfefbb3a090f916b214a5c7614a5c679286e66c0afe655fd794bc",
+        "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+      }
+    },
+    {
+      "case": "missing_view",
+      "job": "284313",
+      "acceptance_passed": true,
+      "status": "HOLD_FOR_OPERATOR",
+      "reason": "camera_image_missing:side",
+      "attempts": 0,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "completed_slots": [],
+      "independent_score": [
+        {
+          "slot_id": "slot-0",
+          "camera_completed": false,
+          "truth_correct": false,
+          "objects": []
+        }
+      ],
+      "injections": [
+        {
+          "kind": "rgb_stream_missing",
+          "view": "side",
+          "at": "predispatch",
+          "fixture_only": true
+        }
+      ],
+      "camera_audit": {
+        "accepted_captures": 1,
+        "peak_raw_joint_speed_rad_s": 2.0507164322225435e-07
+      },
+      "max_settled_tcp_error_mm": null,
+      "report_sha256": "4a123c5950479e81b6dbc5911e7bf739096bec0604ef4862d4f58889d5b88c18",
+      "observation_sha256": {
+        "001-source": "8b6b612a9a1459d37443cd82028553fcb55383cd0d8dac19ced6d3a9f53bb96a"
+      },
+      "runtime_sha256": {
+        "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+        "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+        "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+        "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+        "trial_harness.py": "8e4f403019df2b305ad82ec0a457dc6c7cdc8410fb9ecad9f896c6c231ef0283",
+        "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+        "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+      },
+      "starter_sha256": {
+        "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+        "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+        "sort_scene.py": "75dba192bf41cf0e51b0264ad73145b526e44706339ac8ccf724d9f41656f14a",
+        "cube_pose.py": "d49f9d25aecbfefbb3a090f916b214a5c7614a5c679286e66c0afe655fd794bc",
+        "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+      }
+    },
+    {
+      "case": "late_arrival",
+      "job": "284319",
+      "acceptance_passed": true,
+      "status": "COMPLETE",
+      "reason": null,
+      "attempts": 1,
+      "verified_pickups": 1,
+      "verified_placements": 1,
+      "completed_slots": [
+        "slot-0"
+      ],
+      "independent_score": [
+        {
+          "slot_id": "slot-0",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube4",
+              {
+                "colour": "blue",
+                "centre": [
+                  0.20980929108132357,
+                  -0.2697309855052832,
+                  0.8998999643325806
+                ],
+                "yaw_deg": 4.034059524536133,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        }
+      ],
+      "injections": [
+        {
+          "kind": "parts_parked_before_physics_reset",
+          "count": 2,
+          "fixture_only": true
+        },
+        {
+          "kind": "part_arrived_after_wait",
+          "colour": "blue",
+          "fixture_only": true
+        }
+      ],
+      "camera_audit": {
+        "accepted_captures": 9,
+        "peak_raw_joint_speed_rad_s": 0.0004823811468668282
+      },
+      "max_settled_tcp_error_mm": 0.3110771950812339,
+      "report_sha256": "814e81902770c3e5dfce64967228d57289d06e476e3c3689ff5111b847e4359e",
+      "observation_sha256": {
+        "001-source": "22ee1f3590faf3e767dd87796327d847a4f17ef7524cee5619e7ffefafa9cfc6",
+        "002-source": "cd88675d653200e4772fa3935a3225bcdb607aeacc2f98eb4cbc2f58274bbdf0",
+        "003-predispatch": "0981eda24b39105e4998ab5d7fca109442fa535c6ad2888707a4ba43cef46628",
+        "004-empty-hand-open": "8c9a9660c591d2e5e3ca28d955a40442d88bef249945992a1c021b25974e8595",
+        "005-empty-hand-closed": "988704ce6ceeaabb6004da7e1a2b1889598e171f469ba86206f21c515a1abb14",
+        "006-lift-check": "d5fec2b77b0ee79cdfe2b080a5971ef3f43009b9e1b65d3c5b29e8acd692bf8f",
+        "007-lift-check": "0ad29570eca776ddf1299cfd1a201188246df6b0b102bdbce99b5156e5ace2d7",
+        "008-placement-check": "aa781cff8551ab59fc06a5f797439cfb49f27cf5b2ab0adedef076e0e965578c",
+        "009-placement-check": "10ca69cd34ad8f02bc00c620570d1c580bfa98287c539acf2233eebce683e22f"
+      },
+      "runtime_sha256": {
+        "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+        "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+        "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+        "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+        "trial_harness.py": "27314a683882d51511e686303e87df545c2bbed28dbfcf6501cf6f6c12fd36a8",
+        "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+        "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+      },
+      "starter_sha256": {
+        "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+        "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+        "sort_scene.py": "75dba192bf41cf0e51b0264ad73145b526e44706339ac8ccf724d9f41656f14a",
+        "cube_pose.py": "d49f9d25aecbfefbb3a090f916b214a5c7614a5c679286e66c0afe655fd794bc",
+        "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+      }
+    },
+    {
+      "case": "occluded_view",
+      "job": "284313",
+      "acceptance_passed": true,
+      "status": "HOLD_FOR_OPERATOR",
+      "reason": "pickup_camera_evidence_uncertain",
+      "attempts": 1,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "completed_slots": [],
+      "independent_score": [
+        {
+          "slot_id": "slot-0",
+          "camera_completed": false,
+          "truth_correct": false,
+          "objects": []
+        }
+      ],
+      "injections": [
+        {
+          "kind": "verification_view_obstructed",
+          "view": "side",
+          "fixture_only": true
+        }
+      ],
+      "camera_audit": {
+        "accepted_captures": 7,
+        "peak_raw_joint_speed_rad_s": 0.00024179850879590958
+      },
+      "max_settled_tcp_error_mm": 0.31081109860752015,
+      "report_sha256": "443b9878fbfb09391416fe80c60c35dee376e6205ce304ca8b6568c7ff4f901d",
+      "observation_sha256": {
+        "001-source": "a814fc4896e6c9a27cb4ba3f0877d36e35a137bac7d650985afbd2c10ab5a604",
+        "002-predispatch": "7bb90c5944f8f00c3c2279e70753e9ecefcb91c2b1646f709479f810d0e251d7",
+        "003-empty-hand-open": "9ccf230f219d50f48c5ad0268fd290b73fb92c9d873d644be568c60335729590",
+        "004-empty-hand-closed": "b8f755a7f0dea1e5c3bbfb97209c543bb6b4da6f84c8026b6def2c083c7b004c",
+        "005-lift-check": "7396772e43676602a4b55462901ea4e05983a2aeddf7b30e4af898489800a9b5",
+        "006-lift-check": "e9b50c5cfff625d12bc32a70750ba730401b1f773b3176650f48651e4b1aba65",
+        "007-held-final": "0e998ce27fdf778dceda6778fbbdcd1ff47daa559246f94a3a9158d6b6bcff52"
+      },
+      "runtime_sha256": {
+        "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+        "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+        "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+        "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+        "trial_harness.py": "8e4f403019df2b305ad82ec0a457dc6c7cdc8410fb9ecad9f896c6c231ef0283",
+        "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+        "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+      },
+      "starter_sha256": {
+        "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+        "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+        "sort_scene.py": "75dba192bf41cf0e51b0264ad73145b526e44706339ac8ccf724d9f41656f14a",
+        "cube_pose.py": "d49f9d25aecbfefbb3a090f916b214a5c7614a5c679286e66c0afe655fd794bc",
+        "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+      }
+    },
+    {
+      "case": "placed_moved",
+      "job": "284313",
+      "acceptance_passed": true,
+      "status": "HOLD_FOR_OPERATOR",
+      "reason": "previous_placement_lost_or_changed",
+      "attempts": 1,
+      "verified_pickups": 1,
+      "verified_placements": 1,
+      "completed_slots": [
+        "slot-0"
+      ],
+      "independent_score": [
+        {
+          "slot_id": "slot-0",
+          "camera_completed": true,
+          "truth_correct": false,
+          "objects": []
+        },
+        {
+          "slot_id": "slot-1",
+          "camera_completed": false,
+          "truth_correct": false,
+          "objects": []
+        }
+      ],
+      "injections": [
+        {
+          "kind": "completed_placement_displaced",
+          "slot_id": "slot-0",
+          "delta_m": [
+            0.015,
+            0
+          ],
+          "fixture_only": true
+        }
+      ],
+      "camera_audit": {
+        "accepted_captures": 10,
+        "peak_raw_joint_speed_rad_s": 0.00024179850879590958
+      },
+      "max_settled_tcp_error_mm": 0.31081109860752015,
+      "report_sha256": "f75845179db6d432d32aa077d6547118ba8d6fb68a39b71491c104d3c779de38",
+      "observation_sha256": {
+        "001-source": "2dbc8cf8b689bb3469821f74613114e8ac90691d0f33ca1093f883302a1ae558",
+        "002-predispatch": "53cfcb645afd3581db2bb423fd93c12543caa85883b1b19e7a5baa23c40964cf",
+        "003-empty-hand-open": "3a517751b0aa37ea628cc1ede1e2ad17b6309663da039b2e21b21373f2e0d95f",
+        "004-empty-hand-closed": "59e57a8ff330de6f2e126d5fb353a6d5cbac6aafe06cb1d6eaa6de2380098eac",
+        "005-lift-check": "9808d7b8a28c8804013c06dbd33aeec2b60ca9b335cd29f1ad39afe23fe3c8ac",
+        "006-lift-check": "dca5167dc09f5b15b10709499b2121c0b5ef5f22dba7655b763759aea3955a09",
+        "007-placement-check": "3279f38546d88a70995dedc841b7546e1468fd637dbf3a964b4cac4874da254b",
+        "008-placement-check": "04bd47ce527c4d43d08c745ae3d986c3536a782856be5be23cd9e8fd4b3e0025",
+        "009-source": "255bc2a651c4c1d6a2c42017dad1626d184dac742404ec977c43ba68f45e8b1e",
+        "010-held-final": "6fc98608af7bbe77d2c613515814dc53e0f499ad12e55cf5ccdd9201027c14e9"
+      },
+      "runtime_sha256": {
+        "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+        "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+        "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+        "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+        "trial_harness.py": "8e4f403019df2b305ad82ec0a457dc6c7cdc8410fb9ecad9f896c6c231ef0283",
+        "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+        "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+      },
+      "starter_sha256": {
+        "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+        "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+        "sort_scene.py": "75dba192bf41cf0e51b0264ad73145b526e44706339ac8ccf724d9f41656f14a",
+        "cube_pose.py": "d49f9d25aecbfefbb3a090f916b214a5c7614a5c679286e66c0afe655fd794bc",
+        "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+      }
+    },
+    {
+      "case": "nominal-six",
+      "job": "284313",
+      "acceptance_passed": true,
+      "status": "COMPLETE",
+      "reason": null,
+      "attempts": 6,
+      "verified_pickups": 6,
+      "verified_placements": 6,
+      "completed_slots": [
+        "slot-0",
+        "slot-1",
+        "slot-2",
+        "slot-3",
+        "slot-4",
+        "slot-5"
+      ],
+      "independent_score": [
+        {
+          "slot_id": "slot-0",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube0",
+              {
+                "colour": "yellow",
+                "centre": [
+                  0.20957188402224042,
+                  -0.2699698911094549,
+                  0.8998999643325806
+                ],
+                "yaw_deg": 2.8105556964874268,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        },
+        {
+          "slot_id": "slot-1",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube1",
+              {
+                "colour": "yellow",
+                "centre": [
+                  0.2537771448633687,
+                  -0.27047502974289134,
+                  0.8998999643325806
+                ],
+                "yaw_deg": -2.2458324432373047,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        },
+        {
+          "slot_id": "slot-2",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube4",
+              {
+                "colour": "blue",
+                "centre": [
+                  0.29775646291589764,
+                  -0.269760495686852,
+                  0.8998999643325806
+                ],
+                "yaw_deg": 3.8399927616119385,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        },
+        {
+          "slot_id": "slot-3",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube5",
+              {
+                "colour": "blue",
+                "centre": [
+                  0.34169757670108736,
+                  -0.2701626715576162,
+                  0.8998999643325806
+                ],
+                "yaw_deg": 1.760534405708313,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        },
+        {
+          "slot_id": "slot-4",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube3",
+              {
+                "colour": "red",
+                "centre": [
+                  0.3858575520074662,
+                  -0.2702862621008367,
+                  0.8998999643325806
+                ],
+                "yaw_deg": -0.34717878699302673,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        },
+        {
+          "slot_id": "slot-5",
+          "camera_completed": true,
+          "truth_correct": true,
+          "objects": [
+            [
+              "SortCube2",
+              {
+                "colour": "red",
+                "centre": [
+                  0.4296519510117338,
+                  -0.27023032373400335,
+                  0.8998999643325806
+                ],
+                "yaw_deg": -1.8247188329696655,
+                "tilt_deg": 0.0
+              }
+            ]
+          ]
+        }
+      ],
+      "injections": [],
+      "camera_audit": {
+        "accepted_captures": 50,
+        "peak_raw_joint_speed_rad_s": 0.0034583313390612602
+      },
+      "max_settled_tcp_error_mm": 0.42683032610077304,
+      "report_sha256": "d6a01eadff0cf3725ab87fa0bf6e6e6bcff5471983ed462cc4ab75d8f97ec84a",
+      "observation_sha256": {
+        "001-source": "83eb48708ff881bc7a78b62fe78578663c87ed6fbeccf1e94487e71d6eb10475",
+        "002-predispatch": "e8e7181c5e7ae0426de155a19f0c711c0d52383630ac0fe2747228c4634fe2fb",
+        "003-source": "392543c1abac70509e80aaff7e60cad87b06816babd2d880ad8aa4e99e4efc6b",
+        "004-predispatch": "e9876b7b32268d8ebd9980c7f5b5b4aac16def70116ce5a0035f971a93f68b47",
+        "005-empty-hand-open": "29067f3daa1c6adcbeee27a7619b64ffecda80f274b84907f593f6bbdaa1e419",
+        "006-empty-hand-closed": "027e77f196c12644f3cb7b1e70f5a6fcf30e7ad6621847391f22e96442ffca34",
+        "007-lift-check": "8dab5a6a2968e24c30c7cc3ad6d512543a4a6c8c227c299b1df145b142b804c1",
+        "008-lift-check": "a6cbcdebe51dfb14db6104cb89b64e85c9333d99bd1b8675ec57536786611e30",
+        "009-placement-check": "3a38903eb10218cceb8ea1a30b92837f9f84e07286f6abcab457380b91deb329",
+        "010-placement-check": "f56ec82c091cc9613b895c3c1ebc1d8252b602c46354f4b8f7651fd1e26d110f",
+        "011-source": "2dec82822453f38e5f71fe6d8ba13cdb02ad2d313b9cc605ef4a3ed9e2a8b031",
+        "012-predispatch": "7d34137cd0dc5d35c2ada29dc04b131152411999a798e2eb2fc4c56a9b5d0749",
+        "013-empty-hand-open": "ab00c57c3c557a72bd5dd34315917229169c3219628a76ae98c1921a93ae2db6",
+        "014-empty-hand-closed": "b1ae746835a49277af7f7042b2359fb913ab6ef126fd5c528f8e60f68bdcf66b",
+        "015-lift-check": "e1c62bac1715f78ca30af0628078ef082b988983ff0b1794e168050a64561b66",
+        "016-lift-check": "46179706c1dac61c6e73bca864e3cadbc03bd157b94465f161453730e2fef881",
+        "017-placement-check": "1f926f588cd0c9177132e0bbb6936a10a9ec37043e06834b7ffcf0164cce8b0c",
+        "018-placement-check": "04706f9efbc652a7fe2dedca08cc0cc7f4ce8255fe14827b256072ffb13312ea",
+        "019-source": "cdaa8880cffa5c8bc488989b0bccd9596fd443cafa8f36f77ee50c90efd2a45d",
+        "020-predispatch": "38b1e0a6f77d5d591c218493435f2e2ec4884fedf65406d782e54bff33fb2abc",
+        "021-empty-hand-open": "4d205573654ebd44450bff7b7493dd9ad1df25aee72ddf1c398eb3d9df0e3cef",
+        "022-empty-hand-closed": "5ccf756fbbb9dbc0ca8144b76c1e6311baf27a32a605dc09790f1968ee2e183e",
+        "023-lift-check": "eddcd11a7b6de2fc26f172badf8cc6c0f60ea1c839257b2efe649d35331e42c4",
+        "024-lift-check": "e29b472ae6e55bb56621970bd3d5a9703f0aa15f10d0acc2c3da4a440bcd3711",
+        "025-placement-check": "d676b6af668bd359d8f41746c5f6d3a26a6328803b6812c87c9d243d4cfa1d0c",
+        "026-placement-check": "7fc855ba88042f399c283cf31eef830c6450fbb1bfeaa8d758dc58adeab9bf13",
+        "027-source": "1288a7efd6b906e73f55be81d7b5d3285fe373de307fd73949547f1c84ed4371",
+        "028-predispatch": "43c5bdf3aee8ba16f530b2b878f836e17efc90ac7bda9d0a6555fd0c65097294",
+        "029-empty-hand-open": "81931144aceab2a81c0e715f561f8c59c8aa6d0aaae4e13998d05bd9edc48d14",
+        "030-empty-hand-closed": "2f9a2cce1e3bbc8f862d4ae60865957b7bd2cf8046703fb8d0f60865eba17243",
+        "031-lift-check": "fe5dbc79a96c46764d2b8c23d2a6b76e30d118ffc44a402b8640c7ba5375c1b5",
+        "032-lift-check": "891f619ed315a0f8913b9afaf6562c968ddca57ed2caa6c2906eaf6b79074e08",
+        "033-placement-check": "8a693bdb2696bda5b01724df4ff6c86444f2865447408fd0f2c3fafe5f665cce",
+        "034-placement-check": "67a1edb07c577be76fa9acd65a8379cd00166e18f98f0e65da42122eb125d87c",
+        "035-source": "8f0ab3bc305086ee925fc1eee8d233acfbb41ae017f6d07aa50cedade1d61dea",
+        "036-predispatch": "121809c2644b85c809c52c576b2e4fa1524708bd07c5b531a1a0f701a9a08f80",
+        "037-empty-hand-open": "10705e0c16f6cce32a5cddc30c1dabee4e8a1167df6d578f988ed81640904f50",
+        "038-empty-hand-closed": "b0f306d574e2ce18e7df1ca1efdda9235bf595d2e36dfe5cd3261b90c2f84491",
+        "039-lift-check": "4b587636568c891d762fc6d4d2bd7ac73c98314a4cac81dbc4bd133ae4fbc4a2",
+        "040-lift-check": "0e8ffd9d0cfce60384f3a0132b1c14a1bb137339eab4e53655cec5276ae7153b",
+        "041-placement-check": "9767eb77b77dfb5bc726e27d744c76d52900574e4b99d3a7fdc7a6b5f29d3b88",
+        "042-placement-check": "d92eae03bfe3f1f02c0c08252fd5dfab0b416e3a16fa5f11805caec57e37067f",
+        "043-source": "cc5597a31aaa0cc28b3f7b21a9ac1addb0a8191fb873699856fb6546729bb3cd",
+        "044-predispatch": "74c0604844dd170fd53aed3994af46311d12589ffcdd508be2e49322be1e05f5",
+        "045-empty-hand-open": "b2be0b290d0258088a54d3f43710d3de344230d939f2745a62f40a47c884c1b4",
+        "046-empty-hand-closed": "473a643f1ba40fc7a9c98b9e9717cc4a28b5cf137a759059c683650bb195c0e2",
+        "047-lift-check": "e7ae4d9516ffd6487d9a6324b781eb20c8bcd03d944fa6f45264ce4a6edf0743",
+        "048-lift-check": "98110b45c1fa1176f25e47fcce7f07b48a01594d724e99cc3f11c101d8d28ab5",
+        "049-placement-check": "e9d93ee1cff203b3bbb624db2f870816ee825ce05d1ed7224ff3479ee4d12af7",
+        "050-placement-check": "a4a9d7451364d573a2cb0c3278be5924d96b5e3460ca0fafff1043c1618be819"
+      },
+      "runtime_sha256": {
+        "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+        "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+        "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+        "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+        "trial_harness.py": "8e4f403019df2b305ad82ec0a457dc6c7cdc8410fb9ecad9f896c6c231ef0283",
+        "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+        "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+      },
+      "starter_sha256": {
+        "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+        "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+        "sort_scene.py": "75dba192bf41cf0e51b0264ad73145b526e44706339ac8ccf724d9f41656f14a",
+        "cube_pose.py": "d49f9d25aecbfefbb3a090f916b214a5c7614a5c679286e66c0afe655fd794bc",
+        "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+      }
+    }
+  ],
+  "preserved_failure": {
+    "job": "284313",
+    "case": "late_arrival",
+    "status": "HOLD_FOR_OPERATOR",
+    "reason": "empty_grasp_retry_exhausted",
+    "attempts": 2,
+    "report_sha256": "412958a2c02974b075d5ffd2fdfe0aebe2a9624a19a536bfbbb9bfd6033e127d",
+    "runtime_sha256": {
+      "runner.py": "a85904314fca4955456e7ab6f861431d5ac54e85ce470aebb2394a0d0eacb7da",
+      "supervisor.py": "fd5f9876f3603a69bb38818df258191c4fb551307be31c025778a7b38b5513f8",
+      "vision.py": "0029250144b5d60be7274a95fda2e458491a03aecab4d129e7d3762b69e10063",
+      "sim_plant.py": "cc4a49cfc2b9d9afec0ef295af4212559926c5165a8bac0421600c2eb5d76ea7",
+      "trial_harness.py": "8e4f403019df2b305ad82ec0a457dc6c7cdc8410fb9ecad9f896c6c231ef0283",
+      "detector_backend.py": "0097639f3bd2e60e69b746f64f0969a93ad33e5e0217f2ccd05cdadcc168840e",
+      "detector_contract.py": "be22c60a6651fb0fe349da21a70ed19bed6955747d9af057c7948680c65551e0"
+    },
+    "diagnosis": "Kinematic pose write did not persist as authored parking; no WAIT/injection occurred. Fixture-only rerun authors parking before physics reset and restores authored pose after WAIT."
+  },
+  "backend_smoke": {
+    "status": "PASS",
+    "untrained_weights": true,
+    "training_steps": 0,
+    "motion_commands": 0,
+    "gpu": "Tesla T4",
+    "torch": "2.10.0+cu128",
+    "elapsed_s": 7.651545403990895,
+    "accepted_proposals": 0,
+    "rejected_proposals": 100,
+    "interpretation": "Architecture loading/RGB/crop/GPU inference smoke only; no detector accuracy or trained-checkpoint claim"
+  },
+  "tests": {
+    "plugin_and_fixture_on_rosie": {
+      "passed": 33,
+      "elapsed_s": 4.728
+    },
+    "original_starter_on_rosie": {
+      "passed": 33,
+      "elapsed_s": 1.653
+    },
+    "local_contract_and_supervisor": {
+      "passed": 21
+    },
+    "local_mocked_arrival_fixture": {
+      "passed": 1
+    }
+  },
+  "saved_rgb_integrity": {
+    "job_284313": {
+      "occupied_destination": 6,
+      "missing_view": 3,
+      "late_arrival_failed_fixture": 39,
+      "occluded_view": 21,
+      "placed_moved": 30,
+      "nominal-six": 150
+    },
+    "job_284319": {
+      "late_arrival": 27
+    },
+    "method": "SHA-256 of each original saved PNG equals its observation metadata; checked on Rosie without downloading full frames."
+  },
+  "limits": [
+    "Each scenario is a bounded simulation trial, not a statistical reliability estimate.",
+    "All motion used the geometric detector; no trained checkpoint or physical-arm validation.",
+    "A faulty arrival fixture in job284313 is retained; its expected outcome passed only after a fixture-only repair in job284319.",
+    "Current side-view evidence has not been confirmed available in the physical CSI cell."
+  ]
+}

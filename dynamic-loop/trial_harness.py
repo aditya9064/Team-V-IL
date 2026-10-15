@@ -4,8 +4,9 @@ import numpy as np
 import scene_config as C
 
 class Harness:
-    def __init__(self,scenario):
+    def __init__(self,scenario,slots=None):
         self.scenario=scenario;self.attempt=0;self.moved=False;self.injections=[]
+        self.slots=slots or [];self.injected=False;self.parked=[];self.arrival_originals={}
         self.layout=list(C.SORT_CUBES);self.yaws=list(C.SORT_CUBE_YAWS_DEG)
         if scenario=='empty':C.SORT_CUBES=[];C.SORT_CUBE_YAWS_DEG=[]
         if scenario=='missing':
@@ -14,16 +15,98 @@ class Harness:
         self.names={f'SortCube{i}':p[2] for i,p in enumerate(C.SORT_CUBES)}
 
     def freeze(self,stage):
-        from pxr import UsdPhysics
+        from pxr import UsdPhysics,UsdGeom,Gf
         self.bodies=[]
         for prim in stage.Traverse():
             if prim.GetName().startswith(('SortCube','SortCap','SortVial')) and prim.HasAPI(UsdPhysics.RigidBodyAPI):
                 UsdPhysics.RigidBodyAPI(prim).CreateKinematicEnabledAttr().Set(True)
                 self.bodies.append(str(prim.GetPath()))
+                if self.scenario=='late_arrival' and self.names.get(prim.GetName())=='blue':
+                    # Author the fixture BEFORE physics initialization. A pose
+                    # write on an already-kinematic actor can be restored from
+                    # its authored transform by the next physics update.
+                    translate=next(op for op in UsdGeom.Xformable(prim).GetOrderedXformOps()
+                                   if op.GetOpType()==UsdGeom.XformOp.TypeTranslate)
+                    original=np.array(translate.Get(),dtype=float)
+                    self.arrival_originals[str(prim.GetPath())]=original
+                    parked=original.copy();parked[:2]=[1.5+.03*len(self.arrival_originals),1.5]
+                    translate.Set(Gf.Vec3d(*parked))
 
     def unfreeze(self,stage):
         from pxr import UsdPhysics
-        for path in self.bodies:UsdPhysics.RigidBodyAPI(stage.GetPrimAtPath(path)).CreateKinematicEnabledAttr().Set(False)
+        self.stage=stage
+        for path in self.bodies:
+            name=path.rsplit('/',1)[-1]
+            body=UsdPhysics.RigidBodyAPI(stage.GetPrimAtPath(path))
+            if self.scenario=='late_arrival' and self.names.get(name)=='blue':
+                actor=self._actor(name);_,quat=actor.get_world_pose()
+                self.parked.append((actor,self.arrival_originals[path].copy(),np.array(quat)))
+            else:body.CreateKinematicEnabledAttr().Set(False)
+        if self.scenario=='late_arrival':
+            if len(self.parked)!=2:raise RuntimeError('Late-arrival fixture requires exactly two parked blue parts')
+            self.injections.append(dict(kind='parts_parked_before_physics_reset',count=len(self.parked),fixture_only=True))
+        if self.scenario=='occupied_destination':
+            name=next(n for n,c in self.names.items() if c=='red')
+            actor=self._actor(name);pos,_=actor.get_world_pose();pos=np.array(pos)
+            pos[:2]=self.slots[0]['xy'];self._move(actor,pos,[1.,0.,0.,0.])
+            self.injections.append(dict(kind='destination_occupied',colour='red',slot_id=self.slots[0]['slot_id'],fixture_only=True))
+
+    def _actor(self,name):
+        from isaacsim.core.prims import SingleRigidPrim
+        actor=SingleRigidPrim('/World/'+name);actor.initialize()
+        return actor
+
+    def _move(self,actor,position,orientation,clear_velocity=True):
+        actor.set_world_pose(np.asarray(position),np.asarray(orientation))
+        if clear_velocity:
+            actor.set_linear_velocity(np.zeros(3));actor.set_angular_velocity(np.zeros(3))
+
+    def before_capture(self,plant,label):
+        if self.scenario=='missing_view' and label=='predispatch' and not self.injected:
+            class MissingRGB:
+                def __init__(self,wrapped):self.wrapped=wrapped
+                def __getattr__(self,key):return getattr(self.wrapped,key)
+                def get_rgba(self):return None
+            plant.cameras['side']=MissingRGB(plant.cameras['side'])
+            self.injected=True
+            self.injections.append(dict(kind='rgb_stream_missing',view='side',at=label,fixture_only=True))
+
+    def on_wait(self,plant):
+        if self.scenario!='late_arrival' or self.injected:return
+        from pxr import UsdPhysics,UsdGeom,Gf
+        actor,pos,quat=self.parked[0]
+        prim=self.stage.GetPrimAtPath(actor.prim_path)
+        translate=next(op for op in UsdGeom.Xformable(prim).GetOrderedXformOps()
+                       if op.GetOpType()==UsdGeom.XformOp.TypeTranslate)
+        translate.Set(Gf.Vec3d(*pos))
+        UsdPhysics.RigidBodyAPI(prim).CreateKinematicEnabledAttr().Set(False)
+        self._move(actor,pos,quat)
+        actor.set_linear_velocity(np.zeros(3));actor.set_angular_velocity(np.zeros(3))
+        plant.settle(30,render=True);self.injected=True
+        self.injections.append(dict(kind='part_arrived_after_wait',colour='blue',fixture_only=True))
+
+    def before_pickup_check(self,plant):
+        if self.scenario!='occluded_view' or self.injected:return
+        from pxr import UsdGeom,Gf
+        shield=UsdGeom.Cube.Define(plant.stage,plant.paths['side']+'/TestOccluder')
+        shield.CreateSizeAttr(1.)
+        shield.AddTranslateOp().Set(Gf.Vec3d(0,0,-.10))
+        shield.AddScaleOp().Set(Gf.Vec3f(.5,.5,.002))
+        shield.CreateDisplayColorAttr([Gf.Vec3f(.25,.25,.25)])
+        self.injected=True
+        self.injections.append(dict(kind='verification_view_obstructed',view='side',fixture_only=True))
+
+    def after_placement(self,plant,slot):
+        if self.scenario!='placed_moved' or self.injected:return
+        actors=[]
+        for name in self.names:
+            actor=self._actor(name);pos,q=actor.get_world_pose()
+            actors.append((actor,np.asarray(pos),q))
+        actor,pos,q=min(actors,key=lambda x:math.dist(x[1][:2],slot['xy']))
+        if math.dist(pos[:2],slot['xy'])>.010/3:raise RuntimeError('Placed-move fixture found no just-placed part')
+        moved=pos.copy();moved[0]+=.015
+        self._move(actor,moved,q);plant.settle(30,render=True);self.injected=True
+        self.injections.append(dict(kind='completed_placement_displaced',slot_id=slot['slot_id'],delta_m=[.015,0],fixture_only=True))
 
     def precheck(self,plant,proposal):
         if self.scenario!='moved' or self.moved:return

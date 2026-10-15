@@ -101,3 +101,22 @@ def colour_evidence(image,camera,centre,colour,yaw=0.,reference=None):
                 empty_reference_match=bool(empty),colour_coverage=scores,
                 raw_colour_pixels=raw,projected_area_px=area,box=box,
                 threshold=threshold,reference_used=reference is not None)
+
+
+def refine_proposals(image,camera,proposals):
+    """Neural boxes are seeds only; retain the existing image-only pose gate."""
+    cam=CameraModel(camera);height,width=image.shape[:2]
+    if [width,height]!=camera['resolution']:raise ValueError('Camera/image resolution mismatch')
+    found=[];rejected=[]
+    for proposal in proposals:
+        u,v=proposal['pixel_xy'];point=cam.to_plane(u,v,z=cam.table_z+C.CUBE_EDGE/2)
+        if point is None or v<height*.50 or not (.18<=point[0]<=.52 and -.40<=point[1]<=.32):
+            rejected.append(dict(proposal,rejection_reason='outside_calibrated_workspace'));continue
+        xy,yaw,fit=refine_pose(image,cam,proposal,point[:2],0.,search_half_width=45)
+        item=dict(proposal,xy=list(map(float,xy)),yaw_deg=float(yaw),silhouette_iou=float(fit))
+        if not np.all(np.isfinite([*xy,yaw,fit])) or not .85<=fit<=1:
+            rejected.append(dict(item,rejection_reason='pose_silhouette_fit_rejected'));continue
+        if any(np.linalg.norm(np.asarray(o['xy'])-xy)<.012 for o in found):
+            raise ValueError('Duplicate/ambiguous model proposal after pose fitting')
+        found.append(item)
+    return found,rejected

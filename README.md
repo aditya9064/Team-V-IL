@@ -10,6 +10,7 @@ Physical AI for the Factory Floor Hackathon, UWM/MSOE, 2026. We are building cam
 - Corrected training pilot: 78 scenes / 432 cube labels, packaged for the mentor. Training results are pending.
 - Adaptive flat-slot kitting: six camera-verified pickups and placements on Rosie, with independent simulator scoring agreeing (job 284300).
 - Single-miss recovery, repeated-miss HOLD and moved-target REPLAN/COMPLETE passed under the current configuration. Earlier empty/missing/stale gate tests retain explicit provenance. See [the validation report](dynamic-loop/validation-report.md).
+- Detector plug-in prepared; five additional situation tests and a six-part regression passed in simulation. See [results, retained failure and limits](dynamic-loop/additional-validation-report.md). Thirty-three plug-in/fixture tests and an untrained CUDA interface smoke passed. Trained-checkpoint validation remains pending.
 - No physical-arm calibration or execution has been validated.
 
 ## Repository map

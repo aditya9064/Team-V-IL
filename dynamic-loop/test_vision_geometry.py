@@ -53,4 +53,21 @@ class VisionGeometryTests(unittest.TestCase):
         self.assertFalse(old['positive']);self.assertTrue(old['empty_reference_match'])
         self.assertEqual(old['threshold'],.35)
 
+    def test_neural_confidence_cannot_replace_pose_fit_gate(self):
+        from types import SimpleNamespace
+        np=self.np;image=np.zeros((100,100,3),np.uint8)
+        proposal=dict(colour='blue',pixel_xy=[60.,60.],detector_score=.999,bbox_full_px=[50,50,70,70])
+        cam=SimpleNamespace(table_z=.9,to_plane=lambda *args,**kwargs:np.array([.32,.1,.905]))
+        with patch.object(self.vision,'CameraModel',return_value=cam),patch.object(self.vision,'refine_pose',return_value=(np.array([.32,.1]),0.,.84)):
+            accepted,rejected=self.vision.refine_proposals(image,{'resolution':[100,100]},[proposal])
+        self.assertEqual(accepted,[]);self.assertEqual(rejected[0]['rejection_reason'],'pose_silhouette_fit_rejected')
+    def test_duplicate_model_proposals_after_fitting_hold(self):
+        from types import SimpleNamespace
+        np=self.np;image=np.zeros((100,100,3),np.uint8)
+        proposal=dict(colour='blue',pixel_xy=[60.,60.],detector_score=.99,bbox_full_px=[50,50,70,70])
+        cam=SimpleNamespace(table_z=.9,to_plane=lambda *args,**kwargs:np.array([.32,.1,.905]))
+        with patch.object(self.vision,'CameraModel',return_value=cam),patch.object(self.vision,'refine_pose',return_value=(np.array([.32,.1]),0.,.95)):
+            with self.assertRaisesRegex(ValueError,'Duplicate'):
+                self.vision.refine_proposals(image,{'resolution':[100,100]},[proposal,proposal])
+
 if __name__=='__main__':unittest.main()
