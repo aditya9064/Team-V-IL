@@ -1,0 +1,30 @@
+flowchart TD
+    START["1. Confirm the task together<br/>Sort small parts into kit slots<br/>Use existing SMC fingers"] --> DATA
+    START --> MODEL
+    START --> ROBOT
+    START --> CSI
+
+    DATA["2A. Aditya + Thanvi<br/>Check the existing 60 scenes<br/>Build capture that loads Isaac once<br/>Platform: Rosie / Isaac Sim"] --> QA["3A. Test 10 new scenes<br/>Check images, labels and splits<br/>Package the dataset"]
+    MODEL["2B. Khushal + Yuktha<br/>Prepare training and evaluation scripts<br/>Platform: Python / PyTorch"] --> TRAIN["3B. Mentor trains the first detector<br/>Platform: H100<br/>Check errors and save the model"]
+    QA --> TRAIN
+    ROBOT["2C. Koushik + Shritej + Levi<br/>Observe again before every pick<br/>Add pickup and placement checks<br/>Platform: Isaac Sim on Rosie"] --> FAILURE["3C. Test moved and missing parts<br/>Test failed picks and safe stopping<br/>Use geometry while model is pending"]
+    CSI["In parallel: prepare CSI visit<br/>Confirm interface, calibration and permissions<br/>Assign attendees and propose a slot"] --> READY
+
+    TRAIN --> JOIN["4. Connect the detector and robot workflow<br/>All three teams work together<br/>Use fresh camera observations"]
+    FAILURE --> JOIN
+    JOIN --> SIM{"5. Does it pass simulation tests?<br/>Correct parts, verified placement,<br/>controlled recovery and logged failures"}
+    SIM -->|No| FIX["Fix the failing module<br/>Add targeted examples if needed<br/>Retest"]
+    FIX --> JOIN
+    SIM -->|Yes| READY{"6. Is the CSI test approved<br/>and calibration validated?"}
+    READY -->|Not yet| WAIT["Continue offline tests<br/>Resolve CSI blockers<br/>Do not operate the arm"]
+    WAIT --> READY
+    READY -->|Yes| REAL["7. Supervised FANUC trials at CSI<br/>Use an approved local computer/interface<br/>Record every attempt and intervention"]
+    REAL --> REVIEW["8. Compare with the static baseline<br/>Review physical failures<br/>Improve and repeat approved trials"]
+    REVIEW --> FINAL["9. Freeze the tested version<br/>Video + one-page summary + repository + credits<br/>Submit by Nov 1, 11:59 PM Central"]
+
+    classDef dataset fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e;
+    classDef perception fill:#ede9fe,stroke:#7c3aed,color:#4c1d95;
+    classDef execution fill:#dcfce7,stroke:#16a34a,color:#14532d;
+    class DATA,QA dataset;
+    class MODEL,TRAIN perception;
+    class ROBOT,FAILURE execution;

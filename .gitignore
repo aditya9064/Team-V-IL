@@ -1,0 +1,35 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+
+# Supplied raw data and twins stay local. Preserve the data access guide.
+data/external/
+data/processed/
+data/generated/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+
+
+# Local credentials, private correspondence and generated deliverables.
+.ssh/
+*.pem
+*.key
+credentials*
+*secret*
+planning-private/
+TEAM-V-COMPLETE-HANDOFF.md
+mentor-delivery/
+benchmark-results/
+dataset-results/
+*.zip
+*.mp4
+*.log
+# Internal connection troubleshooting is not needed for reproducibility.
+dataset-tools/ROSIE-ACCESS-STATUS.md

@@ -1,0 +1,139 @@
+{
+  "dataset": "csi-vial-fill-dataset",
+  "cameras": {
+    "cap_seal": {
+      "indexed_images": 1181,
+      "images_by_run": {
+        "1": 5,
+        "2": 78,
+        "3": 95,
+        "4": 157,
+        "5": 845,
+        "unassigned": 1
+      },
+      "video_files": 5,
+      "missing_indexed_images": 0,
+      "duplicate_filenames": 0,
+      "missing_video_ids": []
+    },
+    "tank_level": {
+      "indexed_images": 1733,
+      "images_by_run": {
+        "1": 558,
+        "2": 78,
+        "3": 95,
+        "4": 157,
+        "5": 845
+      },
+      "video_files": 5,
+      "missing_indexed_images": 0,
+      "duplicate_filenames": 0,
+      "missing_video_ids": []
+    },
+    "vial_fill": {
+      "indexed_images": 1733,
+      "images_by_run": {
+        "1": 558,
+        "2": 78,
+        "3": 95,
+        "4": 157,
+        "5": 845
+      },
+      "video_files": 5,
+      "missing_indexed_images": 0,
+      "duplicate_filenames": 0,
+      "missing_video_ids": []
+    }
+  },
+  "issues": [],
+  "runs": [
+    {
+      "video_id": "1",
+      "duration_s": "1122",
+      "cameras": "cap_seal;tank_level;vial_fill",
+      "n_vials": "19",
+      "labeled": "no",
+      "notes": "unlabeled"
+    },
+    {
+      "video_id": "2",
+      "duration_s": "160",
+      "cameras": "cap_seal;tank_level;vial_fill",
+      "n_vials": "3",
+      "labeled": "no",
+      "notes": "unlabeled"
+    },
+    {
+      "video_id": "3",
+      "duration_s": "193",
+      "cameras": "cap_seal;tank_level;vial_fill",
+      "n_vials": "6",
+      "labeled": "no",
+      "notes": "unlabeled"
+    },
+    {
+      "video_id": "4",
+      "duration_s": "316",
+      "cameras": "cap_seal;tank_level;vial_fill",
+      "n_vials": "6",
+      "labeled": "no",
+      "notes": "unlabeled"
+    },
+    {
+      "video_id": "5",
+      "duration_s": "1698",
+      "cameras": "cap_seal;tank_level;vial_fill",
+      "n_vials": "30",
+      "labeled": "vial_fill",
+      "notes": "the only labeled video"
+    }
+  ],
+  "manifest_vial_count": 64,
+  "labels": {
+    "vials": 30,
+    "recipes": {
+      "5": 3,
+      "6": 3,
+      "7": 3,
+      "8": 3,
+      "9": 3,
+      "10": 3,
+      "11": 3,
+      "12": 3,
+      "13": 3,
+      "14": 3
+    },
+    "frame_rows": 845,
+    "frame_fill_state_counts": {
+      "0": 336,
+      "1": 509
+    },
+    "fill_duration_s": {
+      "min": 21.586,
+      "median": 37.3635,
+      "max": 48.004
+    },
+    "invalid_rows": [],
+    "per_vial_columns": [
+      "vial",
+      "recipe_id",
+      "type",
+      "t100_ml",
+      "t200_ml",
+      "t400_ml",
+      "total_ml",
+      "dispense_order",
+      "color_purpose",
+      "start_time",
+      "end_time",
+      "start_s",
+      "end_s",
+      "duration_s",
+      "start_frame",
+      "end_frame"
+    ],
+    "quality_or_cause_ground_truth": "No explicit defect, pass/fail, or carryover-cause field in supplied per-vial schema"
+  },
+  "total_indexed_images": 4647,
+  "total_video_files": 15
+}

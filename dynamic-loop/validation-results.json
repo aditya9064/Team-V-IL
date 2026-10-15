@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-15",
+  "runtime": "Isaac Sim 6.0.0.0 on Rosie T4",
+  "physical_robot_tested": false,
+  "one_cube": {
+    "job_id": 284262,
+    "status": "COMPLETE",
+    "verified_pickups": 1,
+    "verified_placements": 1,
+    "independent_score_agrees": true
+  },
+  "suite": {
+    "job_id": 284263,
+    "status": "STOPPED_AT_UNEXPECTED_HOLD",
+    "tests": [
+      "empty",
+      "missing",
+      "stale",
+      "moved",
+      "miss_once",
+      "miss_twice",
+      "nominal-six"
+    ],
+    "passed": [
+      "empty",
+      "missing",
+      "stale"
+    ],
+    "failed": {
+      "scenario": "moved",
+      "reason": "actual_tip_tracking_error:approach",
+      "replan_observed": true
+    }
+  }
+}
