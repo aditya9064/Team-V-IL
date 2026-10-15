@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Dataset findings and project decision
 
 Inspected October 8, 2026. Sources: the supplied dataset and twin archives in the [shared Drive folder](https://drive.google.com/drive/folders/1GWuHV2WUNLztq_Fga6xBH7qFzhxDaac8), their READMEs, camera JSONs, rendering source, recipe CSV/JSON, image indexes, and selected images. This is an initial feasibility review, not a model evaluation.

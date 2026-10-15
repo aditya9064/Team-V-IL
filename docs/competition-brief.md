@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Competition brief
 
 Reviewed October 8, 2026. Source: [official competition overview](https://msoe-maic.com/library/?nav=Competitions&article=Rockwell-NVIDIA-Fall-2026) and its linked dataset and resource guides. Recheck published requirements before submission; detailed judging weights and award categories are pending.

@@ -19,7 +19,9 @@ def main():
         result=verify_labels(folder,generation)
         results.append(dict(scene=folder.name,**result))
         print('[legacy-label-qa]',folder.name,result,flush=True)
-    subprocess.run([sys.executable,str(Path(__file__).with_name('export_dataset_originfix.py')),
+    # The repository exporter already contains the bottom-origin correction;
+    # its former Rosie-only filename was export_dataset_originfix.py.
+    subprocess.run([sys.executable,str(Path(__file__).with_name('export_dataset.py')),
         '--samples',str(a.samples),'--out',str(a.out),'--edge-m','.01'],check=True)
     # Pixel boxes replace geometric amodal boxes only after each silhouette passes.
     manifest=json.loads((a.out/'manifest.json').read_text())

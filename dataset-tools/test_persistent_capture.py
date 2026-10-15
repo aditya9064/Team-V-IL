@@ -1,15 +1,18 @@
 """Host checks for source compatibility and saved-data rejection, not GPU validation."""
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
 from persistent_capture import prepare_capture, validate_capture
 
 ROOT = Path(__file__).resolve().parents[1]
-STARTER = ROOT/'Team-V-IL/data/external/fanuc-v05/fanuc_er4ia_sim'
-SAMPLE = ROOT/'benchmark-results/brev-l40s-20261014/team-v-benchmark-results/seed-424201'
+STARTER = Path(os.environ.get('FANUC_STARTER',ROOT/'data/external/fanuc-v05/fanuc_er4ia_sim'))
+SAMPLE = Path(os.environ.get('TEAM_V_CAPTURE_SAMPLE',ROOT/'benchmark-results/brev-l40s-20261014/team-v-benchmark-results/seed-424201'))
 
 class PersistentCaptureTests(unittest.TestCase):
+    @unittest.skipUnless((STARTER/'capture_scene.py').is_file(),
+                         'Optional integration fixture: set FANUC_STARTER to the official starter')
     def test_known_source_and_changed_lifecycle(self):
         source = (STARTER/'capture_scene.py').read_text()
         prepared = prepare_capture(source)
@@ -20,6 +23,8 @@ class PersistentCaptureTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             prepare_capture(source.replace('sim_app.close()', 'sim_app.close(wait_for_replicator=True)'))
 
+    @unittest.skipUnless((SAMPLE/'generation.json').is_file(),
+                         'Optional integration fixture: set TEAM_V_CAPTURE_SAMPLE to a saved capture')
     def test_real_saved_capture_and_stage_mismatch(self):
         generation = json.loads((SAMPLE/'generation.json').read_text())
         self.assertEqual(validate_capture(SAMPLE,generation)['cube_count'],6)

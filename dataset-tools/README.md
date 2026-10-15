@@ -19,3 +19,19 @@ Training export must project the eight cube corners using camera calibration and
 - Decide transfer acceptance with mentors: localization and yaw tolerances, pickup/placement success rate, task completion, latency, and recovery/stop behavior. Do not infer tolerances from synthetic accuracy alone.
 
 Before CSI: validate variations, export labels, train a lightweight baseline, evaluate on held-out synthetic scenes, run multi-scene physics tests, document failures and freeze a reproducible environment. Keep hardware actuation disabled until the controller integration and supervised procedure are agreed.
+
+## Current release and optional integration tests
+
+The introductory notes describe the first pilot. See [DIVERSITY-V2.md](DIVERSITY-V2.md) and [the current project context](../docs/START-HERE.md) for the corrected 78-scene training release. Legacy pre-correction labels must not be used for training.
+
+`export_dataset.py` contains the bottom-origin correction; it was named `export_dataset_originfix.py` on Rosie. The legacy audit now uses this repository copy and replaces amodal boxes with pixel boxes only after visibility checks pass.
+
+The standalone geometry regression needs no external data. Two persistent-capture integration tests require assets deliberately excluded from Git:
+
+```bash
+export FANUC_STARTER=/absolute/path/to/fanuc_er4ia_sim
+export TEAM_V_CAPTURE_SAMPLE=/absolute/path/to/a/saved/capture
+python -m unittest -v test_persistent_capture test_varied_labels
+```
+
+Without those fixtures the integration tests report SKIP. Rendering/GPU validation still requires the official starter and Isaac environment.

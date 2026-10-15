@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Work before the FANUC assets arrive
 
 The team plan draft is ready for review in team-plan-draft.md. No robot model, hardware interface, training result, or physical success is assumed.

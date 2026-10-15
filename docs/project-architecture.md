@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Team V: Adaptive Robotic Sorting with Verified Grasping and Recovery
 
 Project specification and architecture · October 9, 2026

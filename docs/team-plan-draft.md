@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Team V — team plan draft
 
 Prepared October 8, 2026. Due October 14, 11:59 PM Central. Draft for review; not submitted. The live form requires sign-in before its input fields are visible, so the sections below are prepared content rather than a verified field-by-field mapping.

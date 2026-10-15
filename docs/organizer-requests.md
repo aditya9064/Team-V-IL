@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Organizer request drafts
 
 Prepared October 8, 2026. Team V has approximately eight members, all from MSOE. These are drafts only; no message or resource request has been sent. Team V should confirm its official team name and project direction before sending.

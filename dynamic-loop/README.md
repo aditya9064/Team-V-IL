@@ -37,3 +37,15 @@ Source/moved-target tolerances, 30 s maximum processing age, <=67 ms view skew, 
 This pilot does not implement a physical robot interface, collision-certified motion, hardware safety, arbitrary object poses or real-camera transfer. The rendered side view is not proof of an equivalent physical CSI camera. Do not run on hardware. Dynamic disturbances are test-harness actions in simulation only. More comprehensive perception/visibility testing and approved physical calibration remain necessary.
 
 Status: unit tests and original starter regression pass. GPU pilot results are recorded separately after execution; no physical or multi-camera success is presumed by this README.
+
+## Recorded GPU results (October 15, 2026)
+
+Pilot 284262 completed one camera-verified blue-cube pickup and placement. Independent post-run scoring agreed; slot-centre error was approximately 0.33 mm. Two side-camera lift observations and two table/side placement observations supplied the runtime proof. The wrist view did not see the held cube.
+
+Suite 284263 passed empty-table WAIT, missing-colour WAIT and stale-observation HOLD without pick attempts. The moved-target case detected a 25 mm shift and replanned, then held at approach with a measured 2.007 mm endpoint error (limit 2 mm). The suite stopped, preserving the failed run.
+
+The current motion adapter now holds each phase endpoint until its measured TCP error is <=2 mm and joint speed is <0.02 rad/s for six consecutive physics samples, with a two-second simulated timeout. Timeout or error still holds the run. Suite 284267 is testing this change; no further success is claimed until reports and camera evidence pass.
+
+Recorded camera crops from the successful one-cube pilot (source, empty hand, held cube, placement):
+
+![One-cube camera evidence](evidence/one-cube-284262.jpg)

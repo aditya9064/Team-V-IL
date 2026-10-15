@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Dataset 3 starter v0.5: intake and compute choices
 
 Inspected October 10, 2026. Source: `fanuc_er4ia_hackathon_starter_v05.zip` supplied by the team. Extracted unchanged under `data/external/fanuc-v05/fanuc_er4ia_sim/` (Git-ignored).

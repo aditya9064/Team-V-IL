@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Project strategy: adaptive robotic inspection and sorting
 
 Working direction as of October 8, 2026: Dataset 3 is the core, with Dataset 1 as a conditional inspection extension. The user prefers an ambitious robotics demonstration and is exploring a two-dataset solution. All participants are from MSOE; the team has approximately eight members. The full team has not yet confirmed target objects, skills, time commitments, or hardware feasibility. The user confirms that no competition resources have been activated yet.

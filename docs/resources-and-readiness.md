@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Resources and readiness
 
 Checked October 8, 2026. Current working direction: Dataset 3 as the core, with Dataset 1 as a conditional quality-inspection extension. This is not a confirmed physical integration. The robot is separate from the vial line, and compatible objects, gripper geometry, camera views, and supervised operation need organizer confirmation.

@@ -1,3 +1,5 @@
+> Historical planning/research document. For current scope, resource status, verified results and next steps, read [START-HERE.md](START-HERE.md). Statements below describe an earlier project stage.
+
 # Alternative project option: CHROMA
 
 Earlier Dataset 2 proposal, retained for reference. The current working direction is Dataset 3 with a conditional Dataset 1 extension; see [project-strategy.md](project-strategy.md) and [resource readiness](resources-and-readiness.md).
