@@ -51,6 +51,7 @@ def main():
                                 placement_decision)
         from vision import colour_evidence
         harness=Harness(a.scenario);plant=Plant(a.out,harness)
+        report['physics_configuration']=plant.physics_configuration;save()
         completed=[];retry=0;replans=0;waits=0;previous=None
         def observe(label,perceive=True):
             nonlocal previous

@@ -21,7 +21,7 @@ torch.cuda.synchronize()
 print('Allocated CUDA GPU:',torch.cuda.get_device_name(0),flush=True)
 PY
 "$HOME/team-v-isaac/bin/python" -u "$code/runner.py" \
- --starter "$starter" --out "$out" --scenario nominal --colours blue
+ --starter "$starter" --out "$out" --scenario nominal --colours "${1:-blue}"
 "$HOME/team-v-isaac/bin/python" - "$out" <<'PY'
 import json,sys
 from pathlib import Path

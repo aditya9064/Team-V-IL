@@ -8,8 +8,8 @@ Physical AI for the Factory Floor Hackathon, UWM/MSOE, 2026. We are building cam
 
 - Original stacking demo: six successful simulated pickups and placements; a 55.2-second video.
 - Corrected training pilot: 78 scenes / 432 cube labels, packaged for the mentor. Training results are pending.
-- Adaptive flat-slot pilot: one camera-verified pickup and placement on Rosie, independently checked against simulator truth (job 284262).
-- Empty-table, missing-part and stale-observation trials passed. A displaced target triggered replanning followed by an approach-position hold. The remaining fault tests and six-part adaptive kit are **not yet validated**.
+- Adaptive flat-slot kitting: six camera-verified pickups and placements on Rosie, with independent simulator scoring agreeing (job 284300).
+- Single-miss recovery, repeated-miss HOLD and moved-target REPLAN/COMPLETE passed under the current configuration. Earlier empty/missing/stale gate tests retain explicit provenance. See [the validation report](dynamic-loop/validation-report.md).
 - No physical-arm calibration or execution has been validated.
 
 ## Repository map

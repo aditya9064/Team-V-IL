@@ -39,6 +39,20 @@ def detect(image,camera):
             found.append(item)
     return found,rejected
 
+def pixel_centre_polygon(hull,shape):
+    """Sample continuous projected geometry at image pixel centres.
+
+    Rounding vertices then using inclusive fill edges enlarges tiny objects.
+    Keep the camera convention used by the source silhouette fitter.
+    """
+    hull=np.asarray(hull,float)
+    yy,xx=np.indices(shape,dtype=float)
+    samples=np.stack([xx+.5,yy+.5],-1)
+    edges=np.roll(hull,-1,axis=0)-hull
+    delta=samples[:,:,None,:]-hull
+    cross=edges[:,0]*delta[:,:,:,1]-edges[:,1]*delta[:,:,:,0]
+    return np.all(cross>=0,axis=-1)|np.all(cross<=0,axis=-1)
+
 def cube_region(camera,centre,yaw=0.,padding=4):
     cam=CameraModel(camera);angle=np.deg2rad(yaw)
     rot=np.array([[np.cos(angle),-np.sin(angle)],[np.sin(angle),np.cos(angle)]])
@@ -53,9 +67,8 @@ def cube_region(camera,centre,yaw=0.,padding=4):
     w,h=camera['resolution']
     if min(lo)<0 or hi[0]>w or hi[1]>h:return None
     x0,y0=lo;x1,y1=hi
-    raster=np.zeros((y1-y0,x1-x0),np.uint8)
-    cv2.fillConvexPoly(raster,np.round(hull-lo).astype(np.int32),1)
-    return [int(x0),int(y0),int(x1),int(y1)],raster.astype(bool)
+    raster=pixel_centre_polygon(hull-lo,(y1-y0,x1-x0))
+    return [int(x0),int(y0),int(x1),int(y1)],raster
 
 def colour_evidence(image,camera,centre,colour,yaw=0.,reference=None):
     """Bounded projected-volume evidence; thresholds are provisional simulation gates.

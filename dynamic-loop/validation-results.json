@@ -1,35 +1,332 @@
 {
-  "date": "2026-10-15",
-  "runtime": "Isaac Sim 6.0.0.0 on Rosie T4",
+  "suites": [
+    "dynamic-scenarios-284300",
+    "dynamic-scenarios-284267"
+  ],
   "physical_robot_tested": false,
-  "one_cube": {
-    "job_id": 284262,
-    "status": "COMPLETE",
-    "verified_pickups": 1,
-    "verified_placements": 1,
-    "independent_score_agrees": true
-  },
-  "suite": {
-    "job_id": 284263,
-    "status": "STOPPED_AT_UNEXPECTED_HOLD",
-    "tests": [
-      "empty",
-      "missing",
-      "stale",
-      "moved",
-      "miss_once",
-      "miss_twice",
-      "nominal-six"
-    ],
-    "passed": [
-      "empty",
-      "missing",
-      "stale"
-    ],
-    "failed": {
+  "all_scenarios_passed": true,
+  "scenarios": [
+    {
+      "scenario": "empty",
+      "expected": "WAIT_FOR_PART",
+      "status": "WAIT_FOR_PART",
+      "reason": null,
+      "source_suite": "dynamic-scenarios-284267",
+      "result": "PASS",
+      "task_complete": false,
+      "attempts": 0,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "states": {
+        "OBSERVE": 2,
+        "WAIT_FOR_PART": 2
+      },
+      "report_sha256": "dbbd2d4e26b0cb1131c48306bdf230f747a4d7d979a0f2dc1288981408f268e5",
+      "runtime_sha256": {
+        "runner.py": "a6c94d265f5d1cb702670c4e4685ea72885004721cf1417f87d545c8e827d0d6",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "42cfcdff7ee7564ffe5dc130e294e22191cb2c86820f6571054ad89acb6dcb90",
+        "sim_plant.py": "e0b1364b32fb94b16ded51b94a9599ab9a83833f47d7196bc2bb874fe3a2b4f4",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": null
+    },
+    {
+      "scenario": "missing",
+      "expected": "WAIT_FOR_PART",
+      "status": "WAIT_FOR_PART",
+      "reason": null,
+      "source_suite": "dynamic-scenarios-284267",
+      "result": "PASS",
+      "task_complete": false,
+      "attempts": 0,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "states": {
+        "OBSERVE": 2,
+        "WAIT_FOR_PART": 2
+      },
+      "report_sha256": "9db2967f2b052051be6528c1e28a5bb4d8af1d3fc7a3ad1da06abb23a2898018",
+      "runtime_sha256": {
+        "runner.py": "a6c94d265f5d1cb702670c4e4685ea72885004721cf1417f87d545c8e827d0d6",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "42cfcdff7ee7564ffe5dc130e294e22191cb2c86820f6571054ad89acb6dcb90",
+        "sim_plant.py": "e0b1364b32fb94b16ded51b94a9599ab9a83833f47d7196bc2bb874fe3a2b4f4",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": null
+    },
+    {
+      "scenario": "stale",
+      "expected": "HOLD_FOR_OPERATOR",
+      "status": "HOLD_FOR_OPERATOR",
+      "reason": "stale_observation",
+      "source_suite": "dynamic-scenarios-284267",
+      "result": "PASS",
+      "task_complete": false,
+      "attempts": 0,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "states": {
+        "OBSERVE": 1,
+        "HOLD_FOR_OPERATOR": 1
+      },
+      "report_sha256": "d53965d78cc1dea8eaa5f651f33a0998aa1b86feb18757a2c36c1eca22a68104",
+      "runtime_sha256": {
+        "runner.py": "a6c94d265f5d1cb702670c4e4685ea72885004721cf1417f87d545c8e827d0d6",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "42cfcdff7ee7564ffe5dc130e294e22191cb2c86820f6571054ad89acb6dcb90",
+        "sim_plant.py": "e0b1364b32fb94b16ded51b94a9599ab9a83833f47d7196bc2bb874fe3a2b4f4",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": null
+    },
+    {
       "scenario": "moved",
-      "reason": "actual_tip_tracking_error:approach",
-      "replan_observed": true
+      "expected": "COMPLETE",
+      "status": "COMPLETE",
+      "reason": null,
+      "source_suite": "dynamic-scenarios-284300",
+      "result": "PASS",
+      "task_complete": true,
+      "attempts": 1,
+      "verified_pickups": 1,
+      "verified_placements": 1,
+      "states": {
+        "OBSERVE": 2,
+        "PROPOSED": 2,
+        "REPLAN": 1,
+        "DISPATCH_PICK": 1,
+        "VERIFY_PICKUP": 1,
+        "DISPATCH_PLACE": 1,
+        "VERIFY_PLACEMENT": 1,
+        "SLOT_VERIFIED": 1,
+        "COMPLETE": 1
+      },
+      "report_sha256": "d8cf7589b6f4832f798c72b349820c67f26511e10ae46675163cc0d499b0927a",
+      "runtime_sha256": {
+        "runner.py": "d6135411260a1ef884ce92c3dccd1cd270ca6db3b6bfd566a6319526884c5080",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "0cefd9313f214e008ae8d6821206782e6815e755c7f77683814020ce38a9dbe1",
+        "sim_plant.py": "aa654751b0b1b64cc2bd5431cdf7762aa582357e2d369e176f67d365bbcfbb29",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": 0.3147153800177057
+    },
+    {
+      "scenario": "miss_once",
+      "expected": "COMPLETE",
+      "status": "COMPLETE",
+      "reason": null,
+      "source_suite": "dynamic-scenarios-284300",
+      "result": "PASS",
+      "task_complete": true,
+      "attempts": 2,
+      "verified_pickups": 1,
+      "verified_placements": 1,
+      "states": {
+        "OBSERVE": 2,
+        "PROPOSED": 2,
+        "DISPATCH_PICK": 2,
+        "VERIFY_PICKUP": 2,
+        "CONFIRMED_EMPTY": 1,
+        "RETRY": 1,
+        "DISPATCH_PLACE": 1,
+        "VERIFY_PLACEMENT": 1,
+        "SLOT_VERIFIED": 1,
+        "COMPLETE": 1
+      },
+      "report_sha256": "02714f2e99ab231de758e2849fb6630c9ee27b3b65d45c50b5248db880e4455b",
+      "runtime_sha256": {
+        "runner.py": "d6135411260a1ef884ce92c3dccd1cd270ca6db3b6bfd566a6319526884c5080",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "0cefd9313f214e008ae8d6821206782e6815e755c7f77683814020ce38a9dbe1",
+        "sim_plant.py": "aa654751b0b1b64cc2bd5431cdf7762aa582357e2d369e176f67d365bbcfbb29",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": 0.31098672840358715
+    },
+    {
+      "scenario": "miss_twice",
+      "expected": "HOLD_FOR_OPERATOR",
+      "status": "HOLD_FOR_OPERATOR",
+      "reason": "empty_grasp_retry_exhausted",
+      "source_suite": "dynamic-scenarios-284300",
+      "result": "PASS",
+      "task_complete": false,
+      "attempts": 2,
+      "verified_pickups": 0,
+      "verified_placements": 0,
+      "states": {
+        "OBSERVE": 2,
+        "PROPOSED": 2,
+        "DISPATCH_PICK": 2,
+        "VERIFY_PICKUP": 2,
+        "CONFIRMED_EMPTY": 2,
+        "RETRY": 1,
+        "HOLD_FOR_OPERATOR": 1
+      },
+      "report_sha256": "f87f439143b839e4b73bbc3ca6a3ea4d0720648024109587191455b8a08bac50",
+      "runtime_sha256": {
+        "runner.py": "d6135411260a1ef884ce92c3dccd1cd270ca6db3b6bfd566a6319526884c5080",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "0cefd9313f214e008ae8d6821206782e6815e755c7f77683814020ce38a9dbe1",
+        "sim_plant.py": "aa654751b0b1b64cc2bd5431cdf7762aa582357e2d369e176f67d365bbcfbb29",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": 0.31098672840358715
+    },
+    {
+      "scenario": "nominal-six",
+      "expected": "COMPLETE",
+      "status": "COMPLETE",
+      "reason": null,
+      "source_suite": "dynamic-scenarios-284300",
+      "result": "PASS",
+      "task_complete": true,
+      "attempts": 6,
+      "verified_pickups": 6,
+      "verified_placements": 6,
+      "states": {
+        "OBSERVE": 7,
+        "PROPOSED": 7,
+        "REPLAN": 1,
+        "DISPATCH_PICK": 6,
+        "VERIFY_PICKUP": 6,
+        "DISPATCH_PLACE": 6,
+        "VERIFY_PLACEMENT": 6,
+        "SLOT_VERIFIED": 6,
+        "COMPLETE": 1
+      },
+      "report_sha256": "1189681e9d89ce90a7cae5050892ce8b574fa9b7bc0a4f74e26722a0b652cea1",
+      "runtime_sha256": {
+        "runner.py": "d6135411260a1ef884ce92c3dccd1cd270ca6db3b6bfd566a6319526884c5080",
+        "supervisor.py": "a2a5babba106364c16053b0a84a626121c3798250745f26cc5a67f765201e912",
+        "vision.py": "0cefd9313f214e008ae8d6821206782e6815e755c7f77683814020ce38a9dbe1",
+        "sim_plant.py": "aa654751b0b1b64cc2bd5431cdf7762aa582357e2d369e176f67d365bbcfbb29",
+        "trial_harness.py": "b76190279923d96a1c79a04e65f659a1bbf374cb766b5a3267f1f06a1c848825"
+      },
+      "max_settled_tip_error_mm": 0.4268400074029617
     }
-  }
+  ],
+  "date": "2026-10-15",
+  "runtime": "Isaac Sim 6.0.0.0, Rosie teaching T4, PGS",
+  "latest_gpu_job": 284300,
+  "slurm_elapsed": "00:25:45",
+  "provenance_note": "Motion and six-part cases use 284300. Unchanged gate-only cases reuse 284267; this is explicitly mixed provenance, not seven repetitions under one configuration.",
+  "accepted_frame_audits": {
+    "nominal-six": {
+      "job_id": 284300,
+      "case": "nominal-six",
+      "status": "COMPLETE",
+      "accepted_observations": 50,
+      "required_samples_per_observation": 6,
+      "raw_joint_speed_limit_rad_s": 0.02,
+      "peak_accepted_joint_speed_rad_s": 0.003761297557502985,
+      "max_settled_tcp_error_mm": 0.4268400074029617,
+      "all_runtime_hashes_match": true,
+      "report_sha256": "1189681e9d89ce90a7cae5050892ce8b574fa9b7bc0a4f74e26722a0b652cea1",
+      "independent_score_agrees": true
+    },
+    "miss_once": {
+      "job_id": 284300,
+      "case": "miss_once",
+      "status": "COMPLETE",
+      "accepted_observations": 14,
+      "required_samples_per_observation": 6,
+      "raw_joint_speed_limit_rad_s": 0.02,
+      "peak_accepted_joint_speed_rad_s": 0.00041785460780374706,
+      "max_settled_tcp_error_mm": 0.31098672840358715,
+      "all_runtime_hashes_match": true,
+      "report_sha256": "02714f2e99ab231de758e2849fb6630c9ee27b3b65d45c50b5248db880e4455b",
+      "independent_score_agrees": true
+    },
+    "miss_twice": {
+      "job_id": 284300,
+      "case": "miss_twice",
+      "status": "HOLD_FOR_OPERATOR",
+      "accepted_observations": 13,
+      "required_samples_per_observation": 6,
+      "raw_joint_speed_limit_rad_s": 0.02,
+      "peak_accepted_joint_speed_rad_s": 2.146275392078678e-06,
+      "max_settled_tcp_error_mm": 0.31098672840358715,
+      "all_runtime_hashes_match": true,
+      "report_sha256": "f87f439143b839e4b73bbc3ca6a3ea4d0720648024109587191455b8a08bac50"
+    },
+    "moved": {
+      "job_id": 284300,
+      "case": "moved",
+      "status": "COMPLETE",
+      "accepted_observations": 10,
+      "required_samples_per_observation": 6,
+      "raw_joint_speed_limit_rad_s": 0.02,
+      "peak_accepted_joint_speed_rad_s": 0.0006576378364115953,
+      "max_settled_tcp_error_mm": 0.3147153800177057,
+      "all_runtime_hashes_match": true,
+      "report_sha256": "d8cf7589b6f4832f798c72b349820c67f26511e10ae46675163cc0d499b0927a",
+      "independent_score_agrees": true
+    }
+  },
+  "total_audited_captures": 87,
+  "unchanged_gates": {
+    "source_silhouette_iou_min": 0.85,
+    "raw_joint_speed_max_rad_s": 0.02,
+    "consecutive_rendered_stillness_samples": 6,
+    "settled_tcp_error_max_mm": 2,
+    "max_observation_age_s": 30,
+    "max_view_skew_s": 0.067,
+    "held_colour_coverage_min": 0.35,
+    "placement_colour_coverage_min": 0.65
+  },
+  "tests": {
+    "rosie_dynamic": 16,
+    "rosie_original_starter": 33,
+    "local_replay": 7,
+    "local_supervisor": 11,
+    "local_opencv_geometry": "not run locally; OpenCV absent in bundled client interpreter; five geometry tests passed in Rosie dynamic set"
+  },
+  "retained_failures": [
+    {
+      "job": 284263,
+      "case": "moved",
+      "reason": "approach endpoint lag exceeded 2 mm before bounded endpoint settling"
+    },
+    {
+      "job": 284267,
+      "case": "miss_once",
+      "reason": "phase endpoint mistakenly also demanded camera speed during jaw contact"
+    },
+    {
+      "job": 284274,
+      "case": "nominal-six",
+      "reason": "robot_settle_timeout at first yellow lift"
+    },
+    {
+      "job": 284285,
+      "case": "yellow diagnostic",
+      "reason": "TGS velocity/position discrepancy reproduced"
+    },
+    {
+      "job": 284286,
+      "case": "yellow diagnostic",
+      "reason": "eight velocity iterations did not resolve stillness hold"
+    },
+    {
+      "job": 284288,
+      "case": "yellow diagnostic",
+      "reason": "1/240 physics timestep did not resolve stillness hold"
+    },
+    {
+      "job": 284292,
+      "case": "nominal-six",
+      "reason": "three placements verified, fourth pickup verified, then placement camera coverage hold from inflated polygon raster"
+    }
+  ],
+  "limits": [
+    "Simulation only; no physical robot interface or CSI calibration validated.",
+    "One bounded fixture trial per scenario; not a reliability estimate.",
+    "Known upright 10 mm cubes and fixed slot recipe; arbitrary poses, unknown obstacles and continuous conveyor interception untested.",
+    "Runtime detector remains geometric HSV/silhouette; no trained checkpoint integrated.",
+    "Side RGB supplies positive held-part proof; present wrist view cannot see the held cube."
+  ]
 }

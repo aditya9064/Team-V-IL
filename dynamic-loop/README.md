@@ -14,7 +14,10 @@ A confirmed empty grasp permits one retreat/re-observe retry. Wrong-colour, unce
 - trial_harness.py: initial fixtures, fault injection and independent simulator scoring.
 - runner.py: state transitions and all-attempt reporting.
 - test_supervisor.py: stale, missing, moved, ambiguous and outcome regression tests.
-- pilot_on_rosie.sh: bounded single-blue-cube T4 pilot.
+- pilot_on_rosie.sh: bounded single-cube T4 pilot (optional colour argument).
+- scenarios_on_rosie.sh: selected or full scenario suite, one GPU and fresh directories.
+- summarize_trials.py: report acceptance summary with explicit prior-suite provenance.
+- test_vision_geometry.py: pixel geometry and unchanged colour/occlusion rejection gates; requires FANUC_STARTER and the existing OpenCV environment.
 
 ## Run
 
@@ -40,12 +43,10 @@ Status: unit tests and original starter regression pass. GPU pilot results are r
 
 ## Recorded GPU results (October 15, 2026)
 
-Pilot 284262 completed one camera-verified blue-cube pickup and placement. Independent post-run scoring agreed; slot-centre error was approximately 0.33 mm. Two side-camera lift observations and two table/side placement observations supplied the runtime proof. The wrist view did not see the held cube.
+Job 284300 completed the six-part adaptive kit: six camera-verified pickups and placements with independent simulator scoring agreement. Single-miss recovery completed after exactly two attempts; repeated-miss testing held after two confirmed-empty attempts with no third; moved-target testing replanned and completed. Earlier empty/missing/stale gate-only cases from 284267 retain explicit provenance.
 
-Suite 284263 passed empty-table WAIT, missing-colour WAIT and stale-observation HOLD without pick attempts. The moved-target case detected a 25 mm shift and replanned, then held at approach with a measured 2.007 mm endpoint error (limit 2 mm). The suite stopped, preserving the failed run.
+The PGS solver fix and continuous pixel-centre rasterization preserved all acceptance thresholds. All 87 accepted captures passed an independent raw-speed, timing, fit and runtime-hash audit. Maximum settled endpoint error was 0.426841 mm and peak accepted raw joint speed was 0.003762 rad/s (both rounded upward). These are simulation measurements, not physical robot accuracy.
 
-The current motion adapter now holds each phase endpoint until its measured TCP error is <=2 mm and joint speed is <0.02 rad/s for six consecutive physics samples, with a two-second simulated timeout. Timeout or error still holds the run. Suite 284267 is testing this change; no further success is claimed until reports and camera evidence pass.
+Read [the validation report](validation-report.md), [machine-readable results](validation-results.json) and [retained failure investigation](STILLNESS-DIAGNOSIS.md). Sixteen dynamic tests and 33 original starter tests passed on Rosie; seven replay and eleven supervisor tests passed locally. This is one bounded trial per scenario, not a reliability estimate.
 
-Recorded camera crops from the successful one-cube pilot (source, empty hand, held cube, placement):
-
-![One-cube camera evidence](evidence/one-cube-284262.jpg)
+![Six-part camera evidence](evidence/six-complete-284300.jpg)

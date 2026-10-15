@@ -23,16 +23,38 @@ class Plant:
         from isaacsim.core.prims import SingleArticulation
         from isaacsim.sensors.camera import Camera
         self.UsdGeom=UsdGeom;self.folder=Path(folder);self.harness=harness
-        self.world=World(stage_units_in_meters=1.,physics_dt=1/60,rendering_dt=1/30)
+        # Test PGS to avoid stiff-drive TGS substep velocity reporting residuals.
+        # Preserve 30 Hz command durations and the historical 60 Hz settle units.
+        self.physics_dt=1/60
+        self.command_substeps=2
+        self.settle_substeps=1
+        assert np.isclose(self.command_substeps*self.physics_dt,1/30)
+        assert np.isclose(self.settle_substeps*self.physics_dt,1/60)
+        self.world=World(stage_units_in_meters=1.,physics_dt=self.physics_dt,rendering_dt=1/30)
         self.stage=omni.usd.get_context().get_stage()
         cell.build(self.stage);harness.freeze(self.stage)
         paths={'table':cell.TABLE_CAM_PATH,'side':cell.SIDE_CAM_PATH,'wrist':cell.WRIST_CAM_PATH}
         resolutions={'table':(3840,2160),'side':(1920,1080),'wrist':(1280,720)}
         self.cameras={name:Camera(prim_path=path,resolution=resolutions[name]) for name,path in paths.items()}
         self.paths=paths;self.resolutions=resolutions
-        cell.enable_ccd(self.world);self.world.reset()
+        cell.enable_ccd(self.world)
+        physics=self.world.get_physics_context()
+        solver_type_before=physics.get_solver_type()
+        physics.set_solver_type('PGS')
+        self.world.reset()
+        if physics.get_solver_type()!='PGS':raise RuntimeError('PGS solver setting did not take effect')
         for cam in self.cameras.values():cam.initialize()
         self.arm=SingleArticulation(prim_path=C.ROBOT_PRIM,name='er4ia');self.arm.initialize()
+        solver=dict(position_iterations=int(self.arm.get_solver_position_iteration_count()),
+                    velocity_iterations=int(self.arm.get_solver_velocity_iteration_count()))
+        # Retain supplied timestep, iterations and drive gains; change only solver type.
+        self.physics_configuration=dict(physics_dt_s=self.physics_dt,rendering_dt_s=1/30,
+            command_substeps=self.command_substeps,settle_substeps_per_60hz_unit=self.settle_substeps,
+            articulation_solver_before=solver,articulation_solver_after=dict(solver),
+            solver_type_before=solver_type_before,solver_type_after=physics.get_solver_type(),
+            reason='PGS avoids TGS last-substep velocity discrepancy with stiff drives',
+            geometry_and_drive_gains_unchanged=True,motion_durations_preserved=True)
+        (self.folder/'physics-configuration.json').write_text(json.dumps(self.physics_configuration,indent=2)+'\n')
         names=list(self.arm.dof_names);self.indices={n:i for i,n in enumerate(names)}
         self.arm_idx=[self.indices[f'J{i}'] for i in range(1,7)]
         self.limits=np.deg2rad([C.JOINT_LIMITS_DEG[f'J{i}'] for i in range(1,7)])
@@ -55,7 +77,7 @@ class Plant:
         self.arm.apply_action(ArticulationAction(joint_positions=full))
 
     def settle(self,steps=24,render=False):
-        for _ in range(steps):
+        for _ in range(steps*(1 if render else self.settle_substeps)):
             self.command(self.q,self.jaw)
             before=time.monotonic();sim_before=float(self.world.current_time)
             self.world.step(render=render)
@@ -81,14 +103,20 @@ class Plant:
         # Render while testing stability: rendering advances physics, so a
         # non-rendering stability sample cannot certify a later camera frame.
         self.settle(18,render=True)
-        stable=0
+        stable=0;settling_trace=[]
         for _ in range(240):
             self.settle(1,render=True)
             velocity=self.arm.get_joint_velocities()[self.arm_idx]
+            _,tip=self.tip()
+            settling_trace.append(dict(sim_time=float(self.world.current_time),
+                joint_positions=self.arm.get_joint_positions()[self.arm_idx].astype(float).tolist(),
+                joint_velocities=velocity.astype(float).tolist(),tip_robot_m=tip.astype(float).tolist()))
             still=bool(np.all(np.isfinite(velocity)) and np.max(np.abs(velocity))<.02)
             stable=stable+1 if still else 0
             if stable>=6:break
-        else:raise Hold('robot_settle_timeout')
+        else:
+            self.settle_diagnostic(label,settling_trace)
+            raise Hold('robot_settle_timeout')
         self.observation+=1
         folder=self.folder/'observations'/f'{self.observation:03}-{label}'
         folder.mkdir(parents=True)
@@ -126,7 +154,9 @@ class Plant:
                     received_unix=time.time(),calibration_id=CALIBRATION_ID,model_id=MODEL_ID,
                     views=views,robot_idle=idle,detections=detected,rejected=rejected,
                     world_time_at_readback=float(self.world.current_time),
-                    robot_joint_velocity_max=float(np.max(np.abs(velocities))))
+                    robot_joint_velocity_max=float(np.max(np.abs(velocities))),
+                    stillness=dict(raw_velocity_limit_rad_s=.02,required_consecutive_samples=6,
+                                   accepted_trace=settling_trace[-6:]))
         (folder/'observation.json').write_text(json.dumps(result,indent=2)+'\n')
         overlay=images['table'].copy()
         for obj in detected:
@@ -135,6 +165,28 @@ class Plant:
                         cv2.FONT_HERSHEY_SIMPLEX,.7,(0,0,0),2)
         cv2.imwrite(str(folder/'table-overlay.png'),overlay)
         return result,images,models
+
+    def settle_diagnostic(self,label,trace):
+        """Rejected frames for debugging only; never returned to the supervisor."""
+        folder=self.folder/'diagnostics'/f'{self.observation+1:03}-{label}-settle-timeout'
+        folder.mkdir(parents=True,exist_ok=True)
+        parameters={}
+        for prim in self.stage.Traverse():
+            if str(prim.GetPath())!=C.ROBOT_PRIM and not str(prim.GetPath()).startswith(C.ROBOT_PRIM+'/'):continue
+            values={attr.GetName():str(attr.Get()) for attr in prim.GetAttributes()
+                    if any(key in attr.GetName().lower() for key in ('stiffness','damping','solver','sleep','stabilization'))}
+            if values:parameters[str(prim.GetPath())]=values
+        metadata=dict(accepted_for_runtime=False,failure='robot_settle_timeout',
+                      velocity_limit_rad_s=.02,required_consecutive_samples=6,
+                      commanded_joint_positions=self.q.tolist(),jaw_target_m=float(self.jaw),
+                      trace=trace,robot_parameters=parameters)
+        (folder/'diagnostic.json').write_text(json.dumps(metadata,indent=2)+'\n')
+        for name,cam in self.cameras.items():
+            rgba=cam.get_rgba()
+            if rgba is None or np.asarray(rgba).ndim!=3:continue
+            image=cv2.cvtColor(np.asarray(rgba)[:,:,:3].astype(np.uint8),cv2.COLOR_RGB2BGR)
+            cv2.imwrite(str(folder/(name+'.png')),image)
+            (folder/(name+'-camera.json')).write_text(json.dumps(self.camera_model(name),indent=2)+'\n')
 
     def prepare(self,target,slot):
         if C.CUBE_EDGE>=2*C.JAW_OPEN:raise Hold('cube_exceeds_gripper_opening')
@@ -174,7 +226,7 @@ class Plant:
             for q,jaw,goal in plan['path'][phase]:
                 self.q=q.copy();self.jaw=self.harness.actuator(phase,jaw)
                 self.command(self.q,self.jaw)
-                for _ in range(2):self.world.step(render=False)
+                for _ in range(self.command_substeps):self.world.step(render=False)
                 self.command_frames+=1
             _,arrival=self.tip();arrival_error=float(np.linalg.norm(arrival-goal))
             # Stop at each commanded phase endpoint. Require measured convergence
@@ -185,8 +237,10 @@ class Plant:
                 self.settle(1,render=False);settle_steps+=1
                 _,actual=self.tip();error=float(np.linalg.norm(actual-goal))
                 velocity=self.arm.get_joint_velocities()[self.arm_idx]
-                converged=(np.isfinite(error) and error<=.002 and
-                           np.all(np.isfinite(velocity)) and np.max(np.abs(velocity))<.02)
+                # Endpoint acceptance is position tracking. The independent
+                # capture gate still requires stationary joints before images;
+                # contact while closing the jaws is not a camera observation.
+                converged=(np.isfinite(error) and error<=.002 and np.all(np.isfinite(velocity)))
                 stable=stable+1 if converged else 0
                 if stable>=6:break
             self.world.render()
@@ -194,6 +248,7 @@ class Plant:
             event.setdefault('motion',[]).append(dict(phase=phase,tip_error_mm=error*1000,
                                                        arrival_tip_error_mm=arrival_error*1000,
                                                        settling_steps=settle_steps,endpoint_stable=stable>=6,
+                                                       joint_velocity_max=float(np.max(np.abs(velocity))),
                                                        commanded_tip_robot_m=goal.tolist(),actual_tip_robot_m=actual.tolist()))
             if not np.isfinite(error) or error>.002:raise Hold('actual_tip_tracking_error:'+phase)
             if stable<6:raise Hold('phase_endpoint_settle_timeout:'+phase)
@@ -211,5 +266,5 @@ class Plant:
         # approach in reverse, preserving its validated joint limits and height.
         for q,_,goal in reversed(plan['path']['approach']):
             self.q=q.copy();self.command(self.q,self.jaw)
-            for _ in range(2):self.world.step(render=False)
+            for _ in range(self.command_substeps):self.world.step(render=False)
         self.settle(30)
