@@ -1,0 +1,125 @@
+{
+  "matches": [
+    {
+      "detection_id": 4,
+      "name": "SortCube5",
+      "category": "cube",
+      "position_error_mm": 0.22820063601144855,
+      "selected": true,
+      "expected_colour": "blue",
+      "predicted_colour": "blue",
+      "colour_correct": true,
+      "expected_yaw_deg": -36.0,
+      "predicted_yaw_deg": -34.27347524265494,
+      "yaw_error_deg_mod90": 1.7265247573450608,
+      "cosmos_yaw_error_deg_mod90": 1.3070696999724305
+    },
+    {
+      "detection_id": 5,
+      "name": "SortCube1",
+      "category": "cube",
+      "position_error_mm": 0.08473265125118962,
+      "selected": true,
+      "expected_colour": "yellow",
+      "predicted_colour": "yellow",
+      "colour_correct": true,
+      "expected_yaw_deg": 26.0,
+      "predicted_yaw_deg": 27.961863802953985,
+      "yaw_error_deg_mod90": 1.9618638029539852,
+      "cosmos_yaw_error_deg_mod90": 2.2516876905887813
+    },
+    {
+      "detection_id": 6,
+      "name": "SortCube2",
+      "category": "cube",
+      "position_error_mm": 0.24238932220635157,
+      "selected": true,
+      "expected_colour": "red",
+      "predicted_colour": "red",
+      "colour_correct": true,
+      "expected_yaw_deg": 32.0,
+      "predicted_yaw_deg": 32.66049097262656,
+      "yaw_error_deg_mod90": 0.6604909726265618,
+      "cosmos_yaw_error_deg_mod90": 0.6060492736671392
+    },
+    {
+      "detection_id": 7,
+      "name": "SortCube3",
+      "category": "cube",
+      "position_error_mm": 0.2449245910385691,
+      "selected": true,
+      "expected_colour": "red",
+      "predicted_colour": "red",
+      "colour_correct": true,
+      "expected_yaw_deg": -23.0,
+      "predicted_yaw_deg": -22.277850986411096,
+      "yaw_error_deg_mod90": 0.7221490135889042,
+      "cosmos_yaw_error_deg_mod90": 1.2266228095244855
+    },
+    {
+      "detection_id": 8,
+      "name": "SortCube4",
+      "category": "cube",
+      "position_error_mm": 0.25715233804533644,
+      "selected": true,
+      "expected_colour": "blue",
+      "predicted_colour": "blue",
+      "colour_correct": true,
+      "expected_yaw_deg": 14.0,
+      "predicted_yaw_deg": 13.750315987388355,
+      "yaw_error_deg_mod90": 0.2496840126116453,
+      "cosmos_yaw_error_deg_mod90": 0.010056194625875037
+    },
+    {
+      "detection_id": 9,
+      "name": "SortCube0",
+      "category": "cube",
+      "position_error_mm": 0.26875178997157073,
+      "selected": true,
+      "expected_colour": "yellow",
+      "predicted_colour": "yellow",
+      "colour_correct": true,
+      "expected_yaw_deg": 0.0,
+      "predicted_yaw_deg": -1.3477337970613092,
+      "yaw_error_deg_mod90": 1.3477337970613092,
+      "cosmos_yaw_error_deg_mod90": 1.3435123243307743
+    }
+  ],
+  "missed_objects": [],
+  "unmatched_detections": [],
+  "caps_matched": 0,
+  "cap_orientations_correct": 0,
+  "wide_caps_selected": 0,
+  "cap_orientation_confusion": [
+    [
+      "narrow_end_up",
+      "narrow_end_up",
+      0
+    ],
+    [
+      "narrow_end_up",
+      "wide_end_up",
+      0
+    ],
+    [
+      "narrow_end_up",
+      "unknown",
+      0
+    ],
+    [
+      "wide_end_up",
+      "narrow_end_up",
+      0
+    ],
+    [
+      "wide_end_up",
+      "wide_end_up",
+      0
+    ],
+    [
+      "wide_end_up",
+      "unknown",
+      0
+    ]
+  ]
+}

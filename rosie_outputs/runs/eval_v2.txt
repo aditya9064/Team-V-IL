@@ -1,0 +1,6 @@
+Cross-evaluation, mAP50-95 (synthetic validation sets)
+
+model                v1_easy       v2_hard
+cubes_all              0.995         0.728
+cubes_v2               0.995         0.985
+cubes_v1v2             0.995         0.985

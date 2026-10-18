@@ -1,0 +1,43 @@
+{
+  "classes": [
+    "cube_red",
+    "cube_yellow",
+    "cube_blue",
+    "cap",
+    "vial"
+  ],
+  "roi": [
+    1212,
+    1000,
+    2876,
+    1896
+  ],
+  "seed": 20261015,
+  "randomization": {
+    "x_range": [
+      0.2,
+      0.5
+    ],
+    "y_range": [
+      -0.25,
+      0.32
+    ],
+    "cube_presence": 0.85,
+    "cap_presence": 0.7,
+    "vial_presence": 0.6,
+    "separation_margin": 0.003,
+    "dome_scale": [
+      0.6,
+      1.4
+    ],
+    "rect_light_scale": [
+      0.4,
+      1.6
+    ],
+    "light_tint": 0.08,
+    "camera_eye_sigma": 0.004,
+    "camera_target_sigma": 0.003
+  },
+  "renderer": "rtx-realtime",
+  "denoise": "median3"
+}

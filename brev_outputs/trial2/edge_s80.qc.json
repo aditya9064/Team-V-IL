@@ -1,0 +1,38 @@
+{
+  "v2_hard_v2_000719__table": {
+    "kept": 0,
+    "changed": 8,
+    "new_colour_fraction": 0.0,
+    "pass": false
+  },
+  "v2_hard_v2_004044__table": {
+    "kept": 2,
+    "changed": 2,
+    "new_colour_fraction": 0.0014977088341346155,
+    "pass": false
+  },
+  "v2_hard_v2_014335__side": {
+    "kept": 1,
+    "changed": 6,
+    "new_colour_fraction": 0.0006221064814814815,
+    "pass": false
+  },
+  "v2_hard_v2_015009__side": {
+    "kept": 0,
+    "changed": 3,
+    "new_colour_fraction": 9.645061728395062e-07,
+    "pass": false
+  },
+  "v2_hard_v2_017223__wrist": {
+    "kept": 0,
+    "changed": 5,
+    "new_colour_fraction": 1.193576388888889e-05,
+    "pass": false
+  },
+  "v2_hard_v2_018837__wrist": {
+    "kept": 0,
+    "changed": 0,
+    "new_colour_fraction": 0.0,
+    "pass": true
+  }
+}

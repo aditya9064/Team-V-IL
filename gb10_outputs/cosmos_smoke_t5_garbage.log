@@ -1,0 +1,67 @@
+[perceive] loading Cosmos3-Nano on GPU 0 ...
+Loading weights:   0%|          | 0/1 [00:00<?, ?it/s]Loading weights: 100%|██████████| 1/1 [00:09<00:00,  9.86s/it]Loading weights: 100%|██████████| 1/1 [00:09<00:00,  9.86s/it]
+[transformers] [1mCosmos3ForConditionalGeneration LOAD REPORT[0m from: /home/hackathon1/adaptivevision/hf/hub/models--nvidia--Cosmos3-Nano/snapshots/e59a53c25979a090fa8706c9acc0c254a6e89b92
+Key                                                                  | Status     | 
+---------------------------------------------------------------------+------------+-
+model.visual.deepstack_merger_list.\2                                | UNEXPECTED | 
+model.visual.pos_embed.\2                                            | UNEXPECTED | 
+model.visual.merger.\2                                               | UNEXPECTED | 
+model.visual.blocks.\2                                               | UNEXPECTED | 
+model.language_model.layers.\2                                       | UNEXPECTED | 
+model.language_model.embed_tokens.\2                                 | UNEXPECTED | 
+model.language_model.norm.\2                                         | UNEXPECTED | 
+model.visual.patch_embed.\2                                          | UNEXPECTED | 
+model.visual.blocks.{0...26}.attn.qkv.bias                           | MISSING    | 
+model.visual.blocks.{0...26}.attn.proj.weight                        | MISSING    | 
+model.visual.blocks.{0...26}.norm2.weight                            | MISSING    | 
+model.visual.blocks.{0...26}.attn.proj.bias                          | MISSING    | 
+model.visual.blocks.{0...26}.norm1.bias                              | MISSING    | 
+model.language_model.layers.{0...35}.self_attn.o_proj.weight         | MISSING    | 
+model.language_model.layers.{0...35}.self_attn.v_proj.weight         | MISSING    | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.weight                   | MISSING    | 
+model.language_model.layers.{0...35}.mlp.gate_proj.weight            | MISSING    | 
+model.language_model.layers.{0...35}.post_attention_layernorm.weight | MISSING    | 
+model.language_model.layers.{0...35}.self_attn.q_norm.weight         | MISSING    | 
+model.language_model.layers.{0...35}.self_attn.k_proj.weight         | MISSING    | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.bias                     | MISSING    | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.bias                     | MISSING    | 
+model.language_model.layers.{0...35}.input_layernorm.weight          | MISSING    | 
+model.language_model.layers.{0...35}.mlp.up_proj.weight              | MISSING    | 
+model.visual.blocks.{0...26}.norm1.weight                            | MISSING    | 
+model.visual.blocks.{0...26}.norm2.bias                              | MISSING    | 
+model.visual.merger.linear_fc2.bias                                  | MISSING    | 
+model.language_model.layers.{0...35}.self_attn.k_norm.weight         | MISSING    | 
+model.visual.blocks.{0...26}.attn.qkv.weight                         | MISSING    | 
+model.language_model.layers.{0...35}.self_attn.q_proj.weight         | MISSING    | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.weight                   | MISSING    | 
+model.language_model.layers.{0...35}.mlp.down_proj.weight            | MISSING    | 
+model.visual.patch_embed.proj.weight                                 | MISSING    | 
+model.visual.patch_embed.proj.bias                                   | MISSING    | 
+model.visual.deepstack_merger_list.{0, 1, 2}.linear_fc1.bias         | MISSING    | 
+model.visual.deepstack_merger_list.{0, 1, 2}.norm.bias               | MISSING    | 
+model.language_model.embed_tokens.weight                             | MISSING    | 
+model.visual.pos_embed.weight                                        | MISSING    | 
+model.visual.merger.norm.bias                                        | MISSING    | 
+model.visual.deepstack_merger_list.{0, 1, 2}.norm.weight             | MISSING    | 
+model.visual.merger.linear_fc1.weight                                | MISSING    | 
+model.language_model.norm.weight                                     | MISSING    | 
+model.visual.merger.linear_fc2.weight                                | MISSING    | 
+model.visual.merger.linear_fc1.bias                                  | MISSING    | 
+model.visual.deepstack_merger_list.{0, 1, 2}.linear_fc2.bias         | MISSING    | 
+model.visual.deepstack_merger_list.{0, 1, 2}.linear_fc2.weight       | MISSING    | 
+model.visual.deepstack_merger_list.{0, 1, 2}.linear_fc1.weight       | MISSING    | 
+model.visual.merger.norm.weight                                      | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[perceive] model ready
+[transformers] Image decoding with `torchvision` is deprecated and will be removed in future versions .Please install `torchcodec>=0.16.0` instead. 
+load 12 s | answer 129 s | peak GPU memory 18.4 GB
+REPLY: vac中断icens堆门前门前门前门前门前明显的OfWorkPostedPostedPostedPosted properly Gle cir调料操比否则比亚egin否则比亚egin否则比亚egin否则�否则�否则弟堆或多果然 tast tast tast tast tastmana话中断否则 glutame或多果然�或多 cir crafticens分红在这里适宜或多 cir操比话汉语不失 infix或多果然出处安全 mó堆或多果然�寸assing]*(ressPosted粟中断门前否则 cord涕 cir调料比亚或多堆门前明显的公示在此 cir褥公共资源 Pulitzer cir Vac或多堆门前明显的适宜好的cook弟比亚皂门前 invokevirtual中断chemist cir勾� sides cir schö或多堆门前 ost否则 Gat合理的sworth囚拘分散令在此estate否则 Gat reasonable毒或多堆门前明显的 bottom或多堆门前出自oton在此或多堆门前   	公示在这里适宜Posted堆门前延迟或多Craft或多 cir调料 cir vac中断chemist或多 cir vac政治WebpackPlugin HDCеств否则 Gat Vac或多 cir调料 sede或多 cir调料比亚Sink否则或多 cir调料egin调料比亚 Cir摘编七星适宜果然较好的或多堆 EmployBAT果合理的适宜mana漂亮的cook弟aggi Emp或多堆 Employ goedPosted堆 Employ营商适宜 restitution tast否则orrentoton在此或多堆 distinguish_ssl寸旁摘编 cabins堆 Gle cir调料 cir调料 cir调料 cir调料比亚ndon于合理的ioned cir调料比亚mana Nolan或多堆鬟рова stron(Photo在这里病凌晨 ciraina囚或多堆框��ame[适宜
+
+ отлич适宜无缝 â-sideとい或多 cirainaики stamina堆arend ciraskせ否则Posted粟manahreadPosted粟器械中断分流动静或多暑否则Redux否则mans公示 Clarkson适宜哲显著或多堆或多堆ishi[f堆 Employ或多堆或多堆或多堆或多堆或多堆或多堆或多堆合理的 cir Gaticum否则 Gle cir公共资源 sidePosted堆门前 Wo或多堆或多堆或多� ciraska或多堆或多弟子_ssl胳膊 Orchard� opericens **oton cir调料]*(养生丫 tast dost Battlefield或多堆或多石家庄 cir材*
+或多暑薪ден�eworld张扬_incomeっぱfare在这里Nut比亚包裹 Gaticum否则Posted粟printer-side调料 sunkchem飞翔ionate stove或多(B底 fra infixrenal在此或多Posted粟 satisfactory或多摘编 **或多Craft或多Craft或多Craft或多Craft或多Posted楫较好逾拘erson
+
+ cord在这里 cord在这里堆 distinguish堆 distinguish用工多egin安全 lí[$_ racked cirสม或多 hw公示 vac Employ代理人 vac Employaska Employaska Employaska或多PostedLABEL E
+PARSED: None

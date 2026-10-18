@@ -1,0 +1,24 @@
+Synthetic validation results (twin images only; not real-camera accuracy)
+
+run                          train imgs   mAP50  mAP50-95
+cubes_1000_1016_0059                857   0.995     0.993
+cubes_5000_1016_0100               4255   0.995     0.995
+cubes_all_1016_0059                7274   0.995     0.995
+cubes_v2_1016_0620                16982   0.995     0.985
+
+Per-class mAP50-95 and weights:
+- cubes_1000_1016_0059: cube_red=0.991  cube_yellow=0.992  cube_blue=0.990  cap=0.995  vial=0.995
+  /home/ad.msoe.edu/gundas/adaptivevision/runs/detect/cubes_1000_1016_0059/weights/best.pt
+- cubes_5000_1016_0100: cube_red=0.995  cube_yellow=0.995  cube_blue=0.994  cap=0.995  vial=0.995
+  /home/ad.msoe.edu/gundas/adaptivevision/runs/detect/cubes_5000_1016_0100/weights/best.pt
+- cubes_all_1016_0059: cube_red=0.995  cube_yellow=0.995  cube_blue=0.995  cap=0.995  vial=0.995
+  /home/ad.msoe.edu/gundas/adaptivevision/runs/detect/cubes_all_1016_0059/weights/best.pt
+- cubes_v2_1016_0620: cube_red=0.981  cube_yellow=0.978  cube_blue=0.982  cap=0.994  vial=0.991
+  /home/ad.msoe.edu/gundas/adaptivevision/runs/detect/cubes_v2_1016_0620/weights/best.pt
+
+Cross-evaluation, mAP50-95 (synthetic validation sets)
+
+model                v1_easy       v2_hard
+cubes_all              0.995         0.728
+cubes_v2               0.995         0.985
+cubes_v1v2             0.995         0.985

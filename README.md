@@ -1,54 +1,107 @@
-# Team V — Adaptive small-part kitting
+# AdaptiveVision — Team V
 
-Physical AI for the Factory Floor Hackathon, UWM/MSOE, 2026. We are building camera-supervised kit preparation using the FANUC ER-4iA digital twin and SMC MHZL2-16D2 gripper.
+Rockwell Automation + NVIDIA **Physical AI Hackathon for the Factory Floor** (UWM CSI + MSOE, Fall 2026),
+**Dataset 3: FANUC ER-4iA grasping and sorting.**
 
-**Start with [the shared project context](docs/START-HERE.md)** for the goal, architecture, verified progress, limitations and instructions for teammates or AI assistants.
+A vision-guided pick-and-sort cell: a digital twin in Isaac Sim produces labelled training images,
+a YOLO detector finds the cubes from three cameras, a grasp planner turns detections into picks,
+and (next) a ManipBench policy drives the real FANUC arm at CSI.
 
-## Status — October 15, 2026
+> **This branch (`DEVELOPMENT`) is the full AdaptiveVision project as of Oct 18, 2026**: every script we
+> wrote on the Mac, Rosie, the GB10 and Brev, plus the results, logs and samples. The earlier Team V
+> kitting work is still on `main`.
 
-- Original stacking demo: six successful simulated pickups and placements; a 55.2-second video.
-- Corrected training pilot: 78 scenes / 432 cube labels, packaged for the mentor. Training results are pending.
-- Adaptive flat-slot kitting: six camera-verified pickups and placements on Rosie, with independent simulator scoring agreeing (job 284300).
-- Single-miss recovery, repeated-miss HOLD and moved-target REPLAN/COMPLETE passed under the current configuration. Earlier empty/missing/stale gate tests retain explicit provenance. See [the validation report](dynamic-loop/validation-report.md).
-- Detector plug-in prepared; five additional situation tests and a six-part regression passed in simulation. See [results, retained failure and limits](dynamic-loop/additional-validation-report.md). Thirty-three plug-in/fixture tests and an untrained CUDA interface smoke passed. Trained-checkpoint validation remains pending.
-- No physical-arm calibration or execution has been validated.
+## Where we are (Oct 18, 2026)
+
+| Area | State |
+| --- | --- |
+| Digital twin + synthetic data | **Done.** Isaac Sim 6.0 on Rosie T4 GPUs. v1 = ~8.5k easy frames, v2 = ~20k hard frames (6 scene types, 3 cameras, towers, clutter, occlusion-aware labels, automatic label check). |
+| Detector | **Done.** YOLO11m v2, F1 **0.995** on 300 held-out twin images vs **0.093** for the organizers' Cosmos3-Nano baseline, 0.06 s vs 50 s per image. |
+| Robot in simulation | **Done.** 100/100 six-cube towers built (v1, v2, v2 snapshot), 0.21 mm / 1.35° median placement error, 55 s per tower. |
+| Realism (Cosmos Transfer 2.5) | **Done, not yet used for training.** 2,752 photo-real versions of twin frames pass our colour gate (99% keep cube colour). |
+| Real cell (CSI visit Oct 17) | **Learned.** Real robot is driven through **ManipBench**, 3 real runs per team; the scene differs from the starter twin (coloured bins, rounded cubes, pencil lines). |
+| Real-robot policy (ManipBench adapter) | **Not started.** Critical path. Needs `fanuc_er4ia_cell_client.zip` from organizers. |
+| Twin v3 matching the real cell | **Not started.** |
+| Video / 1-page summary | **Not started.** Due **Nov 1, 11:59 PM CT**. Finals Nov 5. |
+
+Full status, the real-cell findings, the product idea and the task list: **[docs/HANDOFF.md](docs/HANDOFF.md)**.
+
+## Quick start
+
+```bash
+git clone -b DEVELOPMENT https://github.com/aditya9064/Team-V-IL.git
+cd Team-V-IL
+
+# 1. Unit tests (any laptop, no GPU) — 48 tests
+cd fanuc_er4ia_sim
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python -m unittest test_sort_planning test_cube_perception test_cube_pose test_runtime_config synth.test_synth
+
+# 2. Detector tests + try the trained model on a photo (needs ultralytics)
+pip install ultralytics
+python -m unittest test_perceive_yolo test_real_photo_test          # 13 tests
+python real_photo_test.py ../csi_kit/photos/example_sim_1080p.jpg \
+    --weights ../models/cubes_v2.pt --camera table --out /tmp/av_test
+```
+
+Isaac Sim, training and Cosmos need a GPU machine — see [docs/COMPUTE.md](docs/COMPUTE.md) (Rosie, GB10, Brev).
 
 ## Repository map
 
-| Directory | Purpose |
-|---|---|
-| [dynamic-loop](dynamic-loop/README.md) | Fresh observations, per-pick planning, outcome verification and bounded recovery |
-| [dataset-tools](dataset-tools/README.md) | Scene variation, persistent Isaac capture, corrected labels and QA |
-| [mentor-training](mentor-training/README.md) | Training-data packaging, detector training/evaluation and smoke tests |
-| [benchmark-tools](benchmark-tools/README.md) | Limited Rosie/Brev image-capture benchmarks |
-| [src/team_v](src/team_v) | Earlier simulator-independent replay/evaluation foundation |
-| [docs](docs) | Requirements, research and historical proposals |
-| [data](data/README.md) | External-data instructions; raw assets are not in Git |
+| Folder | What it is |
+| --- | --- |
+| [`fanuc_er4ia_sim/`](fanuc_er4ia_sim) | **Main code.** Organizer starter kit v0.5 + our additions: `perceive_yolo.py` (YOLO perception), `real_photo_test.py`, `synth/` (v2 scene generator, labels, training, evaluation), `rosie/` (Slurm pipeline and job scripts). Rules for coding agents: `AGENTS.md`. |
+| [`tools/`](tools) | Baselines (`run_baseline.py`, `baseline_metrics.py`), status mail, and `transfer_trial/` (Cosmos Transfer: white balance, batch builder, colour gate, Brev/GB10 runners). |
+| [`csi_kit/`](csi_kit) | Offline real-photo test kit used at CSI (`run_test.sh`, checklist). |
+| [`models/`](models) | Trained detectors: `cubes_v2.pt` (main, 41 MB) and `cubes_v1.pt`. |
+| [`results/`](results) | Final result tables (baseline, perception, sim robot, training). Start here for numbers. |
+| [`rosie_outputs/`](rosie_outputs) | Everything Rosie produced except bulk images: result files, training curves/plots, perception and sim summaries, all job logs (`logs.tar.gz`). |
+| [`gb10_outputs/`](gb10_outputs) | GB10 scripts and logs: Cosmos3-Nano baseline, Cosmos Transfer sweeps and batch #2 (QC, samples). |
+| [`brev_outputs/`](brev_outputs) | Brev A100 Transfer trial #1 and batch #1: findings, logs, QC, before/after samples. |
+| [`rtx_test/`](rtx_test) | Render-quality test (T4 vs L40S real-time vs path-traced). |
+| [`sim_eval_mac/`](sim_eval_mac) | Early perception/sim evaluation JSON from the Mac. |
+| [`data_samples/`](data_samples) | 45 sample frames + labels + metadata from the v1 and v2 synthetic datasets. |
+| [`real_photos/`](real_photos) | Phone photos of the real cell from the CSI visit (Oct 17) and YOLO overlays. |
+| [`videos/`](videos) | Simulated robot sorting videos (email size) and posters. |
+| [`organizer/`](organizer) | Organizer starter kit `fanuc_er4ia_hackathon_starter_v05.zip` and the explainer pages. |
+| [`docs/`](docs) | Handoff, results, compute runbooks, data locations, factory research, project plan. |
 
-Historical proposals describe earlier decisions. The shared context and actual execution evidence take precedence for current status. Legacy `synthetic-v1` and `synthetic-crops-v1` labels are obsolete; use the corrected mentor v2 package.
+Large data that cannot live in Git (synthetic datasets, full-size videos, all Transfer images,
+model checkpoints) is listed with exact locations in **[docs/DATA.md](docs/DATA.md)**.
 
-## Get started
+## Results at a glance
 
-```bash
-git clone https://github.com/aditya9064/Team-V-IL.git
-cd Team-V-IL
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-python -m unittest discover -s tests -v
-(cd dynamic-loop && python -m unittest -v test_supervisor)
-```
+All numbers are on **synthetic / digital-twin data**; nothing has run on the real arm yet.
+Details: [docs/RESULTS.md](docs/RESULTS.md).
 
-Replay and supervisor tests use the standard library. Rendering/physics require the separate Isaac-compatible Python environment and official FANUC v05 starter. Follow the component READMEs; a plain host Python cannot run simulation scripts.
+| Detector (300 held-out twin images, IoU ≥ 0.5) | Precision | Recall | F1 | s / image |
+| --- | --- | --- | --- | --- |
+| **YOLO v2** (ours, `models/cubes_v2.pt`) | 0.993 | 0.997 | **0.995** | 0.06 |
+| YOLO v2s (yolo11s, 19 MB) | 0.988 | 0.997 | 0.993 | 0.04 |
+| YOLO v1 (easy scenes only) | 0.614 | 0.783 | 0.689 | 0.06 |
+| Cosmos3-Nano (starter-kit baseline) | 0.128 | 0.073 | 0.093 | 50.2 |
 
-## Updating an existing clone
+| Robot in Isaac Sim | Towers complete | Picks / placements | Position error (median) | Yaw error (median) |
+| --- | --- | --- | --- | --- |
+| YOLO v1 | 20 / 20 | 120 / 120 | 0.21 mm | 1.35° |
+| YOLO v2 | 20 / 20 | 120 / 120 | 0.21 mm | 1.35° |
+| YOLO v2 snapshot | 60 / 60 | 360 / 360 | 0.21 mm | 1.35° |
 
-```bash
-git fetch origin
-git switch main
-git pull --ff-only origin main
-```
+Known weakness: the grasp planner refuses ~30% of detected cubes as "uncertain" (crowded or
+touching cubes) — safe, but cubes are left behind.
 
-If an older empty checkout has no local `main`, use `git switch -c main --track origin/main` after fetching. Preserve local work before switching branches. Use feature branches and review new changes before merging.
+## Rules every teammate must follow
 
-Credentials, private correspondence, raw organizer assets, generated datasets/videos, model weights, caches and Python environments are excluded. Training images and larger visual deliverables are shared separately; cloning this repository does not download them.
+- **No commands to the physical arm and no controller/PLC changes** without the plant manager and our
+  assigned mentor. Real runs go only through ManipBench. Don't move or re-aim the cell cameras.
+- Real cell data is for **looking and testing only** — training data must come from the digital twin.
+- Never use simulator ground truth to choose grasps; never weaken a test or quality gate to make it pass (`fanuc_er4ia_sim/AGENTS.md`).
+- Shared machines (Rosie, GB10): stay in your own folders and job limits; don't look at other teams' work.
+- **Never commit secrets** (NGC key, Hugging Face token, passwords, SSH keys). Delete Brev machines when done — they bill while running.
+
+## Key dates and contacts
+
+- Final submission **Nov 1, 11:59 PM CT**: ~5-min video, 1-page summary, repo link, credits. Finals **Nov 5**, 5–8 PM, MSOE Diercks Hall.
+- Slack: `#dataset-3-grasping-sorting` (Dataset 3, Zhen Zeng), `#data-and-testbed-requests` (robot time and the ManipBench client, Shamar Webster).
+- Event page: https://uwm.edu/csi/?p=4080 · Real-robot interface: https://manipbench.com

@@ -1,0 +1,4 @@
+# Detector training (GPU machine: Brev, Rosie, CSI workstation). Not needed on the host.
+# Ultralytics is AGPL-3.0: credit it in the final submission's references.
+ultralytics>=8.3.0,<8.5
+scipy  # cube_pose / plan_sort geometry in synth.eval_perception

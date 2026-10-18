@@ -1,0 +1,18 @@
+=== cubes_all_1016_0059: 20 episodes, 20 executed
+tower complete        : 20/20
+picks per attempt     : 120/120
+placements per attempt: 120/120
+sim time per episode  : 55.2 s (9.2 s per pick)
+cube position error   : median 0.21 mm, p90 0.32 mm
+cube yaw error        : median 1.35 deg, p90 2.17 deg
+cube colour correct   : 120/120; missed objects 0
+
+=== cubes_v2snap_1016_e102: 20 episodes, 20 executed
+tower complete        : 20/20
+picks per attempt     : 120/120
+placements per attempt: 120/120
+sim time per episode  : 55.2 s (9.2 s per pick)
+cube position error   : median 0.22 mm, p90 0.32 mm
+cube yaw error        : median 1.35 deg, p90 2.17 deg
+cube colour correct   : 120/120; missed objects 0
+

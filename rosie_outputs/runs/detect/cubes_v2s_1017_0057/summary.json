@@ -1,0 +1,36 @@
+{
+  "args": {
+    "data": "/home/ad.msoe.edu/gundas/adaptivevision/datasets/cubes_v2/data.yaml",
+    "model": "yolo11s.pt",
+    "name": "cubes_v2s_1017_0057",
+    "epochs": 60,
+    "imgsz": 1664,
+    "batch": -1,
+    "workers": 16,
+    "device": "0",
+    "seed": 0,
+    "project": "/home/ad.msoe.edu/gundas/adaptivevision/runs/detect",
+    "cache": "none"
+  },
+  "augment": {
+    "hsv_h": 0.01,
+    "hsv_s": 0.3,
+    "hsv_v": 0.35,
+    "scale": 0.15,
+    "translate": 0.05,
+    "degrees": 0.0,
+    "fliplr": 0.5,
+    "flipud": 0.5,
+    "mosaic": 1.0
+  },
+  "mAP50": 0.994935108383593,
+  "mAP50_95": 0.9820887610113712,
+  "per_class_mAP50_95": {
+    "cube_red": 0.9766913999318856,
+    "cube_yellow": 0.9742637462093932,
+    "cube_blue": 0.9770706890974263,
+    "cap": 0.993947641848381,
+    "vial": 0.9884703279697702
+  },
+  "weights": "/home/ad.msoe.edu/gundas/adaptivevision/runs/detect/cubes_v2s_1017_0057/weights/best.pt"
+}

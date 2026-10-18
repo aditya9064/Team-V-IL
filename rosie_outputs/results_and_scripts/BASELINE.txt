@@ -1,0 +1,73 @@
+### 80-image held-out set
+Cosmos3-Nano (starter prompt) vs YOLO, synthetic held-out val images, IoU>=0.5
+found = share of true objects boxed at all (class ignored); bad = unparseable replies
+
+detector  group              n   prec  recall     F1   found   s/img  bad
+-------------------------------------------------------------------------
+cosmos    ALL               80  0.111   0.060  0.078   0.067   46.81    0
+cosmos    v1_easy/table     20  0.089   0.051  0.065   0.057   49.62    0
+cosmos    v2_hard/side      15  0.078   0.051  0.062   0.051   55.93    0
+cosmos    v2_hard/table     30  0.124   0.058  0.079   0.061   51.90    0
+cosmos    v2_hard/wrist     15  0.214   0.136  0.167   0.182   23.77    0
+yolo_v1   ALL               80  0.649   0.839  0.732   0.856    0.07    0
+yolo_v1   v1_easy/table     20  1.000   1.000  1.000   1.000    0.12    0
+yolo_v1   v2_hard/side      15  0.442   0.585  0.504   0.669    0.06    0
+yolo_v1   v2_hard/table     30  0.643   0.899  0.750   0.899    0.05    0
+yolo_v1   v2_hard/wrist     15  0.357   0.568  0.439   0.568    0.05    0
+yolo_v1v2 ALL               80  0.992   0.997  0.994   0.997    0.16    0
+yolo_v1v2 v1_easy/table     20  1.000   1.000  1.000   1.000    0.25    0
+yolo_v1v2 v2_hard/side      15  0.983   1.000  0.992   1.000    0.14    0
+yolo_v1v2 v2_hard/table     30  0.996   1.000  0.998   1.000    0.13    0
+yolo_v1v2 v2_hard/wrist     15  0.955   0.955  0.955   0.955    0.12    0
+yolo_v2   ALL               80  0.990   0.995  0.992   0.995    0.17    0
+yolo_v2   v1_easy/table     20  1.000   1.000  1.000   1.000    0.28    0
+yolo_v2   v2_hard/side      15  0.975   1.000  0.987   1.000    0.14    0
+yolo_v2   v2_hard/table     30  0.996   0.996  0.996   0.996    0.13    0
+yolo_v2   v2_hard/wrist     15  0.955   0.955  0.955   0.955    0.12    0
+yolo_v2s_smallALL               80  0.987   0.995  0.991   0.995    0.05    0
+yolo_v2s_smallv1_easy/table     20  1.000   1.000  1.000   1.000    0.10    0
+yolo_v2s_smallv2_hard/side      15  0.967   0.992  0.979   0.992    0.04    0
+yolo_v2s_smallv2_hard/table     30  0.993   1.000  0.996   1.000    0.03    0
+yolo_v2s_smallv2_hard/wrist     15  0.955   0.955  0.955   0.955    0.03    0
+yolo_v2snapALL               80  0.992   0.995  0.993   0.995    0.07    0
+yolo_v2snapv1_easy/table     20  1.000   1.000  1.000   1.000    0.12    0
+yolo_v2snapv2_hard/side      15  0.983   1.000  0.992   1.000    0.06    0
+yolo_v2snapv2_hard/table     30  0.996   0.996  0.996   0.996    0.06    0
+yolo_v2snapv2_hard/wrist     15  0.955   0.955  0.955   0.955    0.05    0
+
+### 300-image held-out set (disjoint)
+Cosmos3-Nano (starter prompt) vs YOLO, synthetic held-out val images, IoU>=0.5
+found = share of true objects boxed at all (class ignored); bad = unparseable replies
+
+detector  group              n   prec  recall     F1   found   s/img  bad
+-------------------------------------------------------------------------
+cosmos    ALL              300  0.128   0.073  0.093   0.081   50.18    7
+cosmos    v1_easy/table     40  0.105   0.060  0.077   0.067   53.60    1
+cosmos    v2_hard/side      75  0.069   0.042  0.052   0.043   55.20    1
+cosmos    v2_hard/table    110  0.131   0.069  0.091   0.072   60.21    5
+cosmos    v2_hard/wrist     75  0.273   0.202  0.232   0.245   28.63    0
+yolo_v1   ALL              300  0.614   0.783  0.689   0.809    0.06    0
+yolo_v1   v1_easy/table     40  1.000   1.000  1.000   1.000    0.11    0
+yolo_v1   v2_hard/side      75  0.442   0.529  0.482   0.606    0.06    0
+yolo_v1   v2_hard/table    110  0.643   0.907  0.753   0.909    0.05    0
+yolo_v1   v2_hard/wrist     75  0.460   0.582  0.514   0.620    0.05    0
+yolo_v1v2 ALL              300  0.991   0.997  0.994   0.997    0.13    0
+yolo_v1v2 v1_easy/table     40  1.000   1.000  1.000   1.000    0.18    0
+yolo_v1v2 v2_hard/side      75  0.990   0.998  0.994   0.998    0.13    0
+yolo_v1v2 v2_hard/table    110  0.992   1.000  0.996   1.000    0.11    0
+yolo_v1v2 v2_hard/wrist     75  0.976   0.971  0.973   0.971    0.12    0
+yolo_v2   ALL              300  0.993   0.998  0.995   0.998    0.14    0
+yolo_v2   v1_easy/table     40  1.000   1.000  1.000   1.000    0.20    0
+yolo_v2   v2_hard/side      75  0.995   0.998  0.997   0.998    0.14    0
+yolo_v2   v2_hard/table    110  0.993   1.000  0.996   1.000    0.13    0
+yolo_v2   v2_hard/wrist     75  0.976   0.986  0.981   0.986    0.12    0
+yolo_v2s_smallALL              300  0.988   0.997  0.993   0.997    0.04    0
+yolo_v2s_smallv1_easy/table     40  1.000   1.000  1.000   1.000    0.07    0
+yolo_v2s_smallv2_hard/side      75  0.985   0.997  0.991   0.997    0.04    0
+yolo_v2s_smallv2_hard/table    110  0.992   1.000  0.996   1.000    0.03    0
+yolo_v2s_smallv2_hard/wrist     75  0.962   0.981  0.971   0.981    0.03    0
+yolo_v2snapALL              300  0.993   0.997  0.995   0.997    0.06    0
+yolo_v2snapv1_easy/table     40  1.000   1.000  1.000   1.000    0.08    0
+yolo_v2snapv2_hard/side      75  0.995   0.998  0.997   0.998    0.06    0
+yolo_v2snapv2_hard/table    110  0.993   1.000  0.996   1.000    0.05    0
+yolo_v2snapv2_hard/wrist     75  0.976   0.976  0.976   0.976    0.05    0

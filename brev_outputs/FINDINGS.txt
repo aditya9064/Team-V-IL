@@ -1,0 +1,49 @@
+Cosmos Transfer 2.5 trial #1 - Fri Oct 16 2026, Brev Crusoe A100 80GB, 13:28-14:08 (~$1.30)
+Input: 20 v2 synthetic val images (8 table, 6 side, 6 wrist) + their YOLO labels.
+Setup: image2image (1 frame), edge control weight 1.0, 35 steps, guardrails on, prompt listed
+"cubes in red, yellow and blue". Install ~12 min, model download ~5 min, 20 images ~5 min.
+
+Result
++ Realism: big gain. Grain and purple cast gone; real shadows, lab wall, realistic arm.
++ Geometry: output size = input size, objects stay inside their label boxes.
+- Colour: only 26% of labelled cubes keep their colour (25 kept / 70 changed;
+  table 15/47, side 8/34, wrist 2/14). Distractors were repainted into cube colours.
+- Hallucination: near-empty wrist frames got new, unlabelled cubes and vials.
+=> NOT usable as training data as-is (wrong colour labels would poison the colour classes).
+
+Next trial (fixes to try, cheapest first)
+1. Prompt without colour words ("keep every object's exact colour and shape as in the input").
+2. Multi-control: edge + vis (blur) control; vis carries the input colours.
+3. guided_generation_mask over the labelled objects so their pixels are kept; only the
+   table/background/lighting are restyled.
+4. Keep only images that pass an automatic colour check per box (tools: hue check used here).
+Can run free on the GB10 now (docker + --gpus works; repo supports DGX Spark with cu130).
+
+Files: compare/ (left = original, right = Transfer; original labels drawn on both),
+transfer_raw/ (outputs + edge maps), run.log.
+
+==========================================================================================
+Trial #2 - Fri Oct 16 2026, GB10 (docker av-transfer:nightly, free), 6 images x 11 settings
+Gate = transfer_qc.py (every cube keeps colour AND no new cube-coloured area outside boxes).
+Realism proxies on the empty table: grain (high-pass std) and cast (chroma); render = 3.6 / 12.3.
+
+setting                     colour kept  gate  grain  cast
+trial #1 (edge, noise)          26%      0/20   1.5    4.4
+edge only, sigma 80             11%      1/6     -      -
+edge + vis 1.0 (any sigma)     100%      4/6   1.6   13.3   <- colours safe, tint kept
+edge + vis 0.5 medium           96%      3/6   1.7   12.2
+edge + vis 0.3 medium           67%      3/6   1.9    8.8
+white balance only             100%      6/6   3.6    2.5
+WB + edge + vis 1.0 (s80)      100%      4/6   1.8    2.6   <- WINNER
+WB + edge + vis 0.5 medium      96%      3/6   1.5    2.3
+WB + edge + vis 0.3 medium      70%      3/6   1.7    2.0
+
+Findings
+- The vis (blur) control is what preserves colour; sigma_max barely matters with it.
+- Lower vis weight trades colour safety for realism; below 1.0 colours start to flip.
+- White balance before Transfer removes the purple cast without touching labels.
+- All gate failures of the winner are side-camera images where the yellow robot arm /
+  yellow table stripe is re-shaded (false alarm: no cube changed colour). Kept as strict.
+- Remaining realism gap: robot-arm texture stays grainy on the side camera.
+Recipe: white_balance.py -> Transfer (edge 1.0 + vis 1.0 very_low, sigma_max 80, neutral
+prompt) -> transfer_qc.py gate -> only passing images go to training.

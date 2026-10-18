@@ -1,0 +1,86 @@
+[baseline] cosmos: 80 images to score (80 results already saved)
+[perceive] loading Cosmos3-Nano on GPU 0 ...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:25<02:55, 25.12s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:43<02:06, 21.08s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [01:00<01:37, 19.46s/it]Loading checkpoint shards:  50%|█████     | 4/8 [01:16<01:11, 17.83s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [01:34<00:54, 18.06s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [01:46<00:32, 16.02s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [01:56<00:14, 14.01s/it]Loading checkpoint shards: 100%|██████████| 8/8 [02:05<00:00, 12.47s/it]Loading checkpoint shards: 100%|██████████| 8/8 [02:05<00:00, 15.72s/it]
+[perceive] model ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[baseline] cosmos 1/80 v1_easy_002049.png tp=2 fp=7 fn=8 86.1s
+[baseline] cosmos 2/80 v1_easy_009308.png tp=0 fp=3 fn=9 37.3s
+[baseline] cosmos 3/80 v1_easy_008638.png tp=0 fp=5 fn=7 53.4s
+[baseline] cosmos 4/80 v1_easy_007083.png tp=0 fp=3 fn=8 37.5s
+[baseline] cosmos 5/80 v1_easy_009098.png tp=1 fp=8 fn=8 85.9s
+[baseline] cosmos 6/80 v1_easy_004220.png tp=0 fp=7 fn=9 70.0s
+[baseline] cosmos 7/80 v1_easy_007528.png tp=3 fp=3 fn=5 61.8s
+[baseline] cosmos 8/80 v1_easy_002577.png tp=0 fp=3 fn=9 37.7s
+[baseline] cosmos 9/80 v1_easy_001591.png tp=0 fp=3 fn=8 37.7s
+[baseline] cosmos 10/80 v1_easy_009575.png tp=0 fp=3 fn=6 37.8s
+[baseline] cosmos 11/80 v1_easy_008802.png tp=0 fp=3 fn=7 37.8s
+[baseline] cosmos 12/80 v1_easy_003331.png tp=0 fp=3 fn=8 37.8s
+[baseline] cosmos 13/80 v1_easy_008842.png tp=1 fp=5 fn=5 61.7s
+[baseline] cosmos 14/80 v1_easy_003832.png tp=0 fp=4 fn=6 42.2s
+[baseline] cosmos 15/80 v1_easy_000784.png tp=0 fp=3 fn=10 37.8s
+[baseline] cosmos 16/80 v1_easy_002470.png tp=0 fp=3 fn=8 37.8s
+[baseline] cosmos 17/80 v1_easy_001001.png tp=0 fp=5 fn=5 53.8s
+[baseline] cosmos 18/80 v1_easy_000046.png tp=0 fp=6 fn=8 62.7s
+[baseline] cosmos 19/80 v1_easy_009763.png tp=1 fp=2 fn=7 37.8s
+[baseline] cosmos 20/80 v1_easy_008002.png tp=0 fp=3 fn=9 37.8s
+[baseline] cosmos 21/80 v2_hard_v2_009522.png tp=1 fp=4 fn=5 54.0s
+[baseline] cosmos 22/80 v2_hard_v2_010925.png tp=0 fp=3 fn=11 37.8s
+[baseline] cosmos 23/80 v2_hard_v2_009551.png tp=0 fp=3 fn=8 37.8s
+[baseline] cosmos 24/80 v2_hard_v2_010482.png tp=0 fp=3 fn=15 37.8s
+[baseline] cosmos 25/80 v2_hard_v2_012690.png tp=0 fp=3 fn=13 37.8s
+[baseline] cosmos 26/80 v2_hard_v2_003237.png tp=0 fp=1 fn=8 58.9s
+[baseline] cosmos 27/80 v2_hard_v2_011590.png tp=0 fp=3 fn=8 37.8s
+[baseline] cosmos 28/80 v2_hard_v2_011308.png tp=0 fp=3 fn=9 37.8s
+[baseline] cosmos 29/80 v2_hard_v2_009250.png tp=0 fp=0 fn=12 81.3s
+[baseline] cosmos 30/80 v2_hard_v2_001597.png tp=0 fp=3 fn=11 37.8s
+[baseline] cosmos 31/80 v2_hard_v2_013564.png tp=0 fp=3 fn=7 37.8s
+[baseline] cosmos 32/80 v2_hard_v2_006265.png tp=2 fp=3 fn=3 54.1s
+[baseline] cosmos 33/80 v2_hard_v2_000719.png tp=1 fp=9 fn=9 94.9s
+[baseline] cosmos 34/80 v2_hard_v2_012915.png tp=4 fp=7 fn=6 103.2s
+[baseline] cosmos 35/80 v2_hard_v2_006064.png tp=2 fp=4 fn=5 62.1s
+[baseline] cosmos 36/80 v2_hard_v2_013810.png tp=1 fp=2 fn=10 37.7s
+[baseline] cosmos 37/80 v2_hard_v2_008378.png tp=0 fp=3 fn=13 37.6s
+[baseline] cosmos 38/80 v2_hard_v2_004044.png tp=0 fp=3 fn=10 37.8s
+[baseline] cosmos 39/80 v2_hard_v2_003763.png tp=0 fp=3 fn=10 37.8s
+[baseline] cosmos 40/80 v2_hard_v2_006850.png tp=0 fp=3 fn=12 37.8s
+[baseline] cosmos 41/80 v2_hard_v2_004100.png tp=0 fp=3 fn=4 37.8s
+[baseline] cosmos 42/80 v2_hard_v2_002568.png tp=0 fp=5 fn=4 54.1s
+[baseline] cosmos 43/80 v2_hard_v2_010774.png tp=1 fp=5 fn=4 62.0s
+[baseline] cosmos 44/80 v2_hard_v2_012072.png tp=1 fp=2 fn=12 37.7s
+[baseline] cosmos 45/80 v2_hard_v2_012908.png tp=0 fp=2 fn=3 29.4s
+[baseline] cosmos 46/80 v2_hard_v2_002076.png tp=1 fp=7 fn=9 78.6s
+[baseline] cosmos 47/80 v2_hard_v2_007669.png tp=1 fp=4 fn=7 53.8s
+[baseline] cosmos 48/80 v2_hard_v2_003740.png tp=1 fp=2 fn=10 37.8s
+[baseline] cosmos 49/80 v2_hard_v2_003278.png tp=0 fp=3 fn=10 37.9s
+[baseline] cosmos 50/80 v2_hard_v2_004382.png tp=0 fp=14 fn=14 127.8s
+[baseline] cosmos 51/80 v2_hard_v2_016576.png tp=2 fp=4 fn=8 63.1s
+[baseline] cosmos 52/80 v2_hard_v2_014967.png tp=0 fp=7 fn=8 71.1s
+[baseline] cosmos 53/80 v2_hard_v2_016080.png tp=1 fp=8 fn=8 87.8s
+[baseline] cosmos 54/80 v2_hard_v2_015084.png tp=1 fp=7 fn=9 79.3s
+[baseline] cosmos 55/80 v2_hard_v2_016075.png tp=0 fp=3 fn=8 38.5s
+[baseline] cosmos 56/80 v2_hard_v2_014335.png tp=0 fp=7 fn=8 71.2s
+[baseline] cosmos 57/80 v2_hard_v2_015499.png tp=0 fp=3 fn=10 38.4s
+[baseline] cosmos 58/80 v2_hard_v2_015089.png tp=0 fp=8 fn=7 79.1s
+[baseline] cosmos 59/80 v2_hard_v2_015932.png tp=0 fp=5 fn=4 54.8s
+[baseline] cosmos 60/80 v2_hard_v2_015966.png tp=1 fp=2 fn=8 38.5s
+[baseline] cosmos 61/80 v2_hard_v2_014153.png tp=0 fp=3 fn=2 38.4s
+[baseline] cosmos 62/80 v2_hard_v2_014187.png tp=0 fp=3 fn=9 38.5s
+[baseline] cosmos 63/80 v2_hard_v2_015009.png tp=0 fp=3 fn=8 38.5s
+[baseline] cosmos 64/80 v2_hard_v2_014278.png tp=0 fp=6 fn=7 63.1s
+[baseline] cosmos 65/80 v2_hard_v2_015095.png tp=1 fp=2 fn=8 38.5s
+[baseline] cosmos 66/80 v2_hard_v2_017222.png tp=0 fp=1 fn=1 13.7s
+[baseline] cosmos 67/80 v2_hard_v2_018837.png tp=0 fp=0 fn=0 1.7s
+[baseline] cosmos 68/80 v2_hard_v2_019947.png tp=0 fp=0 fn=2 1.7s
+[baseline] cosmos 69/80 v2_hard_v2_017223.png tp=4 fp=3 fn=4 69.3s
+[baseline] cosmos 70/80 v2_hard_v2_018273.png tp=0 fp=1 fn=3 21.0s
+[baseline] cosmos 71/80 v2_hard_v2_019405.png tp=0 fp=0 fn=0 1.7s
+[baseline] cosmos 72/80 v2_hard_v2_019310.png tp=0 fp=3 fn=6 37.3s
+[baseline] cosmos 73/80 v2_hard_v2_019332.png tp=0 fp=3 fn=2 37.1s
+[baseline] cosmos 74/80 v2_hard_v2_019672.png tp=1 fp=2 fn=5 36.9s
+[baseline] cosmos 75/80 v2_hard_v2_017441.png tp=0 fp=3 fn=2 37.3s
+[baseline] cosmos 76/80 v2_hard_v2_018374.png tp=0 fp=3 fn=6 37.3s
+[baseline] cosmos 77/80 v2_hard_v2_018711.png tp=0 fp=0 fn=1 1.7s
+[baseline] cosmos 78/80 v2_hard_v2_017406.png tp=0 fp=0 fn=1 1.7s
+[baseline] cosmos 79/80 v2_hard_v2_019384.png tp=1 fp=0 fn=0 21.0s
+[baseline] cosmos 80/80 v2_hard_v2_017601.png tp=0 fp=3 fn=5 37.3s

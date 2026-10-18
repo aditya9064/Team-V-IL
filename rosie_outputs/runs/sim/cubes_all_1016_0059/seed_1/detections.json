@@ -1,0 +1,325 @@
+{
+  "objects": [
+    {
+      "label": "clear vial",
+      "category": "vial",
+      "colour": "clear",
+      "center": [
+        0.37315716842810315,
+        0.7232248306274414
+      ],
+      "bbox": [
+        0.3456377605597178,
+        0.6580261654324002,
+        0.40067657629648845,
+        0.7884234958224826
+      ],
+      "confidence": 0.9858,
+      "graspable": true
+    },
+    {
+      "label": "yellow cap",
+      "category": "cap",
+      "colour": "yellow",
+      "center": [
+        0.43688943386077883,
+        0.6772813019929109
+      ],
+      "bbox": [
+        0.42695628801981605,
+        0.6577648021556713,
+        0.44682257970174155,
+        0.6967978018301505
+      ],
+      "confidence": 0.9812,
+      "graspable": true
+    },
+    {
+      "label": "clear vial",
+      "category": "vial",
+      "colour": "clear",
+      "center": [
+        0.506197738647461,
+        0.7080801433987087
+      ],
+      "bbox": [
+        0.4937343915303548,
+        0.6331095236319083,
+        0.518661085764567,
+        0.7830507631655093
+      ],
+      "confidence": 0.9808,
+      "graspable": true
+    },
+    {
+      "label": "yellow cap",
+      "category": "cap",
+      "colour": "yellow",
+      "center": [
+        0.5652718702952068,
+        0.7741794727466724
+      ],
+      "bbox": [
+        0.5543825785319011,
+        0.7531526918764467,
+        0.5761611620585124,
+        0.7952062536168981
+      ],
+      "confidence": 0.9807,
+      "graspable": true
+    },
+    {
+      "label": "yellow cube",
+      "category": "cube",
+      "colour": "yellow",
+      "center": [
+        0.6215304056803386,
+        0.7339467931676794
+      ],
+      "bbox": [
+        0.6165454546610515,
+        0.7249321266456886,
+        0.6265153566996257,
+        0.7429614596896701
+      ],
+      "confidence": 0.9643,
+      "graspable": true,
+      "pose_source": "yolo_box_plus_image_silhouette_fit",
+      "pose_silhouette_iou": 0.9517,
+      "top_edge_endpoints": [
+        [
+          0.61785591224774,
+          0.729200598869255
+        ],
+        [
+          0.621452690733691,
+          0.738646516672325
+        ]
+      ],
+      "pose_confidence": 0.9517,
+      "pose_world": {
+        "position_m": [
+          0.4193881314391121,
+          0.1790753048565586,
+          0.8999
+        ],
+        "yaw_deg": 28.251687690587772,
+        "roll_deg": 0,
+        "pitch_deg": 0,
+        "yaw_symmetry_deg": 90
+      }
+    },
+    {
+      "label": "blue cube",
+      "category": "cube",
+      "colour": "blue",
+      "center": [
+        0.5286938349405924,
+        0.6024059719509549
+      ],
+      "bbox": [
+        0.5244395732879639,
+        0.5935478775589554,
+        0.5329480965932211,
+        0.6112640663429543
+      ],
+      "confidence": 0.9631,
+      "graspable": true,
+      "pose_source": "yolo_box_plus_image_silhouette_fit",
+      "pose_silhouette_iou": 0.9603,
+      "top_edge_endpoints": [
+        [
+          0.5283058067476161,
+          0.5936568936544572
+        ],
+        [
+          0.5249143841319701,
+          0.6003918824909593
+        ]
+      ],
+      "pose_confidence": 0.9603,
+      "pose_world": {
+        "position_m": [
+          0.28777730154551495,
+          0.031533608880764556,
+          0.8999
+        ],
+        "yaw_deg": -37.02471960969635,
+        "roll_deg": 0,
+        "pitch_deg": 0,
+        "yaw_symmetry_deg": 90
+      }
+    },
+    {
+      "label": "red cube",
+      "category": "cube",
+      "colour": "red",
+      "center": [
+        0.6312777519226074,
+        0.5937410142686632
+      ],
+      "bbox": [
+        0.6266286214192708,
+        0.5852939181857639,
+        0.635926882425944,
+        0.6021881103515625
+      ],
+      "confidence": 0.9629,
+      "graspable": true,
+      "pose_source": "yolo_box_plus_image_silhouette_fit",
+      "pose_silhouette_iou": 0.9613,
+      "top_edge_endpoints": [
+        [
+          0.6279468468344284,
+          0.5897036388210312
+        ],
+        [
+          0.6316436296386223,
+          0.5970992490921601
+        ]
+      ],
+      "pose_confidence": 0.9613,
+      "pose_world": {
+        "position_m": [
+          0.2697917350189322,
+          0.21443709171748673,
+          0.8999
+        ],
+        "yaw_deg": 33.27760254292974,
+        "roll_deg": 0,
+        "pitch_deg": 0,
+        "yaw_symmetry_deg": 90
+      }
+    },
+    {
+      "label": "red cube",
+      "category": "cube",
+      "colour": "red",
+      "center": [
+        0.43313700358072915,
+        0.5727625105116102
+      ],
+      "bbox": [
+        0.42911537488301593,
+        0.5643906487358941,
+        0.43715863227844237,
+        0.5811343722873263
+      ],
+      "confidence": 0.962,
+      "graspable": true,
+      "pose_source": "yolo_box_plus_image_silhouette_fit",
+      "pose_silhouette_iou": 0.9588,
+      "top_edge_endpoints": [
+        [
+          0.43185274345245356,
+          0.5645541543546457
+        ],
+        [
+          0.4292853373033148,
+          0.5722726144980133
+        ]
+      ],
+      "pose_confidence": 0.9588,
+      "pose_world": {
+        "position_m": [
+          0.2608196363999079,
+          -0.1375713633637374,
+          0.8999
+        ],
+        "yaw_deg": -21.238853450049547,
+        "roll_deg": 0,
+        "pitch_deg": 0,
+        "yaw_symmetry_deg": 90
+      }
+    },
+    {
+      "label": "blue cube",
+      "category": "cube",
+      "colour": "blue",
+      "center": [
+        0.6048268000284831,
+        0.6528155574092158
+      ],
+      "bbox": [
+        0.6004622141520183,
+        0.6448287116156683,
+        0.6091913859049479,
+        0.6608024032027633
+      ],
+      "confidence": 0.9614,
+      "graspable": true,
+      "pose_source": "yolo_box_plus_image_silhouette_fit",
+      "pose_silhouette_iou": 0.9509,
+      "top_edge_endpoints": [
+        [
+          0.6016824975057156,
+          0.6468557329733418
+        ],
+        [
+          0.6036764431596343,
+          0.6560531609872896
+        ]
+      ],
+      "pose_confidence": 0.9509,
+      "pose_world": {
+        "position_m": [
+          0.3382695434196415,
+          0.16039795341946525,
+          0.8999
+        ],
+        "yaw_deg": 14.055579529433935,
+        "roll_deg": 0,
+        "pitch_deg": 0,
+        "yaw_symmetry_deg": 90
+      }
+    },
+    {
+      "label": "yellow cube",
+      "category": "cube",
+      "colour": "yellow",
+      "center": [
+        0.5541517257690429,
+        0.6758933032000506
+      ],
+      "bbox": [
+        0.5506649017333984,
+        0.668334819652416,
+        0.5576385498046875,
+        0.6834517867476851
+      ],
+      "confidence": 0.9513,
+      "graspable": true,
+      "pose_source": "yolo_box_plus_image_silhouette_fit",
+      "pose_silhouette_iou": 0.962,
+      "top_edge_endpoints": [
+        [
+          0.5515492900891908,
+          0.6683403582089145
+        ],
+        [
+          0.5516490212326369,
+          0.6780520052066265
+        ]
+      ],
+      "pose_confidence": 0.962,
+      "pose_world": {
+        "position_m": [
+          0.3658832181925571,
+          0.0730241966323825,
+          0.8999
+        ],
+        "yaw_deg": -1.3435123243306606,
+        "roll_deg": 0,
+        "pitch_deg": 0,
+        "yaw_symmetry_deg": 90
+      }
+    }
+  ],
+  "bins": [],
+  "model": "YOLO:best.pt",
+  "task": "cube_stack",
+  "timing_s": {
+    "detect": 9.3055,
+    "total": 15.9517
+  }
+}

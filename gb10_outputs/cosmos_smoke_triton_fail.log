@@ -1,0 +1,128 @@
+[perceive] loading Cosmos3-Nano on GPU 0 ...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:20<02:24, 20.62s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:36<01:47, 17.92s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:50<01:21, 16.23s/it]Loading checkpoint shards:  50%|█████     | 4/8 [01:03<00:59, 14.77s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [01:18<00:44, 14.77s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [01:29<00:26, 13.44s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [01:37<00:11, 11.95s/it]Loading checkpoint shards: 100%|██████████| 8/8 [01:46<00:00, 10.79s/it]Loading checkpoint shards: 100%|██████████| 8/8 [01:46<00:00, 13.28s/it]
+[perceive] model ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/backends/nvidia/driver.c:9:10: fatal error: Python.h: No such file or directory
+    9 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+Traceback (most recent call last):
+  File "/home/hackathon1/adaptivevision/cosmos_smoke.py", line 15, in <module>
+    reply = perceive.ask(model, processor, sys.argv[2], perceive.PROMPT)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/fanuc_er4ia_sim/perceive.py", line 614, in ask
+    out = model.generate(
+          ^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/generation/utils.py", line 2564, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/generation/utils.py", line 2784, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/utils/generic.py", line 1064, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 1344, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/utils/generic.py", line 1064, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 1223, in forward
+    outputs = self.language_model(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/utils/generic.py", line 1064, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 846, in forward
+    position_embeddings = self.rotary_emb(hidden_states, position_ids)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/modeling_rope_utils.py", line 87, in wrapper
+    return rope_forward(self, x, position_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 328, in forward
+    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(2, 3)
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/_native/registry.py", line 956, in eager_router
+    result = _dispatch(args, kwargs, swallow_cond_exceptions=False)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/_native/registry.py", line 935, in _dispatch
+    return getattr(torch.ops._native, impl_name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/_ops.py", line 1350, in __call__
+    return self._op(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/_native/ops/bmm_outer_product/triton_impl.py", line 27, in _bmm_outer_product_impl
+    return bmm_outer_product(a, b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/_native/ops/bmm_outer_product/triton_kernels.py", line 87, in bmm_outer_product
+    _bmm_outer_product_kernel[(B * triton.cdiv(M, BLOCK_M) * triton.cdiv(N, BLOCK_N),)](
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/torch/_native/instrumentation.py", line 208, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/jit.py", line 374, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/jit.py", line 731, in run
+    device = driver.active.get_current_device()
+             ^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/driver.py", line 39, in active
+    self._active = self.default
+                   ^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/driver.py", line 33, in default
+    self._default = _create_driver()
+                    ^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/driver.py", line 21, in _create_driver
+    return active_drivers[0]()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/backends/nvidia/driver.py", line 342, in __init__
+    self.utils = CudaUtils()  # TODO: make static
+                 ^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/backends/nvidia/driver.py", line 101, in __init__
+    mod = compile_module_from_file(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/build.py", line 196, in compile_module_from_file
+    return _compile_so_from_file(src_path, name, library_dirs, include_dirs, libraries, ccflags, load_module=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/build.py", line 165, in _compile_so_from_file
+    return _compile_so(src=src, src_path=src_path, name=name, library_dirs=library_dirs, include_dirs=include_dirs,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/build.py", line 149, in _compile_so
+    so = _build(name, src_path, tmpdir, library_dirs or [], include_dirs or [], libraries or [], ccflags or [],
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/runtime/build.py", line 83, in _build
+    subprocess.check_call(cc_cmd, stdout=subprocess.DEVNULL)
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/bin/gcc', '/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/backends/nvidia/driver.c', '-O3', '-shared', '-fPIC', '-Wno-psabi', '-o', '/tmp/tmpaln_xmk8/cuda_utils.cpython-312-aarch64-linux-gnu.so', '-l:libcuda.so.1', '-L/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/backends/nvidia/lib', '-L/lib/aarch64-linux-gnu', '-I/home/hackathon1/adaptivevision/envs/cosmos/lib/python3.12/site-packages/triton/backends/nvidia/include', '-I/tmp/tmpaln_xmk8', '-I/usr/include/python3.12']' returned non-zero exit status 1.

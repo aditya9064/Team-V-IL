@@ -1,0 +1,1 @@
+snapshot of cubes_v2 best.pt taken Fri Oct 16 05:58:26 PM CDT 2026 at epoch 102 (mAP50-95 0.968, flat since ~epoch 70)

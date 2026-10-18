@@ -1,0 +1,1183 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Robot Pick Cell Twin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-screen control-room HMI. 3D cell on the left, teach-pendant style panel on the right; stacks on phones. */
+:root {
+  --bg: #e3e7ec; --surface: #f6f8fa; --surface-2: #e9edf1; --ink: #17202a; --muted: #566273; --line: #c6ced8;
+  --accent: #d9a300; --accent-ink: #1b1400; --accent-soft: #f5e6ad;
+  --ok: #1d7f48; --warn: #b26a00; --stop: #c4291f; --on-signal: #ffffff;
+  --scene: #d8dee5; --floor: #c2c9d2; --grid: #a3adba;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1318; --surface: #161c23; --surface-2: #1d252e; --ink: #e2e7ee; --muted: #8e9aaa; --line: #2a333e;
+    --accent: #f2c200; --accent-ink: #1b1400; --accent-soft: #3a3110;
+    --ok: #3cc070; --warn: #f0a52a; --stop: #ff5b50; --on-signal: #ffffff;
+    --scene: #121820; --floor: #19202a; --grid: #2b3541;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1318; --surface: #161c23; --surface-2: #1d252e; --ink: #e2e7ee; --muted: #8e9aaa; --line: #2a333e;
+  --accent: #f2c200; --accent-ink: #1b1400; --accent-soft: #3a3110;
+  --ok: #3cc070; --warn: #f0a52a; --stop: #ff5b50; --on-signal: #ffffff;
+  --scene: #121820; --floor: #19202a; --grid: #2b3541;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.45 var(--body); }
+* { box-sizing: border-box; }
+h1, h2, p, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.app {
+  display: grid; grid-template-columns: minmax(0, 1fr) 384px; grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px; height: 100%; padding-inline: 16px; padding-block: 12px;
+}
+.top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; margin-right: auto; }
+.mark { width: 34px; height: 34px; border-radius: 6px; background: var(--accent); position: relative; flex: none; }
+.mark::before, .mark::after { content: ""; position: absolute; background: var(--accent-ink); border-radius: 2px; }
+.mark::before { left: 9px; top: 7px; width: 5px; height: 20px; transform: rotate(-18deg); }
+.mark::after { left: 13px; top: 8px; width: 15px; height: 5px; transform: rotate(14deg); }
+h1 { font: 700 24px/1.05 var(--display); letter-spacing: .01em; text-transform: uppercase; text-wrap: balance; }
+.sub { color: var(--muted); font-size: 13px; }
+.status { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font: 600 13px/1 var(--display); letter-spacing: .07em; text-transform: uppercase; padding: 7px 10px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); white-space: nowrap; }
+.chip::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; background: var(--muted); vertical-align: 0; }
+.chip.ok::before { background: var(--ok); }
+.chip.warn { border-color: var(--warn); } .chip.warn::before { background: var(--warn); }
+.chip.stop { border-color: var(--stop); color: var(--stop); } .chip.stop::before { background: var(--stop); }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.btn { font: 600 14px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; padding: 9px 13px; border-radius: 5px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+.btn:hover:not(:disabled) { border-color: var(--muted); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.btn.estop { background: var(--stop); border-color: var(--stop); color: var(--on-signal); }
+.override { display: flex; align-items: center; gap: 8px; font: 600 13px var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.override output { font: 500 13px var(--mono); color: var(--ink); min-width: 4ch; text-align: right; }
+input[type="range"] { accent-color: var(--accent); }
+.override input { width: 110px; }
+
+.stage { position: relative; min-height: 0; min-width: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--scene); }
+#view { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.tags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.tag { position: absolute; left: 0; top: 0; transform: translate(-50%, -135%); font: 500 11px/1 var(--mono); padding: 4px 6px; border-radius: 3px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); white-space: nowrap; opacity: .92; }
+.tag::after { content: ""; position: absolute; left: 50%; bottom: -6px; width: 1px; height: 6px; background: var(--muted); }
+.views { position: absolute; top: 10px; right: 10px; display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 20px); }
+.views .btn { padding: 7px 10px; font-size: 13px; background: var(--surface); }
+.banner { position: absolute; top: 10px; left: 10px; max-width: min(460px, calc(100% - 20px)); padding: 9px 12px; border-radius: 6px; font: 600 15px/1.25 var(--display); letter-spacing: .03em; color: var(--on-signal); background: var(--stop); }
+.banner.warn { background: var(--warn); }
+.banner small { display: block; font: 400 13px/1.35 var(--body); letter-spacing: 0; margin-top: 2px; }
+.inset { position: absolute; left: 10px; bottom: 10px; width: clamp(150px, 32%, 300px); aspect-ratio: 4 / 3; max-width: 100%; border-radius: 6px; outline: 1px solid var(--line); overflow: hidden; }
+.inset canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.inset figcaption { position: absolute; left: 0; right: 0; bottom: 0; font: 500 10px/1 var(--mono); padding: 5px 7px; background: rgba(10, 14, 18, .62); color: #e8edf2; letter-spacing: .04em; }
+.hint { position: absolute; right: 10px; bottom: 10px; font: 400 12px var(--body); color: var(--muted); background: var(--surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--line); }
+
+.panel { min-height: 0; min-width: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-bottom: 4px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; min-width: 0; }
+.card h2 { font: 600 13px/1 var(--display); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; justify-content: space-between; gap: 8px; }
+.card h2 .mono { font: 500 11px var(--mono); letter-spacing: 0; text-transform: none; }
+.now-title { font: 700 22px/1.1 var(--display); letter-spacing: .01em; text-wrap: balance; }
+.now-text { margin-top: 6px; color: var(--ink); max-width: 62ch; }
+.phases { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; margin-top: 12px; }
+.phases li { font: 600 11px/1.15 var(--display); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); padding-top: 7px; border-top: 3px solid var(--line); }
+.phases li.done { border-top-color: var(--muted); }
+.phases li.current { border-top-color: var(--accent); color: var(--ink); }
+
+.tp { position: relative; max-height: 236px; overflow: auto; font: 400 12px/1.6 var(--mono); background: var(--surface-2); border-radius: 5px; padding-block: 4px; }
+.tp li { display: grid; grid-template-columns: 3.2ch minmax(0, 1fr); gap: 6px; padding-inline: 8px; white-space: pre; }
+.tp li .ln { color: var(--muted); text-align: right; }
+.tp li.current { background: var(--accent-soft); }
+.tp li.current .ln { color: var(--ink); font-weight: 500; }
+
+.joints { display: grid; gap: 6px; }
+.joint { display: grid; grid-template-columns: 2.4ch minmax(0, 1fr) 8ch; align-items: center; gap: 10px; font: 500 12px var(--mono); }
+.joint label { font: 600 14px var(--display); }
+.joint input { width: 100%; }
+.joint output { text-align: right; font-variant-numeric: tabular-nums; }
+.readout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 12px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.readout div { display: flex; justify-content: space-between; gap: 6px; font: 400 12px var(--mono); font-variant-numeric: tabular-nums; }
+.readout dt { color: var(--muted); }
+.note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+.kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px 14px; font-size: 13px; }
+.kv dt { color: var(--muted); }
+.kv dd { font: 400 12.5px/1.45 var(--mono); text-align: right; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.pill { display: inline-block; font: 600 12px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; padding: 4px 7px; border-radius: 3px; color: var(--on-signal); }
+.pill.ok { background: var(--ok); } .pill.stop { background: var(--stop); }
+.empty { color: var(--muted); font-size: 13px; }
+
+.io { display: grid; gap: 6px; }
+.io li { display: grid; grid-template-columns: 12px 7ch minmax(0, 1fr); align-items: center; gap: 8px; font-size: 13px; }
+.io .led { width: 10px; height: 10px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--line); }
+.io li.on .led { background: var(--ok); border-color: var(--ok); }
+.io li.on.alarm .led { background: var(--stop); border-color: var(--stop); }
+.io .addr { font: 500 12px var(--mono); }
+.io .desc { color: var(--muted); min-width: 0; }
+.io li.on .desc { color: var(--ink); }
+
+.bins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.bins div { background: var(--surface-2); border-radius: 5px; padding: 8px; display: grid; gap: 2px; }
+.bins span { font: 600 11px var(--display); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+.bins i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.bins b { font: 600 22px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.stats div { display: grid; gap: 1px; }
+.stats dt { color: var(--muted); font-size: 12px; }
+.stats dd { font: 500 14px var(--mono); font-variant-numeric: tabular-nums; }
+
+.log { max-height: 190px; overflow: auto; font: 400 12px/1.5 var(--mono); display: grid; gap: 2px; }
+.log li { display: grid; grid-template-columns: 7ch minmax(0, 1fr); gap: 8px; }
+.log time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.log li.warn span { color: var(--warn); }
+.log li.stop span { color: var(--stop); }
+.legal { color: var(--muted); font-size: 12px; padding-inline: 2px; }
+
+@media (max-width: 960px) {
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; height: auto; }
+  .stage { height: 64vh; min-height: 360px; }
+  .panel { overflow: visible; }
+}
+@media (max-width: 520px) {
+  h1 { font-size: 20px; }
+  .override input { width: 90px; }
+  .views .btn { padding: 6px 8px; font-size: 12px; }
+  .hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <h1>Robot Pick Cell Twin</h1>
+        <p class="sub">FANUC-style 6-axis arm · vision sorting · area-scanner safety · simulated</p>
+      </div>
+    </div>
+    <div class="status">
+      <span class="chip ok" id="chipMode">Auto · Run</span>
+      <span class="chip ok" id="chipSafety">Scanner clear</span>
+    </div>
+    <div class="controls">
+      <button class="btn primary" id="btnHold" type="button">Hold</button>
+      <button class="btn" id="btnJog" type="button" aria-pressed="false">Jog</button>
+      <button class="btn" id="btnOperator" type="button">Send operator in</button>
+      <button class="btn estop" id="btnEstop" type="button">E-stop</button>
+      <label class="override" for="ovr">Override <input type="range" id="ovr" min="5" max="100" step="5" value="50"><output id="ovrOut" for="ovr">50%</output></label>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <canvas id="view" aria-label="3D view of the robot cell"></canvas>
+    <div class="tags" id="tags"></div>
+    <div class="banner" id="banner" hidden></div>
+    <div class="views" role="group" aria-label="Camera view">
+      <button class="btn" type="button" data-view="cell" aria-pressed="true">Cell</button>
+      <button class="btn" type="button" data-view="pick" aria-pressed="false">Pick area</button>
+      <button class="btn" type="button" data-view="top" aria-pressed="false">Top</button>
+      <button class="btn" type="button" data-view="tool" aria-pressed="false">Follow tool</button>
+      <button class="btn" type="button" id="btnTags" aria-pressed="true">Labels</button>
+    </div>
+    <figure class="inset" id="inset">
+      <canvas id="insetOverlay"></canvas>
+      <figcaption>VISION CAM · overhead · what the robot sees</figcaption>
+    </figure>
+    <p class="hint">Drag to orbit · scroll or pinch to zoom</p>
+  </main>
+
+  <aside class="panel" aria-label="Controller state">
+    <section class="card">
+      <h2>Right now</h2>
+      <p class="now-title" id="nowTitle">Starting up</p>
+      <p class="now-text" id="nowText"></p>
+      <ol class="phases" id="phases"></ol>
+    </section>
+    <section class="card">
+      <h2>Program <span class="mono">PICK_SORT.TP</span></h2>
+      <ol class="tp" id="tp"></ol>
+    </section>
+    <section class="card">
+      <h2>Joints <span class="mono" id="speedOut">speed 50%</span></h2>
+      <div class="joints" id="joints"></div>
+      <dl class="readout" id="tcp"></dl>
+      <p class="note" id="jogNote">Press Jog to drag each axis by hand (teach mode).</p>
+    </section>
+    <section class="card">
+      <h2>Vision result <span class="mono" id="visCount">0 images</span></h2>
+      <div id="vision"><p class="empty">No image yet. The camera fires when a part stops under it.</p></div>
+    </section>
+    <section class="card">
+      <h2>Signals</h2>
+      <ul class="io" id="io"></ul>
+    </section>
+    <section class="card">
+      <h2>Production</h2>
+      <div class="bins" id="bins"></div>
+      <dl class="stats">
+        <div><dt>Cycles</dt><dd id="stCycles">0</dd></div>
+        <div><dt>Last cycle</dt><dd id="stLast">–</dd></div>
+        <div><dt>Rate</dt><dd id="stRate">–</dd></div>
+      </dl>
+    </section>
+    <section class="card">
+      <h2>Event log</h2>
+      <ol class="log" id="log"></ol>
+    </section>
+    <p class="legal">Illustrative simulation of a generic 6-axis industrial arm. Not affiliated with or endorsed by FANUC. Dimensions approximate a 20 kg-class robot.</p>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(() => {
+'use strict';
+
+// ---------- constants ----------
+const DEG = Math.PI / 180;
+const R = { d1: 0.525, a1: 0.15, L2: 0.79, L3: 0.835, flange: 0.10, grip: 0.16 };
+R.tool = R.flange + R.grip;
+const LIMITS = [[-170, 170], [-100, 160], [-185, 273], [-200, 200], [-140, 140], [-450, 450]];
+const VMAX = [165, 165, 175, 350, 340, 520];
+const HOME = [-40, 0, 0, 0, -90, 0].map(d => d * DEG);
+const BELT = { y: 0.78, z: 1.1, x0: -2.6, x1: 1.2, width: 0.5, speed: 0.28 };
+const PICK_X = 0.35, BEAM_X = 0.40, BIN_Z = -1.05, BIN_FLOOR = 0.23;
+const PART = { lx: 0.10, ly: 0.07, lz: 0.06 };
+const STOP_R = 1.9, WARN_R = 2.6, FENCE = 3.0;
+const TYPES = [
+  { id: 'RED_BLOCK', bin: 1, color: 0xd4463a },
+  { id: 'BLUE_BLOCK', bin: 2, color: 0x2f6bd0 },
+  { id: 'GREEN_BLOCK', bin: 3, color: 0x2f9a58 },
+];
+const BINS = [
+  { name: 'Reject', x: -0.9, color: 0x3b4049, css: '#3b4049' },
+  { name: 'Red', x: -0.3, color: 0xc9473c, css: '#c9473c' },
+  { name: 'Blue', x: 0.3, color: 0x2f68c8, css: '#2f68c8' },
+  { name: 'Green', x: 0.9, color: 0x2f9457, css: '#2f9457' },
+].map(b => ({ ...b, count: 0, items: [] }));
+
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const ease = s => s * s * (3 - 2 * s);
+const gauss = () => { let u = 0; while (!u) u = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * Math.random()); };
+const wrapHalfPi = a => { const p = Math.PI; return ((a + p / 2) % p + p) % p - p / 2; };
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---------- renderer / scene ----------
+const stage = document.getElementById('stage');
+const canvas = document.getElementById('view');
+const insetEl = document.getElementById('inset');
+const ov = document.getElementById('insetOverlay');
+const octx = ov.getContext('2d');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0xffffff, 10, 22);
+const camera = new THREE.PerspectiveCamera(42, 1, 0.05, 60);
+camera.layers.enable(1);
+camera.position.set(3.9, 2.9, 3.9);
+const controls = new THREE.OrbitControls(camera, canvas);
+controls.target.set(-0.3, 0.6, 0);
+controls.enableDamping = true;
+controls.maxPolarAngle = Math.PI * 0.495;
+controls.minDistance = 0.8;
+controls.maxDistance = 13;
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0x4a5563, 0.7));
+const sun = new THREE.DirectionalLight(0xffffff, 0.85);
+sun.position.set(3, 6.5, 2.5);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -4.5, right: 4.5, top: 4.5, bottom: -4.5, near: 1, far: 16 });
+sun.shadow.bias = -0.0006;
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0xdfe8ff, 0.25);
+fill.position.set(-4, 3, -3);
+scene.add(fill);
+
+const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0.1, ...o });
+const M = {
+  yellow: mat(0xf2c300, { roughness: 0.42 }),
+  dark: mat(0x2a2f37, { roughness: 0.6, metalness: 0.3 }),
+  steel: mat(0xa3acb6, { roughness: 0.32, metalness: 0.65 }),
+  black: mat(0x14171b, { roughness: 0.85 }),
+  frame: mat(0x59636f, { roughness: 0.5, metalness: 0.4 }),
+};
+const box = (x, y, z) => new THREE.BoxGeometry(x, y, z);
+const cyl = (r, h, seg = 28) => new THREE.CylinderGeometry(r, r, h, seg);
+const AX_Z = [Math.PI / 2, 0, 0], AX_X = [0, 0, Math.PI / 2];
+function mesh(geo, material, parent, pos, rot) {
+  const m = new THREE.Mesh(geo, material);
+  m.castShadow = true; m.receiveShadow = true;
+  if (pos) m.position.set(pos[0], pos[1], pos[2]);
+  if (rot) m.rotation.set(rot[0], rot[1], rot[2]);
+  parent.add(m);
+  return m;
+}
+function canvasTexture(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  draw(c.getContext('2d'), w, h);
+  const t = new THREE.CanvasTexture(c);
+  t.redraw = () => { draw(c.getContext('2d'), w, h); t.needsUpdate = true; };
+  return t;
+}
+
+// ---------- floor, fence, safety zones ----------
+const floorMat = mat(0xc2c9d2, { roughness: 0.95, metalness: 0 });
+const floor = mesh(new THREE.PlaneGeometry(16, 16), floorMat, scene, [0, 0, 0], [-Math.PI / 2, 0, 0]);
+floor.castShadow = false;
+const grid = new THREE.GridHelper(16, 32, 0xa3adba, 0xa3adba);
+grid.position.y = 0.002; grid.material.transparent = true; grid.material.opacity = 0.55;
+scene.add(grid);
+
+const meshTex = canvasTexture(64, 64, (g, w, h) => {
+  g.clearRect(0, 0, w, h);
+  g.strokeStyle = 'rgba(70,80,92,0.9)'; g.lineWidth = 3;
+  g.strokeRect(0, 0, w, h);
+});
+meshTex.wrapS = meshTex.wrapT = THREE.RepeatWrapping;
+meshTex.repeat.set(9, 14);
+const fenceMat = new THREE.MeshStandardMaterial({ color: 0x8a96a3, map: meshTex, transparent: true, opacity: 0.55, side: THREE.DoubleSide, depthWrite: false });
+const FH = 1.7;
+function fenceRun(x1, z1, x2, z2) {
+  const len = Math.hypot(x2 - x1, z2 - z1), n = Math.max(1, Math.round(len)), ang = Math.atan2(-(z2 - z1), x2 - x1);
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    mesh(box(0.05, FH, 0.05), M.frame, scene, [x1 + (x2 - x1) * t, FH / 2, z1 + (z2 - z1) * t]);
+  }
+  for (let i = 0; i < n; i++) {
+    const t = (i + 0.5) / n, seg = len / n;
+    const p = mesh(new THREE.PlaneGeometry(seg - 0.05, FH - 0.2), fenceMat, scene, [x1 + (x2 - x1) * t, FH / 2 + 0.05, z1 + (z2 - z1) * t], [0, ang, 0]);
+    p.castShadow = false;
+    mesh(box(seg, 0.04, 0.03), M.yellow, scene, [x1 + (x2 - x1) * t, FH - 0.02, z1 + (z2 - z1) * t], [0, ang, 0]);
+  }
+}
+fenceRun(-FENCE, -FENCE, FENCE, -FENCE);
+fenceRun(FENCE, -FENCE, FENCE, FENCE);
+fenceRun(FENCE, FENCE, -FENCE, FENCE);
+fenceRun(-FENCE, FENCE, -FENCE, 0.6);
+fenceRun(-FENCE, -1.4, -FENCE, -FENCE);
+const hazardTex = canvasTexture(64, 64, (g, w, h) => {
+  g.fillStyle = '#f2c300'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#16191d';
+  for (let i = -w; i < w * 2; i += 32) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i + 16, 0); g.lineTo(i + 16 - h, h); g.lineTo(i - h, h); g.fill(); }
+});
+hazardTex.wrapS = hazardTex.wrapT = THREE.RepeatWrapping; hazardTex.repeat.set(1, 8);
+const gateStripe = mesh(new THREE.PlaneGeometry(0.22, 2.0), new THREE.MeshStandardMaterial({ map: hazardTex, roughness: 0.9 }), scene, [-FENCE, 0.004, -0.4], [-Math.PI / 2, 0, 0]);
+gateStripe.castShadow = false;
+
+function zoneMat(color, opacity) { return new THREE.MeshBasicMaterial({ color, transparent: true, opacity, depthWrite: false, side: THREE.DoubleSide }); }
+const warnZoneMat = zoneMat(0xf0a52a, 0.08), stopZoneMat = zoneMat(0xff4a3d, 0.07);
+const warnZone = new THREE.Mesh(new THREE.RingGeometry(STOP_R, WARN_R, 72), warnZoneMat);
+const stopZone = new THREE.Mesh(new THREE.CircleGeometry(STOP_R, 72), stopZoneMat);
+for (const z of [warnZone, stopZone]) { z.rotation.x = -Math.PI / 2; z.position.y = 0.005; z.layers.set(1); scene.add(z); }
+function circleLine(r, color) {
+  const pts = []; for (let i = 0; i <= 96; i++) { const a = i / 96 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * r, 0.007, Math.sin(a) * r)); }
+  const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.8 }));
+  l.layers.set(1); scene.add(l); return l;
+}
+circleLine(WARN_R, 0xe09a20); circleLine(STOP_R, 0xe0453a);
+const scanner = new THREE.Group(); scanner.position.set(-0.42, 0, 0.32); scene.add(scanner);
+mesh(box(0.12, 0.13, 0.12), M.yellow, scanner, [0, 0.065, 0]);
+mesh(cyl(0.05, 0.05), M.black, scanner, [0, 0.15, 0]);
+
+// ---------- robot ----------
+const robot = new THREE.Group(); scene.add(robot);
+mesh(box(0.72, 0.04, 0.72), M.dark, robot, [0, 0.02, 0]);
+mesh(cyl(0.27, 0.16), M.yellow, robot, [0, 0.12, 0]);
+const j1 = new THREE.Group(); j1.position.y = 0.2; robot.add(j1);
+mesh(cyl(0.25, 0.12), M.yellow, j1, [0, 0.06, 0]);
+mesh(box(0.38, 0.26, 0.36), M.yellow, j1, [0.06, 0.24, 0]);
+mesh(cyl(0.07, 0.18), M.dark, j1, [-0.17, 0.26, 0.12]);
+const j2 = new THREE.Group(); j2.position.set(R.a1, R.d1 - 0.2, 0); j1.add(j2);
+mesh(cyl(0.14, 0.30), M.yellow, j2, [0, 0, 0], AX_Z);
+mesh(cyl(0.085, 0.12), M.dark, j2, [0, 0, 0.21], AX_Z);
+mesh(box(0.17, R.L2, 0.2), M.yellow, j2, [0, R.L2 / 2, 0]);
+const j3 = new THREE.Group(); j3.position.set(0, R.L2, 0); j2.add(j3);
+mesh(cyl(0.12, 0.27), M.yellow, j3, [0, 0, 0], AX_Z);
+mesh(cyl(0.07, 0.1), M.dark, j3, [0, 0, -0.18], AX_Z);
+mesh(box(0.36, 0.2, 0.22), M.yellow, j3, [0.02, 0, 0]);
+mesh(cyl(0.06, 0.14), M.dark, j3, [-0.22, 0, 0], AX_X);
+const j4 = new THREE.Group(); j4.position.set(0.2, 0, 0); j3.add(j4);
+const tubeLen = R.L3 - 0.2 - 0.06;
+mesh(cyl(0.07, tubeLen), M.yellow, j4, [tubeLen / 2, 0, 0], AX_X);
+mesh(box(0.12, 0.12, 0.025), M.yellow, j4, [R.L3 - 0.22, 0, 0.066]);
+mesh(box(0.12, 0.12, 0.025), M.yellow, j4, [R.L3 - 0.22, 0, -0.066]);
+const j5 = new THREE.Group(); j5.position.set(R.L3 - 0.2, 0, 0); j4.add(j5);
+mesh(cyl(0.055, 0.105), M.dark, j5, [0, 0, 0], AX_Z);
+mesh(cyl(0.048, 0.08), M.yellow, j5, [0.05, 0, 0], AX_X);
+const j6 = new THREE.Group(); j6.position.set(R.flange, 0, 0); j5.add(j6);
+mesh(cyl(0.052, 0.02), M.steel, j6, [0.01, 0, 0], AX_X);
+mesh(box(0.06, 0.08, 0.17), M.dark, j6, [0.05, 0, 0]);
+const fingerA = mesh(box(0.11, 0.045, 0.016), M.steel, j6, [0.135, 0, 0.07]);
+const fingerB = mesh(box(0.11, 0.045, 0.016), M.steel, j6, [0.135, 0, -0.07]);
+const tcp = new THREE.Object3D(); tcp.position.set(R.grip, 0, 0); j6.add(tcp);
+const FINGER_OPEN = 0.07, FINGER_CLOSED = PART.lz / 2 + 0.008;
+
+function applyJoints(q) {
+  j1.rotation.y = q[0];
+  j2.rotation.z = -q[1];
+  j3.rotation.z = q[2] + q[1];
+  j4.rotation.x = q[3];
+  j5.rotation.z = q[4];
+  j6.rotation.x = q[5];
+}
+
+// Analytic IK for a top-down grasp: J1 aims the arm, J2/J3 solve a planar
+// two-link triangle to the wrist centre, J5 keeps the tool vertical, J6 matches the part's yaw.
+function ik(p) {
+  const wx = p.x, wy = p.y + R.tool, wz = p.z;
+  const t1 = Math.atan2(-wz, wx);
+  const dx = Math.hypot(wx, wz) - R.a1, dy = wy - R.d1;
+  const D = Math.min(Math.hypot(dx, dy), R.L2 + R.L3 - 1e-4);
+  const cosA = (R.L2 * R.L2 + D * D - R.L3 * R.L3) / (2 * R.L2 * D);
+  const u = Math.atan2(dy, dx) + Math.acos(clamp(cosA, -1, 1));
+  const ex = R.L2 * Math.cos(u), ey = R.L2 * Math.sin(u);
+  const psi = Math.atan2(dy - ey, dx - ex);
+  return [t1, Math.PI / 2 - u, psi, 0, -Math.PI / 2 - psi, wrapHalfPi(t1 - p.yaw)];
+}
+
+// ---------- conveyor ----------
+const beltLen = BELT.x1 - BELT.x0, beltCx = (BELT.x0 + BELT.x1) / 2;
+const conveyor = new THREE.Group(); scene.add(conveyor);
+mesh(box(beltLen + 0.1, 0.1, BELT.width + 0.08), M.frame, conveyor, [beltCx, BELT.y - 0.06, BELT.z]);
+for (let x = BELT.x0 + 0.2; x < BELT.x1; x += 0.9) {
+  for (const s of [-1, 1]) mesh(box(0.05, BELT.y - 0.1, 0.05), M.frame, conveyor, [x, (BELT.y - 0.1) / 2, BELT.z + s * (BELT.width / 2)]);
+}
+for (const s of [-1, 1]) mesh(box(beltLen, 0.05, 0.02), M.steel, conveyor, [beltCx, BELT.y + 0.02, BELT.z + s * (BELT.width / 2 + 0.03)]);
+const TILE = 0.2;
+const beltTex = canvasTexture(64, 64, (g, w, h) => {
+  g.fillStyle = '#2b3036'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#383e46'; g.fillRect(0, 0, 10, h);
+});
+beltTex.wrapS = beltTex.wrapT = THREE.RepeatWrapping; beltTex.repeat.set(beltLen / TILE, 1);
+const beltTop = mesh(new THREE.PlaneGeometry(beltLen, BELT.width), new THREE.MeshStandardMaterial({ map: beltTex, roughness: 0.9 }), conveyor, [beltCx, BELT.y + 0.001, BELT.z], [-Math.PI / 2, 0, 0]);
+beltTop.castShadow = false;
+const rollers = [BELT.x0, BELT.x1].map(x => {
+  const g = new THREE.Group(); g.position.set(x, BELT.y - 0.03, BELT.z); conveyor.add(g);
+  mesh(cyl(0.035, BELT.width + 0.02), M.steel, g, [0, 0, 0], AX_Z);
+  mesh(box(0.012, 0.072, 0.03), M.dark, g, [0, 0, BELT.width / 2 + 0.01]);
+  return g;
+});
+const motor = mesh(box(0.2, 0.16, 0.16), M.dark, conveyor, [BELT.x0 + 0.1, BELT.y - 0.18, BELT.z - BELT.width / 2 - 0.12]);
+motor.castShadow = true;
+
+// photo-eye
+const eyeLed = new THREE.MeshStandardMaterial({ color: 0x334033, emissive: 0x000000 });
+for (const s of [-1, 1]) {
+  mesh(box(0.03, 0.14, 0.03), M.frame, scene, [BEAM_X, BELT.y + 0.07, BELT.z + s * 0.34]);
+  mesh(box(0.05, 0.05, 0.04), s < 0 ? M.dark : M.steel, scene, [BEAM_X, BELT.y + 0.12, BELT.z + s * 0.34]);
+}
+mesh(box(0.02, 0.02, 0.01), eyeLed, scene, [BEAM_X, BELT.y + 0.15, BELT.z - 0.34]);
+const beamMat = new THREE.LineBasicMaterial({ color: 0xff3b30, transparent: true, opacity: 0.6 });
+const beam = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(BEAM_X, BELT.y + 0.035, BELT.z - 0.32), new THREE.Vector3(BEAM_X, BELT.y + 0.035, BELT.z + 0.32)]), beamMat);
+beam.layers.set(1); scene.add(beam);
+
+// vision camera on a stand
+const CAM_Y = 1.92;
+const stand = new THREE.Group(); scene.add(stand);
+mesh(box(0.06, CAM_Y + 0.12, 0.06), M.frame, stand, [PICK_X, (CAM_Y + 0.12) / 2, BELT.z + 0.62]);
+mesh(box(0.05, 0.05, 0.66), M.frame, stand, [PICK_X, CAM_Y + 0.1, BELT.z + 0.3]);
+mesh(box(0.12, 0.1, 0.14), M.dark, stand, [PICK_X, CAM_Y + 0.02, BELT.z]);
+mesh(cyl(0.03, 0.06), M.black, stand, [PICK_X, CAM_Y - 0.06, BELT.z]);
+const ringMat = new THREE.MeshStandardMaterial({ color: 0xdfe6ee, emissive: 0xffffff, emissiveIntensity: 0.05 });
+mesh(new THREE.TorusGeometry(0.06, 0.012, 10, 32), ringMat, stand, [PICK_X, CAM_Y - 0.08, BELT.z], [Math.PI / 2, 0, 0]);
+const visionCam = new THREE.PerspectiveCamera(36, 4 / 3, 0.1, 10);
+visionCam.position.set(PICK_X, CAM_Y - 0.09, BELT.z);
+visionCam.up.set(0, 0, -1);
+visionCam.lookAt(PICK_X, BELT.y, BELT.z);
+visionCam.updateMatrixWorld(); visionCam.updateProjectionMatrix();
+const frustumMat = new THREE.LineBasicMaterial({ color: 0x3fa8ff, transparent: true, opacity: 0.45 });
+{
+  const corners = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([nx, ny]) => {
+    const v = new THREE.Vector3(nx, ny, 0.5).unproject(visionCam).sub(visionCam.position);
+    return visionCam.position.clone().addScaledVector(v, (BELT.y + 0.002 - visionCam.position.y) / v.y);
+  });
+  const pts = [];
+  corners.forEach((c, i) => { pts.push(visionCam.position, c, c, corners[(i + 1) % 4]); });
+  const fr = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), frustumMat);
+  fr.layers.set(1); scene.add(fr);
+}
+
+// sort bins
+function labelTex(text, bg) {
+  return canvasTexture(256, 96, (g, w, h) => {
+    g.fillStyle = bg; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#ffffff'; g.font = '600 58px "Barlow Condensed", "Arial Narrow", sans-serif';
+    g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text.toUpperCase(), w / 2, h / 2 + 3);
+  });
+}
+const binLabels = [];
+for (const b of BINS) {
+  const g = new THREE.Group(); g.position.set(b.x, 0, BIN_Z); scene.add(g);
+  const wall = mat(b.color, { roughness: 0.7 });
+  mesh(box(0.44, 0.2, 0.36), M.frame, g, [0, 0.1, 0]);
+  mesh(box(0.42, 0.02, 0.34), wall, g, [0, 0.22, 0]);
+  for (const s of [-1, 1]) {
+    mesh(box(0.42, 0.28, 0.015), wall, g, [0, 0.36, s * 0.1625]);
+    mesh(box(0.015, 0.28, 0.34), wall, g, [s * 0.2025, 0.36, 0]);
+  }
+  const t = labelTex(b.name, b.css); binLabels.push(t);
+  const plate = mesh(new THREE.PlaneGeometry(0.3, 0.11), new THREE.MeshBasicMaterial({ map: t }), g, [0, 0.38, 0.172]);
+  plate.castShadow = false;
+}
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => binLabels.forEach(t => t.redraw())).catch(err => console.warn('Font load failed; bin labels use fallback face', err));
+
+// operator
+function buildPerson() {
+  const g = new THREE.Group();
+  const vest = mat(0xff7a1a), skin = mat(0xc99a78), pants = mat(0x2d3a4f), hat = mat(0xf4f4f0);
+  const legs = [];
+  for (const sx of [-0.09, 0.09]) {
+    const hip = new THREE.Group(); hip.position.set(sx, 0.86, 0); g.add(hip);
+    mesh(box(0.13, 0.84, 0.15), pants, hip, [0, -0.42, 0]);
+    legs.push(hip);
+  }
+  mesh(box(0.42, 0.58, 0.24), vest, g, [0, 1.16, 0]);
+  mesh(box(0.43, 0.05, 0.25), mat(0xd9e0e6, { emissive: 0x333333 }), g, [0, 1.04, 0]);
+  for (const sx of [-0.26, 0.26]) mesh(box(0.1, 0.55, 0.12), vest, g, [sx, 1.14, 0]);
+  mesh(new THREE.SphereGeometry(0.11, 20, 16), skin, g, [0, 1.58, 0]);
+  mesh(new THREE.SphereGeometry(0.128, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), hat, g, [0, 1.62, 0]);
+  g.userData.legs = legs;
+  return g;
+}
+const person = buildPerson(); person.visible = false; scene.add(person);
+
+// ---------- simulation state ----------
+const state = { q: HOME.slice(), pose: null, grip: 1 };
+const io = { DI1: false, DO2: true, RO1: false, RI1: false };
+const safety = { zone: 'clear', dist: Infinity, factor: 1 };
+const vision = { result: null, count: 0, snapping: false, scan: 0, flash: 0 };
+const prog = { line: 0, step: null, held: false, recovery: null, heldQ: null, heldPose: null, jogged: false, bin: 0, cycleStart: null, cycles: 0, times: [] };
+const belt = [], falling = [];
+let held = null, estop = false, jog = false, override = 50, simTime = 0, partSeq = 0;
+const logs = []; let logDirty = true;
+function log(text, kind = '') { logs.unshift({ t: simTime, text, kind }); if (logs.length > 40) logs.pop(); logDirty = true; }
+
+// ---------- program steps ----------
+const instant = fn => ({ start() { if (fn) fn(); }, update() { return true; } });
+const waitFor = cond => ({ update() { return cond(); } });
+const delay = sec => { let t = 0; return { update(dt) { t += dt; return t >= sec; } }; };
+function moveJ(getTarget, pct) {
+  let q0, q1, T, t = 0;
+  return {
+    start() {
+      q0 = state.q.slice();
+      const tg = getTarget();
+      if (Array.isArray(tg)) { q1 = tg.slice(); state.pose = null; } else { q1 = ik(tg); this.pose = tg; }
+      T = Math.max(0.4, ...q1.map((v, i) => Math.abs(v - q0[i]) / (VMAX[i] * DEG * pct))) * 1.6;
+    },
+    update(dt) {
+      t += dt; const s = ease(Math.min(1, t / T));
+      for (let i = 0; i < 6; i++) state.q[i] = q0[i] + (q1[i] - q0[i]) * s;
+      if (t >= T && this.pose) state.pose = this.pose;
+      return t >= T;
+    },
+  };
+}
+function moveL(getTarget, mmps) {
+  let p0, p1, T, t = 0;
+  return {
+    start() {
+      p1 = getTarget(); p0 = state.pose ? { ...state.pose } : { ...p1 };
+      T = Math.max(0.25, Math.hypot(p1.x - p0.x, p1.y - p0.y, p1.z - p0.z) / (mmps / 1000));
+    },
+    update(dt) {
+      t += dt; const s = ease(Math.min(1, t / T));
+      const p = { x: p0.x + (p1.x - p0.x) * s, y: p0.y + (p1.y - p0.y) * s, z: p0.z + (p1.z - p0.z) * s, yaw: p0.yaw + (p1.yaw - p0.yaw) * s };
+      state.q = ik(p); state.pose = p;
+      return t >= T;
+    },
+  };
+}
+function grip(close) {
+  let t = 0, g0 = 1; const T = 0.35;
+  return {
+    start() { io.RO1 = close; g0 = state.grip; },
+    update(dt) {
+      t += dt; const s = Math.min(1, t / T);
+      state.grip = g0 + ((close ? 0 : 1) - g0) * s;
+      if (s < 1) return false;
+      if (close) attachPart(); else releasePart();
+      return true;
+    },
+  };
+}
+function visionSnap() {
+  let t = 0; const T = 0.7;
+  return {
+    start() { vision.snapping = true; vision.flash = 1; vision.result = null; log('Camera triggered: image captured'); },
+    update(dt) { t += dt; vision.scan = t / T; if (t < T) return false; runFind(); vision.snapping = false; return true; },
+  };
+}
+const pickPose = dy => { const v = vision.result; return { x: v.mx, y: BELT.y + PART.ly / 2 + dy, z: v.mz, yaw: v.myaw }; };
+const binPose = dy => ({ x: BINS[prog.bin].x, y: 0.66 + dy, z: BIN_Z, yaw: Math.PI / 2 });
+
+const TP = [
+  { code: 'UTOOL_NUM=1 ;  UFRAME_NUM=1 ;', title: 'Selecting frames', why: 'Picks the tool frame (where the gripper tip is) and the user frame (the conveyor\'s coordinate system). Every position below is measured in these frames.', op: () => instant() },
+  { code: 'J P[1:HOME] 100% FINE ;', title: 'Moving home', why: 'Joint move to a safe home pose. In a J move each axis travels on its own schedule, so the tool path curves. That is fine in open space.', op: () => moveJ(() => HOME, 1) },
+  { code: 'LBL[1:CYCLE] ;', title: 'Cycle start', why: 'Top of the loop. The controller jumps back here after each part.', op: () => instant(() => { prog.cycleStart = simTime; }) },
+  { code: 'WAIT DI[1:PART_PRESENT]=ON ;', title: 'Waiting for a part', why: 'The belt runs until a part blocks the photo-eye beam (the red line across the belt). The conveyor stops and input DI[1] turns on.', op: () => waitFor(() => io.DI1) },
+  { code: "VISION RUN_FIND 'PICK_CAM' ;", title: 'Taking a picture', why: 'The overhead camera fires. Pattern matching finds the part outline, then measures its X, Y and rotation, its color class, and whether the top surface is scratched.', op: () => visionSnap() },
+  { code: "VISION GET_OFFSET 'PICK_CAM' VR[1] JMP,LBL[9] ;", title: 'Reading the offset', why: 'Turns the found position into an offset from the taught pick point. Every pick move below adds this offset, so the robot follows wherever the part actually landed.', op: () => instant() },
+  { code: 'R[1:BIN]=VR[1].MODELID ;', title: 'Choosing a bin', why: 'The color class decides the bin. A failed surface check overrides it and sends the part to Reject.', op: () => instant(() => { const r = vision.result; prog.bin = r.defect ? 0 : r.type.bin; log(`Sort decision: ${BINS[prog.bin].name} bin`, r.defect ? 'warn' : ''); }) },
+  { code: 'J P[2:ABOVE_PICK] 100% CNT50 VOFFSET,VR[1] ;', title: 'Approaching the part', why: 'Fast joint move to 200 mm above the part, with J6 already turned to match the part\'s angle.', op: () => moveJ(() => pickPose(0.2), 1) },
+  { code: 'L P[3:PICK] 500mm/sec FINE VOFFSET,VR[1] ;', title: 'Descending in a straight line', why: 'An L move keeps the gripper on a straight vertical path. Near the belt a curved J path could clip the part or the rails.', op: () => moveL(() => pickPose(0), 500) },
+  { code: 'RO[1:GRIP_CLOSE]=ON ;', title: 'Closing the gripper', why: 'Robot output RO[1] closes the fingers.', op: () => grip(true) },
+  { code: 'WAIT RI[1:PART_GRIPPED]=ON ;', title: 'Confirming the grip', why: 'The gripper\'s own sensor must confirm a part is held before the robot lifts. Without this check a missed grip would go unnoticed.', op: () => waitFor(() => io.RI1) },
+  { code: 'L P[2:ABOVE_PICK] 800mm/sec CNT20 VOFFSET,VR[1] ;', title: 'Lifting clear', why: 'Straight lift away from the belt before any big swing.', op: () => moveL(() => pickPose(0.2), 800) },
+  { code: 'DO[2:CONV_RUN]=ON ;', title: 'Restarting the belt', why: 'Output DO[2] restarts the conveyor so the next part arrives while this one is being placed. Overlapping work like this shortens the cycle.', op: () => instant(() => { io.DO2 = true; log('Belt restarted (DO[2]=ON)'); }) },
+  { code: 'J PR[R[1]:ABOVE_BIN] 100% CNT50 ;', title: 'Swinging to the bin', why: 'Joint move over the chosen bin. Watch J1 sweep; this is the longest move in the cycle.', op: () => moveJ(() => binPose(0.24), 1) },
+  { code: 'L PR[R[1]] 1000mm/sec FINE ;', title: 'Lowering into the bin', why: 'Straight move down into the bin opening.', op: () => moveL(() => binPose(0), 1000) },
+  { code: 'RO[1:GRIP_CLOSE]=OFF ;', title: 'Releasing', why: 'The fingers open and the part drops into the bin.', op: () => grip(false) },
+  { code: 'WAIT .20(sec) ;', title: 'Short dwell', why: 'Gives the part time to clear the fingers before the arm moves.', op: () => delay(0.2) },
+  { code: 'J P[1:HOME] 100% CNT100 ;', title: 'Returning home', why: 'CNT100 lets the controller round the corner instead of stopping exactly, which saves time.', op: () => moveJ(() => HOME, 1) },
+  { code: 'R[2:COUNT]=R[2]+1 ;', title: 'Counting the cycle', why: 'Register R[2] counts finished parts.', op: () => instant(finishCycle) },
+  { code: 'JMP LBL[1:CYCLE] ;', title: 'Looping', why: 'Jumps back to the top of the cycle.', op: () => ({ update() { return true; }, next: 2 }) },
+];
+const PHASES = ['Wait', 'Vision', 'Pick', 'Place', 'Return'];
+const phaseOf = line => line <= 3 ? 0 : line <= 6 ? 1 : line <= 11 ? 2 : line <= 16 ? 3 : 4;
+
+function finishCycle() {
+  prog.cycles++;
+  if (prog.cycleStart != null) { prog.times.push(simTime - prog.cycleStart); if (prog.times.length > 6) prog.times.shift(); }
+}
+
+function tickProgram(dt) {
+  if (prog.recovery) {
+    if (prog.recovery.update(dt)) { prog.recovery = null; state.pose = prog.heldPose; log('Back at the held position. Program continues.'); }
+    return;
+  }
+  if (!prog.step) { prog.step = TP[prog.line].op(); if (prog.step.start) prog.step.start(); }
+  if (prog.step.update(dt)) {
+    const next = prog.step.next != null ? prog.step.next : prog.line + 1;
+    prog.step = null; prog.line = next % TP.length;
+  }
+}
+
+// ---------- parts ----------
+const typeMats = TYPES.map(t => mat(t.color, { roughness: 0.5 }));
+const halfX = p => Math.abs(Math.cos(p.rotation.y)) * PART.lx / 2 + Math.abs(Math.sin(p.rotation.y)) * PART.lz / 2;
+function spawnPart(x) {
+  const ti = Math.floor(Math.random() * TYPES.length);
+  const g = new THREE.Group();
+  mesh(box(PART.lx, PART.ly, PART.lz), typeMats[ti], g);
+  const defect = Math.random() < 0.22;
+  if (defect) mesh(box(0.05, 0.003, 0.01), M.black, g, [0.008, PART.ly / 2 + 0.001, 0.008], [0, 0.55, 0]);
+  g.position.set(x, BELT.y + PART.ly / 2, BELT.z + (Math.random() - 0.5) * 0.16);
+  g.rotation.y = (Math.random() - 0.5) * 1.2;
+  g.userData = { type: TYPES[ti], defect, id: ++partSeq };
+  scene.add(g); belt.push(g);
+}
+function runFind() {
+  const part = belt.find(p => p.position.x + halfX(p) >= BEAM_X - 0.005);
+  if (!part) { log('Vision found nothing under the camera', 'stop'); return; }
+  const r = {
+    part, type: part.userData.type, defect: part.userData.defect, id: part.userData.id,
+    mx: part.position.x + gauss() * 0.0007, mz: part.position.z + gauss() * 0.0007,
+    myaw: part.rotation.y + gauss() * 0.3 * DEG, score: 92 + Math.random() * 7,
+  };
+  vision.result = r; vision.count++;
+  log(`Found ${r.type.id} #${r.id}, score ${r.score.toFixed(1)}, ${r.defect ? 'scratch detected' : 'surface OK'}`, r.defect ? 'warn' : '');
+}
+const tmpV = new THREE.Vector3();
+function attachPart() {
+  const r = vision.result;
+  applyJoints(state.q); robot.updateMatrixWorld(true);
+  const tp = tcp.getWorldPosition(tmpV);
+  if (r && belt.includes(r.part) && r.part.position.distanceTo(tp) < 0.03) {
+    belt.splice(belt.indexOf(r.part), 1);
+    j6.attach(r.part); held = r.part; io.RI1 = true;
+    log('Fingers closed on the part (RI[1]=ON)');
+  } else {
+    log('Gripper closed on nothing. Waiting for RI[1].', 'stop');
+  }
+}
+function releasePart() {
+  if (!held) return;
+  scene.attach(held);
+  held.rotation.x = 0; held.rotation.z = 0;
+  const b = BINS[prog.bin];
+  const layer = Math.floor(b.items.length / 6) % 2;
+  held.userData.fall = { vy: 0, y0: held.position.y, x0: held.position.x, z0: held.position.z,
+    floor: BIN_FLOOR + PART.ly / 2 + layer * PART.ly, tx: b.x + (Math.random() - 0.5) * 0.2, tz: BIN_Z + (Math.random() - 0.5) * 0.14 };
+  falling.push(held); b.items.push(held); b.count++;
+  if (b.items.length > 12) { const old = b.items.shift(); scene.remove(old); const fi = falling.indexOf(old); if (fi >= 0) falling.splice(fi, 1); }
+  log(`Dropped #${held.userData.id} into ${b.name}`);
+  held = null; io.RI1 = false;
+}
+
+function updateConveyor(dt) {
+  const run = io.DO2 && !estop;
+  if (run) {
+    beltTex.offset.x -= dt * BELT.speed / TILE;
+    rollers.forEach(r => { r.rotation.z -= dt * BELT.speed / 0.035; });
+    for (const p of belt) p.position.x += BELT.speed * dt;
+  }
+  const lead = belt[0];
+  const blocked = !!lead && lead.position.x + halfX(lead) >= BEAM_X - 1e-4;
+  if (blocked) {
+    const over = lead.position.x + halfX(lead) - BEAM_X;
+    if (over > 0) for (const p of belt) p.position.x -= over;
+    if (!io.DI1) { io.DO2 = false; log(`Part #${lead.userData.id} broke the beam: DI[1]=ON, belt stopped`); }
+  }
+  io.DI1 = blocked;
+  const last = belt[belt.length - 1];
+  if (run && belt.length < 4 && (!last || last.position.x > BELT.x0 + 0.95)) spawnPart(BELT.x0 + 0.12);
+  eyeLed.emissive.setHex(io.DI1 ? 0x33ff66 : 0x000000);
+  beamMat.opacity = io.DI1 ? 0.95 : 0.45;
+}
+function updateFalling(dt) {
+  for (let i = falling.length - 1; i >= 0; i--) {
+    const p = falling[i], f = p.userData.fall;
+    f.vy -= 9.81 * dt; p.position.y += f.vy * dt;
+    const k = clamp((f.y0 - p.position.y) / Math.max(1e-3, f.y0 - f.floor), 0, 1);
+    p.position.x = f.x0 + (f.tx - f.x0) * k; p.position.z = f.z0 + (f.tz - f.z0) * k;
+    if (p.position.y <= f.floor) { p.position.y = f.floor; falling.splice(i, 1); }
+  }
+}
+
+// ---------- operator & safety ----------
+const OP_PATH = [{ x: -2.35, wait: 3.5 }, { x: -1.6, wait: 4.5 }, { x: -4.7, wait: 0 }];
+const opState = { active: false, phase: 0, wait: 0, walk: 0 };
+function sendOperator() {
+  if (opState.active) return;
+  Object.assign(opState, { active: true, phase: 0, wait: 0 });
+  person.position.set(-4.7, 0, -0.35); person.visible = true;
+  log('Operator walking toward the cell gate');
+}
+function updateOperator(dt) {
+  if (!opState.active) return;
+  const tgt = OP_PATH[opState.phase], dx = tgt.x - person.position.x;
+  const legs = person.userData.legs;
+  if (Math.abs(dx) > 0.005) {
+    person.position.x += Math.sign(dx) * Math.min(Math.abs(dx), 0.85 * dt);
+    person.rotation.y = dx > 0 ? Math.PI / 2 : -Math.PI / 2;
+    opState.walk += dt * 7;
+    legs[0].rotation.x = Math.sin(opState.walk) * 0.45; legs[1].rotation.x = -legs[0].rotation.x;
+    return;
+  }
+  legs[0].rotation.x = legs[1].rotation.x = 0;
+  opState.wait += dt;
+  if (opState.wait < tgt.wait) return;
+  opState.phase++; opState.wait = 0;
+  if (opState.phase >= OP_PATH.length) { opState.active = false; person.visible = false; log('Operator left the cell'); }
+}
+function updateSafety(dt) {
+  let zone = 'clear', dist = Infinity;
+  if (person.visible) {
+    dist = Math.hypot(person.position.x, person.position.z) - 0.2;
+    zone = dist < STOP_R ? 'stop' : dist < WARN_R ? 'slow' : 'clear';
+  }
+  if (zone !== safety.zone) {
+    const msg = { clear: ['Scanner zones clear: full speed allowed', ''], slow: ['Person in warning zone: speed limited to 25%', 'warn'], stop: ['Person in stop zone: protective stop', 'stop'] }[zone];
+    log(msg[0], msg[1]); safety.zone = zone;
+  }
+  safety.dist = dist;
+  const target = estop || zone === 'stop' ? 0 : zone === 'slow' ? 0.25 : 1;
+  safety.factor += (target - safety.factor) * Math.min(1, dt * 6);
+  if (estop || (target === 0 && safety.factor < 0.01)) safety.factor = target === 0 ? 0 : safety.factor;
+  const pulse = 0.5 + 0.5 * Math.sin(simTime * 6);
+  warnZoneMat.opacity = zone === 'slow' ? 0.18 + 0.12 * pulse : 0.07;
+  stopZoneMat.opacity = zone === 'stop' ? 0.16 + 0.12 * pulse : 0.06;
+}
+
+// ---------- theme ----------
+function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function applyTheme() {
+  const bg = new THREE.Color(cssVar('--scene') || '#d8dee5');
+  scene.background = bg; scene.fog.color.copy(bg);
+  floorMat.color.set(cssVar('--floor') || '#c2c9d2');
+  grid.material.color.set(cssVar('--grid') || '#a3adba');
+}
+applyTheme();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+// ---------- camera views ----------
+const VIEWS = {
+  cell: { pos: [3.9, 2.9, 3.9], tgt: [-0.3, 0.6, 0] },
+  pick: { pos: [1.5, 1.75, 3.0], tgt: [0.2, 0.85, 0.95] },
+  top: { pos: [0.01, 8.4, 0.5], tgt: [-0.2, 0, 0] },
+};
+const TOOL_OFFSET = new THREE.Vector3(1.0, 0.55, 1.2);
+let view = 'cell', camAnim = null; const lastTcp = new THREE.Vector3();
+function setView(name) {
+  view = name;
+  tcp.getWorldPosition(lastTcp);
+  const to = name === 'tool' ? null : VIEWS[name];
+  camAnim = { t: reducedMotion ? 1 : 0, fromP: camera.position.clone(), fromT: controls.target.clone(),
+    toP: to ? new THREE.Vector3(...to.pos) : null, toT: to ? new THREE.Vector3(...to.tgt) : null };
+  document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === name)));
+}
+controls.addEventListener('start', () => { camAnim = null; });
+function updateCamera(dt) {
+  const tcpNow = tcp.getWorldPosition(new THREE.Vector3());
+  if (camAnim) {
+    camAnim.t = Math.min(1, camAnim.t + dt / 0.9);
+    const s = ease(camAnim.t);
+    const toT = camAnim.toT || tcpNow, toP = camAnim.toP || tcpNow.clone().add(TOOL_OFFSET);
+    camera.position.lerpVectors(camAnim.fromP, toP, s);
+    controls.target.lerpVectors(camAnim.fromT, toT, s);
+    if (camAnim.t >= 1) camAnim = null;
+  } else if (view === 'tool') {
+    const d = tcpNow.clone().sub(lastTcp);
+    camera.position.add(d); controls.target.add(d);
+  }
+  lastTcp.copy(tcpNow);
+}
+
+// ---------- labels ----------
+const tagsEl = document.getElementById('tags');
+const TAGS = [
+  { text: 'J1 base turn', obj: robot, off: [0.0, 0.3, 0.3] },
+  { text: 'J2 shoulder', obj: j2 },
+  { text: 'J3 elbow', obj: j3 },
+  { text: 'J4 forearm roll', obj: j4, off: [0, 0.08, 0] },
+  { text: 'J5 bend · J6 twist', obj: j5, off: [0, 0.06, 0] },
+  { text: 'Gripper (TCP)', obj: tcp },
+  { text: 'Vision camera', pos: [PICK_X, CAM_Y + 0.12, BELT.z] },
+  { text: 'Photo-eye DI[1]', pos: [BEAM_X, BELT.y + 0.16, BELT.z + 0.34] },
+  { text: 'Conveyor', pos: [-1.6, BELT.y + 0.05, BELT.z + 0.28] },
+  { text: 'Area scanner zones', pos: [1.6, 0.02, -1.75] },
+  { text: 'Sort bins', pos: [0, 0.55, BIN_Z - 0.2] },
+  { text: 'Gate', pos: [-FENCE, 0.05, -0.4] },
+].map(t => { const el = document.createElement('div'); el.className = 'tag'; el.textContent = t.text; tagsEl.appendChild(el); return { ...t, el }; });
+let showTags = true;
+function updateTags(W, H) {
+  if (!showTags) return;
+  const v = new THREE.Vector3();
+  for (const t of TAGS) {
+    if (t.obj) { t.obj.getWorldPosition(v); if (t.off) v.add(tmpV.set(t.off[0], t.off[1], t.off[2])); } else v.set(t.pos[0], t.pos[1], t.pos[2]);
+    v.project(camera);
+    const vis = v.z < 1 && Math.abs(v.x) < 1.05 && Math.abs(v.y) < 1.05;
+    t.el.hidden = !vis;
+    if (vis) { t.el.style.left = `${(v.x + 1) / 2 * W}px`; t.el.style.top = `${(1 - v.y) / 2 * H}px`; }
+  }
+}
+
+// ---------- vision overlay ----------
+const probe = new THREE.Object3D();
+function drawOverlay(dt, dpr) {
+  const w = ov.width, h = ov.height, g = octx;
+  g.clearRect(0, 0, w, h);
+  g.strokeStyle = 'rgba(255,255,255,0.3)'; g.lineWidth = dpr;
+  g.beginPath(); g.moveTo(w / 2 - 10 * dpr, h / 2); g.lineTo(w / 2 + 10 * dpr, h / 2); g.moveTo(w / 2, h / 2 - 10 * dpr); g.lineTo(w / 2, h / 2 + 10 * dpr); g.stroke();
+  g.font = `500 ${10 * dpr}px "IBM Plex Mono", monospace`; g.textBaseline = 'top';
+  const r = vision.result;
+  const status = vision.snapping ? 'ACQUIRING' : r && belt.includes(r.part) ? 'FOUND' : 'IDLE';
+  g.fillStyle = 'rgba(10,14,18,0.6)'; g.fillRect(0, 0, w, 16 * dpr);
+  g.fillStyle = '#e8edf2'; g.fillText(`IMG ${String(vision.count).padStart(4, '0')}  ${status}`, 6 * dpr, 4 * dpr);
+  if (vision.snapping) {
+    const y = clamp(vision.scan, 0, 1) * h;
+    g.fillStyle = 'rgba(63,168,255,0.25)'; g.fillRect(0, y - 6 * dpr, w, 12 * dpr);
+    g.fillStyle = '#3fa8ff'; g.fillRect(0, y, w, dpr);
+  }
+  if (r && belt.includes(r.part)) {
+    const col = r.defect ? '#ff5b50' : '#3cd27a';
+    probe.position.set(r.mx, BELT.y + PART.ly / 2, r.mz); probe.rotation.set(0, r.myaw, 0); probe.updateMatrixWorld();
+    const pts = [[1, 1], [1, -1], [-1, -1], [-1, 1]].map(([a, b]) => {
+      const v = new THREE.Vector3(a * PART.lx / 2, PART.ly / 2, b * PART.lz / 2).applyMatrix4(probe.matrixWorld).project(visionCam);
+      return [(v.x + 1) / 2 * w, (1 - v.y) / 2 * h];
+    });
+    g.strokeStyle = col; g.lineWidth = 2 * dpr; g.beginPath();
+    pts.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.stroke();
+    const c = new THREE.Vector3(r.mx, BELT.y + PART.ly / 2, r.mz).project(visionCam);
+    const cx = (c.x + 1) / 2 * w, cy = (1 - c.y) / 2 * h;
+    g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(-r.myaw) * 22 * dpr, cy + Math.sin(-r.myaw) * 22 * dpr); g.stroke();
+    if (r.defect) {
+      const d = new THREE.Vector3(0.008, PART.ly / 2, 0.008).applyMatrix4(probe.matrixWorld).project(visionCam);
+      g.beginPath(); g.arc((d.x + 1) / 2 * w, (1 - d.y) / 2 * h, 9 * dpr, 0, Math.PI * 2); g.stroke();
+    }
+    const label = `${r.type.id} ${r.score.toFixed(1)}%${r.defect ? '  SCRATCH' : ''}`;
+    const lx = clamp(Math.min(...pts.map(p => p[0])), 2 * dpr, w - g.measureText(label).width - 10 * dpr);
+    const ly = Math.max(18 * dpr, Math.min(...pts.map(p => p[1])) - 16 * dpr);
+    g.fillStyle = col; g.fillRect(lx, ly, g.measureText(label).width + 8 * dpr, 14 * dpr);
+    g.fillStyle = '#0b0f13'; g.fillText(label, lx + 4 * dpr, ly + 2 * dpr);
+  }
+  if (vision.flash > 0) { g.fillStyle = `rgba(255,255,255,${vision.flash * 0.75})`; g.fillRect(0, 0, w, h); vision.flash = Math.max(0, vision.flash - dt * 3.5); }
+  ringMat.emissiveIntensity = 0.05 + vision.flash * 2;
+}
+
+// ---------- panel ----------
+const $ = id => document.getElementById(id);
+const tpEl = $('tp');
+TP.forEach((l, i) => {
+  const li = document.createElement('li');
+  const ln = document.createElement('span'); ln.className = 'ln'; ln.textContent = `${i + 1}:`;
+  const code = document.createElement('span'); code.textContent = l.code;
+  li.append(ln, code); tpEl.appendChild(li);
+});
+const phasesEl = $('phases');
+PHASES.forEach(p => { const li = document.createElement('li'); li.textContent = p; phasesEl.appendChild(li); });
+const jointEls = LIMITS.map((lim, i) => {
+  const row = document.createElement('div'); row.className = 'joint';
+  const lab = document.createElement('label'); lab.htmlFor = `jog${i + 1}`; lab.textContent = `J${i + 1}`;
+  const inp = document.createElement('input'); Object.assign(inp, { type: 'range', id: `jog${i + 1}`, min: lim[0], max: lim[1], step: 0.1, disabled: true });
+  const out = document.createElement('output'); out.htmlFor = inp.id;
+  inp.addEventListener('input', () => {
+    if (!jog) return;
+    state.q[i] = Number(inp.value) * DEG; prog.jogged = true;
+  });
+  row.append(lab, inp, out); $('joints').appendChild(row);
+  return { inp, out };
+});
+const tcpEl = $('tcp');
+const tcpCells = ['X', 'Y', 'Z', 'W', 'P', 'R'].map(k => {
+  const d = document.createElement('div'); const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd');
+  d.append(dt, dd); tcpEl.appendChild(d); return dd;
+});
+const IO_DEFS = [
+  ['DI[1]', 'Part at photo-eye', () => io.DI1, false],
+  ['DO[2]', 'Conveyor running', () => io.DO2 && !estop, false],
+  ['RO[1]', 'Gripper close command', () => io.RO1, false],
+  ['RI[1]', 'Gripper holds a part', () => io.RI1, false],
+  ['SAFE-1', 'Person in warning zone', () => safety.zone !== 'clear', true],
+  ['SAFE-2', 'Person in stop zone', () => safety.zone === 'stop', true],
+  ['SAFE-3', 'Emergency stop pressed', () => estop, true],
+];
+const ioEls = IO_DEFS.map(([addr, desc, , alarm]) => {
+  const li = document.createElement('li'); if (alarm) li.classList.add('alarm');
+  const led = document.createElement('span'); led.className = 'led';
+  const a = document.createElement('span'); a.className = 'addr'; a.textContent = addr;
+  const d = document.createElement('span'); d.className = 'desc'; d.textContent = desc;
+  li.append(led, a, d); $('io').appendChild(li); return li;
+});
+const binEls = BINS.map(b => {
+  const d = document.createElement('div');
+  const s = document.createElement('span'); const sw = document.createElement('i'); sw.style.background = b.css; s.append(sw, b.name);
+  const n = document.createElement('b'); n.textContent = '0';
+  d.append(s, n); $('bins').appendChild(d); return n;
+});
+
+function toolWPR() {
+  const m = j6.matrixWorld.elements;
+  const ax = [[m[0], m[1], m[2]], [m[4], m[5], m[6]], [m[8], m[9], m[10]]];
+  const F = v => [v[0], -v[2], v[1]];
+  const tX = F(ax[1]), tY = F(ax[2]), tZ = F(ax[0]);
+  const p = Math.atan2(-tX[2], Math.hypot(tX[0], tX[1]));
+  const w = Math.atan2(tY[2], tZ[2]);
+  const r = Math.atan2(tX[1], tX[0]);
+  return [w, p, r].map(a => a / DEG);
+}
+function nowState() {
+  if (estop) return ['Emergency stop', 'Servo power is cut. Every motion stops, the belt too. Press Reset, then Resume to continue from the same line.'];
+  if (jog) return ['Teach mode (jog)', 'Drag a joint slider to move that one axis. Programmers teach positions this way. On Resume the robot first moves back to where it was held, slowly, then continues.'];
+  if (prog.held) return ['Program held', 'Motion is paused in place. Press Resume to continue from the same program line.'];
+  if (safety.zone === 'stop') return ['Protective stop', `A person is ${safety.dist.toFixed(2)} m from the robot, inside the red stop zone. Motion is frozen with power on. When the zone clears the robot resumes by itself.`];
+  if (prog.recovery) return ['Returning to held position', 'The arm was jogged while held. It moves back to the exact stop point before the program continues, so the next move starts where the program expects.'];
+  const l = TP[prog.line];
+  return [l.title, (safety.zone === 'slow' ? 'Speed capped at 25%: a person is in the yellow warning zone. ' : '') + l.why];
+}
+let lastLine = -1;
+function updatePanel() {
+  const chipMode = $('chipMode'), chipSafety = $('chipSafety');
+  const mode = estop ? ['E-stop', 'stop'] : jog ? ['T1 · Jog', 'warn'] : prog.held ? ['Hold', 'warn'] : ['Auto · Run', 'ok'];
+  chipMode.textContent = mode[0]; chipMode.className = `chip ${mode[1]}`;
+  const sz = { clear: ['Scanner clear', 'ok'], slow: ['Reduced speed', 'warn'], stop: ['Protective stop', 'stop'] }[safety.zone];
+  chipSafety.textContent = sz[0]; chipSafety.className = `chip ${sz[1]}`;
+
+  const banner = $('banner');
+  const bannerData = estop ? ['Emergency stop', 'Press Reset to restore power.', ''] :
+    safety.zone === 'stop' ? ['Protective stop', `Person inside the stop zone (${safety.dist.toFixed(2)} m).`, ''] :
+    safety.zone === 'slow' ? ['Reduced speed · 25%', `Person in the warning zone (${safety.dist.toFixed(2)} m).`, 'warn'] : null;
+  banner.hidden = !bannerData;
+  if (bannerData) { banner.className = `banner ${bannerData[2]}`; banner.innerHTML = ''; banner.append(bannerData[0]); const s = document.createElement('small'); s.textContent = bannerData[1]; banner.appendChild(s); }
+
+  const [title, text] = nowState();
+  $('nowTitle').textContent = title; $('nowText').textContent = text;
+  const ph = phaseOf(prog.line);
+  [...phasesEl.children].forEach((li, i) => { li.className = i < ph ? 'done' : i === ph ? 'current' : ''; });
+  if (prog.line !== lastLine) {
+    if (lastLine >= 0) tpEl.children[lastLine].classList.remove('current');
+    const li = tpEl.children[prog.line]; li.classList.add('current');
+    tpEl.scrollTop = li.offsetTop - tpEl.clientHeight / 2 + li.offsetHeight / 2;
+    lastLine = prog.line;
+  }
+
+  const eff = Math.round(override * safety.factor * (prog.held || estop ? 0 : 1));
+  $('speedOut').textContent = `speed ${eff}%`;
+  state.q.forEach((v, i) => {
+    const d = v / DEG; jointEls[i].out.textContent = `${d >= 0 ? '+' : '−'}${Math.abs(d).toFixed(1)}°`;
+    jointEls[i].inp.disabled = !jog;
+    if (document.activeElement !== jointEls[i].inp) jointEls[i].inp.value = d.toFixed(1);
+  });
+  robot.updateMatrixWorld(true);
+  const tp = tcp.getWorldPosition(tmpV);
+  const xyz = [tp.x * 1000, -tp.z * 1000, (tp.y - R.d1) * 1000];
+  const wpr = toolWPR();
+  [...xyz, ...wpr].forEach((v, i) => { tcpCells[i].textContent = i < 3 ? v.toFixed(1) : `${v.toFixed(1)}°`; });
+  $('jogNote').textContent = jog ? 'Jogging. X Y Z in mm from the J1 axis at J2 height; W P R is tool orientation.' : 'Press Jog to drag each axis by hand (teach mode). X Y Z in mm; W P R in degrees.';
+
+  $('visCount').textContent = `${vision.count} image${vision.count === 1 ? '' : 's'}`;
+  renderVision();
+
+  IO_DEFS.forEach((d, i) => ioEls[i].classList.toggle('on', d[2]()));
+  BINS.forEach((b, i) => { binEls[i].textContent = b.count; });
+  $('stCycles').textContent = prog.cycles;
+  const last = prog.times[prog.times.length - 1];
+  $('stLast').textContent = last ? `${last.toFixed(1)} s` : '–';
+  const avg = prog.times.length ? prog.times.reduce((a, b) => a + b, 0) / prog.times.length : 0;
+  $('stRate').textContent = avg ? `${Math.round(3600 / avg)}/h` : '–';
+
+  if (logDirty) {
+    const ol = $('log'); ol.innerHTML = '';
+    for (const e of logs) {
+      const li = document.createElement('li'); if (e.kind) li.className = e.kind;
+      const t = document.createElement('time'); t.textContent = `${e.t.toFixed(1)}s`;
+      const s = document.createElement('span'); s.textContent = e.text;
+      li.append(t, s); ol.appendChild(li);
+    }
+    logDirty = false;
+  }
+}
+let visKey = '';
+function renderVision() {
+  const r = vision.result, el = $('vision');
+  const key = vision.snapping ? 'snap' : r ? `r${r.id}` : 'none';
+  if (key === visKey) return; visKey = key;
+  el.innerHTML = '';
+  if (!r) {
+    const p = document.createElement('p'); p.className = 'empty';
+    p.textContent = vision.snapping ? 'Processing image…' : 'No image yet. The camera fires when a part stops under it.';
+    el.appendChild(p); return;
+  }
+  const dl = document.createElement('dl'); dl.className = 'kv';
+  const rows = [
+    ['Part', `#${r.id} ${r.type.id}`],
+    ['Match score', `${r.score.toFixed(1)} %`],
+    ['Offset X', `${((r.mx - PICK_X) * 1000).toFixed(1)} mm`],
+    ['Offset Y', `${(-(r.mz - BELT.z) * 1000).toFixed(1)} mm`],
+    ['Offset R', `${(r.myaw / DEG).toFixed(1)}°`],
+    ['Surface check', null],
+    ['Goes to', `${BINS[r.defect ? 0 : r.type.bin].name} bin`],
+  ];
+  for (const [k, v] of rows) {
+    const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd');
+    if (v === null) { const pill = document.createElement('span'); pill.className = `pill ${r.defect ? 'stop' : 'ok'}`; pill.textContent = r.defect ? 'Scratch · fail' : 'Pass'; dd.appendChild(pill); } else dd.textContent = v;
+    dl.append(dt, dd);
+  }
+  el.appendChild(dl);
+}
+
+// ---------- controls ----------
+const btnHold = $('btnHold'), btnJog = $('btnJog'), btnEstop = $('btnEstop'), btnOp = $('btnOperator');
+function syncButtons() {
+  btnHold.textContent = prog.held ? 'Resume' : 'Hold';
+  btnHold.disabled = estop;
+  btnJog.disabled = estop;
+  btnJog.setAttribute('aria-pressed', String(jog));
+  btnEstop.textContent = estop ? 'Reset' : 'E-stop';
+  btnOp.disabled = opState.active;
+  btnOp.textContent = opState.active ? 'Operator in cell' : 'Send operator in';
+}
+function hold() {
+  if (prog.held) return;
+  prog.held = true; prog.heldQ = state.q.slice(); prog.heldPose = state.pose ? { ...state.pose } : null; prog.jogged = false;
+  log('Program held');
+}
+function resume() {
+  if (estop) return;
+  jog = false;
+  if (prog.jogged) {
+    prog.recovery = moveJ(() => prog.heldQ, 0.3); prog.recovery.start();
+    log('Resuming: moving back to the held position first', 'warn');
+  } else log('Program resumed');
+  prog.held = false; prog.jogged = false;
+}
+btnHold.addEventListener('click', () => { prog.held ? resume() : hold(); syncButtons(); });
+btnJog.addEventListener('click', () => {
+  if (estop) return;
+  if (jog) { jog = false; log('Jog off. Press Resume to continue.'); } else { hold(); jog = true; log('Teach mode: jog with the joint sliders'); }
+  syncButtons();
+});
+btnEstop.addEventListener('click', () => {
+  if (estop) { estop = false; log('E-stop reset. Press Resume to continue.'); }
+  else { estop = true; jog = false; hold(); safety.factor = 0; log('EMERGENCY STOP', 'stop'); }
+  syncButtons();
+});
+btnOp.addEventListener('click', () => { sendOperator(); syncButtons(); });
+const ovr = $('ovr');
+ovr.addEventListener('input', () => { override = Number(ovr.value); $('ovrOut').textContent = `${override}%`; });
+document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+$('btnTags').addEventListener('click', e => {
+  showTags = !showTags; e.currentTarget.setAttribute('aria-pressed', String(showTags));
+  TAGS.forEach(t => { t.el.hidden = !showTags; });
+});
+
+// ---------- resize & loop ----------
+let W = 1, H = 1, inset = { x: 0, y: 0, w: 0, h: 0 }, dpr = 1;
+function resize() {
+  const r = stage.getBoundingClientRect();
+  W = Math.max(1, r.width); H = Math.max(1, r.height);
+  renderer.setSize(W, H, false);
+  camera.aspect = W / H; camera.fov = camera.aspect < 0.9 ? 62 : 42; camera.updateProjectionMatrix();
+  const ir = insetEl.getBoundingClientRect();
+  inset = { x: ir.left - r.left, y: ir.top - r.top, w: ir.width, h: ir.height };
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  ov.width = Math.round(ir.width * dpr); ov.height = Math.round(ir.height * dpr);
+}
+new ResizeObserver(resize).observe(stage);
+resize();
+
+function render() {
+  renderer.setScissorTest(false);
+  renderer.setViewport(0, 0, W, H);
+  renderer.render(scene, camera);
+  if (inset.w > 2) {
+    const y = H - inset.y - inset.h;
+    renderer.setScissorTest(true);
+    renderer.setScissor(inset.x, y, inset.w, inset.h);
+    renderer.setViewport(inset.x, y, inset.w, inset.h);
+    renderer.render(scene, visionCam);
+    renderer.setScissorTest(false);
+  }
+}
+
+spawnPart(-0.35); spawnPart(-1.35);
+log('Controller ready. PICK_SORT running in AUTO at 50% override.');
+setView('cell');
+const clock = new THREE.Clock();
+let uiTimer = 1;
+function frame() {
+  const dt = Math.min(clock.getDelta(), 0.05);
+  simTime += dt;
+  updateOperator(dt);
+  updateSafety(dt);
+  const rate = prog.held || estop || jog ? 0 : (override / 100) * safety.factor;
+  if (rate > 0.002) tickProgram(dt * rate);
+  updateConveyor(dt);
+  updateFalling(dt);
+  applyJoints(state.q);
+  const fz = FINGER_CLOSED + (FINGER_OPEN - FINGER_CLOSED) * state.grip;
+  fingerA.position.z = fz; fingerB.position.z = -fz;
+  robot.updateMatrixWorld(true);
+  updateCamera(dt);
+  controls.update();
+  render();
+  drawOverlay(dt, dpr);
+  updateTags(W, H);
+  uiTimer += dt;
+  if (uiTimer > 0.1) { uiTimer = 0; updatePanel(); syncButtons(); }
+  requestAnimationFrame(frame);
+}
+syncButtons();
+requestAnimationFrame(frame);
+})();
+</script>
+
+</body></html>

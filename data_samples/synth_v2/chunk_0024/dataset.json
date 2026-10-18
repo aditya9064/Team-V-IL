@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "classes": [
+    "cube_red",
+    "cube_yellow",
+    "cube_blue",
+    "cap",
+    "vial"
+  ],
+  "roi": [
+    1212,
+    1000,
+    2876,
+    1896
+  ],
+  "camera": "table",
+  "seed": 20261016,
+  "prefix": "v2_",
+  "renderer": "rtx-realtime",
+  "denoise": "median3",
+  "sensor_fx": true
+}

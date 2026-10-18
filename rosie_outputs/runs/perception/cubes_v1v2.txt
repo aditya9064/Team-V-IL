@@ -1,0 +1,15 @@
+=== cubes_v1v2
+metric                     side    table    wrist
+frames                      100      400      100
+cube_recall               0.823    0.978    0.953
+cube_precision            0.853    0.985    0.962
+colour_accuracy           0.998    0.986    0.989
+stacked_cubes_detected       21      286       20
+pos_mm_median              0.79     0.24     0.26
+pos_mm_p90                  5.1     0.99     2.43
+pos_within_2mm            0.778    0.917    0.897
+yaw_deg_median             4.82     1.39     1.57
+yaw_deg_p90               14.27     4.74     6.26
+yaw_within_5deg           0.511    0.908    0.853
+pose_ready_share          0.565    0.698    0.163
+

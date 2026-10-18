@@ -1,0 +1,15 @@
+{
+  "name": "v2_hard_v2_015009__side",
+  "prompt": "A real photograph from a fixed camera at the side of a workbench in an industrial robotics lab, looking across the table at a small industrial robot arm. Small plastic parts lie on a matte table. Every object keeps exactly the same colour, shape, size and position as in the input; nothing is added or removed. Soft ceiling light, realistic shadows, slight camera sensor noise, true-to-life materials. The camera is completely still.",
+  "video_path": "/trial/sweep_out_wb/specs/videos/v2_hard_v2_015009__side.mp4",
+  "num_video_frames_per_chunk": 1,
+  "max_frames": 1,
+  "seed": 1,
+  "edge": {
+    "control_weight": 1.0
+  },
+  "vis": {
+    "control_weight": 0.3,
+    "preset_blur_strength": "medium"
+  }
+}

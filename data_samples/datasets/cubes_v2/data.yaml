@@ -1,0 +1,9 @@
+path: /home/ad.msoe.edu/gundas/adaptivevision/datasets/cubes_v2
+train: images/train
+val: images/val
+names:
+  0: cube_red
+  1: cube_yellow
+  2: cube_blue
+  3: cap
+  4: vial

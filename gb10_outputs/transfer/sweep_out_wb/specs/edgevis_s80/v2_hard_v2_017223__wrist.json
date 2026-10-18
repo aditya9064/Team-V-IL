@@ -1,0 +1,16 @@
+{
+  "name": "v2_hard_v2_017223__wrist",
+  "prompt": "A real close-up photograph from a small camera mounted on a robot gripper, looking down at a matte table. Every object keeps exactly the same colour, shape, size and position as in the input; nothing is added or removed, and empty table stays empty. Lab lighting, realistic shadows, camera sensor noise, true-to-life materials. The camera is completely still.",
+  "video_path": "/trial/sweep_out_wb/specs/videos/v2_hard_v2_017223__wrist.mp4",
+  "num_video_frames_per_chunk": 1,
+  "max_frames": 1,
+  "seed": 1,
+  "edge": {
+    "control_weight": 1.0
+  },
+  "vis": {
+    "control_weight": 1.0,
+    "preset_blur_strength": "very_low"
+  },
+  "sigma_max": "80"
+}
