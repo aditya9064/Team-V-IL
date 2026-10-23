@@ -42,14 +42,25 @@ Which Transfer images are usable: only those with `"pass": true` in the matching
 
 ## Getting access
 
-Shritej grants read-only access per teammate (needs each teammate's Rosie username):
+The data folders in the table above are **already readable by every Rosie user** (read-only), so there is
+nothing to request. Log in to Rosie with your own MSOE account (username = the part of your email before
+`@`) and read or copy by full path. `~gundas` and `~gundas/adaptivevision` can be entered but not listed,
+so use the exact paths from the table.
 
 ```bash
-# on Rosie, as Shritej — replace <user> with the teammate's Rosie login
-setfacl -m u:<user>:x ~ ~/adaptivevision
-setfacl -R -m u:<user>:rX ~/adaptivevision/{synth,synth_v2,datasets,runs,baseline_set,baseline_set_ext,transfer_batch,transfer_batch2,team_share}
+# on Rosie, as yourself
+ls /home/ad.msoe.edu/gundas/adaptivevision/team_share
+mkdir -p ~/adaptivevision/datasets
+rsync -a /home/ad.msoe.edu/gundas/adaptivevision/datasets/cubes_v2 ~/adaptivevision/datasets/
 ```
 
-Then the teammate can read or copy, e.g. `rsync -a /home/ad.msoe.edu/gundas/adaptivevision/datasets/cubes_v2 ~/`
-— or train directly against it by pointing their own `rosie/config.env` at a copy in their `DATA_ROOT`.
+To train, copy what you need into your own `DATA_ROOT` (set in your `rosie/config.env`). The shared folders
+are read-only, so YOLO cannot write its label cache there. The split images in `datasets/<name>/images` are
+**symlinks** into `synth`/`synth_v2`, so `rsync -a` copies only the links (~0.5 GB, still readable); after
+copying, change `path:` in the copied `data.yaml` to your own folder. Add `-L` to rsync for real file copies
+(tens of GB).
+
+Why not per-person ACLs: Rosie home is NFSv4 on NetApp, `setfacl` returns *Operation not supported*, and
+`nfs4_setfacl` is not installed. To undo the sharing (as Shritej):
+`chmod o-x ~ ~/adaptivevision && chmod -R o-rwx ~/adaptivevision/{synth,synth_v2,datasets,runs,baseline_set,baseline_set_ext,transfer_batch,transfer_batch2,team_share}`.
 Regenerating instead of copying: `./rosie/run_v2.sh` rebuilds v2 from scratch (~several hours on 4 T4s).
