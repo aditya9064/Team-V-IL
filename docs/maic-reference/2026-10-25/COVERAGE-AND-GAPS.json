@@ -1,0 +1,52 @@
+{
+  "audited_at_utc": "2026-10-25T18:16:10.251912+00:00",
+  "public_manifest": {
+    "url": "https://msoe-ai-club.github.io/maic-content/manifest.json",
+    "generated_at": "2026-10-15T15:25:58.941Z",
+    "files_catalogued": 812
+  },
+  "hackathon_guides": {
+    "expected": 8,
+    "fetched": 8,
+    "metadata_files": 8,
+    "all_guide_text_read": true,
+    "checksums": "FETCHED-OFFICIAL-CONTENT.json"
+  },
+  "links_catalogued": 96,
+  "external_link_status": "All96links indexed for relevance; not claiming every external tutorial/video/deployment/login was visited or validated. No compute launchables deployed.",
+  "additional_sources": [
+    "Live hackathon.sidclab.org participant dashboard/FAQ/CAD resources (manipbench.com redirects there)",
+    "Official public PhysicalAI-Hackathon-2026 client README,policy,submission/placement templates,FRAMES andcamera calibration pinned to treeff7534e730f2b3db261c7f22d3d9b56a40c00eed",
+    "UWM CSI public event page",
+    "Official final submission form opened read-only in IAB: one teammate may submit/update until11:59PMCTNovember1; sign-in needed for fields"
+  ],
+  "gaps": [
+    "Private Slack announcements/mentor posts not accessible through current public audit.",
+    "Final submission fields after sign-in were not inspected or changed; no submission sent.",
+    "Detailed numeric judging weights not published in eight guides or discovered current-event files.",
+    "No claim of verifying every external resource download, complete videos or private endpoint."
+  ],
+  "contradictions": [
+    "MAIC Dataset3 SCHUNK/twooverhead+wrist versus currentcellFAQSMCtable/side/wrist.",
+    "FAQTCP10mm beyond fingertips/tableTCP~\u2212345mm versus clientFRAMES/policyfingertip/table~\u2212335mm; unresolved untilcellmentorconfirmscurrentTCP.",
+    "MAICfinalsMSOEDiercksHall5\u20138PMNovember5 versus genericUWMpromoCSI; useeventworkspace/organizerconfirmation for logistics.",
+    "Overviewrealdataforobservationnottraining versus generalcollectionguidecombined-trainingcomparison; obtainscope-specificclarification before usingrealtrainingdata.",
+    "Websitecomputeallocationstillpending whereas teamhas received$500email; actualbalance/usageconsoleorcaptain governs."
+  ],
+  "local_pipeline_gaps": [
+    {
+      "fact": "Frozen assemblyV63addsAssemblyOverview1280x960andinspection_x/y1920x1440 cameras forpregrasp/heldfit.",
+      "implication": "Actualclientexposesonlytable/side/wrist;customviewfitdoesnotestablishdeployability."
+    },
+    {
+      "fact": "Simulationacceptsarbitraryjawtargets;physicalAPIexposesopen/closeonly.",
+      "implication": "Qualifyactualgraspcommandmappingwithmentor; donotassumefinepreloadcommandavailable."
+    },
+    {
+      "fact": "CurrentFAQstatesrealarm~.8sbehindtargets,absentfromtwin.",
+      "implication": "Measurefeedback/observationtiminganduseobservedstateconfirmation beforedependentsteps."
+    }
+  ],
+  "historical_results_unchanged": true,
+  "no_GPU_or_physical_action_in_audit": true
+}

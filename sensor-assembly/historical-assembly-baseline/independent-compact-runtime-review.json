@@ -1,0 +1,36 @@
+{
+  "schema": "INDEPENDENT_REPORT_FORMATTING_RUNTIME_REVIEW",
+  "status": "DATA_AND_CONTROL_EQUIVALENCE_APPROVED_BUDGET_AND_ADMISSION_SEPARATE",
+  "parent_runtime_sha256": "0504fb48d663a9226a597d2ce31e87a1374e5bbafe1d4399f7cd9f9ad9baccaa",
+  "proposed_runtime_sha256": "c315b3a399b47ea85bee81a660105234532f49b9f202e43dc421c284ad64100b",
+  "profile_sha256": "2e4196c6a9b8a95df2478107416aec9a01dee3db655f8d56e4f24c7de405387b",
+  "full_actual_report_sha256": "a96314086bef784d0482c781a0d948d0c63dd3d1efa2e7d4dcef69593b554c25",
+  "exact_single_leaf_replacement_recovers_parent": true,
+  "all_other_source_bytes_identical": true,
+  "extracted_persist_full19MB_packet_tokens_and_values_equal": true,
+  "equivalence_regression_tests": 21,
+  "all_passed": true,
+  "full653MB_remote_profile_roundtrips_verified": true,
+  "full_state_pretty_encode_plus_write_s": 22.170113773085177,
+  "full_state_compact_encode_plus_write_s": 4.800945891067386,
+  "measured_full_state_saving_s": 17.36916788201779,
+  "local_posthover_guards_replayed_without_IO": "RecordedRGB/geometry inputs reproduced recordedresults in~0.001s each; POSTHOVER-GUARD-REPLAY.json",
+  "whole_episode_budget_certified": false,
+  "required_next_actions": [
+    "Coordinator prepare exact immutable runtime child and review metadata",
+    "Use a sufficient bounded resource/time allowance with measured margin, respecting actual user/resource limits; do not assume old30mincap is adequate merely because it was previousdefault",
+    "Coordinator source/preflight/archive verification and freshqueueguard before one corrected original-only placement run",
+    "Actual lower/open/exit/retreat/finalhold, independentoutcome+video required for definitive isolated placement verdict"
+  ],
+  "unchanged": [
+    "CAD",
+    "fingers",
+    "physics",
+    "motion commands",
+    "timesteps",
+    "image estimator",
+    "data fields",
+    "physical process/outcome gates"
+  ],
+  "no_new_simulation_or_GPU_action_by_reviewer": true
+}

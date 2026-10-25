@@ -1,0 +1,37 @@
+{
+  "status": "CPU_SIGNOFF_ONE_MATCHED_ORIGINAL_SUPPORTED_SADDLE_ISOLATED_COMPARISON",
+  "blocking_findings": [],
+  "human_authorization": "Direct user: please go ahead with the new lid only simulation",
+  "reviewed_exact_sha256": {
+    "isolated_lid_grip_trial.py": "c4242932737d2b818cf5fd8de3a4634f11f16fc400c965827c87d896e237f40a",
+    "check_supported_saddle_grip.py": "b65d610606ced9b96bcc147b8112fcfbff6fa401caa9e087fec338af1f629a3a",
+    "cpu_saddle_audit.py": "1bd7180779ec6aedaf9b86484f812754060f715736e12a3b84616c353612fb0e",
+    "paired_trace_integrity.py": "af464b8343885d55bb44e61e8133f9c56a91d1119e9f56f28774f14aa80b4817",
+    "assembly_suite_on_rosie.sh": "8747f452d51ac2784326be54e9ae9129d730044a2c4d7a8d7a9f4f0773804515",
+    "build_supported_saddle_review.py": "340399c5ced45a47785b87087f9df39c9c168acfa3521e0bb755527d49d94ae1",
+    "SADDLE-GRIP-SOURCE.json": "d8bee51f4c7e735f96aa187e7205b6c9b9ffcde509a1dd2ac1955b03813b0d35",
+    "lid-saddle-mesh.json": "8ef4e31648e1291bf8341a16301210af96adea3865c25a012588673aa42441bd",
+    "lid-saddle-design.json": "5d0efd65f2f473e29ce7939d4ff8a16727a161035ec8bb83de892c1945e441de",
+    "lid-saddle-mass-reference.json": "6fb0f46273f8a96c60cbb70c2db1021a3f8afce9792c2d1d105994b4bc012063",
+    "supported-saddle-proof.json": "11a387072f33036e92cfaee5fb333212fe4f7331202958ba938e464dd67efe7e",
+    "supported-saddle-clearance.json": "d51e4b530f63729ea14c52b3c437bae844984cf8a06bb2579dd79ae5e9003050",
+    "test_supported_saddle_grip.py": "68de5d0e21a1c2451ad5193f05bd1d7dd910d62d55c37323e76c56ea51816e93"
+  },
+  "tests_passed_here": 78,
+  "test_scope": "11independent checker regressions +selectedcandidate root tests+inherited paired checker tests; allpassed. bash -n launcher passed.",
+  "runtime_control_and_numeric_gates_unchanged": true,
+  "source_geometry_mass_and_probe_binding_independently_verified": true,
+  "launch_scope": "One30min teachingT4, serial original then supported-saddle, freshoriginal must independently NEGATIVE_CONTROL_REPRODUCED before candidate; bothreported; no seating/release/fullassembly allowed.",
+  "limitations": [
+    "Ideal normalcontact gravityfeasible butfrictionlessrank5; actualfriction/patchesmuststabilize residualpitch; no guaranteedfix.",
+    "Nominalsource sweeps do notprove actualtracking/contactdepth/friction/steadyholding.",
+    "Sourcebodymassnatural prediction and79probesmust passfreshoriginaltolerance livechecks.",
+    "Strict.020mmhold/.250mmcontact/PCBguards allretained; no hiddenwait/windowreset/newcontroller."
+  ],
+  "root_pre_submission_requirements": [
+    "Full inherited+newCPUpreflight; finalimmutablepackage seal matching reviewedexecutable files.",
+    "Freshallstatequeuecheck; rootsoleGPUowner, nooverlap andexcludenode11."
+  ],
+  "worker_submitted_jobs": false,
+  "full_assembly_accepted": false
+}

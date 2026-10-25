@@ -1,0 +1,718 @@
+{
+  "status": "CPU_SOURCE_SOLID_SCREEN_ONLY",
+  "all_fingers_and_limits_unchanged": true,
+  "selected_roof_bands": 4,
+  "cases": {
+    "source_initial_open": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": 1.055411462479526,
+        "worst_cell_and_collider": [
+          0,
+          "/World/ER4iA/JawL/Collision/Part45"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": 2.228203660249676,
+        "worst_cell_and_collider": [
+          31,
+          "/World/ER4iA/JawL/Collision/Part42"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "static"
+    },
+    "source_close_start_to_end": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": 0.09395791752775295,
+        "worst_cell_and_collider": [
+          1,
+          "/World/ER4iA/JawL/Collision/Part55"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": -0.04998474121093732,
+        "worst_cell_and_collider": [
+          53,
+          "/World/ER4iA/JawL/Collision/Part02"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 3,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "exact convex hull of pure translation endpoints"
+    },
+    "source_open_side_entry": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": 1.055411462479526,
+        "worst_cell_and_collider": [
+          0,
+          "/World/ER4iA/JawL/Collision/Part45"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": 2.228203660249676,
+        "worst_cell_and_collider": [
+          31,
+          "/World/ER4iA/JawL/Collision/Part42"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "exact convex hull of pure translation endpoints"
+    },
+    "source_vertical_approach_at_side": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": 9.99999994784594,
+        "worst_cell_and_collider": [
+          3,
+          "/World/ER4iA/JawL/Collision/Part02"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": 2.228203660249676,
+        "worst_cell_and_collider": [
+          31,
+          "/World/ER4iA/JawL/Collision/Part42"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "exact convex hull of pure translation endpoints"
+    },
+    "loaded_outward_open": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": -1.578425212755974e-08,
+        "worst_cell_and_collider": [
+          1,
+          "/World/ER4iA/JawL/Collision/Part55"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": -0.04998474121093732,
+        "worst_cell_and_collider": [
+          53,
+          "/World/ER4iA/JawL/Collision/Part02"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 3,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "exact convex hull of pure translation endpoints"
+    },
+    "loaded_open_side_exit": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": 1.0369459108480896,
+        "worst_cell_and_collider": [
+          0,
+          "/World/ER4iA/JawL/Collision/Part44"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": 2.383430874168482,
+        "worst_cell_and_collider": [
+          31,
+          "/World/ER4iA/JawL/Collision/Part42"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "exact convex hull of pure translation endpoints"
+    },
+    "loaded_open_retreat": {
+      "new_saddle": {
+        "minimum_signed_SAT_gap_mm": 9.99999994784594,
+        "worst_cell_and_collider": [
+          3,
+          "/World/ER4iA/JawL/Collision/Part02"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "unchanged_lid_body_neck": {
+        "minimum_signed_SAT_gap_mm": 2.383430874168482,
+        "worst_cell_and_collider": [
+          31,
+          "/World/ER4iA/JawL/Collision/Part42"
+        ],
+        "intersecting_pairs_beyond_1e-7mm": 0,
+        "metric": "Normalized SAT separating projection; negative is authored convex overlap, not a PhysX contact-depth measurement."
+      },
+      "sweep": "exact convex hull of pure translation endpoints"
+    }
+  },
+  "no_dynamic_or_cooked_depth_claim": true,
+  "assembled_other_parts_vertical_gap_mm": 6.983429348289576,
+  "source_visual_ray_probes": [
+    {
+      "part": "base",
+      "label": "floor",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "wall_(30, 10)",
+      "expected_hit": true,
+      "distance_mm": 88.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "wall_(-30, 10)",
+      "expected_hit": true,
+      "distance_mm": 88.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "wall_(15, 28)",
+      "expected_hit": true,
+      "distance_mm": 88.00000000000001,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "wall_(15, -28)",
+      "expected_hit": true,
+      "distance_mm": 88.00000000000001,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "board_port_slot",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "flat_base_grip_top",
+      "expected_hit": true,
+      "distance_mm": 66.5999984741211,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "flat_base_top_edge_-1",
+      "expected_hit": true,
+      "distance_mm": 66.5999984741211,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "flat_base_top_edge_1",
+      "expected_hit": true,
+      "distance_mm": 66.5999984741211,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "flat_base_grip_side",
+      "expected_hit": true,
+      "distance_mm": 18.0,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "floor_away_from_bridge",
+      "expected_hit": true,
+      "distance_mm": 98.0,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "base_grip_clearance_notch",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "board_keeper",
+      "expected_hit": true,
+      "distance_mm": 94.34999990463258,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "bridge_top",
+      "expected_hit": true,
+      "distance_mm": 89.0,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "negative_usb_bridge_post",
+      "expected_hit": true,
+      "distance_mm": 87.0,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "usb_access_channel",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "flat_grip_top",
+      "expected_hit": true,
+      "distance_mm": 69.60000038146973,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "flat_grip_edge_-4.4",
+      "expected_hit": true,
+      "distance_mm": 69.60000038146973,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "flat_grip_edge_4.4",
+      "expected_hit": true,
+      "distance_mm": 69.60000038146973,
+      "pass": true
+    },
+    {
+      "part": "pcb",
+      "label": "substrate",
+      "expected_hit": true,
+      "distance_mm": 98.0,
+      "pass": true
+    },
+    {
+      "part": "pcb",
+      "label": "sensor_block",
+      "expected_hit": true,
+      "distance_mm": 95.0,
+      "pass": true
+    },
+    {
+      "part": "pcb",
+      "label": "chip_block",
+      "expected_hit": true,
+      "distance_mm": 96.0,
+      "pass": true
+    },
+    {
+      "part": "pcb",
+      "label": "usb_envelope",
+      "expected_hit": true,
+      "distance_mm": 94.0,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "panel",
+      "expected_hit": true,
+      "distance_mm": 74.0,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "real_vent_hole",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "panel_underside",
+      "expected_hit": true,
+      "distance_mm": 14.0,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "outer_wall",
+      "expected_hit": true,
+      "distance_mm": 16.5,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "bridge_leg_slot",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "load_shoulder_top",
+      "expected_hit": true,
+      "distance_mm": 81.63999938964845,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "load_shoulder_underside",
+      "expected_hit": true,
+      "distance_mm": 4.3600006103515625,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "base_shoulder_top",
+      "expected_hit": true,
+      "distance_mm": 81.63999938964844,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "base_shoulder_underside",
+      "expected_hit": true,
+      "distance_mm": 4.3600006103515625,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "side_guide_top_0.01505",
+      "expected_hit": true,
+      "distance_mm": 70.20000076293945,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "side_guide_top_0.02495",
+      "expected_hit": true,
+      "distance_mm": 70.20000076293945,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "blade_slot_clearance",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "measured_guide_inner_-1",
+      "expected_hit": true,
+      "distance_mm": 3.1999998092651363,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "measured_guide_inner_1",
+      "expected_hit": true,
+      "distance_mm": 3.2000007629394527,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "carrier_guide_top_-1",
+      "expected_hit": true,
+      "distance_mm": 70.20000076293945,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "carrier_guide_inner_-1",
+      "expected_hit": true,
+      "distance_mm": 3.2000000476837154,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "carrier_guide_top_1",
+      "expected_hit": true,
+      "distance_mm": 70.20000076293945,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "carrier_guide_inner_1",
+      "expected_hit": true,
+      "distance_mm": 3.2000000476837154,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "lid_standoff_clearance_(-0.024, -0.02)",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "standoff_foot_side_(-0.024, -0.02)",
+      "expected_hit": true,
+      "distance_mm": 3.75,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "lid_standoff_clearance_(-0.024, 0.02)",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "standoff_foot_side_(-0.024, 0.02)",
+      "expected_hit": true,
+      "distance_mm": 3.75,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "lid_standoff_clearance_(0.024, -0.02)",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "standoff_foot_side_(0.024, -0.02)",
+      "expected_hit": true,
+      "distance_mm": 3.75,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "lid_standoff_clearance_(0.024, 0.02)",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "standoff_foot_side_(0.024, 0.02)",
+      "expected_hit": true,
+      "distance_mm": 3.75,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "thin_floor",
+      "expected_hit": true,
+      "distance_mm": 99.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "support_rib",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "lid_floor_pad_(-0.024, -0.02)",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "lid_floor_pad_(-0.024, 0.02)",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "lid_floor_pad_(0.024, -0.02)",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "base",
+      "label": "lid_floor_pad_(0.024, 0.02)",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "carrier",
+      "label": "right_edge_handle_clearance",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_flat_grip_top",
+      "expected_hit": true,
+      "distance_mm": 69.5999984741211,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_flat_grip_edge_-4.4",
+      "expected_hit": true,
+      "distance_mm": 69.5999984741211,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_flat_grip_edge_4.4",
+      "expected_hit": true,
+      "distance_mm": 69.5999984741211,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_load_shoulder_top",
+      "expected_hit": true,
+      "distance_mm": 78.5,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_load_shoulder_underside",
+      "expected_hit": true,
+      "distance_mm": 3.4408302307128835,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_carrier_guide_top_-1",
+      "expected_hit": true,
+      "distance_mm": 78.5,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_carrier_guide_inner_-1",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_carrier_guide_top_1",
+      "expected_hit": true,
+      "distance_mm": 78.5,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "lid_carrier_guide_inner_1",
+      "expected_hit": false,
+      "distance_mm": null,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_0",
+      "expected_hit": true,
+      "distance_mm": 99.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_1",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_2",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_3",
+      "expected_hit": true,
+      "distance_mm": 97.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_4",
+      "expected_hit": true,
+      "distance_mm": 92.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_5",
+      "expected_hit": true,
+      "distance_mm": 92.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_6",
+      "expected_hit": true,
+      "distance_mm": 92.0,
+      "pass": true
+    },
+    {
+      "part": "nest",
+      "label": "physical_nest_surface_7",
+      "expected_hit": true,
+      "distance_mm": 92.0,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "v57_saddle_underside_X-3.0_Y-7.5",
+      "expected_hit": true,
+      "distance_mm": 3.6908302307128906,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "v57_saddle_underside_X-3.0_Y7.5",
+      "expected_hit": true,
+      "distance_mm": 3.6908302307128906,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "v57_saddle_underside_X0.0_Y-7.5",
+      "expected_hit": true,
+      "distance_mm": 5.190830230712891,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "v57_saddle_underside_X0.0_Y7.5",
+      "expected_hit": true,
+      "distance_mm": 5.190830230712891,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "v57_saddle_underside_X3.0_Y-7.5",
+      "expected_hit": true,
+      "distance_mm": 3.6908302307128906,
+      "pass": true
+    },
+    {
+      "part": "cover",
+      "label": "v57_saddle_underside_X3.0_Y7.5",
+      "expected_hit": true,
+      "distance_mm": 3.6908302307128906,
+      "pass": true
+    }
+  ],
+  "all79_source_visual_probes_pass": true,
+  "limitations": [
+    "Source solids, fixed orientations and declared translations only; no live friction, forces, actual arm tracking or release drift qualification.",
+    "No forceclosure or .020mm hold pass follows.",
+    "Source SAT overlap is not a PhysX raw contact measurement.",
+    "Real print tolerances and assembly release remain unqualified."
+  ]
+}

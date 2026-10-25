@@ -1,0 +1,14 @@
+[
+  [
+    "[('slow_lid_precontact_trial.py','trial_script_sha256')",
+    "[('incoming_lid_precontact_trial.py','trial_script_sha256')"
+  ],
+  [
+    "def main():",
+    "def validate_incoming_stability(r,g):\n    from incoming_lid_stability import qualify\n    from foot_audit import support_geometry\n    a=r['incoming_lid_stability'];corners=[v for foot in support_geometry(g) for v in foot['corners_mm']]\n    assert a['requested_duration_s']==2. and a['requested_commands']==a['issued_commands']==120\n    assert a['end_step']-a['start_step']==120 and abs(a['end_sim_time']-a['start_sim_time']-2.)<=2e-6 and abs(a['actual_duration_s']-2.)<=2e-6\n    assert a['fixed_window_start_index']==95 and a['fixed_window_samples']==25\n    assert a['adaptive_wait'] is False and a['retry'] is False and a['truth_used_for_targets'] is False\n    samples=a['samples'];assert len(samples)>120 and samples[0]['step']==a['start_step']+1 and samples[119]['step']==a['end_step']\n    assert abs(samples[0]['sim_time']-a['start_sim_time']-1/60)<=2e-6 and samples[119]['sim_time']==a['end_sim_time']\n    assert a['reference_freeze_count']==1 and a['reference_freeze_step']==samples[-1]['step'] and a['reference_freeze_sim_time']==samples[-1]['sim_time']\n    shots={x['phase']:x for x in r['checkpoints']};level=shots['3_cover_level_held'];photoA=shots['3_cover_leveled_inspection_a'];photoB=shots['3_cover_leveled_inspection_b']\n    assert a['start_step']==level['step'] and a['start_sim_time']==level['sim_time'] and a['end_step']<photoA['step']<photoB['step']==a['reference_freeze_step']\n    assert photoB['sim_time']==a['reference_freeze_sim_time']\n    for shot in (photoA,photoB):\n        assert len([x for x in samples if x['step']==shot['step'] and x['sim_time']==shot['sim_time']])==1\n    budget=r['lid_pose_foot_budget']['hold_drift_position_error_mm'];assert budget==.02\n    for key,trace in [('fixed_hold_result',samples[:120]),('final_measurement_result',samples)]:\n        expected=qualify(trace,a['expected_arm_joints'],a['expected_jaw_joint_targets_m'],budget,corners)\n        assert a[key]==expected and expected['pass'] and expected['fixed_window_start_index']==95\n\n\ndef main():"
+  ],
+  [
+    "    validate_slow_precontact(r)",
+    "    assert r['incoming_lid_stability_helper_sha256']==digest(source/'incoming_lid_stability.py')\n    validate_incoming_stability(r,g)\n    validate_slow_precontact(r)"
+  ]
+]

@@ -1,0 +1,22 @@
+{
+  "status": "CPU_GEOMETRY_AND_SOURCE_CHECKS_ONLY",
+  "larger_part_simulation_trials_run": 0,
+  "gripper_and_fingers_changed": false,
+  "PCB_intact_and_separate": true,
+  "CAD_closed_connected_models": 5,
+  "nominal_final_fit_pairs_clear": 10,
+  "exact_finger_translation_sweeps_clear": 9,
+  "source_IK_samples_reachable": 255,
+  "prospective_geometry_rays": 154,
+  "clean_host_tests": 63,
+  "full_assembly_accepted": false,
+  "physical_or_print_qualified": false,
+  "original_private_candidate_manifest_sha256": "a06d8a81ca9ebcf2ae4df0b27ab08713416891468c3539ba55787eb66e004bfa",
+  "publication_derivative": {
+    "approval_reference_removed_from_design": true,
+    "geometry_mass_and_numeric_limits_unchanged": true,
+    "public_design_sha256": "d88ac777e0f57c48255278894cafc2cc6386a7479cdeb8fe5a40c1f598f25cb7",
+    "public_parts_sha256": "819e147f08a1a992ab5b7d24a8d9443f619d3989e000095306b88381b00892b9",
+    "supplied_SDK_not_redistributed": true
+  }
+}

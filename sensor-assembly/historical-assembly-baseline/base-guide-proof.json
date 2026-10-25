@@ -1,0 +1,18 @@
+{
+  "slot_width_x_mm": 6.4,
+  "source_finger_blade_x_mm": 6.0,
+  "nominal_each_side_clearance_mm": 0.2,
+  "aligned_guide_interference_mm3": 0.0,
+  "negative_misaligned_x_mm": 0.3,
+  "negative_misaligned_guide_interference_mm3": 1.3631964147193547,
+  "guide_height_mm": [
+    13.6,
+    29.8
+  ],
+  "guide_y_width_bottom_top_mm": [
+    14.0,
+    8.0
+  ],
+  "open_finger_guide_profile_clearance_mm": 1.0625653368019863,
+  "contact_roles_unchanged": true
+}

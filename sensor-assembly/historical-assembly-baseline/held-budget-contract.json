@@ -1,0 +1,42 @@
+{
+  "parent_snapshot": "native-assembly-v41-20261020-01",
+  "parent_estimator_sha256": "d42d83399b119b3a7a10b4eb6e49f30e938268640646befc36038c811dff687b",
+  "patches": [
+    [
+      "max_nfev=200",
+      "max_nfev=400"
+    ],
+    [
+      "    # Failed/obscured fits may never dispatch a placement.",
+      "    optimizer={'success':bool(fit.success),'status':int(fit.status),'message':str(fit.message),'nfev':int(fit.nfev),'njev':int(fit.njev),'max_nfev':400,'cost':float(fit.cost),'optimality':float(fit.optimality)}\n    # Failed/obscured fits may never dispatch a placement."
+    ],
+    [
+      "raise ValueError('Held-pose fit uncertain: '+str(scores))",
+      "raise ValueError('Held-pose fit uncertain: '+str({'optimizer':optimizer,'views':scores,'offset_mm_and_xyz_deg':fit.x.tolist()}))"
+    ],
+    [
+      "'function_evaluations':fit.nfev,",
+      "'function_evaluations':fit.nfev,'optimizer':optimizer,"
+    ]
+  ],
+  "change": "Only maximum optimizer evaluation budget200->400 plus termination diagnostics; all residuals/bounds/tolerances/numeric acceptance gates unchanged",
+  "truth": "No truth pose enters estimator; independent scores after estimation only",
+  "historical_sources_unchanged": {
+    "held_pose.py": "d42d83399b119b3a7a10b4eb6e49f30e938268640646befc36038c811dff687b",
+    "native_nest_full_assembly_trial.py": "fbb9c3eeba4e88a418a83712d40e427b6fc0ebdf0cbbe7054ce74441d84131ac",
+    "check_native_nest_full.py": "123c72bbf22f401c2b3f8a8e144a468d361d910cb7ee4ce6ebdf512a3958c856",
+    "nest-mesh.json": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+    "nest-design.json": "3808dbe0fd8bbda6f6990e46b796cde1d38055c4fdf84450cccd39a858acc62a",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb"
+  },
+  "runner_patches": [
+    [
+      "from held_pose import estimate,placement_from_held,project,front_edges",
+      "from held_pose_bounded import estimate,placement_from_held,project,front_edges"
+    ],
+    [
+      "    def persist():(out/'report.json').write_text(json.dumps(report,indent=2)+'\\n')",
+      "    report['held_pose_estimator_sha256']=digest(Path(__file__).with_name('held_pose_bounded.py'))\n    def persist():(out/'report.json').write_text(json.dumps(report,indent=2)+'\\n')"
+    ]
+  ]
+}

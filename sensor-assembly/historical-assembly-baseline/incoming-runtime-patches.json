@@ -1,0 +1,26 @@
+[
+  [
+    "from passive_velocity import PassiveVelocity",
+    "from passive_velocity import PassiveVelocity\nfrom incoming_lid_stability import make_sample as incoming_sample,qualify as qualify_incoming"
+  ],
+  [
+    "    report['diagnostic_trace']=[]",
+    "    report['diagnostic_trace']=[]\n    report['incoming_lid_stability_helper_sha256']=digest(Path(__file__).with_name('incoming_lid_stability.py'))"
+  ],
+  [
+    "                if state.get('lid_clearance_ready'):",
+    "                if state.get('incoming_lid_capture'):\n                    live_R,live_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n                    actual_cover=poses()['cover']\n                    sample=incoming_sample(state['step'],float(world.current_time),actual_cover['position_world_m'],mass_rotation(actual_cover['orientation_wxyz']),(np.asarray(live_tip)+[0,0,C.TABLE_TOP_Z]).tolist(),live_R.tolist(),incoming_corners,q.tolist(),issued_jaw_targets)\n                    report['incoming_lid_stability']['samples'].append(sample)\n                if state.get('lid_clearance_ready'):"
+  ],
+  [
+    "        def measure_lid(label):",
+    "        incoming_corners=[v for foot in __import__('foot_audit').support_geometry(geometry) for v in foot['corners_mm']]\n        def qualify_incoming_hold(boundary):\n            audit=report['incoming_lid_stability']\n            result=qualify_incoming(audit['samples'],audit['expected_arm_joints'],audit['expected_jaw_joint_targets_m'],report['lid_pose_foot_budget']['hold_drift_position_error_mm'],incoming_corners)\n            audit[boundary]=result;persist()\n            if not result['pass']:raise RuntimeError('incoming_lid_grasp_unstable_before_measurement')\n        def fixed_incoming_hold():\n            if state.get('lid_drift_reference') is not None:raise RuntimeError('Incoming hold cannot reset an existing grasp reference')\n            audit={'scope':'Ideal-simulation incoming readiness veto only; no physical sensor claim','source':'actual CAD foot corners transformed through independent simulation pose and measured FK; truth only veto, never targets or hold duration','expected_arm_joints':q.tolist(),'expected_jaw_joint_targets_m':dict(issued_jaw_targets),'start_step':state['step'],'start_sim_time':float(world.current_time),'requested_duration_s':2.,'requested_commands':120,'fixed_window_start_index':95,'fixed_window_samples':25,'adaptive_wait':False,'retry':False,'truth_used_for_targets':False,'samples':[]}\n            report['incoming_lid_stability']=audit;state['incoming_lid_capture']=True\n            for _ in range(120):command(jaw);advance(1)\n            audit['end_step']=state['step'];audit['end_sim_time']=float(world.current_time);audit['actual_duration_s']=audit['end_sim_time']-audit['start_sim_time'];audit['issued_commands']=120\n            if abs(audit['actual_duration_s']-2.)>2e-6:raise RuntimeError('Incoming fixed hold timing mismatch')\n            qualify_incoming_hold('fixed_hold_result')\n        def measure_lid(label):"
+  ],
+  [
+    "            state['lid_drift_reference']=({'actual_pose':actual",
+    "            if label=='3_cover_leveled_inspection':\n                if report['incoming_lid_stability'].get('reference_freeze_count',0)!=0:raise RuntimeError('Final lid grasp reference already frozen')\n                qualify_incoming_hold('final_measurement_result')\n                state['incoming_lid_capture']=False\n                report['incoming_lid_stability']['reference_freeze_step']=state['step']\n                report['incoming_lid_stability']['reference_freeze_sim_time']=float(world.current_time)\n                report['incoming_lid_stability']['reference_freeze_count']=1\n            state['lid_drift_reference']=({'actual_pose':actual"
+  ],
+  [
+    "                observed=measure_lid('3_cover_leveled_inspection')",
+    "                fixed_incoming_hold()\n                observed=measure_lid('3_cover_leveled_inspection')"
+  ]
+]

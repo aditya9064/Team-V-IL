@@ -1,0 +1,49 @@
+{
+  "reference_v24": {
+    "mass_kg": 0.024490985399566838,
+    "centre_mass_mm": [
+      2.6295596920998254,
+      3.837375993012266e-18,
+      4.96853850292032
+    ],
+    "gravity_torque_about_grip_Nmm": 4.173362351654987
+  },
+  "new_v25": {
+    "mass_kg": 0.019044905399566835,
+    "centre_mass_mm": [
+      3.6627804983048664,
+      -7.895538886669587e-16,
+      5.817421596988331
+    ],
+    "gravity_torque_about_grip_Nmm": 3.052291247036092
+  },
+  "mass_ratio": 0.7776292006569763,
+  "cantilever_torque_ratio": 0.7313746063352674,
+  "material_density_kg_m3": 1240,
+  "physics_and_density_not_changed": true,
+  "base_grasp_walls_outer_dimensions_unchanged": true,
+  "only_floor_geometry_changed": true,
+  "support_top_z_mm": 3.0,
+  "plate_mm": 1.0,
+  "ribbed_floor_top_support_area_mm2": 395.0,
+  "lid_contact_area_mm2": 25.0,
+  "relative_floor_corners": 729,
+  "minimum_floor_margin_mm": 2.3314155624793855,
+  "other_parts_sha256": {
+    "carrier": "7163bf9615a533807f7576f28b12737a30a9bedf8b0d37451243634a81118d5c",
+    "pcb": "ead660e797139b2dab3577764a8df2b03958db7ec95e4212adc86ebb2d03e133",
+    "nest": "58f2061056fb86d779ae0b69f05d54a322f5723d674d96002d69ec78a6dc429b",
+    "cover": "6c224483885dd203354bd7a8a907ae6c39c9afeb4f74e6097c078c6a1159a905"
+  },
+  "runtime_sha256": {
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+    "check_holder_assembly.py": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46"
+  },
+  "limits_unchanged": true,
+  "grip_commands_unchanged": true,
+  "v27_scope": "Current pinned runtime; exact original code restored by inverse representation patch in representation-reference.json. No numeric/contact rule changes."
+}

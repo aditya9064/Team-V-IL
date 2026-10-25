@@ -1,0 +1,770 @@
+{
+  "held_pose_observations": [
+    {
+      "position_world_m": [
+        0.3003060920801215,
+        0.09997481833867887,
+        1.0413316948144624
+      ],
+      "rotation_world": [
+        [
+          0.9999978477987951,
+          0.0007524756788607734,
+          -0.0019334368700504952
+        ],
+        [
+          -0.0007544745763141457,
+          0.9999991814922603,
+          -0.001033335823059475
+        ],
+        [
+          0.0019326577274425048,
+          0.001034792328076233,
+          0.999997597016586
+        ]
+      ],
+      "offset_mm_and_xyz_deg": [
+        0.14407697768785407,
+        -0.002537290542342313,
+        0.012334236984996414,
+        0.05928935438032411,
+        -0.11073319996035205,
+        -0.04322829380638336
+      ],
+      "views": {
+        "inspection_x": {
+          "edge_rms_px": 0.3534438859142205,
+          "edge_p95_px": 0.5851608798933,
+          "edge_coverage_within_2px": 1.0,
+          "observed_contour_points": 3483
+        },
+        "inspection_y": {
+          "edge_rms_px": 0.39612830137537125,
+          "edge_p95_px": 0.8239475543006278,
+          "edge_coverage_within_2px": 1.0,
+          "observed_contour_points": 3568
+        }
+      },
+      "rms_px": 0.37539326821393687,
+      "function_evaluations": 37,
+      "optimizer": {
+        "success": true,
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 37,
+        "njev": 26,
+        "max_nfev": 400,
+        "cost": 19.728814814847702,
+        "optimality": 0.9804390956836567
+      },
+      "source": "two calibrated RGB lower-edge contours + unchanged CAD; no runtime object coordinates",
+      "label": "1_base_leveled_inspection_a",
+      "step": 1320,
+      "tip_world_m": [
+        0.31666201510243364,
+        0.0999773556292212,
+        1.0545475615853204
+      ],
+      "camera_models": {
+        "inspection_x": {
+          "resolution": [
+            1920,
+            1440
+          ],
+          "focal_length_mm": 35.0,
+          "horizontal_aperture_mm": 20.954999923706055,
+          "vertical_aperture_mm": 15.7162504196167,
+          "camera_to_world": [
+            [
+              0.3880570275792945,
+              0.9216353635502068,
+              2.643265245572124e-08,
+              0.0
+            ],
+            [
+              0.2575490609822743,
+              -0.10844174647902793,
+              0.9601608556943608,
+              0.0
+            ],
+            [
+              0.884918202170953,
+              -0.37259716085104094,
+              -0.2794479042545719,
+              0.0
+            ],
+            [
+              0.49000000953674316,
+              0.019999999552965164,
+              0.9916718006134033,
+              1.0
+            ]
+          ]
+        },
+        "inspection_y": {
+          "resolution": [
+            1920,
+            1440
+          ],
+          "focal_length_mm": 35.0,
+          "horizontal_aperture_mm": 20.954999923706055,
+          "vertical_aperture_mm": 15.7162504196167,
+          "camera_to_world": [
+            [
+              0.921635374254091,
+              -0.38805700215757133,
+              1.0510526976537093e-08,
+              0.0
+            ],
+            [
+              -0.10844168668123774,
+              -0.2575489782215765,
+              0.9601608846473335,
+              0.0
+            ],
+            [
+              -0.3725971517782305,
+              -0.8849182374058637,
+              -0.2794478047744331,
+              0.0
+            ],
+            [
+              0.2199999988079071,
+              -0.09000000357627869,
+              0.9916718006134033,
+              1.0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "position_world_m": [
+        0.3005146322218372,
+        0.09999076091457235,
+        1.041353376199157
+      ],
+      "rotation_world": [
+        [
+          0.9999926638134986,
+          -0.00048736329231305174,
+          -0.003799315228412114
+        ],
+        [
+          0.0004851082067294943,
+          0.999999705649877,
+          -0.0005944494827648752
+        ],
+        [
+          0.0037996038229402423,
+          0.0005926020427753487,
+          0.9999926058894676
+        ]
+      ],
+      "offset_mm_and_xyz_deg": [
+        0.35258883804041646,
+        0.01339271940484141,
+        0.034023539842470335,
+        0.03395384306569321,
+        -0.21770178670478252,
+        0.0277948545806602
+      ],
+      "views": {
+        "inspection_x": {
+          "edge_rms_px": 0.32120032533737886,
+          "edge_p95_px": 0.5280695691034867,
+          "edge_coverage_within_2px": 1.0,
+          "observed_contour_points": 3509
+        },
+        "inspection_y": {
+          "edge_rms_px": 0.3170936969210058,
+          "edge_p95_px": 0.5195040143136843,
+          "edge_coverage_within_2px": 1.0,
+          "observed_contour_points": 3574
+        }
+      },
+      "rms_px": 0.31915361632282085,
+      "function_evaluations": 126,
+      "optimizer": {
+        "success": true,
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied.",
+        "nfev": 126,
+        "njev": 103,
+        "max_nfev": 400,
+        "cost": 14.26026431367081,
+        "optimality": 0.2870691399831952
+      },
+      "source": "two calibrated RGB lower-edge contours + unchanged CAD; no runtime object coordinates",
+      "label": "1_base_leveled_inspection_b",
+      "step": 1332,
+      "tip_world_m": [
+        0.31666204338379683,
+        0.0999773681951675,
+        1.0545475536671576
+      ],
+      "camera_models": {
+        "inspection_x": {
+          "resolution": [
+            1920,
+            1440
+          ],
+          "focal_length_mm": 35.0,
+          "horizontal_aperture_mm": 20.954999923706055,
+          "vertical_aperture_mm": 15.7162504196167,
+          "camera_to_world": [
+            [
+              0.3880570275792945,
+              0.9216353635502068,
+              2.643265245572124e-08,
+              0.0
+            ],
+            [
+              0.2575490609822743,
+              -0.10844174647902793,
+              0.9601608556943608,
+              0.0
+            ],
+            [
+              0.884918202170953,
+              -0.37259716085104094,
+              -0.2794479042545719,
+              0.0
+            ],
+            [
+              0.49000000953674316,
+              0.019999999552965164,
+              0.9916718006134033,
+              1.0
+            ]
+          ]
+        },
+        "inspection_y": {
+          "resolution": [
+            1920,
+            1440
+          ],
+          "focal_length_mm": 35.0,
+          "horizontal_aperture_mm": 20.954999923706055,
+          "vertical_aperture_mm": 15.7162504196167,
+          "camera_to_world": [
+            [
+              0.921635374254091,
+              -0.38805700215757133,
+              1.0510526976537093e-08,
+              0.0
+            ],
+            [
+              -0.10844168668123774,
+              -0.2575489782215765,
+              0.9601608846473335,
+              0.0
+            ],
+            [
+              -0.3725971517782305,
+              -0.8849182374058637,
+              -0.2794478047744331,
+              0.0
+            ],
+            [
+              0.2199999988079071,
+              -0.09000000357627869,
+              0.9916718006134033,
+              1.0
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "phase": "1_base_leveled_inspection_a",
+      "step": 1320,
+      "sim_time": 22.033334482461214,
+      "poses": {
+        "base": {
+          "position_world_m": [
+            0.3004957437515259,
+            0.10002035647630692,
+            1.0412570238113403
+          ],
+          "orientation_wxyz": [
+            0.9999984502792358,
+            0.0002664824132807553,
+            -0.0017342055216431618,
+            -0.00014476680371444672
+          ],
+          "tilt_deg": 0.20105789751321174,
+          "yaw_deg": -0.016642085156477818
+        },
+        "carrier": {
+          "position_world_m": [
+            0.4000000059604645,
+            -0.15999998152256012,
+            0.8948999643325806
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        },
+        "pcb": {
+          "position_world_m": [
+            0.4000000059604645,
+            -0.15999998152256012,
+            0.8968999981880188
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        },
+        "cover": {
+          "position_world_m": [
+            0.4300000071525574,
+            0.04000000283122063,
+            0.8948999643325806
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        },
+        "nest": {
+          "position_world_m": [
+            0.30000001192092896,
+            0.10000000149011612,
+            0.8949000239372253
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        }
+      },
+      "stillness_trace": [
+        {
+          "step": 1310,
+          "sim_time": 21.866667807102203,
+          "maximum_raw_joint_speed_rad_s": 0.0001469699782319367,
+          "tip_robot_m": [
+            0.31666210637474945,
+            0.09997763586452837,
+            0.15454754156055378
+          ]
+        },
+        {
+          "step": 1312,
+          "sim_time": 21.900001142174006,
+          "maximum_raw_joint_speed_rad_s": 0.00012020883150398731,
+          "tip_robot_m": [
+            0.31666209928195665,
+            0.09997757559698786,
+            0.1545475645033249
+          ]
+        },
+        {
+          "step": 1314,
+          "sim_time": 21.933334477245808,
+          "maximum_raw_joint_speed_rad_s": 0.00012946683273185045,
+          "tip_robot_m": [
+            0.3166620348365244,
+            0.09997742296681601,
+            0.15454755880477294
+          ]
+        },
+        {
+          "step": 1316,
+          "sim_time": 21.96666781231761,
+          "maximum_raw_joint_speed_rad_s": 0.00014958661631681025,
+          "tip_robot_m": [
+            0.3166620893226109,
+            0.09997757210599759,
+            0.15454755422809108
+          ]
+        },
+        {
+          "step": 1318,
+          "sim_time": 22.000001147389412,
+          "maximum_raw_joint_speed_rad_s": 0.00012222514487802982,
+          "tip_robot_m": [
+            0.3166620836868097,
+            0.09997752018267901,
+            0.15454756283258325
+          ]
+        },
+        {
+          "step": 1320,
+          "sim_time": 22.033334482461214,
+          "maximum_raw_joint_speed_rad_s": 0.00013149314327165484,
+          "tip_robot_m": [
+            0.31666201510243364,
+            0.0999773556292212,
+            0.1545475615853203
+          ]
+        }
+      ],
+      "tip_robot_m": [
+        0.31666201510243364,
+        0.0999773556292212,
+        0.1545475615853203
+      ],
+      "tool_axis_error_deg": 0.17857999639574984,
+      "spread_axis_error_deg": 0.02657283763927734,
+      "payload_score": {
+        "relative_position_carrier_m": [
+          0.0,
+          0.0,
+          0.0020000338554382324
+        ],
+        "xy_mm": 0.0,
+        "z_mm": 3.385543823238024e-05,
+        "tilt_deg": 0.0,
+        "yaw_deg": 0.0,
+        "pass": true
+      },
+      "jaw_joints": {
+        "jaw_l": -0.004036812577396631,
+        "jaw_r": 0.004048467148095369
+      },
+      "issued_jaw_per_side_m": 0.0019500152587890625,
+      "issued_jaw_joint_targets_m": {
+        "jaw_l": -0.004049984741210938,
+        "jaw_r": 0.004049984741210938
+      },
+      "body_velocities": {
+        "base": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            1.4305114000023916e-05,
+            -0.00012382864306270701,
+            2.1457671000035874e-05
+          ],
+          "angular_world_rad_s": [
+            -0.015024804003535466,
+            -0.002907098655738631,
+            0.00042208058086899046
+          ]
+        },
+        "carrier": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_world_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "pcb": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_world_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "cover": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_world_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "phase": "1_base_leveled_inspection_b",
+      "step": 1332,
+      "sim_time": 22.233334492892027,
+      "poses": {
+        "base": {
+          "position_world_m": [
+            0.3004956543445587,
+            0.10002042353153229,
+            1.0412569046020508
+          ],
+          "orientation_wxyz": [
+            0.9999984502792358,
+            0.0002669616078492254,
+            -0.0017341929487884045,
+            -0.00014403340173885226
+          ],
+          "tilt_deg": 0.20106482085649122,
+          "yaw_deg": -0.01655813794454329
+        },
+        "carrier": {
+          "position_world_m": [
+            0.4000000059604645,
+            -0.15999998152256012,
+            0.8948999643325806
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        },
+        "pcb": {
+          "position_world_m": [
+            0.4000000059604645,
+            -0.15999998152256012,
+            0.8968999981880188
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        },
+        "cover": {
+          "position_world_m": [
+            0.4300000071525574,
+            0.04000000283122063,
+            0.8948999643325806
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        },
+        "nest": {
+          "position_world_m": [
+            0.30000001192092896,
+            0.10000000149011612,
+            0.8949000239372253
+          ],
+          "orientation_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0
+        }
+      },
+      "stillness_trace": [
+        {
+          "step": 1322,
+          "sim_time": 22.066667817533016,
+          "maximum_raw_joint_speed_rad_s": 0.00015076191630214453,
+          "tip_robot_m": [
+            0.3166620987972786,
+            0.09997756931474229,
+            0.15454755936570796
+          ]
+        },
+        {
+          "step": 1324,
+          "sim_time": 22.10000115260482,
+          "maximum_raw_joint_speed_rad_s": 0.00012863273150287569,
+          "tip_robot_m": [
+            0.3166620893219897,
+            0.09997750218365951,
+            0.15454756283258325
+          ]
+        },
+        {
+          "step": 1326,
+          "sim_time": 22.13333448767662,
+          "maximum_raw_joint_speed_rad_s": 0.0001332627871306613,
+          "tip_robot_m": [
+            0.3166620524037879,
+            0.09997735703570347,
+            0.15454755880477294
+          ]
+        },
+        {
+          "step": 1328,
+          "sim_time": 22.166667822748423,
+          "maximum_raw_joint_speed_rad_s": 0.00014645379269495606,
+          "tip_robot_m": [
+            0.3166621054709942,
+            0.09997763875116338,
+            0.15454754156055378
+          ]
+        },
+        {
+          "step": 1330,
+          "sim_time": 22.200001157820225,
+          "maximum_raw_joint_speed_rad_s": 0.00011760979396058246,
+          "tip_robot_m": [
+            0.3166620998490188,
+            0.0999775737857659,
+            0.1545475645033249
+          ]
+        },
+        {
+          "step": 1332,
+          "sim_time": 22.233334492892027,
+          "maximum_raw_joint_speed_rad_s": 0.00012947648065164685,
+          "tip_robot_m": [
+            0.31666204338379683,
+            0.0999773681951675,
+            0.15454755366715756
+          ]
+        }
+      ],
+      "tip_robot_m": [
+        0.31666204338379683,
+        0.0999773681951675,
+        0.15454755366715756
+      ],
+      "tool_axis_error_deg": 0.17839102979012536,
+      "spread_axis_error_deg": 0.02856534975666102,
+      "payload_score": {
+        "relative_position_carrier_m": [
+          0.0,
+          0.0,
+          0.0020000338554382324
+        ],
+        "xy_mm": 0.0,
+        "z_mm": 3.385543823238024e-05,
+        "tilt_deg": 0.0,
+        "yaw_deg": 0.0,
+        "pass": true
+      },
+      "jaw_joints": {
+        "jaw_l": -0.0040368009358644485,
+        "jaw_r": 0.004048466682434082
+      },
+      "issued_jaw_per_side_m": 0.0019500152587890625,
+      "issued_jaw_joint_targets_m": {
+        "jaw_l": -0.004049984741210938,
+        "jaw_r": 0.004049984741210938
+      },
+      "body_velocities": {
+        "base": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            5.3644177500089684e-06,
+            -0.00012561678231271003,
+            2.1457671000035874e-05
+          ],
+          "angular_world_rad_s": [
+            -0.01539934120151595,
+            -0.0029957008309846166,
+            0.00040228779188189717
+          ]
+        },
+        "carrier": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_world_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "pcb": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_world_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "cover": {
+          "available": true,
+          "source": "finite_difference_existing_USD_pose_snapshots",
+          "linear_reference": "body origin, not center of mass",
+          "angular_reference": "world log(Rnow Rprev.T)/dt",
+          "interval_s": 0.01666666753590107,
+          "linear_world_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_world_rad_s": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  ],
+  "original_report_sha256": "2ce1ebd0098b14c16c6319a99d6193d2b1ee9f340252297ac0d711e417bbb710",
+  "mesh_sha256": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+  "design_sha256": "3808dbe0fd8bbda6f6990e46b796cde1d38055c4fdf84450cccd39a858acc62a",
+  "original_estimator_sha256": "f6e1924961dff4703c78a881803538825edd263fc1bb5b6b34b6625800417df6"
+}

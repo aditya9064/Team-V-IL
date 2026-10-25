@@ -1,0 +1,23 @@
+{
+  "schema": "REVIEWED_LID_ONLY_SUPPORTED_SADDLE_V57",
+  "runtime_sha256": "c4242932737d2b818cf5fd8de3a4634f11f16fc400c965827c87d896e237f40a",
+  "checker_sha256": "b65d610606ced9b96bcc147b8112fcfbff6fa401caa9e087fec338af1f629a3a",
+  "CPU_geometry_audit_sha256": "1bd7180779ec6aedaf9b86484f812754060f715736e12a3b84616c353612fb0e",
+  "trace_checker_sha256": "af464b8343885d55bb44e61e8133f9c56a91d1119e9f56f28774f14aa80b4817",
+  "cases": [
+    "original",
+    "supported-saddle"
+  ],
+  "all_original_numeric_gates_and_physical_fingers_retained": true,
+  "full_assembly_accepted": false,
+  "isolation": "Pickup and fixed hold only; no seating/release allowed",
+  "mechanical_limitations": [
+    "Four ideal roof normal contacts plus neck have frictionless rank5; actual friction/patches must stabilize remaining motion.",
+    "Positive support and source clearance are not proof of steady holding or a cure.",
+    "Original .020mm fixed-hold and .250mm raw-contact vetoes remain; no hidden wait/reference reset."
+  ],
+  "status": "Independent CPU signoff complete; full source preflight and fresh queue admission pending",
+  "independent_signoff_sha256": "a4f86ae6e0ef589cefb2b96d6dae4e27a34574b81f448085e927eefe077101df",
+  "launcher_addendum": "Only appends the independently reviewed 11 regression tests; no execution-case or runtime change",
+  "launcher_sha256": "2c85f2c8a11810d7676faf5cfec735270e3b1e67e44c2e1306364f2ee15781f1"
+}

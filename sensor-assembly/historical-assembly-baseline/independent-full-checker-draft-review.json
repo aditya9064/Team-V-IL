@@ -1,0 +1,45 @@
+{
+  "status": "DRAFT_FOR_COORDINATOR_REVIEW_NOT_ADMITTED",
+  "scope": "New native full motion checker; existing V59/source/CAD untouched",
+  "files_sha256": {
+    "v59-component-regression-fixture.json": "2c42cec639e9b63ff45273dd6ff086906e6394b892be364dcd9074b8e303fc5a",
+    "full_motion_command_integrity.py": "77c572a46fb0f25be4b584dcda7445766553de1c8828990dd86fc31396ffc4e8",
+    "full_motion_trace_integrity.py": "4e361ad76dddac97495f44b080a9b169369605666a29815d7d564b1b64819fb5",
+    "check_full_observed_assembly.py": "71ea557a6f904dc602a13af29a67fef8b32846feb88292980569e53b9e8e7538",
+    "test_full_observed_assembly.py": "4bbd0d0f989d54d034368d28a3d60e20625dc4fc619058ddc88c15fd025c4be2"
+  },
+  "component_tests_passed": 50,
+  "tests_include": [
+    "actual V59 support gap remains inconclusive",
+    "nativethreepart process recomputation plusprefix omission/PCBnotcarried/slip/release/inventory negatives",
+    "original force normals/impulses/4feet/2halves/depth andfinal120/ref checks",
+    "unknown sleep nonterminating evidence andforceindependence",
+    "actualhold advisories retained/targetchanges/adaptive/missing samples rejected",
+    "oldlid metadata andpreassembledinitialscene rejected"
+  ],
+  "fresh_full_runtime_or_report_exercised": false,
+  "all_end_to_end_branches_exercised": false,
+  "prefix_actual_command_source_equivalence_owned_by_coordinator": true,
+  "original_lid_checker_modified": false,
+  "GPU_launched": false,
+  "required_before_admission": [
+    "Coordinator review andintegration tests against actual newly staged runtime/helper/policy metadata andfield shapes",
+    "Fullsource/runtime/helper manifestseal andfresh independent source hash review",
+    "Fullrawtrace andcommand/RGB replay execution onactualnewterminalfullreport, withseparateactualvideoreview",
+    "No source-onlytest orsyntheticsupporttest can count as a fullassembly simulation result"
+  ],
+  "limits": [
+    "Generic originalphysics checks reused directly withoutmetadata spoofing.",
+    "Draft full-command module validates baseRGB image-only25seedselection/plan andlidRGB validity/derivedplan/continuousSE3commands, but needs actualnativefullrun replay.",
+    "Independent processfailure recomputation beforeallremainingauditchecks is labeledauditincomplete, notprovedmechanicalfailure.",
+    "Old strictsupport remainsmissing\u2192inconclusive; sleepnevermanufacturesforces; no static/hardware/printqualification."
+  ],
+  "SDK_dtype_provenance": "Require all5 bodyposition/orientation dtypes explicitlyfloat32/float64, empty stickyerrors, perbodycapturecounts>=fullledger samples. Normalize only rawUSDtranslation toactualdeclaredSDKdtype; original1e-8bindingtol andallphysicalscoringunchanged.",
+  "portable_fixture": {
+    "file": "v59-component-regression-fixture.json",
+    "bytes": 2933670,
+    "meaning": "Provenance-bound selected original V59 data for component tests only, never full-run evidence",
+    "source_path": "Tests prefer sibling nest-mesh/design on candidate/server; FULL_MOTION_REFERENCE_SOURCE override; no absolute packet dependency."
+  },
+  "new_tests": "Nine actual360-command RGB/SE3/feedback/residual negativecases; source-relativefixture"
+}

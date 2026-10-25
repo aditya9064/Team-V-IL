@@ -1,0 +1,187 @@
+[
+  {
+    "label": "doc_scope",
+    "old": "\"\"\"Loaded-carrier/full PCB-holder mechanical trials. No learned or real control.",
+    "new": "\"\"\"Isolated lid grip solver-convergence diagnostic. No learned or real control."
+  },
+  {
+    "label": "case_and_numerical_parameter",
+    "old": "ap.add_argument('--case',choices=['loaded-carrier','full-assembly'],required=True)",
+    "new": "ap.add_argument('--case',choices=['isolated-lid-grip'],required=True)\n    ap.add_argument('--velocity-iterations',type=int,choices=[1,8,16],required=True)"
+  },
+  {
+    "label": "isolated_order",
+    "old": "    ORDER=('base','carrier','cover')\n    if a.case!='full-assembly':raise ValueError('Full assembly only')",
+    "new": "    ORDER=('cover',)\n    if a.case!='isolated-lid-grip' or a.stage!='precontact':raise ValueError('Isolated grip only; seating/release forbidden')"
+  },
+  {
+    "label": "task_identity",
+    "old": "'task':'full_assembly_with_verified_base_held_pose_fix'",
+    "new": "'task':'isolated_lid_grip_convergence_diagnostic'"
+  },
+  {
+    "label": "unchanged_startup_support_selection",
+    "old": "initial_supports_for_case(a.case)",
+    "new": "initial_supports_for_case('full-assembly')"
+  },
+  {
+    "label": "only_numerical_solver_setting",
+    "old": "        names=list(arm.dof_names);indices={n:i for i,n in enumerate(names)};ai=[indices['J'+str(i)] for i in range(1,7)]",
+    "new": "        arm.set_solver_velocity_iteration_count(a.velocity_iterations)\n        names=list(arm.dof_names);indices={n:i for i,n in enumerate(names)};ai=[indices['J'+str(i)] for i in range(1,7)]"
+  },
+  {
+    "label": "strict_iteration_readback",
+    "old": "!=(32,1):raise RuntimeError('Original articulation iterations changed')",
+    "new": "!=(32,a.velocity_iterations):raise RuntimeError('Isolated articulation iteration readback failed')"
+  },
+  {
+    "label": "earlier_contact_recording",
+    "old": "bool(state.get('incoming_lid_capture'))",
+    "new": "bool(state.get('incoming_lid_capture') or state.get('isolated_contact_capture'))"
+  },
+  {
+    "label": "retain_lid_phase_names",
+    "old": "        for number,name in enumerate(ORDER,1):",
+    "new": "        for name in ORDER:\n            number=3"
+  },
+  {
+    "label": "capture_from_first_close",
+    "old": "            state['allow_grip']=True\n            close=move(prefix+'_close'",
+    "new": "            state['allow_grip']=True\n            state['isolated_contact_capture']=True\n            close=move(prefix+'_close'"
+  },
+  {
+    "label": "fixed_hold_and_terminal_boundary",
+    "old": "            state['held_reference']=(after-np.asarray(held['tip_robot_m'])-np.array([0,0,C.TABLE_TOP_Z])).tolist()\n            travel=lift.copy();",
+    "new": "            state['held_reference']=(after-np.asarray(held['tip_robot_m'])-np.array([0,0,C.TABLE_TOP_Z])).tolist()\n            if name=='cover':\n                state['phase']='3_cover_isolated_hold'\n                fixed_incoming_hold()\n                save('3_cover_isolated_hold')\n                qualify_incoming_hold('post_camera_hold_result')\n                finish_diagnostic('isolated-grip')\n                return\n            raise RuntimeError('Only lid grip is reachable in isolated diagnostic')\n            travel=lift.copy();"
+  },
+  {
+    "label": "explicit_nonassembly_contract",
+    "old": "    def persist():(out/'report.json').write_text(json.dumps(report,indent=2)+'\\n')",
+    "new": "    report['scope']='ISOLATED LID GRIP ONLY: original approach/close/lift plus fixed incoming hold; no base/tray robot placement, transport, RGB fitting, seating or release'\n    report['diagnostic_stage']='isolated-grip'\n    report['lid_diagnostic_scope']=report['scope']\n    report['velocity_iteration_experiment']={'requested':a.velocity_iterations,'original_control':1,'position_iterations':32,'unchanged_geometry_materials_masses_gains_timestep_preload_thresholds':True,'source':'NVIDIA OmniPhysics110.1 SimulationControl motivates convergence test, not a diagnosis'}\n    report['expected_motion_phases']=['3_cover_orient','3_cover_above','3_cover_approach','3_cover_side_entry','3_cover_close','3_cover_lift']\n    report['expected_checkpoint_phases']=['initial']+report['expected_motion_phases']+['3_cover_isolated_hold']\n    report['motion_sampling']['changes']='Isolated lid-only original phases. Only articulation velocity iteration count varies. Omitted preceding base/tray robot prefix is explicit; no contact warm-start equivalence claim.'\n    report['initial_preparation']['robot_placement_order']=['cover pickup only; no placement']\n    report['initial_preparation']['scene_fixture_scope']='All product bodies start at the original known startup coordinates; none is claimed robot-placed here'\n    report['candidate_provenance']='V54 isolated convergence experiment; parentV53 and source artifacts preserved; no full assembly acceptance'\n    def persist():(out/'report.json').write_text(json.dumps(report,indent=2)+'\\n')"
+  },
+  {
+    "label": "telemetry_scope",
+    "old": "report['lid_contact_trace']=lid_contact_trace.value",
+    "new": "report['lid_contact_trace']=lid_contact_trace.value\n        lid_contact_trace.value['scope']='Isolated lid close/lift/fixed hold through terminal outcome; complete selected records, not a full assembly trace'"
+  },
+  {
+    "label": "accepted_diagnostic_identity",
+    "old": "report['diagnostic_stage_accepted']=a.stage;report['full_assembly_accepted']=False;report['isolated_lid_accepted']=False",
+    "new": "report['diagnostic_stage_accepted']=label;report['full_assembly_accepted']=False;report['isolated_lid_accepted']=False"
+  },
+  {
+    "label": "video_diagnostic_identity",
+    "old": "video=out/('DIAGNOSTIC-'+a.stage+'-PASS.mp4')",
+    "new": "video=out/('DIAGNOSTIC-'+label+'-PASS.mp4')"
+  },
+  {
+    "label": "video_scope",
+    "old": "cv2.putText(rgb,'SIMULATION | base > loaded tray > lid | current fingers'",
+    "new": "cv2.putText(rgb,'SIMULATION | isolated lid grip | current fingers'"
+  },
+  {
+    "label": "no_vision_steering_claim",
+    "old": "    report['scope']='ISOLATED LID GRIP ONLY: original approach/close/lift plus fixed incoming hold; no base/tray robot placement, transport, RGB fitting, seating or release'",
+    "new": "    report['vision_guided']=False\n    report['scope']='ISOLATED LID GRIP ONLY: original approach/close/lift plus fixed incoming hold; no base/tray robot placement, transport, RGB fitting, seating or release'"
+  },
+  {
+    "old": "diagnostic_roots=[C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR']+[roots[n] for n in ORDER]+[roots['pcb']]",
+    "new": "diagnostic_roots=[C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR']+[roots[n] for n in ('base','carrier','cover')]+[roots['pcb']]",
+    "label": "retain_all_passive_snapshot_roots"
+  },
+  {
+    "old": "    report['vision_guided']=False\n",
+    "new": "    report['vision_guided']=False\n    report['precontact_accepted']=False\n    report['seating_accepted']=False\n    report['release_accepted']=False\n    report['unexercised_operations']=['base robot placement','tray robot placement','lid transport','RGB pose fitting','precontact approach','seating','release']\n    report['motion_sampling']['only_duration_change']={}\n    report['motion_sampling']['original_phase_durations_retained']=True\n",
+    "label": "explicit_unexercised_boundaries"
+  },
+  {
+    "old": "        arm.set_joint_positions(full)",
+    "new": "        report['kinematic_binding']={'arm_joint_names':['J'+str(i) for i in range(1,7)],'arm_joint_indices':list(ai),'tool_offset_m':list(tool),'table_top_z_m':float(C.TABLE_TOP_Z),'joint_dtype':str(full.dtype)}\n        arm.set_joint_positions(full)",
+    "label": "bind_independent_fk_to_existing_state"
+  },
+  {
+    "old": "Isolated lid grip solver-convergence diagnostic.",
+    "new": "Isolated lid post-height mechanical comparison.",
+    "label": "purpose"
+  },
+  {
+    "old": "ap.add_argument('--velocity-iterations',type=int,choices=[1,8,16],required=True)",
+    "new": "ap.add_argument('--velocity-iterations',type=int,choices=[1],required=True)\n    ap.add_argument('--geometry-variant',choices=['original','stem-plus3'],required=True)",
+    "label": "original_numerics_only_and_explicit_variant"
+  },
+  {
+    "old": "    physical_parts=['base','carrier','pcb','nest'] if a.case=='loaded-carrier' else ['base','carrier','pcb','cover','nest']",
+    "new": "    binding={'original':('nest-mesh.json','nest-design.json','verified-seating-mass-reference.json'),'stem-plus3':('lid-stem-mesh.json','lid-stem-design.json','lid-stem-mass-reference.json')}[a.geometry_variant]\n    if (meshpath.name,designpath.name)!=binding[:2]:raise ValueError('Geometry variant file binding mismatch')\n    physical_parts=['base','carrier','pcb','nest'] if a.case=='loaded-carrier' else ['base','carrier','pcb','cover','nest']",
+    "label": "explicit_geometry_reference_binding"
+  },
+  {
+    "old": "'task':'isolated_lid_grip_convergence_diagnostic'",
+    "new": "'task':'isolated_lid_grip_geometry_diagnostic'",
+    "label": "task_identity"
+  },
+  {
+    "old": "    report['velocity_iteration_experiment']={'requested':a.velocity_iterations,'original_control':1,'position_iterations':32,'unchanged_geometry_materials_masses_gains_timestep_preload_thresholds':True,'source':'NVIDIA OmniPhysics110.1 SimulationControl motivates convergence test, not a diagnosis'}",
+    "new": "    report['velocity_iteration_experiment']={'requested':a.velocity_iterations,'original_control':1,'position_iterations':32,'numerical_settings_unchanged':True}\n    report['grip_geometry_experiment']={'variant':a.geometry_variant,'extension_mm':0. if a.geometry_variant=='original' else 3.,'only_mechanical_feature_changed':'cover C054 flat stem top/chamfer height','fingers_materials_density_gains_timestep_preload_limits_unchanged':True,'mass_COM_inertia_follow_declared_geometry':True,'isolation_does_not_qualify_assembly':True}\n    report['mesh_source_filename']=binding[0]\n    report['design_source_filename']=binding[1]\n    report['mass_reference_source_filename']=binding[2]",
+    "label": "honest_geometry_and_mass_scope"
+  },
+  {
+    "old": "reference=json.loads(Path(__file__).with_name('verified-seating-mass-reference.json').read_text())",
+    "new": "reference=json.loads(Path(__file__).with_name(binding[2]).read_text())",
+    "label": "geometry_derived_mass_reference"
+  },
+  {
+    "old": "'Isolated lid-only original phases. Only articulation velocity iteration count varies. Omitted preceding base/tray robot prefix is explicit; no contact warm-start equivalence claim.'",
+    "new": "'Paired isolated old/new lid post geometry. Original PGS32:1 and original pickup phases in both cases; declared solid mass/COM/inertia follows changed CAD at unchanged density. No contact warm-start equivalence to full V53.'",
+    "label": "motion_and_physics_scope"
+  },
+  {
+    "old": "'V54 isolated convergence experiment; parentV53 and source artifacts preserved; no full assembly acceptance'",
+    "new": "'V55 isolated old/new lid post-height comparison; V54 numerical experiment demonstrated no repair; every earlier failure retained; no full assembly acceptance'",
+    "label": "provenance"
+  },
+  {
+    "old": "'SIMULATION | isolated lid grip | current fingers'",
+    "new": "'SIMULATION | lid post '+a.geometry_variant+' | current fingers'",
+    "label": "actual_video_case_label"
+  },
+  {
+    "label": "scope",
+    "old": "Isolated lid post-height mechanical comparison. No learned or real control.",
+    "new": "Isolated lid supported-saddle mechanical comparison. No learned or real control."
+  },
+  {
+    "label": "variant_choices",
+    "old": "choices=['original','stem-plus3']",
+    "new": "choices=['original','supported-saddle']"
+  },
+  {
+    "label": "source_binding",
+    "old": "'stem-plus3':('lid-stem-mesh.json','lid-stem-design.json','lid-stem-mass-reference.json')",
+    "new": "'supported-saddle':('lid-saddle-mesh.json','lid-saddle-design.json','lid-saddle-mass-reference.json')"
+  },
+  {
+    "label": "task",
+    "old": "'task':'isolated_lid_grip_geometry_diagnostic'",
+    "new": "'task':'isolated_lid_supported_saddle_diagnostic'"
+  },
+  {
+    "label": "mechanical_receipt",
+    "old": "'extension_mm':0. if a.geometry_variant=='original' else 3.,'only_mechanical_feature_changed':'cover C054 flat stem top/chamfer height'",
+    "new": "'extension_mm':0.,'only_mechanical_feature_changed':('none; original CAD' if a.geometry_variant=='original' else 'cover oldC053/C055/C056 supported pickup saddle; originalC054neck andbody exact'),'supported_saddle_proof_sha256':digest(Path(__file__).with_name('supported-saddle-proof.json')),'supported_saddle_clearance_sha256':digest(Path(__file__).with_name('supported-saddle-clearance.json'))"
+  },
+  {
+    "label": "honest_provenance",
+    "old": "V55 isolated old/new lid post-height comparison; V54 numerical experiment demonstrated no repair; every earlier failure retained; no full assembly acceptance",
+    "new": "V57 one lid-only supported-saddle hypothesis; V55 repair failed, V56 mirrors blocked before motion; original fingers/controller/PGS32:1/gates remain; no demonstrated fix or full assembly acceptance"
+  },
+  {
+    "label": "motion_description",
+    "old": "Paired isolated old/new lid post geometry. Original PGS32:1 and original pickup phases in both cases; declared solid mass/COM/inertia follows changed CAD at unchanged density. No contact warm-start equivalence to full V53.",
+    "new": "Paired original/supported-saddle lid geometry. Original PGS32:1, fingers, TCP, preload, timing, pickup phases and all gates in both cases. Declared lid mass/COM/inertia follows new CAD. No full V53 contact-history equivalence."
+  },
+  {
+    "label": "video_label",
+    "old": "'SIMULATION | lid post '+a.geometry_variant+' | current fingers'",
+    "new": "'SIMULATION | lid grip '+a.geometry_variant+' | current fingers'"
+  }
+]

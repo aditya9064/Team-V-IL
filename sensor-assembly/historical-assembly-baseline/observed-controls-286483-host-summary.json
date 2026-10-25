@@ -1,0 +1,295 @@
+{
+  "observed": {
+    "evidence_audit_passed": true,
+    "full_geometry_seating_accepted": true,
+    "full_robot_assembly_accepted": false,
+    "maximum_world_geometry_error_mm": 9.805186925008182e-08,
+    "acceptance": {
+      "acceptance": "NOMINAL_NO_GRIPPER_SEATING_DIAGNOSTIC_ONLY",
+      "full_assembly_accepted": false,
+      "final_scores": {
+        "nest": {
+          "xy_mm": 1.201370023970236e-05,
+          "z_mm": 2.3937225313019894e-05,
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0,
+          "pass": true
+        },
+        "base": {
+          "xy_mm": 0.0202893230790186,
+          "z_mm": 0.00010452270504668348,
+          "tilt_deg": 0.0002523764140780024,
+          "yaw_deg": 0.1251142559045924,
+          "pass": true
+        },
+        "carrier": {
+          "xy_mm": 0.14532868122370654,
+          "z_mm": 0.00018510818478034707,
+          "tilt_deg": 0.0007157205405862418,
+          "yaw_deg": 0.6154823505324422,
+          "pass": true
+        },
+        "pcb": {
+          "xy_mm": 0.1470054207355385,
+          "z_mm": 0.00015935897823560197,
+          "tilt_deg": 0.00032693399848220697,
+          "yaw_deg": 0.6142096762681102,
+          "pass": true
+        },
+        "cover": {
+          "xy_mm": 0.2040659170914734,
+          "z_mm": 0.00018510818478034707,
+          "tilt_deg": 0.0007038264698207164,
+          "yaw_deg": 0.07912623460641746,
+          "pass": true
+        }
+      },
+      "peak_lid_movement_mm": 0.09085102977591565,
+      "maximum_intended_contact_depth_mm": 0.18761544197332114,
+      "positive_lid_support_events": 96,
+      "raw_camera_arm_speed_peak_rad_s": 3.0064543921071163e-07,
+      "remote_video_sha256": "34630f83ac1397cf5bdd536c443a8881ee050710d2e434b368b438cead33aab7",
+      "video_downloaded": false
+    },
+    "installed_full_body_mass_properties": {
+      "base": {
+        "mass_kg": 0.01862826570868492,
+        "centre_of_mass_local_m": [
+          0.003235237207263708,
+          -3.0692317177366535e-12,
+          0.0061126574873924255
+        ],
+        "diagonal_inertia_kg_m2": [
+          7.193878900579875e-06,
+          1.020945819618646e-05,
+          1.5760146197862923e-05
+        ],
+        "principal_axes_wxyz": [
+          0.9994933009147644,
+          0.0,
+          -0.03183002024888992,
+          0.0
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      },
+      "carrier": {
+        "mass_kg": 0.011067832820117474,
+        "centre_of_mass_local_m": [
+          -0.0020178882405161858,
+          0.0020163115113973618,
+          0.007236920762807131
+        ],
+        "diagonal_inertia_kg_m2": [
+          3.3439926028222544e-06,
+          1.6390223436246742e-06,
+          3.816584467131179e-06
+        ],
+        "principal_axes_wxyz": [
+          0.9890632629394531,
+          -0.0017266790382564068,
+          -0.14692488312721252,
+          -0.01280748937278986
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      },
+      "pcb": {
+        "mass_kg": 0.00265489355660975,
+        "centre_of_mass_local_m": [
+          -6.681376372302816e-12,
+          -0.001247691223397851,
+          0.0017248803051188588
+        ],
+        "diagonal_inertia_kg_m2": [
+          4.3554112494348374e-07,
+          5.873499731023912e-08,
+          4.847813102060172e-07
+        ],
+        "principal_axes_wxyz": [
+          0.9999592304229736,
+          -0.009032581001520157,
+          0.0,
+          0.0
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      },
+      "cover": {
+        "mass_kg": 0.032966386526823044,
+        "centre_of_mass_local_m": [
+          2.0240201181742634e-10,
+          -8.345339665538631e-06,
+          0.027536597102880478
+        ],
+        "diagonal_inertia_kg_m2": [
+          2.0414045138750225e-05,
+          2.312075230292976e-05,
+          3.8224960007937625e-05
+        ],
+        "principal_axes_wxyz": [
+          1.0,
+          -5.886473445571028e-05,
+          0.0,
+          0.0
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      }
+    },
+    "numeric_gates_unchanged": true,
+    "report_sha256": "08177fe55b007f13cfd6161dd880cdcf047d647cafdf1330b2bf77db5a489dd0",
+    "remote_video_sha256": "34630f83ac1397cf5bdd536c443a8881ee050710d2e434b368b438cead33aab7"
+  },
+  "level": {
+    "evidence_audit_passed": true,
+    "full_geometry_seating_accepted": true,
+    "full_robot_assembly_accepted": false,
+    "maximum_world_geometry_error_mm": 9.77490211071307e-08,
+    "acceptance": {
+      "acceptance": "NOMINAL_NO_GRIPPER_SEATING_DIAGNOSTIC_ONLY",
+      "full_assembly_accepted": false,
+      "final_scores": {
+        "nest": {
+          "xy_mm": 1.201370023970236e-05,
+          "z_mm": 2.3937225313019894e-05,
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0,
+          "pass": true
+        },
+        "base": {
+          "xy_mm": 0.020316713349570973,
+          "z_mm": 0.00010452270504668348,
+          "tilt_deg": 0.0002394770397042317,
+          "yaw_deg": 0.12511428260614865,
+          "pass": true
+        },
+        "carrier": {
+          "xy_mm": 0.14534607294368487,
+          "z_mm": 0.00018510818478034707,
+          "tilt_deg": 0.0006553134046252279,
+          "yaw_deg": 0.6154824044795644,
+          "pass": true
+        },
+        "pcb": {
+          "xy_mm": 0.1469993768026759,
+          "z_mm": 0.0002189636230109926,
+          "tilt_deg": 0.0002630814517148166,
+          "yaw_deg": 0.6142097297994497,
+          "pass": true
+        },
+        "cover": {
+          "xy_mm": 0.2044717873864636,
+          "z_mm": 0.00018510818478034707,
+          "tilt_deg": 0.0,
+          "yaw_deg": 0.0,
+          "pass": true
+        }
+      },
+      "peak_lid_movement_mm": 0.09071835746272115,
+      "maximum_intended_contact_depth_mm": 0.09098020382225513,
+      "positive_lid_support_events": 96,
+      "raw_camera_arm_speed_peak_rad_s": 3.0064543921071163e-07,
+      "remote_video_sha256": "148c9bc4f19d59ba38e005f5200b500c4a733339d55f3954b1497986b5471b19",
+      "video_downloaded": false
+    },
+    "installed_full_body_mass_properties": {
+      "base": {
+        "mass_kg": 0.01862826570868492,
+        "centre_of_mass_local_m": [
+          0.003235237207263708,
+          -3.0692317177366535e-12,
+          0.0061126574873924255
+        ],
+        "diagonal_inertia_kg_m2": [
+          7.193878900579875e-06,
+          1.020945819618646e-05,
+          1.5760146197862923e-05
+        ],
+        "principal_axes_wxyz": [
+          0.9994933009147644,
+          0.0,
+          -0.03183002024888992,
+          0.0
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      },
+      "carrier": {
+        "mass_kg": 0.011067832820117474,
+        "centre_of_mass_local_m": [
+          -0.0020178882405161858,
+          0.0020163115113973618,
+          0.007236920762807131
+        ],
+        "diagonal_inertia_kg_m2": [
+          3.3439926028222544e-06,
+          1.6390223436246742e-06,
+          3.816584467131179e-06
+        ],
+        "principal_axes_wxyz": [
+          0.9890632629394531,
+          -0.0017266790382564068,
+          -0.14692488312721252,
+          -0.01280748937278986
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      },
+      "pcb": {
+        "mass_kg": 0.00265489355660975,
+        "centre_of_mass_local_m": [
+          -6.681376372302816e-12,
+          -0.001247691223397851,
+          0.0017248803051188588
+        ],
+        "diagonal_inertia_kg_m2": [
+          4.3554112494348374e-07,
+          5.873499731023912e-08,
+          4.847813102060172e-07
+        ],
+        "principal_axes_wxyz": [
+          0.9999592304229736,
+          -0.009032581001520157,
+          0.0,
+          0.0
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      },
+      "cover": {
+        "mass_kg": 0.032966386526823044,
+        "centre_of_mass_local_m": [
+          2.0240201181742634e-10,
+          -8.345339665538631e-06,
+          0.027536597102880478
+        ],
+        "diagonal_inertia_kg_m2": [
+          2.0414045138750225e-05,
+          2.312075230292976e-05,
+          3.8224960007937625e-05
+        ],
+        "principal_axes_wxyz": [
+          1.0,
+          -5.886473445571028e-05,
+          0.0,
+          0.0
+        ],
+        "validated": true,
+        "physics_time_advanced_s": 0.0,
+        "render_only_callback_updates": 0
+      }
+    },
+    "numeric_gates_unchanged": true,
+    "report_sha256": "ffcbac712e351296fd66c164d0f062a047dbf89ccdedbec8ac05a1f5ea3c744c",
+    "remote_video_sha256": "148c9bc4f19d59ba38e005f5200b500c4a733339d55f3954b1497986b5471b19"
+  },
+  "interpretation": "Both cold-start cases settle within original limits; observed initial position/tilt alone is insufficient to reproduce the robot failure. Investigate jaw-release dynamics. Unknown prior velocities and gripper forces were not replayed. No full assembly pass."
+}

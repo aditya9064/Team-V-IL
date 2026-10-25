@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+exports/
+runs/
+logs/
+*.usd
+*.usda
+*.usdc
+*.pt
+*.pth

@@ -1,0 +1,1154 @@
+{
+  "revision": "physical-nest-v37-three-pad-tapered-guides-lid-stem-plus3-v55",
+  "status": "CAD_CHECKED_SIMULATION_PENDING",
+  "units": "millimeter",
+  "pcb_intact": true,
+  "pcb_separate": true,
+  "current_fingers_changed": false,
+  "print_release": false,
+  "assembly": {
+    "sequence": [
+      "base",
+      "carrier",
+      "cover"
+    ],
+    "part_bottom_z": {
+      "nest": 0,
+      "base": 3,
+      "carrier": 6,
+      "pcb": 8,
+      "cover": 6
+    },
+    "preferred_jaw_closing_axis": {
+      "base": "Y",
+      "carrier": "Y",
+      "cover": "Y"
+    }
+  },
+  "base": {
+    "handle_centre_xy": [
+      16.5,
+      0
+    ],
+    "tcp_above_bottom_mm": 13.228201007843017,
+    "side_entry_mm": 18.0,
+    "support_shoulder": true,
+    "flat_grip_width_mm": 4,
+    "shoulder_bottom_mm": 16.36,
+    "shoulder_top_mm": 18.36,
+    "shoulder_width_y_mm": 16,
+    "nominal_seating_drop_mm": 0.15522721391880623,
+    "grip_post_top_mm": 33.4,
+    "flat_grip_extension_mm": 3.0,
+    "ribbed_floor_mm": {
+      "continuous_plate": 1.0,
+      "support_top": 3.0,
+      "rib_width": 3.0,
+      "lid_landing_pad_width": 12.0
+    }
+  },
+  "carrier": {
+    "floor_thickness": 2,
+    "handle_centre_xy": [
+      0,
+      0
+    ],
+    "tcp_above_bottom_mm": 13.228201007843017,
+    "side_entry_mm": -18.0,
+    "support_shoulder": true,
+    "flat_grip_width_mm": 4,
+    "shoulder_bottom_mm": 16.36,
+    "shoulder_top_mm": 18.36,
+    "shoulder_width_y_mm": 16,
+    "nominal_seating_drop_mm": 0.15522721391880623,
+    "right_edge_insertion_notch": {
+      "x_start_mm": 8.5,
+      "y_range_mm": [
+        -12,
+        12
+      ],
+      "pcb_unchanged": true,
+      "edge_wall_keeper_removed_only_central_segment": true
+    }
+  },
+  "cover": {
+    "handle_centre_xy": [
+      0,
+      0
+    ],
+    "tcp_above_bottom_mm": 37.22820100784302,
+    "side_entry_mm": 18.0,
+    "support_shoulder": true,
+    "flat_grip_width_mm": 4,
+    "shoulder_bottom_mm": 40.36,
+    "shoulder_top_mm": 42.36,
+    "shoulder_width_y_mm": 16,
+    "stem_extension_mm": 3.0,
+    "stem_top_mm": 57.400001525878906,
+    "mechanical_change": "Only opposed flat stem height and its existing chamfer extended3mm; shoulder, guides, handle center, TCP and opening remain unchanged"
+  },
+  "grip": {
+    "bar_radius_mm": 7.4,
+    "flange_radius_mm": 8.4,
+    "bar_length_mm": 6.8,
+    "flange_thickness_mm": 2,
+    "extra_closure_per_jaw_mm": 0.05,
+    "lid_antiroll_key_width_mm": 5,
+    "base_flat_grip_jaw_axis_width_mm": 4
+  },
+  "nominal_product_fit": [
+    {
+      "parts": [
+        "nest",
+        "base"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "nest",
+        "carrier"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "nest",
+        "pcb"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "nest",
+        "cover"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "base",
+        "carrier"
+      ],
+      "interference_mm3": 1.8818280267396403e-14
+    },
+    {
+      "parts": [
+        "base",
+        "pcb"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "base",
+        "cover"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "carrier",
+        "pcb"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "carrier",
+        "cover"
+      ],
+      "interference_mm3": 0
+    },
+    {
+      "parts": [
+        "pcb",
+        "cover"
+      ],
+      "interference_mm3": 0
+    }
+  ],
+  "cad_checks": [
+    {
+      "label": "base_insert_piece_0",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_1",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_2",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_3",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_4",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_5",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_6",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_7",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_8",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_9",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_10",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_11",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_12",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_13",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_14",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_15",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_16",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_17",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_18",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_19",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_20",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_21",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_insert_piece_22",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_0",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_1",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_2",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_3",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_4",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_5",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_6",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_7",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_8",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_9",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_10",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_11",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_12",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_13",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_14",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_15",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_16",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_17",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_18",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_19",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_20",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_21",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_22",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_23",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_24",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_25",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_26",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_27",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_28",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_29",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_30",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_31",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_32",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_33",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_34",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_35",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_36",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_37",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_38",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_39",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_40",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_41",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_42",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_43",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_44",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_insert_piece_45",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_0",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_1",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_2",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_3",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_4",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_5",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_6",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_7",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_8",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_9",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_10",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_11",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_12",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_13",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_14",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_15",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_16",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_17",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_18",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_19",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_20",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_21",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_22",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_23",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_24",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_25",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_26",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_27",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_28",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_29",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_30",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_31",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_32",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_33",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_34",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_35",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_36",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_37",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_38",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_39",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_40",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_41",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_42",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_43",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_44",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_45",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_46",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_47",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_48",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_49",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_50",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_51",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_52",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_53",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_54",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_55",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_insert_piece_56",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_approach",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_side_entry",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_close",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_source_open",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_source_exit",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_destination_lower",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_destination_open",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_destination_exit",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_destination_retreat",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "base_nominal_support_clearance",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_approach",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_side_entry",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_close",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_source_open",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_source_exit",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_destination_lower",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_destination_open",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_destination_exit",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_destination_retreat",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "carrier_nominal_support_clearance",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_approach",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_side_entry",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_close",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_source_open",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_source_exit",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_destination_lower",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_destination_open",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_destination_exit",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_destination_retreat",
+      "intersection_mm3": 0,
+      "passed": true
+    },
+    {
+      "label": "cover_nominal_support_clearance",
+      "intersection_mm3": 0,
+      "passed": true
+    }
+  ],
+  "mesh_audit": {
+    "base": {
+      "watertight": true,
+      "connected_components": 1,
+      "convex_pieces": 23,
+      "symmetric_difference_mm3": 0.0,
+      "maximum_allowed_difference_mm3": 0.05,
+      "bounds_mm": [
+        [
+          -32.5,
+          -30.0,
+          0.0
+        ],
+        [
+          32.5,
+          30.0,
+          33.400001525878906
+        ]
+      ]
+    },
+    "carrier": {
+      "watertight": true,
+      "connected_components": 1,
+      "convex_pieces": 42,
+      "symmetric_difference_mm3": 0.0,
+      "maximum_allowed_difference_mm3": 0.05,
+      "bounds_mm": [
+        [
+          -28.0,
+          -29.0,
+          0.0
+        ],
+        [
+          28.0,
+          29.0,
+          30.399999618530273
+        ]
+      ]
+    },
+    "pcb": {
+      "watertight": true,
+      "connected_components": 1,
+      "convex_pieces": 4,
+      "symmetric_difference_mm3": 0.0,
+      "maximum_allowed_difference_mm3": 0.05,
+      "bounds_mm": [
+        [
+          -8.880000114440918,
+          -23.579999923706055,
+          0.0
+        ],
+        [
+          8.880000114440918,
+          21.579999923706055,
+          6.0
+        ]
+      ]
+    },
+    "nest": {
+      "watertight": true,
+      "connected_components": 1,
+      "convex_pieces": 5,
+      "symmetric_difference_mm3": 0.0,
+      "maximum_allowed_difference_mm3": 0.05,
+      "bounds_mm": [
+        [
+          -41.0,
+          -38.5,
+          0.0
+        ],
+        [
+          41.0,
+          38.5,
+          5.0
+        ]
+      ]
+    },
+    "cover": {
+      "watertight": true,
+      "connected_components": 1,
+      "convex_pieces": 57,
+      "symmetric_difference_mm3": 0.0,
+      "maximum_allowed_difference_mm3": 0.05,
+      "bounds_mm": [
+        [
+          -36.5,
+          -33.5,
+          0.0
+        ],
+        [
+          36.5,
+          33.5,
+          65.4000015258789
+        ]
+      ]
+    }
+  },
+  "rigid_subassembly_assumption": "Printed PCB is preloaded in the new carrier; its removable bridge/rim is assumed mechanically fastened. Base, loaded carrier and lid are three separate product pieces. Nest is a static fixture. No joint or attachment to PCB; no part pose following.",
+  "scope": "Known-pose three-piece placement assembly, not fastening, printing or real hardware. Separate intact dynamic PCB stays preloaded in carrier.",
+  "carrier_geometry_reused_from": "V26basehandleclosertocentre; otherpartsunchangedfromv25",
+  "lid_internal_clearance_above_tray_handle_mm": 2.6,
+  "base_pickup_handle_outside_board_footprint": true,
+  "board_print_assumptions": {
+    "drawing_outline_xy_mm": [
+      43.16,
+      17.76
+    ],
+    "model_xy_mm": [
+      17.76,
+      43.16
+    ],
+    "substrate_thickness_mm": 2,
+    "component_envelope_height_mm": 6,
+    "real_component_height_unverified": true,
+    "real_mass_unverified": true,
+    "not_functional": true
+  },
+  "product_stage": "PRINTED_MECHANICAL_PROTOTYPE_ONLY",
+  "base_grip_offset_change_mm": {
+    "previous_xy": [
+      0,
+      45
+    ],
+    "current_xy": [
+      20,
+      0
+    ]
+  },
+  "pcb_retention": "Physicaledgekeeper with0.15mmverticalclearance; keeper/bridge manual assembly and real fastening strength unvalidated",
+  "lid_seating": {
+    "type": "four_internal_standoffs_to_base_floor",
+    "stand_off_centres_xy_mm": [
+      [
+        -24,
+        -20
+      ],
+      [
+        -24,
+        20
+      ],
+      [
+        24,
+        -20
+      ],
+      [
+        24,
+        20
+      ]
+    ],
+    "foot_width_mm": 2.5,
+    "tray_clearance_width_mm": 9,
+    "pcb_unchanged": true,
+    "assembly_root_z_mm": 6,
+    "lid_geometry_shift_z_mm": 9
+  },
+  "lid_flat_handle_change": {
+    "source_failure": 286155,
+    "scope": "Replace only lid pickup feature with translated flat shoulder, stem and anti-roll guides already used by accepted carrier286147; mechanical success remains pending.",
+    "existing_grippers_unchanged": true,
+    "all_numeric_gates_unchanged": true,
+    "geometry_translation_from_carrier_mm": 24.0,
+    "nonhandle_cover_difference_mm3": 0,
+    "collision_visual_difference_mm3": 5.16608934475471e-06,
+    "density_kg_m3": 1240,
+    "old_cover_mass_kg": 0.03410644417099034,
+    "new_cover_mass_kg": 0.03296638539956684,
+    "cad_clearance_checks": 156,
+    "fit_checks": 10,
+    "strict_failure_not_waived": true,
+    "print_release": false
+  },
+  "nest_fixture": {
+    "type": "one-piece passive gravity locating nest",
+    "support_pad_centres_mm": [
+      [
+        -27,
+        -24
+      ],
+      [
+        27,
+        -24
+      ],
+      [
+        0,
+        27
+      ]
+    ],
+    "support_pad_xy_mm": [
+      8,
+      6
+    ],
+    "floor_top_mm": 1,
+    "support_top_mm": 3,
+    "guide_top_mm": 8,
+    "final_clearance_per_side_mm": 0.65,
+    "upper_capture_clearance_per_side_mm": 1.8,
+    "clamps": false,
+    "base_attachment": false,
+    "fixture_mounting": "Rigid attachment of nest to table assumed; clamp arrangement and printing must be confirmed before physical use",
+    "limits": "No active preload or downward clamp; test whether three-point support and close guides suffice"
+  }
+}

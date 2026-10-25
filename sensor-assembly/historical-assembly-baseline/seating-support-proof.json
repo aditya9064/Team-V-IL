@@ -1,0 +1,35 @@
+[
+  {
+    "moving": "base",
+    "moving_role": "floor",
+    "moving_surface_z_mm": 0,
+    "fixed": "nest",
+    "fixed_role": "floor",
+    "fixed_surface_z_mm": 3,
+    "moving_bottom_z_mm": 3,
+    "fixed_bottom_z_mm": 0,
+    "support_area_mm2": 3900.0
+  },
+  {
+    "moving": "carrier",
+    "moving_role": "floor",
+    "moving_surface_z_mm": 0,
+    "fixed": "base",
+    "fixed_role": "floor",
+    "fixed_surface_z_mm": 3,
+    "moving_bottom_z_mm": 6,
+    "fixed_bottom_z_mm": 3,
+    "support_area_mm2": 384.5
+  },
+  {
+    "moving": "cover",
+    "moving_role": "ear",
+    "moving_surface_z_mm": 0,
+    "fixed": "base",
+    "fixed_role": "floor",
+    "fixed_surface_z_mm": 3,
+    "moving_bottom_z_mm": 6,
+    "fixed_bottom_z_mm": 3,
+    "support_area_mm2": 25.0
+  }
+]

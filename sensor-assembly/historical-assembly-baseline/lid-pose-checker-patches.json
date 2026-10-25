@@ -1,0 +1,86 @@
+[
+  [
+    "from payload_checks import payload_score",
+    "from payload_checks import payload_score\nfrom lid_diagnostic_contract import expected_phases,expected_checkpoints,validate_foot_budget"
+  ],
+  [
+    "    assert r['status']=='SIMULATION_PASS',r.get('error')",
+    "    stage=r['diagnostic_stage'];assert stage in ('precontact','seat','release')\n    assert r['status']==('SIMULATION_PASS' if stage=='release' else 'DIAGNOSTIC_PASS'),r.get('error')\n    assert r['diagnostic_stage_accepted']==stage\n    assert r['expected_motion_phases']==expected_phases(stage)\n    assert r['expected_checkpoint_phases']==expected_checkpoints(stage)"
+  ],
+  [
+    "    assert len(sampling['phases'])==39",
+    "    assert [x['phase'] for x in sampling['phases']]==expected_phases(stage)"
+  ],
+  [
+    "    assert r['lid_release_profile']==lid_release_bounds(abs(r['grip_commands']['cover']['closed_grasp_command_per_jaw_m']))\n    release_phase=next(p for p in sampling['phases'] if p['phase']=='3_cover_release');assert release_phase['requested_duration_s']==3. and release_phase['commands']==180",
+    "    if stage=='release':\n        assert r['lid_release_profile']==lid_release_bounds(abs(r['grip_commands']['cover']['closed_grasp_command_per_jaw_m']))\n        release_phase=next(p for p in sampling['phases'] if p['phase']=='3_cover_release');assert release_phase['requested_duration_s']==3. and release_phase['commands']==180\n    else:assert 'lid_release_profile' not in r"
+  ],
+  [
+    "    assert r['task']=='full_assembly_with_verified_base_held_pose_fix' and r['full_assembly_accepted'] is True",
+    "    assert r['task']=='full_assembly_with_verified_base_held_pose_fix' and r['full_assembly_accepted'] is (stage=='release')"
+  ],
+  [
+    "[('gentle_lid_full_assembly_trial.py','trial_script_sha256')",
+    "[('lid_pose_trial.py','trial_script_sha256')"
+  ],
+  [
+    "        assert part['pickup']['pass'] and part['placement_verified'] and part['release_verified']",
+    "        assert part['pickup']['pass']\n        pending_lid=part['part']=='cover' and stage!='release'\n        assert (not part['placement_verified'] and not part['release_verified']) if pending_lid else (part['placement_verified'] and part['release_verified'])"
+  ],
+  [
+    "        v=part['placement'];assert v['xy_mm']<=.75 and v['z_mm']<=.35 and v['tilt_deg']<=1 and v['yaw_deg']<=1\n        assert part['release_follow_mm']<=.25",
+    "        if not pending_lid:\n            v=part['placement'];assert v['xy_mm']<=.75 and v['z_mm']<=.35 and v['tilt_deg']<=1 and v['yaw_deg']<=1\n            assert part['release_follow_mm']<=.25"
+  ],
+  [
+    "        d=r['release_motion_audits'][part['part']];assert d['samples']>0 and d['maximum_drift_mm']<=.25",
+    "        if not pending_lid:\n            d=r['release_motion_audits'][part['part']];assert d['samples']>0 and d['maximum_drift_mm']<=.25"
+  ],
+  [
+    "    assert len(r['checkpoints'])==45 and len(r['endpoint_traces'])==39",
+    "    assert [v['phase'] for v in r['checkpoints']]==expected_checkpoints(stage)\n    assert set(r['endpoint_traces'])==set(expected_phases(stage))"
+  ],
+  [
+    "    assert r['designed_placement_seating_allowance_mm']=={'carrier':.10,'cover':.10}",
+    "    assert r['designed_placement_seating_allowance_mm']=={'carrier':.10}\n    assert r['lid_measured_placement_plan']['clearance_mm']==.10"
+  ],
+  [
+    "    assert set(r['final_part_scores'])==set(parts) and all(p['pass'] for p in r['final_part_scores'].values())",
+    "    assert set(r['final_part_scores'])==(set(parts) if stage=='release' else set(parts)-{'cover'}) and all(p['pass'] for p in r['final_part_scores'].values())\n    assert r['lid_pose_estimator_sha256']==digest(source/'lid_pose.py')\n    assert r['diagnostic_contract_sha256']==digest(source/'lid_diagnostic_contract.py')\n    assert r['foot_audit_sha256']==digest(source/'foot_audit.py')\n    b=validate_foot_budget(r['lid_pose_foot_budget'])\n    assert len(r['lid_pose_observations'])==4 and len(r['lid_pose_repeatability'])==2 and len(r['lid_pose_independent_scores'])==2\n    for v in r['lid_pose_observations']:\n        assert v['optimizer']['success'] and v['optimizer']['status']>0 and len(v['optimizer']['rounds'])==3\n        assert set(v['views'])=={'inspection_x','inspection_y'}\n        for view in v['views'].values():assert view['edge_p95_px']<=2 and view['edge_coverage_within_2px']>=.95 and view['reverse_edge_p95_px']<=2 and view['reverse_edge_coverage_within_2px']>=.95\n    for v in r['lid_pose_repeatability']:assert v['pass'] and v['position_difference_mm']<=.1 and v['orientation_difference_deg']<=.15\n    for v in r['lid_pose_independent_scores']:assert v['position_error_mm']<=.15 and v['orientation_error_deg']<=.25 and v['maximum_foot_height_error_mm']<=.05\n    from foot_audit import all_foot_gaps,error_budget_at_feet,qualify_prediction\n    guards=r['lid_clearance_guards'];assert [v['label'] for v in guards]==(['precontact_dispatch','precontact_actual_fk_hold'] if stage=='precontact' else ['precontact_dispatch','precontact_actual_fk_hold','final_dispatch','pre_release_geometry_hold'])\n    fit=error_budget_at_feet(g,b['translation_bounds_mm'],b['rotation_bound_deg'],0,0,0,0)\n    assert fit['maximum_height_error_mm']<=.05\n    design=json.loads((source/'nest-design.json').read_text())\n    for v in guards:\n        assert v['base_recipe']['position_world_m'][:2]==r['layout_m']['assembly_body_centre']\n        assert abs(v['base_recipe']['position_world_m'][2]-(r['checkpoints'][0]['poses']['nest']['position_world_m'][2]+design['assembly']['part_bottom_z']['base']*.001))<1e-6\n        assert v['base_recipe']['rotation_world']==[[1.,0.,0.],[0.,1.,0.],[0.,0.,1.]]\n        assert v['gaps']==all_foot_gaps(g,v['prediction'],v['base_recipe'])\n        assert v['budget']==error_budget_at_feet(g,b['translation_bounds_mm'],b['rotation_bound_deg'],b['calibration_height_error_mm'],b['hold_drift_height_error_mm'],b['support_height_error_mm'],b['maximum_fk_foot_height_error_mm'])\n        assert v['qualification']==qualify_prediction(v['gaps'],v['budget']) and v['qualification']['geometric_dispatch_eligible']\n        assert len(v['gaps']['feet'])==4 and all(len(f['corner_gaps_mm'])==4 for f in v['gaps']['feet'])\n    assert r['lid_precontact_fk_tracking']['maximum_absolute_height_error_mm']<=b['maximum_fk_foot_height_error_mm']\n    if stage!='precontact':\n        hold=r['lid_pre_release_geometry_hold'];assert hold['pass'] and hold['physically_seated_claim'] is False and hold['placement_score']['pass'] and hold['clearance_intent_mm']==.10 and hold['no_forced_insertion']\n        assert r['lid_actual_fk_foot_height_error_mm']<=b['maximum_fk_foot_height_error_mm']\n    assert r['diagnostic_trace']\n    for v in r['diagnostic_trace']:\n        assert math.isfinite(v['commanded_jaw_per_side_m']) and set(v['issued_jaw_joint_targets_m'])=={'jaw_l','jaw_r'}\n        assert set(v['body_velocities'])=={'base','carrier','pcb','cover'}\n        for body in v['body_velocities'].values():assert all(math.isfinite(x) for x in body['linear_world_m_s']+body['angular_world_rad_s'])\n    if stage=='release':\n        supports=[v for k,v in r['contact_summary'].items() if 'cover' in k and 'ear' in k and 'base' in k and 'floor' in k and 'part_support' in k]\n        assert supports and all(v['allowed_pair'] for v in supports)\n        final_supports=[v for k,v in r['contact_summary'].items() if k.startswith('final_assembly_inspection|') and 'cover' in k and 'ear' in k and 'base' in k and 'floor' in k and 'part_support' in k]\n        assert final_supports and any(v['maximum_impulse_Ns']>1e-8 for v in final_supports)"
+  ],
+  [
+    "print('TEAM_V_FULL_ASSEMBLY_REPORT_AND_VIDEO_VERIFIED'",
+    "print('TEAM_V_LID_POSE_STAGE_REPORT_AND_VIDEO_VERIFIED'"
+  ],
+  [
+    "from lid_diagnostic_contract import expected_phases,expected_checkpoints,validate_foot_budget",
+    "from lid_diagnostic_contract import expected_phases,expected_checkpoints,validate_foot_budget,precontact_budget"
+  ],
+  [
+    "    stage=r['diagnostic_stage'];assert stage in ('precontact','seat','release')",
+    "    stage=r['diagnostic_stage'];assert stage=='precontact','Final seating/release remains BLOCKED'"
+  ],
+  [
+    "    fit=error_budget_at_feet(g,b['translation_bounds_mm'],b['rotation_bound_deg'],0,0,0,0)\n    assert fit['maximum_height_error_mm']<=.05",
+    "    assert max(b['fit_foot_height_bounds_mm'])<=.05"
+  ],
+  [
+    "        assert v['budget']==error_budget_at_feet(g,b['translation_bounds_mm'],b['rotation_bound_deg'],b['calibration_height_error_mm'],b['hold_drift_height_error_mm'],b['support_height_error_mm'],b['maximum_fk_foot_height_error_mm'])",
+    "        assert v['budget']==precontact_budget(g,b)"
+  ],
+  [
+    "    assert r['lid_precontact_fk_tracking']['maximum_absolute_height_error_mm']<=b['maximum_fk_foot_height_error_mm']",
+    "    assert r['lid_precontact_fk_tracking']['maximum_position_error_mm']<=b['maximum_fk_position_error_mm']\n    drift=r['lid_grasp_corner_drift_veto'];assert drift['samples']>0 and drift['maximum_position_error_mm']<=b['hold_drift_position_error_mm'] and drift['truth_used_for_targets'] is False"
+  ],
+  [
+    "    drift=r['lid_grasp_corner_drift_veto'];assert drift['samples']>0 and drift['maximum_position_error_mm']<=b['hold_drift_position_error_mm'] and drift['truth_used_for_targets'] is False",
+    "    drift=r['lid_grasp_corner_drift_veto'];assert drift['samples']>0 and drift['maximum_position_error_mm']<=b['hold_drift_position_error_mm'] and drift['truth_used_for_targets'] is False\n    tracking=r['lid_continuous_fk_foot_veto'];assert tracking['samples']>0 and tracking['maximum_position_error_mm']<=b['maximum_fk_position_error_mm']"
+  ],
+  [
+    "        assert v['budget']==precontact_budget(g,b)",
+    "        assert math.isfinite(v['fit_axis_extra_mm']) and v['fit_axis_extra_mm']>=0\n        assert v['budget']==precontact_budget(g,b,fit_extra_mm=v['fit_axis_extra_mm'])"
+  ],
+  [
+    "    tracking=r['lid_continuous_fk_foot_veto'];assert tracking['samples']>0 and tracking['maximum_position_error_mm']<=b['maximum_fk_position_error_mm']",
+    "    clearance=r['lid_observed_fk_clearance_guard'];assert clearance['samples']>0 and clearance['minimum_clearance_lower_bound_mm']>0 and clearance['minimum_pad_edge_lower_bound_mm']>0"
+  ]
+]

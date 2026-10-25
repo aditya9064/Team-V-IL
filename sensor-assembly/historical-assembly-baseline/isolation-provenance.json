@@ -1,0 +1,99 @@
+{
+  "reference_runner_sha256": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+  "reference": "holder_assembly_trial.py",
+  "patches": [
+    [
+      "from motion_schedule import motion_samples",
+      "from motion_schedule import motion_samples\nfrom isolation_tools import fixture_offset,predict_free_held_placement"
+    ],
+    [
+      "ap.add_argument('--case',choices=['loaded-carrier','full-assembly'],required=True)",
+      "ap.add_argument('--case',choices=['full-assembly'],required=True)\n    ap.add_argument('--support-condition',choices=['present','removed'],required=True)"
+    ],
+    [
+      "\n    ORDER=('carrier',) if a.case=='loaded-carrier' else ('base','carrier','cover')",
+      "\n    ORDER=('base',)"
+    ],
+    [
+      "    def persist():(out/'report.json').write_text(json.dumps(report,indent=2)+'\\n')",
+      "    report['task']='isolated_base_seating_diagnostic'\n    report['scope']='Diagnostic only: same grip/lowering, support moved after carry. No release, tray/lid assembly or product acceptance.'\n    report['diagnostic']={'condition':a.support_condition,'lowering_started':False,'lowering_completed':False,'fixture_offset_m':fixture_offset(a.support_condition).tolist(),'not_assembly_acceptance':True}\n    report['diagnostic_contact_trace']=[];report['diagnostic_lower_trace']=[]\n    def persist():(out/'report.json').write_text(json.dumps(report,indent=2)+'\\n')"
+    ],
+    [
+      "surface=C.TABLE_TOP_Z+C.SURFACE_DZ;roots={};collider_roles={}",
+      "surface=C.TABLE_TOP_Z+C.SURFACE_DZ;roots={};collider_roles={}\n        report['diagnostic']['table_top_z_m']=float(C.TABLE_TOP_Z)\n        report['diagnostic']['fixture_initial_expected_m']=[*layout['assembly_body_centre'],float(surface)]"
+    ],
+    [
+      "        report['physical_collider_counts']={name:sum(v[0]==name for v in collider_roles.values()) for name in physical_parts}",
+      "        report['new_part_convex_cooking']['input_coordinates']='V27 unchanged: original mm vertices times0.1, child scale0.01; exact world dimensions'\n        report['physical_collider_counts']={name:sum(v[0]==name for v in collider_roles.values()) for name in physical_parts}"
+    ],
+    [
+      "                    if not math.isfinite(minsep) or not math.isfinite(impulse):raise ValueError('Non-finite contact data')",
+      "                    if not math.isfinite(minsep) or not math.isfinite(impulse):raise ValueError('Non-finite contact data')\n                    if state['phase']=='1_base_lower' and any(v is not None and v[0]=='base' for v in roles):\n                        report['diagnostic_contact_trace'].append({'step':state['step'],'sim_time':float(world.current_time),'actors':actors,'colliders':colliders,'roles':roles,'allowed_pair':allowed,'category':category,'minimum_separation_mm':minsep*1000,'maximum_impulse_Ns':impulse,'points':[{'position_world_m':[float(x) for x in v.position],'normal_world':[float(x) for x in v.normal],'separation_mm':float(v.separation)*1000,'impulse_Ns':[float(x) for x in v.impulse]} for v in points]})"
+    ],
+    [
+      "        def advance(n=1):",
+      "        def diagnostic_snapshot(boundary):\n            base=poses()['base'];tip,speed,axis,spread_angle=feedback();R=rotation_for_diagnostic(base['orientation_wxyz'])\n            vertices=np.asarray(geometry['parts']['base']['visual']['vertices_mm'])*.001\n            corner_z=float(np.min(vertices@R[2,:]+base['position_world_m'][2]))\n            qpos=arm.get_joint_positions();qvel=arm.get_joint_velocities()\n            commanded_tip=fk.tool_pose(q,tool)[1]\n            return {'boundary':boundary,'step':state['step'],'sim_time':float(world.current_time),'base_pose':base,'lowest_base_world_z_m':corner_z,'gap_to_nominal_support_top_mm':(corner_z-surface-.003)*1000,'actual_tip_robot_m':tip.tolist(),'commanded_tip_robot_m':np.asarray(commanded_tip).tolist(),'arm_joint_positions':qpos[ai].tolist(),'maximum_raw_arm_joint_speed_rad_s':speed,'tool_axis_error_deg':axis,'spread_axis_error_deg':spread_angle,'actual_jaw_joints':{n:float(qpos[indices[n]]) for n in cell.jaw_targets(jaw)},'actual_jaw_speeds':{n:float(qvel[indices[n]]) for n in cell.jaw_targets(jaw)},'commanded_jaw_per_side_m':float(jaw),'commanded_arm_joints':q.tolist(),'actor_world_matrices':contact_pose_snapshot()['actor_world_matrices']}\n        def rotation_for_diagnostic(quat):\n            w,x,y,z=quat\n            return np.array([[1-2*(y*y+z*z),2*(x*y-z*w),2*(x*z+y*w)],[2*(x*y+z*w),1-2*(x*x+z*z),2*(y*z-x*w)],[2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]])\n        def advance(n=1):"
+    ],
+    [
+      "                before_step=float(world.current_time);world.step(render=False)",
+      "                if state['phase']=='1_base_lower':report['diagnostic_lower_trace'].append(diagnostic_snapshot('pre-step'))\n                before_step=float(world.current_time);world.step(render=False)"
+    ],
+    [
+      "                after_step=float(world.current_time);step_error=abs(after_step-before_step-1/60)",
+      "                after_step=float(world.current_time);step_error=abs(after_step-before_step-1/60)\n                if state['phase']=='1_base_lower':report['diagnostic_lower_trace'].append(diagnostic_snapshot('post-step'))"
+    ],
+    [
+      "            error={'xy_mm':float(np.linalg.norm(pos[:2]-target[:2])*1000),'z_mm':float(abs(pos[2]-target[2])*1000),'tilt_deg':pose['tilt_deg'],'yaw_deg':abs(pose['yaw_deg'])}",
+      "            if name=='nest' and report['diagnostic'].get('fixture_intervention_applied'):target=np.asarray(report['diagnostic']['fixture_expected_after_m'])\n            error={'xy_mm':float(np.linalg.norm(pos[:2]-target[:2])*1000),'z_mm':float(abs(pos[2]-target[2])*1000),'tilt_deg':pose['tilt_deg'],'yaw_deg':abs(pose['yaw_deg'])}"
+    ],
+    [
+      "            # Fixed CAD allowance (not truth correction): supported grips seat after",
+      "            # Test-fixture intervention only, after identical pickup/carry. Never changes robot targets.\n            before_fixture=np.asarray(prims['nest'].get_world_pose()[0]).tolist()\n            expected=np.asarray(report['diagnostic']['fixture_initial_expected_m'])+fixture_offset(a.support_condition)\n            UsdGeom.Xformable(stage.GetPrimAtPath(roots['nest'])).GetOrderedXformOps()[0].Set(Gf.Vec3d(*expected))\n            actual=np.asarray(UsdGeom.Xformable(stage.GetPrimAtPath(roots['nest'])).ComputeLocalToWorldTransform(0).ExtractTranslation())\n            if np.linalg.norm(actual-expected)>1e-7:raise RuntimeError('Fixture intervention readback mismatch')\n            report['diagnostic'].update(fixture_intervention_applied=True,fixture_before_m=before_fixture,fixture_expected_after_m=expected.tolist(),fixture_readback_after_m=actual.tolist(),fixture_intervention_step=state['step'],fixture_intervention_time=float(world.current_time),robot_targets_unchanged=True)\n            persist()\n            # Fixed CAD allowance (not truth correction): supported grips seat after"
+    ],
+    [
+      "            lower=move(prefix+'_lower',place,jaw,2.,new_support=True)",
+      "            report['diagnostic']['free_held_prediction']=predict_free_held_placement(next(c for c in report['checkpoints'] if c['phase']=='1_base_carry'),place,C.TABLE_TOP_Z,surface+design['assembly']['part_bottom_z']['base']*.001,geometry['parts']['base']['visual']['vertices_mm'],design['base']['tcp_above_bottom_mm'])\n            report['diagnostic'].update(lowering_started=True,lower_goal_robot_m=place.tolist(),lower_start_robot_m=goal.tolist(),lower_jaw_command_m=float(jaw),lower_duration_s=2.)\n            lower=move(prefix+'_lower',place,jaw,2.,new_support=True)\n            report['diagnostic'].update(lowering_completed=True,terminal_pose=lower['poses']['base'])\n            report['status']='DIAGNOSTIC_LOWERING_COMPLETED'\n            writer.close();writer=None\n            video=out/'diagnostic-lowering-completed.mp4';partial.rename(video)\n            report['video'].update(path=str(video),duration_s=report['video']['frames']/30,bytes=video.stat().st_size,sha256=digest(video))\n            persist();print('ISOLATED_BASE_LOWERING_COMPLETED_NOT_ASSEMBLY_PASS',a.support_condition,flush=True);return"
+    ],
+    [
+      "diagnostic_roots=[C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR']+[roots[n] for n in ORDER]",
+      "diagnostic_roots=[C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR']+[roots[n] for n in ORDER]+[roots['nest']]"
+    ],
+    [
+      "            base=poses()['base'];tip,speed,axis,spread_angle=feedback();R=rotation_for_diagnostic(base['orientation_wxyz'])",
+      "            if boundary=='post-step' and 'fixture_query_after_first_physics_step' not in report['diagnostic']:\n                checks=[]\n                for label,xy,expected_hit in [('nominal',layout['assembly_body_centre'],a.support_condition=='present'),('removed_location',(np.asarray(layout['assembly_body_centre'])+np.array([1.,0.])).tolist(),a.support_condition=='removed')]:\n                    hits=[]\n                    def record(hit):\n                        if str(hit.collision).startswith(roots['nest']+'/'):hits.append(float(hit.distance))\n                        return True\n                    query.raycast_all((float(xy[0]),float(xy[1]),surface+.006),(0.,0.,-1.),.012,record)\n                    actual_hit=bool(hits);distance=min(hits)*1000 if hits else None\n                    row={'location':label,'expected_nest_hit':expected_hit,'actual_nest_hit':actual_hit,'distance_mm':distance,'expected_distance_mm':3.,'tolerance_mm':.03};checks.append(row)\n                    if actual_hit!=expected_hit or (expected_hit and abs(distance-3.)>.03):raise RuntimeError('Fixture isolation PhysX query does not match intended intervention')\n                report['diagnostic']['fixture_query_after_first_physics_step']=checks\n            base=poses()['base'];tip,speed,axis,spread_angle=feedback();R=rotation_for_diagnostic(base['orientation_wxyz'])"
+    ],
+    [
+      "        for number,name in enumerate(ORDER,1):",
+      "        report['diagnostic_collision_geometry']={}\n        for prim in stage.Traverse():\n            path=str(prim.GetPath())\n            actor=next((v for v in [C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR',roots['base'],roots['nest']] if path.startswith(v+'/') and ('/Collision/' in path or '/C_' in path)),None)\n            if actor is None or not prim.IsA(UsdGeom.Mesh):continue\n            mesh=UsdGeom.Mesh(prim);matrix=UsdGeom.Xformable(prim).ComputeLocalToWorldTransform(0);actor_matrix=UsdGeom.Xformable(stage.GetPrimAtPath(actor)).ComputeLocalToWorldTransform(0);local=matrix*actor_matrix.GetInverse()\n            report['diagnostic_collision_geometry'][path]={'actor':actor,'role':collider_roles.get(path),'local_vertices_m':[list(local.Transform(Gf.Vec3d(*v))) for v in mesh.GetPointsAttr().Get()]}\n        for number,name in enumerate(ORDER,1):"
+    ],
+    [
+      "'SIMULATION | base > loaded tray > lid | current fingers'",
+      "'SEATING DIAGNOSTIC | support '+a.support_condition+' | current fingers'"
+    ]
+  ],
+  "unchanged_files": {
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+    "design.json": "ca5e75051e98336e4598c6607309575fe89e92fa1e07947b942b11ff83975b7a",
+    "trial-mesh.json": "21a89d7ab57f698567f42995291d37a56942db4072a5eb1a4d2f1d6f6989890f",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46",
+    "check_holder_assembly.py": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5"
+  },
+  "plan": [
+    "present-a",
+    "removed",
+    "present-b"
+  ],
+  "only_fixture_intervention": "After carry, same setter called for all cases. Present0m/removed+1m worldX. No simulation advance and no motion-target changes at intervention. All numeric gates/contact monitors stay active.",
+  "hypothesis": "Receiving-surface contact couples with the tilted held base and causes binding; unproven.",
+  "comparison_ceilings": {
+    "tcp_mm": 0.1,
+    "held_relative_mm": 0.15,
+    "tilt_deg": 0.25,
+    "yaw_deg": 0.25,
+    "jaw_mm": 0.05
+  },
+  "stop_after": "base lower or first strict violation; no release, no full assembly"
+}

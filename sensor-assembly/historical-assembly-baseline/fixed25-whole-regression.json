@@ -1,0 +1,1045 @@
+{
+  "scope": "Archived ideal-simulation image-fit regression only; not runtime/assembly/printing/physical qualification",
+  "fixed_helper_sha256": "b22cb0055a6f462454a0933086f3c33513de573cb5db7f918cf7755e4fbf85c1",
+  "observations": 24,
+  "camera_images_before_deduplication": 48,
+  "unique_camera_image_hashes": 48,
+  "pairs": [
+    {
+      "evidence": "/private/tmp/team-v-held-fit-v42/evidence-286461",
+      "label": "1_base_held_inspection",
+      "position_difference_mm": 0.0316669399762422,
+      "angle_difference_deg": 0.021706198554261428,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-continuous-lid-v50-result-286834",
+      "label": "1_base_leveled_inspection",
+      "position_difference_mm": 0.0689016185303143,
+      "angle_difference_deg": 0.0335556823560166,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_held_inspection",
+      "position_difference_mm": 0.032318187069205154,
+      "angle_difference_deg": 0.02243026147551477,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_leveled_inspection",
+      "position_difference_mm": 0.009079766271647655,
+      "angle_difference_deg": 0.02408241691371809,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_held_inspection",
+      "position_difference_mm": 0.03278143907467439,
+      "angle_difference_deg": 0.023207417745051924,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_leveled_inspection",
+      "position_difference_mm": 0.05262024311120856,
+      "angle_difference_deg": 0.05194645856218866,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_held_inspection",
+      "position_difference_mm": 0.04180476595750469,
+      "angle_difference_deg": 0.022290893172412184,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_leveled_inspection",
+      "position_difference_mm": 0.04342469101870056,
+      "angle_difference_deg": 0.02273439642485199,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_held_inspection",
+      "position_difference_mm": 0.031059669850895123,
+      "angle_difference_deg": 0.02680272355517142,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_leveled_inspection",
+      "position_difference_mm": 0.06503149815489187,
+      "angle_difference_deg": 0.051527314769723456,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_held_inspection",
+      "position_difference_mm": 0.034722130391471505,
+      "angle_difference_deg": 0.02297477802325265,
+      "old_agreement_pass": true
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_leveled_inspection",
+      "position_difference_mm": 0.059166970927580186,
+      "angle_difference_deg": 0.04629837743694247,
+      "old_agreement_pass": true
+    }
+  ],
+  "all_selected_old_individual_accuracy_pass": true,
+  "all_old_pair_agreement_pass": true,
+  "maximum_selected_origin_error_mm": 0.1177713749750996,
+  "maximum_selected_orientation_error_deg": 0.10105535542688204,
+  "maximum_pair_position_difference_mm": 0.0689016185303143,
+  "records": [
+    {
+      "evidence": "/private/tmp/team-v-held-fit-v42/evidence-286461",
+      "label": "1_base_held_inspection_a",
+      "record_path": "/private/tmp/team-v-base-fit-objective-audit/frozen-runs/evidence-286461-1_base_held_inspection_a.json",
+      "record_sha256": "ffedc519631bcbea74266f6f306b897879171bad124a9e238ce10c9a4ba4a1cc",
+      "image_hashes": {
+        "inspection_x": "ce491cf08ccd9f02997612aca9fc4ab6949f512733e833ab5ce19d99c6403f4f",
+        "inspection_y": "f24c1356fbc4fa83a1c64a37eab0e0d2cca3e25975bc43f2c086591beed06e26"
+      },
+      "selected_seed": 2,
+      "selected_cost": 15.408045341535411,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11382717993633211,
+        "orientation_error_deg": 0.034389337322860716,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004957524521547,
+        0.10002869746796027,
+        1.0413994134303257
+      ],
+      "selected_R": [
+        [
+          0.9997831405741906,
+          -0.0007799890105978977,
+          -0.020810176374832994
+        ],
+        [
+          0.0007158589787772061,
+          0.9999949729903052,
+          -0.003088938335631363
+        ],
+        [
+          0.020812481099830814,
+          0.0030733713186296753,
+          0.9997786730167867
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-held-fit-v42/evidence-286461",
+      "label": "1_base_held_inspection_b",
+      "record_path": "/private/tmp/team-v-base-fit-objective-audit/frozen-runs/evidence-286461-1_base_held_inspection_b.json",
+      "record_sha256": "f7cce80a224d4551ec45a33749c72b82e7db0b2863d390bd54a9c49bddd127f1",
+      "image_hashes": {
+        "inspection_x": "961577d3b037b0ecf20554909c6e2d2dd84bcf18894aaf7693aec1f3b438993e",
+        "inspection_y": "437c1014df2688f68df44931fb2e99e266f08499c0efb8276df281004a01775b"
+      },
+      "selected_seed": 19,
+      "selected_cost": 15.928006416349376,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11312780002916055,
+        "orientation_error_deg": 0.026958674215623892,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004675053949719,
+        0.10002316999659104,
+        1.0413862094192596
+      ],
+      "selected_R": [
+        [
+          0.9997772929460537,
+          -0.000751856529418167,
+          -0.021090263659324978
+        ],
+        [
+          0.0006815256208895961,
+          0.9999941841094115,
+          -0.003341746576283948
+        ],
+        [
+          0.0210926535146421,
+          0.0033266287907137617,
+          0.9997719907601932
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-continuous-lid-v50-result-286834",
+      "label": "1_base_leveled_inspection_a",
+      "record_path": "/private/tmp/team-v-base-fit-objective-audit/frozen-runs/team-v-continuous-lid-v50-result-286834-1_base_leveled_inspection_a.json",
+      "record_sha256": "38e39537abbdd45daa05bc75d98c23253ba995f543d7e73182b802b7b5453a3f",
+      "image_hashes": {
+        "inspection_x": "2ba4eda5f8556424e9e003a903aee3dd645e4943a5404c49738eb8c55d026389",
+        "inspection_y": "923617f29596df1f709992f679bec35992873b19958c8ed067c570ff77411922"
+      },
+      "selected_seed": 15,
+      "selected_cost": 14.918799499901636,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.09639844233989928,
+        "orientation_error_deg": 0.05399614918695152,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30047155983644486,
+        0.10001184037357995,
+        1.0413499499859697
+      ],
+      "selected_R": [
+        [
+          0.9999937091602424,
+          -0.0006113526515165351,
+          -0.0034939788030652398
+        ],
+        [
+          0.0006085117741690498,
+          0.9999994834908061,
+          -0.0008140832525333641
+        ],
+        [
+          0.003494474690348055,
+          0.0008119520040257108,
+          0.9999935646695843
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-continuous-lid-v50-result-286834",
+      "label": "1_base_leveled_inspection_b",
+      "record_path": "/private/tmp/team-v-base-fit-objective-audit/frozen-runs/team-v-continuous-lid-v50-result-286834-1_base_leveled_inspection_b.json",
+      "record_sha256": "dbfbcdd4e60777936c49535cc35d6bb3d656883f567c5d7988e2b7ef30fbfd46",
+      "image_hashes": {
+        "inspection_x": "aa4d06cc63d8a1cf9871c3ba84a331c3ca86f19abb078bc67b7b3a7fb75d5081",
+        "inspection_y": "0880b05e26f95a28dc7d3e65affe264cd6071bbc769bf2fd7e64992c67a8cdba"
+      },
+      "selected_seed": 14,
+      "selected_cost": 14.236933337677975,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11021067425454203,
+        "orientation_error_deg": 0.07070479530242074,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30054001723285795,
+        0.10001359777343785,
+        1.041357561126369
+      ],
+      "selected_R": [
+        [
+          0.9999915599262659,
+          -0.0008035248711217238,
+          -0.0040291964478349875
+        ],
+        [
+          0.0008008122874229468,
+          0.9999994516721272,
+          -0.0006748000633991811
+        ],
+        [
+          0.0040297364571482445,
+          0.0006715677380130231,
+          0.9999916550756109
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_held_inspection_a",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286796-held/286796-1_base_held_inspection_a.json",
+      "record_sha256": "9248eb037b5e28d6b38891cf28b62ffb1bb71136e2e1b513e34646db58ae5e01",
+      "image_hashes": {
+        "inspection_x": "4fe3ef95aedf17493e7a6511f65cb062afc1163d7460004290e6220fbae7c6a4",
+        "inspection_y": "4f20997b86efb44cf8daa15422aedc484fec78f25c1d00aee679bc99734caec1"
+      },
+      "selected_seed": 13,
+      "selected_cost": 15.224217234236392,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11385574408464151,
+        "orientation_error_deg": 0.03263994885294513,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30049484021586453,
+        0.10002969586666366,
+        1.0413989876739915
+      ],
+      "selected_R": [
+        [
+          0.999783136914337,
+          -0.0007363575476272159,
+          -0.020811941747241304
+        ],
+        [
+          0.0006719081760838156,
+          0.999994958175717,
+          -0.0031035725461294504
+        ],
+        [
+          0.020814122156156974,
+          0.003088915781990366,
+          0.9997785909480962
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_held_inspection_b",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286796-held/286796-1_base_held_inspection_b.json",
+      "record_sha256": "875f8a4a4c2d33df31564487ab5198881c9adc7b6343399b1b3abe71111bd9ca",
+      "image_hashes": {
+        "inspection_x": "eae5a08c82cd173748b9d2efca86457913982c670fdc0bdef4afeaf4ac6876c1",
+        "inspection_y": "2b8771df9748e8d39412be4568ab93b62691ef88f29225bfcfb905913ed9c226"
+      },
+      "selected_seed": 11,
+      "selected_cost": 15.795810867815433,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11380987382883388,
+        "orientation_error_deg": 0.027295078082323822,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30046584913969127,
+        0.1000241823142523,
+        1.0413858125664943
+      ],
+      "selected_R": [
+        [
+          0.9997772554051084,
+          -0.0007384111554521699,
+          -0.02109251818996549
+        ],
+        [
+          0.0006673370658298157,
+          0.9999940770211428,
+          -0.003376475066261088
+        ],
+        [
+          0.02109488648628124,
+          0.003361647155490439,
+          0.9997718265146968
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_leveled_inspection_a",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286796-leveled/286796-1_base_leveled_inspection_a.json",
+      "record_sha256": "63581f616a5048ac230c20eda0f9e240ee39b8578ebd8fee5e6fd87fab39e40a",
+      "image_hashes": {
+        "inspection_x": "7c1f50bb6b28485e9095c81f630d4d7d52654bbaf18d7373fc4b2d0112aaee89",
+        "inspection_y": "a3145f8dd6b556f2248cf04c17e652a3230d4fec5333872f0cad60191be8d36e"
+      },
+      "selected_seed": 14,
+      "selected_cost": 14.391562203459518,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.1028846169760835,
+        "orientation_error_deg": 0.058119586096253,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3005122357788798,
+        0.0999904342263112,
+        1.0413508352427225
+      ],
+      "selected_R": [
+        [
+          0.9999925073279301,
+          -0.0005610410718965564,
+          -0.003830211601983404
+        ],
+        [
+          0.0005587041522444242,
+          0.9999996571599029,
+          -0.000611170800731001
+        ],
+        [
+          0.0038305531807544388,
+          0.0006090262663026093,
+          0.9999924779463779
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_leveled_inspection_b",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286796-leveled/286796-1_base_leveled_inspection_b.json",
+      "record_sha256": "328cbb0939aaef750162f89fa4f587db9cf2e6d6611bb5fef6503a5920370f87",
+      "image_hashes": {
+        "inspection_x": "b4c59e053051fe701380931aa830cbc1bd2873ee98f2e64faf4a2cb1b59f694b",
+        "inspection_y": "f07d92c224474256da9c8ec0370876fb15db3231dbb0d818c4826dad6d5a74ce"
+      },
+      "selected_seed": 18,
+      "selected_cost": 13.990428255603453,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.10787278734980918,
+        "orientation_error_deg": 0.08030522347152984,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3005163731890905,
+        0.09998254225051409,
+        1.0413525790059845
+      ],
+      "selected_R": [
+        [
+          0.9999921559602881,
+          -0.0009810298693154968,
+          -0.0038373947269333695
+        ],
+        [
+          0.000978742910437765,
+          0.9999993423490771,
+          -0.0005977990704706614
+        ],
+        [
+          0.003837978662011166,
+          0.0005940385584274756,
+          0.9999924584905534
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_held_inspection_a",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286802-held/286802-1_base_held_inspection_a.json",
+      "record_sha256": "d81bbf6147671a1c25b3ddfbbd512d0a329649b1113ba1078307fe98edd1990c",
+      "image_hashes": {
+        "inspection_x": "683dba27cfb3c9d42a05479731355b6f205782630b4b500bedc57784df820007",
+        "inspection_y": "901893404bcf2f32613ff7d469a3621edfeca5e0573054fffc667e8cde483b6f"
+      },
+      "selected_seed": 4,
+      "selected_cost": 15.409955365722368,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11393908970490153,
+        "orientation_error_deg": 0.03402115875819571,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004953196039197,
+        0.1000289170773242,
+        1.0413993614696244
+      ],
+      "selected_R": [
+        [
+          0.9997832556570401,
+          -0.0007653975234080446,
+          -0.020805188642301062
+        ],
+        [
+          0.0007012057876615128,
+          0.9999949723905989,
+          -0.003092491547212325
+        ],
+        [
+          0.020807451027310436,
+          0.003077232548474443,
+          0.9997787658385177
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_held_inspection_b",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286802-held/286802-1_base_held_inspection_b.json",
+      "record_sha256": "afc5b013ae6e22af6759700c5d21eeb67492e7d02a7c9eec082ced66f5939716",
+      "image_hashes": {
+        "inspection_x": "4dd4b8d83078c7c9b1ad8e33d56bf4007755fb3e367728ed145a5189d0aded0a",
+        "inspection_y": "9ce53d99dd46903a9057c14086e127b92bf6b24d1fa9f442c9da29ec7845da40"
+      },
+      "selected_seed": 19,
+      "selected_cost": 15.796236622145981,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11379316620643659,
+        "orientation_error_deg": 0.02696520596654855,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004658574000082,
+        0.10002414626530778,
+        1.0413858026849743
+      ],
+      "selected_R": [
+        [
+          0.9997773014174189,
+          -0.0007299564928666707,
+          -0.021090631427765592
+        ],
+        [
+          0.0006588803732134142,
+          0.9999940815818094,
+          -0.0033767851585949876
+        ],
+        [
+          0.021092971510840434,
+          0.003362136950220055,
+          0.9997718652712582
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_leveled_inspection_a",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286802-leveled/286802-1_base_leveled_inspection_a.json",
+      "record_sha256": "81d670e0e715846a819656e5f4c8e796e309627be9a9f27ba7e0ab49d4a09112",
+      "image_hashes": {
+        "inspection_x": "6f15d917976fcefa0b7065b0b50261a99925f2d7e45a494c1cdc8f9227ed69ad",
+        "inspection_y": "f239c97976f940923840b4e1965641f944e9121eff577c5221e35712b4f7ff60"
+      },
+      "selected_seed": 14,
+      "selected_cost": 13.989247738346366,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.09746596366700458,
+        "orientation_error_deg": 0.0498381668670672,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3005035908133481,
+        0.09999634365699402,
+        1.0413499885707496
+      ],
+      "selected_R": [
+        [
+          0.9999929929928226,
+          -0.0004944845567941416,
+          -0.00371072099187849
+        ],
+        [
+          0.0004918457609857353,
+          0.9999996255672603,
+          -0.00071200638090517
+        ],
+        [
+          0.00371107167862276,
+          0.0007101762894812924,
+          0.9999928617728397
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_leveled_inspection_b",
+      "record_path": "/private/tmp/team-v-root-base-rgb-regression/286802-leveled/286802-1_base_leveled_inspection_b.json",
+      "record_sha256": "d729a5441674f9b8824c2f5671ccf4cc59afdac7e51b28da65c07b7cc46aabeb",
+      "image_hashes": {
+        "inspection_x": "e75ecefa80ca01e04c8869abfa58b264d1a4484a92194f019a2a39f01d4f9558",
+        "inspection_y": "fa73c0414aa5ae98c898fe0b65be262ddfa40e752ebbc20b1fcffad1a8cbabe7"
+      },
+      "selected_seed": 2,
+      "selected_cost": 13.859688831291454,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.1177713749750996,
+        "orientation_error_deg": 0.10105535542688204,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3005515851665873,
+        0.1000156371605652,
+        1.0413596422105906
+      ],
+      "selected_R": [
+        [
+          0.9999905609214437,
+          -0.0012766280316486417,
+          -0.004153105932343331
+        ],
+        [
+          0.0012741696279120226,
+          0.9999990115091784,
+          -0.000594535470311473
+        ],
+        [
+          0.004153860827683444,
+          0.0005892380970039711,
+          0.9999911990806166
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_held_inspection_a",
+      "record_path": "/private/tmp/team-v-base-rgb-286826-audit/held/286826-1_base_held_inspection_a.json",
+      "record_sha256": "5efb4aee8ae7ad2a112ed2f0491de5d8681a886ec232e7088cd2a2d69e14b9d8",
+      "image_hashes": {
+        "inspection_x": "e6fb8368cd4e50599ef7d5c7da4a8fc40ec11cf681ec155865b4f53d86bee951",
+        "inspection_y": "d1734ac9c54fa193bab075cfbcb3cfb026b88aa4c0266ef159629bbea4d2ac26"
+      },
+      "selected_seed": 9,
+      "selected_cost": 15.41038468588474,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11395262998979622,
+        "orientation_error_deg": 0.03389274009701317,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004952582995131,
+        0.10002889293787096,
+        1.0413993608461005
+      ],
+      "selected_R": [
+        [
+          0.9997832753068236,
+          -0.0007612808067272031,
+          -0.020804395408028
+        ],
+        [
+          0.0006971020549525553,
+          0.9999949769556469,
+          -0.003091943110807266
+        ],
+        [
+          0.020806644743572873,
+          0.0030767702235942754,
+          0.9997787840415029
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_held_inspection_b",
+      "record_path": "/private/tmp/team-v-base-rgb-286826-audit/held/286826-1_base_held_inspection_b.json",
+      "record_sha256": "c2a0cce1f918b368def4aa5875475ef22c6b4367b30f63cd63be19277862d934",
+      "image_hashes": {
+        "inspection_x": "4d8d1c16da398f4dcacc2b3cf2f6fbc7e33abca09c5ec6c1828ed02248276807",
+        "inspection_y": "5d927d4f77e4349a6feaa7b3c84021ecf1d72de1ba6835ba97e6fdfc197e9815"
+      },
+      "selected_seed": 17,
+      "selected_cost": 15.86308164390244,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11748824446894546,
+        "orientation_error_deg": 0.022599150407831146,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004571369214575,
+        0.10002021830467096,
+        1.0413845571394449
+      ],
+      "selected_R": [
+        [
+          0.9997790989219898,
+          -0.0005738574468363176,
+          -0.021010093916146236
+        ],
+        [
+          0.0005033756092793907,
+          0.9999942291604528,
+          -0.0033598004089912207
+        ],
+        [
+          0.02101190071674995,
+          0.003348482256632917,
+          0.999773618223069
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_leveled_inspection_a",
+      "record_path": "/private/tmp/team-v-base-rgb-286826-audit/leveled/286826-1_base_leveled_inspection_a.json",
+      "record_sha256": "6ace8a3f2626e888ace556bc76db2b2c3900daef030f946017e20faab5d4bfdc",
+      "image_hashes": {
+        "inspection_x": "2c9756dda84f5928e9a921b206aa07c5aab780fd7e985c32af5cd2976adaab26",
+        "inspection_y": "dda14a941f5a32a7d0706f815ce7c6871d6d78f07ccd87b70726f03bc79f0195"
+      },
+      "selected_seed": 14,
+      "selected_cost": 13.714216676911732,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.095668394753365,
+        "orientation_error_deg": 0.04238342170810128,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004798385910593,
+        0.1000109545112721,
+        1.0413502482287353
+      ],
+      "selected_R": [
+        [
+          0.9999933100941282,
+          -0.0005819946808829329,
+          -0.0036112392859721657
+        ],
+        [
+          0.0005796194662984503,
+          0.9999996150513003,
+          -0.0006587401048993341
+        ],
+        [
+          0.003611621279067433,
+          0.000656642553402427,
+          0.9999932624834499
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_leveled_inspection_b",
+      "record_path": "/private/tmp/team-v-base-rgb-286826-audit/leveled/286826-1_base_leveled_inspection_b.json",
+      "record_sha256": "bbf6cd14d10cf740cabd5aeb04f2b1965de1dc11f239448abb16e12d7a547e44",
+      "image_hashes": {
+        "inspection_x": "58334f85836707e4aaf461c45e01a1bc302dbac20fb63221d8cf30f14399fff1",
+        "inspection_y": "fbdef3663452a926cfced35449858a9622320dbe65a3ed22fe60cb691e87329c"
+      },
+      "selected_seed": 18,
+      "selected_cost": 13.724521685696741,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.10480089293070152,
+        "orientation_error_deg": 0.059275983836814775,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30051939506737,
+        0.09999348620853664,
+        1.0413542291044546
+      ],
+      "selected_R": [
+        [
+          0.999991972670366,
+          -0.0007646489368159791,
+          -0.003933180244185923
+        ],
+        [
+          0.0007626232905296618,
+          0.9999995758223987,
+          -0.0005164888567992935
+        ],
+        [
+          0.003933573508474191,
+          0.0005134851759129205,
+          0.9999921316352581
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_held_inspection_a",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286472-held/286472-1_base_held_inspection_a.json",
+      "record_sha256": "daeccbcaff3091c9b74e63a97ac6e84eb983fccaaf87e00a93eaa283ca0b1449",
+      "image_hashes": {
+        "inspection_x": "55865657d2d658caf208dc611373393b4460efd6c115ca9290d6fc48c5ec78e8",
+        "inspection_y": "f2739e727d9e976de592ce99101aaf616e3c530c910b8e06053984d62479b0e9"
+      },
+      "selected_seed": 3,
+      "selected_cost": 15.303961441805559,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11264563371860442,
+        "orientation_error_deg": 0.03823172769764146,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004935042389407,
+        0.10001742378948951,
+        1.041398746956608
+      ],
+      "selected_R": [
+        [
+          0.9997831831953871,
+          -0.0008633692064327133,
+          -0.02080483581555845
+        ],
+        [
+          0.0008007026647402244,
+          0.9999951184521608,
+          -0.0030202561300978043
+        ],
+        [
+          0.020807341851895398,
+          0.0030029428003375638,
+          0.9997789940079738
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_held_inspection_b",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286472-held/286472-1_base_held_inspection_b.json",
+      "record_sha256": "947e8de4a71d3e917cd8d3b242fd736bdc02a07b549b3b6ec72bb827b9798040",
+      "image_hashes": {
+        "inspection_x": "4ff805471bb19640c680251d32bef11be27525fb4bfc1ce9801260687949d65d",
+        "inspection_y": "1cd9b4c69004afba3ff87bc12f8d08d760c95d4abb4a366f00670c10bf92dd0f"
+      },
+      "selected_seed": 20,
+      "selected_cost": 15.908174378882276,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11342225210280478,
+        "orientation_error_deg": 0.026408189463100022,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30046594262079207,
+        0.10002299983134913,
+        1.041385557261636
+      ],
+      "selected_R": [
+        [
+          0.9997774130586868,
+          -0.0007237177574577821,
+          -0.021085553592150478
+        ],
+        [
+          0.0006529194914336484,
+          0.9999941273790321,
+          -0.003364357826630036
+        ],
+        [
+          0.02108786461018791,
+          0.0033498417955839395,
+          0.9997720142743178
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_leveled_inspection_a",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286472-leveled/286472-1_base_leveled_inspection_a.json",
+      "record_sha256": "bb9e6222042c9d139c1630bda3dca5ae77857b21c4039ad143caac6f2ce4cb54",
+      "image_hashes": {
+        "inspection_x": "071bd7da7fa96e73cec0670ea5156f879d2b9663c4b88e7d5b3025168953cf22",
+        "inspection_y": "e778ab5fe3a4fc5de06cb705855a5c147db5b97ee3c79b03ebddafcc69f9074b"
+      },
+      "selected_seed": 6,
+      "selected_cost": 14.21095612345755,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.09488506784978598,
+        "orientation_error_deg": 0.04549760371627387,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004798699576131,
+        0.10001190162420696,
+        1.0413495960503365
+      ],
+      "selected_R": [
+        [
+          0.9999934724454801,
+          -0.0004753827212600572,
+          -0.003581770190688902
+        ],
+        [
+          0.00047252828464295986,
+          0.999999570164892,
+          -0.0007977387110100247
+        ],
+        [
+          0.00358214788231762,
+          0.0007960410160029046,
+          0.9999932672449598
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_leveled_inspection_b",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286472-leveled/286472-1_base_leveled_inspection_b.json",
+      "record_sha256": "31ef012cc5b580198f14ab83259cf792a9c4b01e5c5bf0f84f4b7cfc0e39b6ae",
+      "image_hashes": {
+        "inspection_x": "50b7216d7f4ad12a3f078d1aefd2de4806fa0d6a977555edfdb1d70617483be8",
+        "inspection_y": "5acfc14574ecfb0b211029d4b89f6c07eda29a98b39f1fff40b3336cac25fdc0"
+      },
+      "selected_seed": 2,
+      "selected_cost": 13.928863656247117,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11119268817999552,
+        "orientation_error_deg": 0.09319813011105964,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.300543908592092,
+        0.10001983717973223,
+        1.0413576692160633
+      ],
+      "selected_R": [
+        [
+          0.9999907654054497,
+          -0.0011752050463473896,
+          -0.004133763046152517
+        ],
+        [
+          0.0011724007138182223,
+          0.9999990810242867,
+          -0.0006807548372017397
+        ],
+        [
+          0.004134559273844678,
+          0.0006759021239607655,
+          0.9999912242494581
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_held_inspection_a",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286486-held/286486-1_base_held_inspection_a.json",
+      "record_sha256": "a3637b55274cb1b95339b251b989c39b1da981b734ca35f5e3d5838796c5d8c8",
+      "image_hashes": {
+        "inspection_x": "6db28fa5c04e9d96f3d82d284f9308103d165f1f4f0571c7af84a252c0913f0c",
+        "inspection_y": "4fb0a5bfbd56ead9ad665960df71b58c458c476fcc057b655caba0ca65ef6090"
+      },
+      "selected_seed": 11,
+      "selected_cost": 15.408795443088053,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.11387113280859516,
+        "orientation_error_deg": 0.034263778448397696,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30049558105571966,
+        0.10002878974835151,
+        1.0413993918303004
+      ],
+      "selected_R": [
+        [
+          0.9997831854137457,
+          -0.0007747906405318261,
+          -0.020808216247601687
+        ],
+        [
+          0.0007106329951753557,
+          0.9999949718877195,
+          -0.0030905015814786836
+        ],
+        [
+          0.02081050611325392,
+          0.003075044510620688,
+          0.9997787089834269
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_held_inspection_b",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286486-held/286486-1_base_held_inspection_b.json",
+      "record_sha256": "293a93a5e405a3bcd87da1540e245afea4fa2d6ce5622c2e9b4830c785385796",
+      "image_hashes": {
+        "inspection_x": "f7d830323127145b5b774b03e2c2e2dc37f220be9bc4644c579f49b3ff8d85b6",
+        "inspection_y": "b1cf8d0198f48d36d1e120febb3ce381e532f775fb54bceb69b14f49d58d0953"
+      },
+      "selected_seed": 18,
+      "selected_cost": 15.715231161233925,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.1149791545372776,
+        "orientation_error_deg": 0.027518228275625424,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.30046386824101956,
+        0.10002493363938848,
+        1.0413857883694766
+      ],
+      "selected_R": [
+        [
+          0.999777538418694,
+          -0.0007338753722149266,
+          -0.021079257586418224
+        ],
+        [
+          0.0006627248187533485,
+          0.9999940608444324,
+          -0.0033821696698968064
+        ],
+        [
+          0.02108161448445356,
+          0.0033674475199203828,
+          0.9997720869417835
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_leveled_inspection_a",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286486-leveled/286486-1_base_leveled_inspection_a.json",
+      "record_sha256": "9052e91eeb0f6c828f067a300973869f4697d3b317a51683cf12ee498520ca9b",
+      "image_hashes": {
+        "inspection_x": "3f4bbcefdbe525f98747d82a17e2489fd55a59ae6b2479eb09b58812f46549a6",
+        "inspection_y": "b155050e3d9298683cd8ae49994fb217c6de4d3a8b853d621c145e1990a87fc8"
+      },
+      "selected_seed": 23,
+      "selected_cost": 14.439143306202524,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.09455712390757127,
+        "orientation_error_deg": 0.041623521574694185,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3004794565140186,
+        0.10000805250640274,
+        1.0413483185667725
+      ],
+      "selected_R": [
+        [
+          0.9999937127310795,
+          -0.00041369543337524964,
+          -0.0035218396329389084
+        ],
+        [
+          0.0004108024495751529,
+          0.9999995776759427,
+          -0.0008221248591096003
+        ],
+        [
+          0.003522178254881183,
+          0.0008206729098413025,
+          0.9999934603567747
+        ]
+      ]
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_leveled_inspection_b",
+      "record_path": "/private/tmp/team-v-lid-pose-v45-audit/fixed25-regression/286486-leveled/286486-1_base_leveled_inspection_b.json",
+      "record_sha256": "4d27fd68bdf1f7feec58032a705e57e094710b873659dbba4fa540baed81c91a",
+      "image_hashes": {
+        "inspection_x": "3fdfa13f6a2542c3ac72f555f0a50ff1eaf6efba1ae9fd25891eae2416aa10f3",
+        "inspection_y": "fdace828f713e1851d8e93240f1e252da7117885a2b083889dd4b4a38079d4ee"
+      },
+      "selected_seed": 2,
+      "selected_cost": 13.96767551512205,
+      "score_after_image_ranking": {
+        "origin_error_mm": 0.10974049127772695,
+        "orientation_error_deg": 0.08506487721225867,
+        "original_accuracy_pass": true
+      },
+      "selected_position_world_m": [
+        0.3005375070260468,
+        0.10001540800276446,
+        1.0413570801405625
+      ],
+      "selected_R": [
+        [
+          0.9999914490115622,
+          -0.0010528804380920526,
+          -0.003999168230864219
+        ],
+        [
+          0.001050105702996525,
+          0.9999992065250072,
+          -0.0006958644753868947
+        ],
+        [
+          0.003999897719717935,
+          0.0006916589756913385,
+          0.9999917611791073
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "All selection and tie-breaking used image cost and original image/bounds/solver eligibility only. Independent simulator poses consulted only afterward for scoring.",
+    "Some historical pair agreements worsen despite staying inside the original gates. No blanket accuracy improvement or cost-based accuracy certificate.",
+    "Pixel/raster/CAD-model objective bias remains; old live independent accuracy, repeatability and physical gates must remain.",
+    "Archived fitting does not qualify new RGB-derived robot trajectories or final seating/release."
+  ],
+  "all_original_zero_seed_image_gate_eligible": true,
+  "baseline_rejected_observations": [],
+  "selection_contract_addendum": "Mandatory original zero-seed image/bounds/optimizer qualification must pass before a fixed25 bank result can return; preserves original rejected-input set. Added before any runtime trial, after independent occlusion regression discovery. No numeric gates changed."
+}

@@ -1,0 +1,1239 @@
+{
+  "revision": "approved-option-a-2x-fixed-gripper-candidate-01",
+  "units": "millimeter",
+  "status": "CAD_CANDIDATE_NO_PICKUP_OR_PRINT_QUALIFICATION",
+  "parent_mesh_sha256": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+  "scale": 2.0,
+  "gripper_changed": false,
+  "finger_profile_sha256": "5ee8ff8c87d9a44f96f8af738b46fd9d2a586fa2ad3b8e0968c86161355007dc",
+  "pcb_intact": true,
+  "pcb_separate_dynamic_in_test": true,
+  "PCB_keeper_gap_mm": 0.6,
+  "PCB_retaining_rail_thickness_mm": 1.5,
+  "carrier_outer_floor_rail_thickness_mm": 1.5,
+  "other_scaled_carrier_wall_thickness_mm": 4.0,
+  "grip": {
+    "base": {
+      "handle_centre_xy_mm": [
+        33.0,
+        0
+      ],
+      "tcp_above_part_bottom_mm": 29.58820100784302,
+      "side_entry_mm": 18.0,
+      "entry_strategy": "vertical_above_offset_then_horizontal_open_entry",
+      "post_jaw_axis_width_mm": 8.0,
+      "blade_slot_width_mm": 7.2,
+      "unchanged_blade_thickness_mm": 6.0,
+      "nominal_clearance_per_blade_side_mm": 0.6,
+      "shoulder_bottom_mm": 32.72,
+      "shoulder_top_mm": 34.72,
+      "nominal_contact_per_jaw_mm": 4.0000152587890625,
+      "binary_close_contact_is_not_proven_by_nominal_gap": true
+    },
+    "carrier": {
+      "handle_centre_xy_mm": [
+        0,
+        0
+      ],
+      "tcp_above_part_bottom_mm": 29.58820100784302,
+      "side_entry_mm": -18.0,
+      "entry_strategy": "vertical_above_offset_then_horizontal_open_entry",
+      "post_jaw_axis_width_mm": 8.0,
+      "blade_slot_width_mm": 7.2,
+      "unchanged_blade_thickness_mm": 6.0,
+      "nominal_clearance_per_blade_side_mm": 0.6,
+      "shoulder_bottom_mm": 32.72,
+      "shoulder_top_mm": 34.72,
+      "nominal_contact_per_jaw_mm": 4.0000152587890625,
+      "binary_close_contact_is_not_proven_by_nominal_gap": true
+    },
+    "cover": {
+      "handle_centre_xy_mm": [
+        0,
+        0
+      ],
+      "tcp_above_part_bottom_mm": 77.58820100784303,
+      "side_entry_mm": 18.0,
+      "entry_strategy": "vertical_above_offset_then_horizontal_open_entry",
+      "post_jaw_axis_width_mm": 8.0,
+      "blade_slot_width_mm": 7.2,
+      "unchanged_blade_thickness_mm": 6.0,
+      "nominal_clearance_per_blade_side_mm": 0.6,
+      "shoulder_bottom_mm": 80.72,
+      "shoulder_top_mm": 82.72,
+      "nominal_contact_per_jaw_mm": 4.0000152587890625,
+      "binary_close_contact_is_not_proven_by_nominal_gap": true
+    }
+  },
+  "assembly_part_bottom_z_mm": {
+    "nest": 0,
+    "base": 6,
+    "carrier": 12,
+    "pcb": 16,
+    "cover": 12
+  },
+  "limits_unchanged": {
+    "endpoint_mm": 2.0,
+    "endpoint_samples": 6,
+    "camera_speed_rad_s": 0.02,
+    "camera_samples": 6,
+    "pickup_lift_mm": 40.0,
+    "minimum_lift_mm": 35.0,
+    "maximum_pickup_xy_slip_mm": 2.0,
+    "maximum_pickup_tilt_deg": 5.0,
+    "maximum_pickup_yaw_deg": 3.0,
+    "placement_xy_mm": 0.75,
+    "placement_z_mm": 0.35,
+    "placement_tilt_deg": 1.0,
+    "placement_yaw_deg": 1.0,
+    "release_follow_mm": 0.25,
+    "maximum_intended_penetration_mm": 0.25
+  },
+  "payload_limits_unchanged": {
+    "xy_mm": 0.75,
+    "z_mm": 0.35,
+    "relative_tilt_deg": 1.0,
+    "relative_yaw_deg": 1.0
+  },
+  "mass_properties": {
+    "base": {
+      "mass_kg": 0.14329381108262232,
+      "centre_of_mass_local_m": [
+        0.004582437725436213,
+        -6.108200851220085e-18,
+        0.010461248152185491
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.00022928240510004753,
+          3.6547863755550657e-22,
+          -1.0681059959586973e-05
+        ],
+        [
+          3.6547863755550657e-22,
+          0.0003189526120415878,
+          -1.5720894590668585e-20
+        ],
+        [
+          -1.0681059959586973e-05,
+          -1.5720894590668585e-20,
+          0.0005087721964002377
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.00022887480914861503,
+        0.0003189526120415878,
+        0.0005091797923516702
+      ],
+      "density_kg_m3": 1240.0,
+      "method": "Recomputed from new closed Boolean-union geometry, not8xparent mass"
+    },
+    "carrier": {
+      "mass_kg": 0.08096369320944156,
+      "centre_of_mass_local_m": [
+        -0.004606895185386616,
+        0.0036865683249902425,
+        0.011450476740536107
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          9.931958713222431e-05,
+          -1.3750577219889737e-06,
+          -3.3424327542696394e-06
+        ],
+        [
+          -1.3750577219889737e-06,
+          4.731362331331669e-05,
+          -6.023980975336705e-07
+        ],
+        [
+          -3.3424327542696394e-06,
+          -6.023980975336705e-07,
+          0.00011939119594573323
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        4.727066166462815e-05,
+        9.881864840821625e-05,
+        0.00011993509631842982
+      ],
+      "density_kg_m3": 1240.0,
+      "method": "Recomputed from new closed Boolean-union geometry, not8xparent mass"
+    },
+    "pcb": {
+      "mass_kg": 0.02123914868622461,
+      "centre_of_mass_local_m": [
+        0.0,
+        -0.002495381660176895,
+        0.003449760555608852
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          1.3937316579945497e-05,
+          6.838026397105029e-23,
+          8.547532996381286e-24
+        ],
+        [
+          6.838026397105029e-23,
+          1.8839694525945892e-06,
+          2.462407390982143e-07
+        ],
+        [
+          8.547532996381286e-24,
+          2.462407390982143e-07,
+          1.5508554708920014e-05
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        1.879520531210945e-06,
+        1.3937316579945497e-05,
+        1.551300363030366e-05
+      ],
+      "density_kg_m3": 1240.0,
+      "method": "Recomputed from new closed Boolean-union geometry, not8xparent mass"
+    },
+    "nest": {
+      "mass_kg": 0.09413484650146484,
+      "centre_of_mass_local_m": [
+        0.0,
+        -0.0004248951529270017,
+        0.002684848371553935
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.00021915776117446972,
+          -0.0,
+          1.0940842235368047e-21
+        ],
+        [
+          -0.0,
+          0.0002582557953347357,
+          5.260269834967283e-08
+        ],
+        [
+          1.0940842235368047e-21,
+          5.260269834967283e-08,
+          0.0004749287662024831
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.00021915776117446972,
+        0.0002582557825641363,
+        0.0004749287789730824
+      ],
+      "density_kg_m3": 1240.0,
+      "method": "Recomputed from new closed Boolean-union geometry, not8xparent mass"
+    },
+    "cover": {
+      "mass_kg": 0.25799877110217934,
+      "centre_of_mass_local_m": [
+        2.3069172580217542e-17,
+        -1.730240799569792e-05,
+        0.05386096463591506
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.0006505121580304829,
+          3.490771436677969e-20,
+          3.9059205860545413e-19
+        ],
+        [
+          3.490771436677969e-20,
+          0.0007383008675801666,
+          6.311665386532794e-08
+        ],
+        [
+          3.9059205860545413e-19,
+          6.311665386532794e-08,
+          0.0012393316034665848
+        ]
+      ],
+      "principal_moments_kg_m2": [
+        0.0006505121580304829,
+        0.0007383008596291335,
+        0.0012393316114176177
+      ],
+      "density_kg_m3": 1240.0,
+      "method": "Recomputed from new closed Boolean-union geometry, not8xparent mass"
+    }
+  },
+  "parts": {
+    "base": {
+      "bounds_mm": [
+        [
+          -65.0,
+          -60.0,
+          0.0
+        ],
+        [
+          65.0,
+          60.0,
+          66.80000305175781
+        ]
+      ],
+      "size_mm": [
+        130.0,
+        120.0,
+        66.80000305175781
+      ],
+      "mass_g": 143.2938110826223,
+      "watertight": true,
+      "connected_components": 1,
+      "source_convex_piece_count": 23,
+      "visual_collision_symmetric_difference_mm3": 0.0
+    },
+    "carrier": {
+      "bounds_mm": [
+        [
+          -56.0,
+          -58.0,
+          0.0
+        ],
+        [
+          56.0,
+          58.0,
+          60.79999923706055
+        ]
+      ],
+      "size_mm": [
+        112.0,
+        116.0,
+        60.79999923706055
+      ],
+      "mass_g": 80.96369320944156,
+      "watertight": true,
+      "connected_components": 1,
+      "source_convex_piece_count": 42,
+      "visual_collision_symmetric_difference_mm3": 8.881784197001252e-16
+    },
+    "pcb": {
+      "bounds_mm": [
+        [
+          -17.760000228881836,
+          -47.15999984741211,
+          0.0
+        ],
+        [
+          17.760000228881836,
+          43.15999984741211,
+          12.0
+        ]
+      ],
+      "size_mm": [
+        35.52000045776367,
+        90.31999969482422,
+        12.0
+      ],
+      "mass_g": 21.23914868622461,
+      "watertight": true,
+      "connected_components": 1,
+      "source_convex_piece_count": 4,
+      "visual_collision_symmetric_difference_mm3": 0.0
+    },
+    "nest": {
+      "bounds_mm": [
+        [
+          -88.0,
+          -82.0,
+          0.0
+        ],
+        [
+          88.0,
+          82.0,
+          16.0
+        ]
+      ],
+      "size_mm": [
+        176.0,
+        164.0,
+        16.0
+      ],
+      "mass_g": 94.13484650146484,
+      "watertight": true,
+      "connected_components": 1,
+      "source_convex_piece_count": 16,
+      "visual_collision_symmetric_difference_mm3": 0.003088378906055601
+    },
+    "cover": {
+      "bounds_mm": [
+        [
+          -73.0,
+          -67.0,
+          0.0
+        ],
+        [
+          73.0,
+          67.0,
+          108.80000305175781
+        ]
+      ],
+      "size_mm": [
+        146.0,
+        134.0,
+        108.80000305175781
+      ],
+      "mass_g": 257.9987711021793,
+      "watertight": true,
+      "connected_components": 1,
+      "source_convex_piece_count": 57,
+      "visual_collision_symmetric_difference_mm3": 0.0
+    }
+  },
+  "local_interface_changes": [
+    {
+      "part": "base",
+      "collider_index": 19,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          23.0,
+          -16.0,
+          32.720001220703125
+        ],
+        [
+          43.0,
+          16.0,
+          36.720001220703125
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          23.0,
+          -10.0,
+          32.720001220703125
+        ],
+        [
+          43.0,
+          10.0,
+          34.720001220703125
+        ]
+      ]
+    },
+    {
+      "part": "base",
+      "collider_index": 21,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          22.600000381469727,
+          -14.0,
+          27.200000762939453
+        ],
+        [
+          26.600000381469727,
+          14.0,
+          59.599998474121094
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          27.4,
+          -7.0,
+          29.960000381469726
+        ],
+        [
+          29.4,
+          7.0,
+          46.159999237060546
+        ]
+      ]
+    },
+    {
+      "part": "base",
+      "collider_index": 22,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          39.400001525878906,
+          -14.0,
+          27.200000762939453
+        ],
+        [
+          43.400001525878906,
+          14.0,
+          59.599998474121094
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          36.6,
+          -7.0,
+          29.960000381469726
+        ],
+        [
+          38.6,
+          7.0,
+          46.159999237060546
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 0,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          -56.0,
+          -50.0,
+          0.0
+        ],
+        [
+          -39.0,
+          -49.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -56.0,
+          -50.0,
+          0.0
+        ],
+        [
+          -39.0,
+          -48.5,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 4,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          -56.0,
+          49.0,
+          0.0
+        ],
+        [
+          -39.0,
+          50.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -56.0,
+          48.5,
+          0.0
+        ],
+        [
+          -39.0,
+          50.0,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 5,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          -39.0,
+          -50.0,
+          0.0
+        ],
+        [
+          17.0,
+          -49.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -39.0,
+          -50.0,
+          0.0
+        ],
+        [
+          17.0,
+          -48.5,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 11,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          -39.0,
+          49.0,
+          0.0
+        ],
+        [
+          17.0,
+          50.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -39.0,
+          48.5,
+          0.0
+        ],
+        [
+          17.0,
+          50.0,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 12,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          17.0,
+          -50.0,
+          0.0
+        ],
+        [
+          39.0,
+          -49.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          17.0,
+          -50.0,
+          0.0
+        ],
+        [
+          39.0,
+          -48.5,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 17,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          17.0,
+          49.0,
+          0.0
+        ],
+        [
+          39.0,
+          50.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          17.0,
+          48.5,
+          0.0
+        ],
+        [
+          39.0,
+          50.0,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 18,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          39.0,
+          -50.0,
+          0.0
+        ],
+        [
+          56.0,
+          -49.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          39.0,
+          -50.0,
+          0.0
+        ],
+        [
+          56.0,
+          -48.5,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 21,
+      "role": "floor",
+      "uniform_scale_bounds_mm": [
+        [
+          39.0,
+          49.0,
+          0.0
+        ],
+        [
+          56.0,
+          50.0,
+          4.0
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          39.0,
+          48.5,
+          0.0
+        ],
+        [
+          56.0,
+          50.0,
+          4.0
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 22,
+      "role": "wall",
+      "uniform_scale_bounds_mm": [
+        [
+          -22.360000610351562,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          -18.360000610351562,
+          47.7599983215332,
+          8.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -22.360000610351562,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          -18.360000610351562,
+          47.7599983215332,
+          8.6
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 23,
+      "role": "wall",
+      "uniform_scale_bounds_mm": [
+        [
+          18.360000610351562,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          22.360000610351562,
+          -24.0,
+          8.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          18.360000610351562,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          22.360000610351562,
+          -24.0,
+          8.6
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 24,
+      "role": "wall",
+      "uniform_scale_bounds_mm": [
+        [
+          18.360000610351562,
+          24.0,
+          4.0
+        ],
+        [
+          22.360000610351562,
+          47.7599983215332,
+          8.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          18.360000610351562,
+          24.0,
+          4.0
+        ],
+        [
+          22.360000610351562,
+          47.7599983215332,
+          8.6
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 25,
+      "role": "wall",
+      "uniform_scale_bounds_mm": [
+        [
+          -18.360000610351562,
+          43.7599983215332,
+          4.0
+        ],
+        [
+          18.360000610351562,
+          47.7599983215332,
+          8.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -18.360000610351562,
+          43.7599983215332,
+          4.0
+        ],
+        [
+          18.360000610351562,
+          47.7599983215332,
+          8.6
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 26,
+      "role": "wall",
+      "uniform_scale_bounds_mm": [
+        [
+          -18.360000610351562,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          -10.0,
+          -43.7599983215332,
+          8.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -18.360000610351562,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          -10.0,
+          -43.7599983215332,
+          8.6
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 27,
+      "role": "wall",
+      "uniform_scale_bounds_mm": [
+        [
+          10.0,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          18.360000610351562,
+          -43.7599983215332,
+          8.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          10.0,
+          -47.7599983215332,
+          4.0
+        ],
+        [
+          18.360000610351562,
+          -43.7599983215332,
+          8.6
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 28,
+      "role": "pcb_keeper",
+      "uniform_scale_bounds_mm": [
+        [
+          -22.360000610351562,
+          -47.7599983215332,
+          8.300000190734863
+        ],
+        [
+          -15.359999656677246,
+          47.7599983215332,
+          11.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -22.360000610351562,
+          -47.7599983215332,
+          8.6
+        ],
+        [
+          -15.359999656677246,
+          47.7599983215332,
+          10.1
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 29,
+      "role": "pcb_keeper",
+      "uniform_scale_bounds_mm": [
+        [
+          15.359999656677246,
+          -47.7599983215332,
+          8.300000190734863
+        ],
+        [
+          22.360000610351562,
+          -24.0,
+          11.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          15.359999656677246,
+          -47.7599983215332,
+          8.6
+        ],
+        [
+          22.360000610351562,
+          -24.0,
+          10.1
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 30,
+      "role": "pcb_keeper",
+      "uniform_scale_bounds_mm": [
+        [
+          15.359999656677246,
+          24.0,
+          8.300000190734863
+        ],
+        [
+          22.360000610351562,
+          47.7599983215332,
+          11.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          15.359999656677246,
+          24.0,
+          8.6
+        ],
+        [
+          22.360000610351562,
+          47.7599983215332,
+          10.1
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 31,
+      "role": "pcb_keeper",
+      "uniform_scale_bounds_mm": [
+        [
+          -15.359999656677246,
+          40.7599983215332,
+          8.300000190734863
+        ],
+        [
+          15.359999656677246,
+          47.7599983215332,
+          11.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -15.359999656677246,
+          40.7599983215332,
+          8.6
+        ],
+        [
+          15.359999656677246,
+          47.7599983215332,
+          10.1
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 32,
+      "role": "pcb_keeper",
+      "uniform_scale_bounds_mm": [
+        [
+          -15.359999656677246,
+          -47.7599983215332,
+          8.300000190734863
+        ],
+        [
+          -10.0,
+          -40.7599983215332,
+          11.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -15.359999656677246,
+          -47.7599983215332,
+          8.6
+        ],
+        [
+          -10.0,
+          -40.7599983215332,
+          10.1
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 33,
+      "role": "pcb_keeper",
+      "uniform_scale_bounds_mm": [
+        [
+          10.0,
+          -47.7599983215332,
+          8.300000190734863
+        ],
+        [
+          15.359999656677246,
+          -40.7599983215332,
+          11.300000190734863
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          10.0,
+          -47.7599983215332,
+          8.6
+        ],
+        [
+          15.359999656677246,
+          -40.7599983215332,
+          10.1
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 38,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          -10.0,
+          -16.0,
+          32.720001220703125
+        ],
+        [
+          10.0,
+          16.0,
+          36.720001220703125
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -10.0,
+          -10.0,
+          32.720001220703125
+        ],
+        [
+          10.0,
+          10.0,
+          34.720001220703125
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 40,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          -10.399999618530273,
+          -14.0,
+          27.200000762939453
+        ],
+        [
+          -6.400000095367432,
+          14.0,
+          59.599998474121094
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -5.5999997615814205,
+          -7.0,
+          29.960000381469726
+        ],
+        [
+          -3.5999999999999996,
+          7.0,
+          46.159999237060546
+        ]
+      ]
+    },
+    {
+      "part": "carrier",
+      "collider_index": 41,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          6.400000095367432,
+          -14.0,
+          27.200000762939453
+        ],
+        [
+          10.399999618530273,
+          14.0,
+          59.599998474121094
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          3.5999999999999996,
+          -7.0,
+          29.960000381469726
+        ],
+        [
+          5.5999997615814205,
+          7.0,
+          46.159999237060546
+        ]
+      ]
+    },
+    {
+      "part": "cover",
+      "collider_index": 53,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          -10.0,
+          -16.0,
+          80.72000122070312
+        ],
+        [
+          10.0,
+          16.0,
+          84.72000122070312
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -10.0,
+          -10.0,
+          80.72000122070312
+        ],
+        [
+          10.0,
+          10.0,
+          82.72000122070312
+        ]
+      ]
+    },
+    {
+      "part": "cover",
+      "collider_index": 55,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          -10.399999618530273,
+          -14.0,
+          75.19999694824219
+        ],
+        [
+          -6.400000095367432,
+          14.0,
+          107.5999984741211
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          -5.5999997615814205,
+          -7.0,
+          77.95999847412111
+        ],
+        [
+          -3.5999999999999996,
+          7.0,
+          94.15999923706056
+        ]
+      ]
+    },
+    {
+      "part": "cover",
+      "collider_index": 56,
+      "role": "grip_support",
+      "uniform_scale_bounds_mm": [
+        [
+          6.400000095367432,
+          -14.0,
+          75.19999694824219
+        ],
+        [
+          10.399999618530273,
+          14.0,
+          107.5999984741211
+        ]
+      ],
+      "new_bounds_mm": [
+        [
+          3.5999999999999996,
+          -7.0,
+          77.95999847412111
+        ],
+        [
+          5.5999997615814205,
+          7.0,
+          94.15999923706056
+        ]
+      ]
+    }
+  ],
+  "PCB_scaled_original_symmetric_difference_mm3": 0.0,
+  "structural_assumptions": [
+    "Preloaded removable tray/bridge assumed mechanically secured as in parent; fastening/print strength not qualified.",
+    "CAD solid-density estimates are not measured printed mass.",
+    "Fixture is a separate static nest, never a robot-handled part in pickup trials."
+  ],
+  "pending": [
+    "Exact supplied finger approach/entry/close clearance and support checks",
+    "Robot reach and collision checks",
+    "Binary open/close simulated pickup/hold tests and independent evidence/video audit"
+  ],
+  "full_assembly_accepted": false,
+  "physical_hardware_qualified": false,
+  "print_release": false
+}

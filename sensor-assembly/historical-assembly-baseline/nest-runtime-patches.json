@@ -1,0 +1,22 @@
+[
+  [
+    "from assembly_checks import classify_contact,contact_violation,grasp_command_m",
+    "from assembly_checks import classify_contact,contact_violation,grasp_command_m\nfrom fixture_contacts import guide_contact"
+  ],
+  [
+    "    report['grip_collision_union_audit']=geometry['grip_collision_union_audit']",
+    "    report['physical_nest']={'contract_sha256':digest(Path(__file__).with_name('nest-proof.json')),'contact_checker_sha256':digest(Path(__file__).with_name('fixture_contacts.py')),'base_dynamic_throughout':True,'product_attachments':False,'no_clamp_or_preload':True}\n    report['grip_collision_union_audit']=geometry['grip_collision_union_audit']"
+  ],
+  [
+    "'released_reference':None}",
+    "'released_reference':None,'fixture_entry_enabled':False}"
+  ],
+  [
+    "                    minsep=min(float(v.separation) for v in points)",
+    "                    fixture_allowed=guide_contact(colliders,roles,state,[[float(x) for x in v.normal] for v in points])\n                    if fixture_allowed is not None:\n                        allowed=fixture_allowed;category='planned_nest_guide' if allowed else 'unplanned_nest_guide'\n                        report.setdefault('nest_guide_contacts',[]).append({'step':state['step'],'phase':state['phase'],'colliders':colliders,'allowed':allowed,'normals':[[float(x) for x in v.normal] for v in points],'minimum_separation_mm':min(float(v.separation) for v in points)*1000,'maximum_impulse_Ns':max(float(np.linalg.norm(v.impulse)) for v in points)})\n                    minsep=min(float(v.separation) for v in points)"
+  ],
+  [
+    "                    if active=='base':state['allow_active_table']=True",
+    "                    if active=='base':\n                        state['allow_active_table']=True;state['fixture_entry_enabled']=True"
+  ]
+]

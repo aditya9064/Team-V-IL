@@ -1,0 +1,390 @@
+{
+  "source_pins": {
+    "fk.py": {
+      "path": "<project-workspace>/Team-V-IL/data/external/fanuc-v05/fanuc_er4ia_sim/fk.py",
+      "sha256": "f7aa7df14c8d2b8c2a4838846caa302fcc0976276d616769aa6730bcbff2abed"
+    },
+    "ik.py": {
+      "path": "<project-workspace>/Team-V-IL/data/external/fanuc-v05/fanuc_er4ia_sim/ik.py",
+      "sha256": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795"
+    },
+    "scene_config.py": {
+      "path": "<project-workspace>/Team-V-IL/data/external/fanuc-v05/fanuc_er4ia_sim/scene_config.py",
+      "sha256": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b"
+    }
+  },
+  "report_path": "/private/tmp/team-v-incoming-lid-v49-result-286826/report.json",
+  "report_sha256": "4fe16e6d831b7af5743983d182f9d93a02ea57855ccfb8e4618b38ea906cca08",
+  "last_issued_q_rad": [
+    0.3186266723290298,
+    0.23138666867795057,
+    -0.3212075605180903,
+    -0.00359604269734383,
+    -1.0205124379510562,
+    -0.31464299281366986
+  ],
+  "final_RGB_actual_q_rad": [
+    0.31862732768058777,
+    0.2314443737268448,
+    -0.321237713098526,
+    -0.0036367333959788084,
+    -1.0204914808273315,
+    -0.3146246671676636
+  ],
+  "last_issued_TCP_robot_m": [
+    0.3000839826341556,
+    0.09993318500736982,
+    0.15487613347421952
+  ],
+  "last_issued_R_world": [
+    [
+      -0.0031515083276400686,
+      -0.002096201581713483,
+      0.9999928369414403
+    ],
+    [
+      0.0021880568985109174,
+      0.9999953946724749,
+      0.0021031026722033086
+    ],
+    [
+      -0.9999926401740514,
+      0.002194669170916548,
+      -0.0031469072055804945
+    ]
+  ],
+  "actual_TCP_robot_m": [
+    0.30006471625850806,
+    0.09993773387242967,
+    0.15485017093536924
+  ],
+  "actual_R_world": [
+    [
+      -0.003225853239630888,
+      -0.002093581773863757,
+      0.9999925787987048
+    ],
+    [
+      0.0022000113356340904,
+      0.9999953684692147,
+      0.002100668761628032
+    ],
+    [
+      -0.9999923455536528,
+      0.0022067706763876224,
+      -0.003221235168762111
+    ]
+  ],
+  "remembered_goal_robot_m": [
+    0.30015518514736905,
+    0.09988084161714421,
+    0.1548754511198257
+  ],
+  "unchanged_final_target_robot_m": [
+    0.29995895125532673,
+    0.10005738474236653,
+    0.03939384262054557
+  ],
+  "unchanged_final_R_world": [
+    [
+      -0.005498084544932026,
+      -0.00330481240014653,
+      0.9999793978745313
+    ],
+    [
+      0.003551163599846235,
+      0.9999881637865748,
+      0.003324350500992148
+    ],
+    [
+      -0.9999785485940792,
+      0.0035693673244628302,
+      -0.005486286355921445
+    ]
+  ],
+  "tool_offset_m": [
+    0.293,
+    0,
+    0
+  ],
+  "tool_axis_local": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "finger_spread_axis_local": [
+    0.0,
+    1.0,
+    0.0
+  ],
+  "joint_limits_rad": [
+    [
+      -2.9670597283903604,
+      2.9670597283903604
+    ],
+    [
+      -1.9198621771937625,
+      2.0943951023931953
+    ],
+    [
+      -1.2042771838760873,
+      3.5779249665883754
+    ],
+    [
+      -3.3161255787892263,
+      3.3161255787892263
+    ],
+    [
+      -2.0943951023931953,
+      2.0943951023931953
+    ],
+    [
+      -6.283185307179586,
+      6.283185307179586
+    ]
+  ],
+  "duration_s": 4.0,
+  "physics_dt_s": 0.016666666666666666,
+  "commands": 240,
+  "law": "s(u)=u*u*(3\u22122*u)",
+  "IK_parameters": {
+    "iters": 500,
+    "default_tol_m": 0.0001,
+    "prospective_tol_m": 1e-06,
+    "damping": 0.05,
+    "w_rot": 0.35,
+    "original_orientation_stop_rad": 0.01,
+    "original_fallback_position_m": 0.005
+  },
+  "full_assumptions": "Offline deterministic nominal IK only. These alternatives are not runtime candidates and do not predict contact dynamics.",
+  "final_RGB_observation": {
+    "position_world_m": [
+      0.30019050147831106,
+      0.09982952357286387,
+      1.0174566275396282
+    ],
+    "rotation_world": [
+      [
+        0.9999966848555977,
+        0.0012193291838658183,
+        -0.00226793169126627
+      ],
+      [
+        -0.001216251650461562,
+        0.9999983384692339,
+        0.0013578625463073835
+      ],
+      [
+        0.0022695836044583795,
+        -0.0013550996691343272,
+        0.999996506341472
+      ]
+    ],
+    "offset_mm_and_xyz_deg": [
+      0.12578521980301932,
+      -0.1082102995658064,
+      -0.16534238789801048,
+      -0.07764171559010262,
+      -0.13003767342527053,
+      -0.06968628305569431
+    ],
+    "views": {
+      "inspection_x": {
+        "edge_rms_px": 1.3024024028248107,
+        "edge_p95_px": 1.1067573426500654,
+        "edge_coverage_within_2px": 0.993,
+        "reverse_edge_p95_px": 2.0,
+        "reverse_edge_coverage_within_2px": 0.9746712128592304,
+        "measurement_domain": "actual shell and feet z<=35mm; CAD-projected finger-occluded grip excluded",
+        "cad_edge_points": 1000,
+        "observed_contour_points": 4106
+      },
+      "inspection_y": {
+        "edge_rms_px": 0.5954196950296001,
+        "edge_p95_px": 1.0632500325531857,
+        "edge_coverage_within_2px": 1.0,
+        "reverse_edge_p95_px": 2.0,
+        "reverse_edge_coverage_within_2px": 0.9806100733033815,
+        "measurement_domain": "actual shell and feet z<=35mm; CAD-projected finger-occluded grip excluded",
+        "cad_edge_points": 1000,
+        "observed_contour_points": 4229
+      }
+    },
+    "rms_px": 1.0126145940368878,
+    "optimizer": {
+      "success": true,
+      "status": 3,
+      "rounds": [
+        {
+          "success": true,
+          "nfev": 22,
+          "cost": 522.5822794023721
+        },
+        {
+          "success": true,
+          "nfev": 13,
+          "cost": 493.47260860250606
+        },
+        {
+          "success": true,
+          "nfev": 13,
+          "cost": 491.1301162080441
+        }
+      ]
+    },
+    "uncertainty_diagnostics": {
+      "jacobian_singular_values": [
+        1035.5891222192872,
+        699.1908138125384,
+        646.3633471518087,
+        465.61541271551863,
+        419.7244376601169,
+        310.84454818441213
+      ],
+      "jacobian_rank": 6,
+      "meaning": "local image-fit sensitivity only; calibration, drift and systematic image bias unbounded",
+      "clearance_qualified": false
+    },
+    "source": "two calibrated RGB silhouettes + actual triangulated lid CAD; no runtime object coordinates",
+    "label": "3_cover_leveled_inspection_b",
+    "step": 4986,
+    "tip_world_m": [
+      0.30006471625850806,
+      0.09993773387242967,
+      1.0548501709353693
+    ],
+    "camera_models": {
+      "inspection_x": {
+        "resolution": [
+          1920,
+          1440
+        ],
+        "focal_length_mm": 35.0,
+        "horizontal_aperture_mm": 20.954999923706055,
+        "vertical_aperture_mm": 15.7162504196167,
+        "camera_to_world": [
+          [
+            0.3880570275792945,
+            0.9216353635502068,
+            2.643265245572124e-08,
+            0.0
+          ],
+          [
+            0.2575490609822743,
+            -0.10844174647902793,
+            0.9601608556943608,
+            0.0
+          ],
+          [
+            0.884918202170953,
+            -0.37259716085104094,
+            -0.2794479042545719,
+            0.0
+          ],
+          [
+            0.49000000953674316,
+            0.019999999552965164,
+            0.9916718006134033,
+            1.0
+          ]
+        ]
+      },
+      "inspection_y": {
+        "resolution": [
+          1920,
+          1440
+        ],
+        "focal_length_mm": 35.0,
+        "horizontal_aperture_mm": 20.954999923706055,
+        "vertical_aperture_mm": 15.7162504196167,
+        "camera_to_world": [
+          [
+            0.921635374254091,
+            -0.38805700215757133,
+            1.0510526976537093e-08,
+            0.0
+          ],
+          [
+            -0.10844168668123774,
+            -0.2575489782215765,
+            0.9601608846473335,
+            0.0
+          ],
+          [
+            -0.3725971517782305,
+            -0.8849182374058637,
+            -0.2794478047744331,
+            0.0
+          ],
+          [
+            0.2199999988079071,
+            -0.09000000357627869,
+            0.9916718006134033,
+            1.0
+          ]
+        ]
+      }
+    }
+  },
+  "expected_jaw_joint_targets_m": {
+    "jaw_l": -0.004049984741210938,
+    "jaw_r": 0.004049984741210938
+  },
+  "reference_freeze_step": 4986,
+  "reference_freeze_sim_time": 83.13333766907454,
+  "mesh_sha256": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+  "lid_measured_placement_plan": {
+    "tip_world_m": [
+      0.29995895125532673,
+      0.10005738474236653,
+      0.9383938426205456
+    ],
+    "tool_rotation_world": [
+      [
+        -0.005498084544932026,
+        -0.00330481240014653,
+        0.9999793978745313
+      ],
+      [
+        0.003551163599846235,
+        0.9999881637865748,
+        0.003324350500992148
+      ],
+      [
+        -0.9999785485940792,
+        0.0035693673244628302,
+        -0.005486286355921445
+      ]
+    ],
+    "part_origin_in_tool_m": [
+      0.03739261334032495,
+      -0.00019099211508201693,
+      0.00024601036940057145
+    ],
+    "part_rotation_in_tool": [
+      [
+        -0.005498084544932026,
+        0.003551163599846235,
+        -0.9999785485940792
+      ],
+      [
+        -0.00330481240014653,
+        0.9999881637865748,
+        0.0035693673244628302
+      ],
+      [
+        0.9999793978745313,
+        0.003324350500992148,
+        -0.005486286355921445
+      ]
+    ],
+    "desired_part_origin_world_m": [
+      0.3,
+      0.1,
+      0.901
+    ],
+    "clearance_mm": 0.1,
+    "method": "rigid RGB held transform + measured FK; level lid, positive foot clearance"
+  },
+  "actual_joint_dtype": "float32"
+}

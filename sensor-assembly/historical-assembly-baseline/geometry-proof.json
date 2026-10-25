@@ -1,0 +1,56 @@
+{
+  "scope": "CPU geometry/mass qualification only; no mechanical success or new PhysX readback",
+  "source_mesh_sha256": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+  "source_design_sha256": "3808dbe0fd8bbda6f6990e46b796cde1d38055c4fdf84450cccd39a858acc62a",
+  "new_mesh_sha256": "81f16363cc58a39219c0ff6f1febcae1b25f1d8e1cfc5f94b41a37954b51f804",
+  "new_design_sha256": "ad2e114fd4281b1ef72fa997a13172b7febec6b9d706f9a28450cfa1fbcad7e0",
+  "changed_collider_only": 54,
+  "unchanged_other_cover_collider_count": 56,
+  "unchanged_other_parts": {
+    "base": true,
+    "carrier": true,
+    "pcb": true,
+    "nest": true
+  },
+  "changed_feature": "C054 grip_stem top/chamfer raised3mm; all lower geometry unchanged",
+  "original_top_mm": 54.400001525878906,
+  "new_top_mm": 57.400001525878906,
+  "added_solid_volume_mm3": 120.0,
+  "minimum_changed_height_mm": 53.79999923706055,
+  "visual_collision_union_symmetric_difference_mm3": 0.0,
+  "unchanged_density_kg_m3": 1240,
+  "old_expected_mass_kg": 0.03296638539956684,
+  "new_expected_mass_kg": 0.03311518539229588,
+  "old_compound_COM_vs_PhysX_error_m": 2.9977934717628437e-09,
+  "old_compound_inertia_vs_PhysX_relative_error": 5.00145367442655e-07,
+  "new_compound_prediction": {
+    "mass_kg": 0.03311518539229588,
+    "centre_of_mass_local_m": [
+      8.396044182415943e-21,
+      -8.30839338529863e-06,
+      0.02766175000846047
+    ],
+    "diagonal_inertia_kg_m2": [
+      2.0532164508170828e-05,
+      2.3240075035709445e-05,
+      3.8228745822551295e-05
+    ],
+    "principal_axes_wxyz": [
+      5.817287043055536e-05,
+      0.9999999983079586,
+      0.0,
+      0.0
+    ],
+    "reference_kind": "Analytic compound-hull prediction, not new PhysX readback",
+    "compound_collider_volume_mm3": 27081.047991556163
+  },
+  "numeric_gates_grip_preload_and_source_fingers_unchanged": true,
+  "new_runtime_probes_required": 75,
+  "remaining": [
+    "Independent numerical/geometric review",
+    "Open/close/release and whole-environment sweep checks",
+    "Actual cooked shape probes and original-tolerance mass/COM/inertia readback",
+    "Matched old/new isolated pickup/hold comparison with originalPGS32:1",
+    "New lid RGB-template validation before any full-sequence trial"
+  ]
+}

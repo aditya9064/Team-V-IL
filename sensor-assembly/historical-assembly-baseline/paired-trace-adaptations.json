@@ -1,0 +1,21 @@
+{
+  "parent_trace_sha256": "e6623fa2d42a60f59ebeb222d3c32829b03f327e6f19d4bbc521e19483d6854a",
+  "adaptations": [
+    {
+      "label": "explicit_geometry_source_arguments",
+      "old": "def validate_trace(r,source=None):",
+      "new": "def validate_trace(r,source=None,mesh_filename=\"nest-mesh.json\",design_filename=\"nest-design.json\"):"
+    },
+    {
+      "label": "exact_variant_hash_binding",
+      "old": "assert r['mesh_sha256']==digest(source/'nest-mesh.json') and r['design_sha256']==digest(source/'nest-design.json')",
+      "new": "assert r['mesh_sha256']==digest(source/mesh_filename) and r['design_sha256']==digest(source/design_filename)"
+    },
+    {
+      "label": "actual_variant_rolemap",
+      "old": "mesh=json.loads((source/'nest-mesh.json').read_text());rolemap=",
+      "new": "mesh=json.loads((source/mesh_filename).read_text());rolemap="
+    }
+  ],
+  "quantitative_raw_validation_body_unchanged": true
+}

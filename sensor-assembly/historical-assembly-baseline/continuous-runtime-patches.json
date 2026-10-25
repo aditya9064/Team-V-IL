@@ -1,0 +1,38 @@
+[
+  [
+    "from passive_velocity import PassiveVelocity",
+    "from passive_velocity import PassiveVelocity\nfrom continuous_lid_command import held_foot_points,make_command_record,IK_POSITION_TOL_M,FOOT_COMMAND_RESIDUAL_MM"
+  ],
+  [
+    "    report['diagnostic_trace']=[]",
+    "    report['diagnostic_trace']=[]\n    report['continuous_lid_command_helper_sha256']=digest(Path(__file__).with_name('continuous_lid_command.py'))"
+  ],
+  [
+    "        def move(label,newgoal,newjaw,duration,allow_table=False,new_support=False,new_spread=None,new_orientation=None):",
+    "        def observed_command_fk():\n            actual_q=arm.get_joint_positions()[ai].copy();actual_R,actual_tip=fk.tool_pose(actual_q,tool)\n            return {'step':state['step'],'sim_time':float(world.current_time),'joint_dtype':str(actual_q.dtype),'q_rad':actual_q.tolist(),'tip_robot_m':np.asarray(actual_tip).tolist(),'rotation_world':actual_R.tolist()}\n        def move(label,newgoal,newjaw,duration,allow_table=False,new_support=False,new_spread=None,new_orientation=None):"
+  ],
+  [
+    "            phase_start=float(world.current_time);command_times=[]",
+    "            phase_start=float(world.current_time);command_times=[]\n            if label=='3_cover_precontact':\n                command_start_q=q.copy();command_start_R,command_start_tip=fk.tool_pose(command_start_q,tool)\n                actual_q=arm.get_joint_positions()[ai].copy();actual_start_R,actual_start_tip=fk.tool_pose(actual_q,tool)\n                start=np.asarray(command_start_tip).copy()\n                reference=state['lid_fk_reference']\n                command_foot_points=held_foot_points(reference['estimate'],reference['tip_world_m'],reference['tool_rotation'],incoming_corners)\n                report['continuous_lid_commands']={'phase':label,'start_step':state['step'],'start_sim_time':phase_start,'duration_s':4.,'commands':240,'local_ik_position_tol_m':IK_POSITION_TOL_M,'foot_command_residual_limit_mm':FOOT_COMMAND_RESIDUAL_MM,'start_source':'FK of last issued arm command q; never object truth','last_issued_q_rad':command_start_q.tolist(),'start_tip_robot_m':start.tolist(),'start_rotation_world':command_start_R.tolist(),'actual_start_q_rad':actual_q.tolist(),'actual_start_joint_dtype':str(actual_q.dtype),'actual_start_tip_robot_m':np.asarray(actual_start_tip).tolist(),'actual_start_rotation_world':actual_start_R.tolist(),'tool_offset_m':list(tool),'unchanged_target_tip_robot_m':np.asarray(newgoal).tolist(),'unchanged_target_rotation_world':np.asarray(new_orientation).tolist(),'held_RGB_observation':reference['estimate'],'held_actual_FK_tip_world_m':reference['tip_world_m'],'held_actual_FK_rotation_world':reference['tool_rotation'],'estimated_foot_points_tool_m':command_foot_points.tolist(),'foot_geometry_mesh_sha256':report['mesh_sha256'],'truth_used_for_command_targets_or_residual':False,'records':[]}\n                persist()"
+  ],
+  [
+    "                start_R,_=fk.tool_pose(arm.get_joint_positions()[ai],tool)",
+    "                start_R,_=fk.tool_pose(command_start_q if label=='3_cover_precontact' else arm.get_joint_positions()[ai],tool)"
+  ],
+  [
+    "                q,ok=ik.solve(q,target,down,joint_limits,tool_offset=tool,spread_dir=spread,iters=500)\n                if not ok:raise RuntimeError('IK failed at '+label)",
+    "                if label=='3_cover_precontact':\n                    record={'index':len(report['continuous_lid_commands']['records'])+1,'next_step':state['step']+1,'sim_time_before_issue':float(world.current_time),'seed_q_rad':q.tolist(),'desired_tip_robot_m':target.tolist(),'desired_rotation_world':desired_R.tolist(),'solved_q_rad':None,'solved_tip_robot_m':None,'solved_rotation_world':None,'jaw_joint_targets_m':dict(cell.jaw_targets(j)),'status':'SOLVING','issued':False,'actual_before':observed_command_fk()}\n                    record['actual_after']=dict(record['actual_before']);record['physics_advanced']=False\n                    report['continuous_lid_commands']['records'].append(record)\n                    proposed_q,ok=ik.solve(q,target,down,joint_limits,tool_offset=tool,spread_dir=spread,iters=500,tol=IK_POSITION_TOL_M)\n                    solved_R,solved_tip=fk.tool_pose(proposed_q,tool)\n                    record.update(make_command_record(record['index'],state['step']+1,float(world.current_time),target,desired_R,proposed_q,solved_tip,solved_R,cell.jaw_targets(j),command_foot_points,ok));record['status']='SOLVED'\n                    if not record['prospective_geometry_eligible']:\n                        record['status']='REJECTED_BEFORE_ISSUE';persist();raise RuntimeError('Lid prospective command SE3 foot-residual veto before issue')\n                    q=proposed_q\n                else:q,ok=ik.solve(q,target,down,joint_limits,tool_offset=tool,spread_dir=spread,iters=500)\n                if not ok:raise RuntimeError('IK failed at '+label)"
+  ],
+  [
+    "                command_times.append(float(world.current_time));command(j);advance(1)",
+    "                command_times.append(float(world.current_time));command(j)\n                if label=='3_cover_precontact':record['issued']=True;record['status']='ISSUED'\n                if label=='3_cover_precontact':\n                    try:advance(1)\n                    finally:record['actual_after']=observed_command_fk();record['physics_advanced']=record['actual_after']['sim_time']>record['actual_before']['sim_time']\n                else:advance(1)"
+  ],
+  [
+    "                path_length=float(np.linalg.norm(precontact-goal))",
+    "                command_start_tip=fk.tool_pose(q,tool)[1]\n                path_length=float(np.linalg.norm(precontact-command_start_tip))"
+  ],
+  [
+    "'commanded_start_robot_m':goal.tolist()",
+    "'commanded_start_robot_m':np.asarray(command_start_tip).tolist()"
+  ]
+]

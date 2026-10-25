@@ -1,0 +1,75 @@
+{
+  "accepted_base_parent_job": 286139,
+  "parent_file": "held_base_seating_trial.py",
+  "parent_sha256": "50fba06974e63e002ece738a7a0c4d872d3e3800b22744f38e479613545c2ef8",
+  "replacements": [
+    [
+      "ORDER=('base',)\n    if a.case!='full-assembly':raise ValueError('Bounded base seating/release only')",
+      "ORDER=('base','carrier','cover')\n    if a.case!='full-assembly':raise ValueError('Full assembly only')"
+    ],
+    [
+      "'task':'rgb_held_pose_base_seating_release'",
+      "'task':'full_assembly_with_verified_base_held_pose_fix'"
+    ],
+    [
+      "'scope':'Known starting pose; two calibrated simulation inspection cameras estimate held base from RGB. Base seating/release only. Other parts remain untouched; no full assembly, trained model, print or physical hardware validation.'",
+      "'scope':'Known-pose base, loaded tray, lid assembly. Base uses RGB held-pose correction and staged release from accepted286139. Tray/lid use existing CAD recipe targets. PCB separate loose dynamic body. No trained detector, random-pose, print or physical-hardware qualification.'"
+    ],
+    [
+      "'changes':'RGB-held-pose leveling phase and measured placement target'",
+      "'changes':'Verified base RGB leveling/measured target/staged release; existing tray and lid CAD paths retained'"
+    ],
+    [
+      "cv2.putText(rgb,'SIMULATION | RGB held-pose base seating/release | current fingers'",
+      "cv2.putText(rgb,'SIMULATION | base > loaded tray > lid | current fingers'"
+    ],
+    [
+      "            observed=measure_held('1_base_held_inspection')\n            actual_R,actual_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n            support_origin=np.array([*layout['assembly_body_centre'],surface+design['assembly']['part_bottom_z']['base']*.001])\n            planned=placement_from_held(observed['position_world_m'],observed['rotation_world'],np.asarray(actual_tip)+[0,0,C.TABLE_TOP_Z],actual_R,support_origin,geometry['parts']['base']['visual']['vertices_mm'])\n            level_R=np.asarray(planned['tool_rotation_world']);local=np.asarray(planned['part_origin_in_tool_m'])\n            # Level at carry height, preserving the observed part origin. No object coordinates enter this target.\n            level_tip=np.asarray(observed['position_world_m'])-level_R@local-np.array([0,0,C.TABLE_TOP_Z])\n            move(prefix+'_level_held',level_tip,jaw,2.,new_orientation=level_R)\n            observed=measure_held('1_base_leveled_inspection')\n            actual_R,actual_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n            planned=placement_from_held(observed['position_world_m'],observed['rotation_world'],np.asarray(actual_tip)+[0,0,C.TABLE_TOP_Z],actual_R,support_origin,geometry['parts']['base']['visual']['vertices_mm'])\n            report['measured_placement_plan']=planned;report['placement_input_contract']='RGB estimate + static camera calibration + unchanged CAD + measured arm FK + known fixture recipe only';persist()\n            place=np.asarray(planned['tip_world_m'])-np.array([0,0,C.TABLE_TOP_Z])\n            lower=move(prefix+'_lower',place,jaw,2.,new_support=True,new_orientation=np.asarray(planned['tool_rotation_world']))\n",
+      "            if name=='base':\n                observed=measure_held('1_base_held_inspection')\n                actual_R,actual_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n                support_origin=np.array([*layout['assembly_body_centre'],surface+design['assembly']['part_bottom_z']['base']*.001])\n                planned=placement_from_held(observed['position_world_m'],observed['rotation_world'],np.asarray(actual_tip)+[0,0,C.TABLE_TOP_Z],actual_R,support_origin,geometry['parts']['base']['visual']['vertices_mm'])\n                level_R=np.asarray(planned['tool_rotation_world']);local=np.asarray(planned['part_origin_in_tool_m'])\n                # Level at carry height, preserving the observed part origin. No object coordinates enter this target.\n                level_tip=np.asarray(observed['position_world_m'])-level_R@local-np.array([0,0,C.TABLE_TOP_Z])\n                move(prefix+'_level_held',level_tip,jaw,2.,new_orientation=level_R)\n                observed=measure_held('1_base_leveled_inspection')\n                actual_R,actual_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n                planned=placement_from_held(observed['position_world_m'],observed['rotation_world'],np.asarray(actual_tip)+[0,0,C.TABLE_TOP_Z],actual_R,support_origin,geometry['parts']['base']['visual']['vertices_mm'])\n                report['measured_placement_plan']=planned;report['placement_input_contract']='RGB estimate + static camera calibration + unchanged CAD + measured arm FK + known fixture recipe only';persist()\n                place=np.asarray(planned['tip_world_m'])-np.array([0,0,C.TABLE_TOP_Z])\n                lower=move(prefix+'_lower',place,jaw,2.,new_support=True,new_orientation=np.asarray(planned['tool_rotation_world']))\n            else:\n                allowance=.10 if design[name].get('support_shoulder') else 0.\n                report.setdefault('designed_placement_seating_allowance_mm',{})[name]=allowance\n                place=np.array([*dest_xy,C.SURFACE_DZ+design['assembly']['part_bottom_z'][name]*.001+design[name]['tcp_above_bottom_mm']*.001+allowance*.001])\n                lower=move(prefix+'_lower',place,jaw,2.,new_support=True)\n"
+    ],
+    [
+      "            release_plan=square_release_plan(support_origin,design['base']['handle_centre_xy'],design['base']['tcp_above_bottom_mm'],C.TOOL_AXIS,C.FINGER_SPREAD_AXIS,design['assembly']['preferred_jaw_closing_axis']['base'])\n            report['staged_release_plan']=release_plan;persist()\n            move(prefix+'_relax_clamp',place,release_plan['relaxed_per_jaw_m'],2.,allow_table=True)\n            square=np.asarray(release_plan['tip_world_m'])-np.array([0,0,C.TABLE_TOP_Z])\n            move(prefix+'_square_fingers',square,jaw,2.,allow_table=True,new_orientation=np.asarray(release_plan['tool_rotation_world']))\n            place=square\n",
+      "            if name=='base':\n                release_plan=square_release_plan(support_origin,design['base']['handle_centre_xy'],design['base']['tcp_above_bottom_mm'],C.TOOL_AXIS,C.FINGER_SPREAD_AXIS,design['assembly']['preferred_jaw_closing_axis']['base'])\n                report['staged_release_plan']=release_plan;persist()\n                move(prefix+'_relax_clamp',place,release_plan['relaxed_per_jaw_m'],2.,allow_table=True)\n                square=np.asarray(release_plan['tip_world_m'])-np.array([0,0,C.TABLE_TOP_Z])\n                move(prefix+'_square_fingers',square,jaw,2.,allow_table=True,new_orientation=np.asarray(release_plan['tool_rotation_world']))\n                place=square\n"
+    ],
+    [
+      "report['full_assembly_accepted']=False",
+      "report['full_assembly_accepted']=True"
+    ],
+    [
+      "if set(placed)!={'base','nest'} or len(report['part_results'])!=len(ORDER)",
+      "if set(placed)!=set(physical_parts) or len(report['part_results'])!=len(ORDER)"
+    ],
+    [
+      "video=out/'base-SEATING-RELEASE-PASS.mp4'",
+      "video=out/'full-assembly-SIMULATION-PASS.mp4'"
+    ],
+    [
+      "report['contact_headers_seen']=contact_count;report['status']='BASE_SEATING_RELEASE_PASS'",
+      "report['contact_headers_seen']=contact_count;report['status']='SIMULATION_PASS'"
+    ],
+    [
+      "print('TEAM_V_BASE_SEATING_RELEASE_PASS',flush=True)",
+      "print('TEAM_V_FULL_HELD_FIX_ASSEMBLY_PASS',flush=True)"
+    ],
+    [
+      "        report['final_part_scores']={name:score_placed(name,final['poses'][name]) for name in placed}\n        report['full_assembly_accepted']=True\n",
+      "        report['final_part_scores']={name:score_placed(name,final['poses'][name]) for name in placed}\n"
+    ],
+    [
+      "report['contact_headers_seen']=contact_count;report['status']='SIMULATION_PASS'",
+      "report['contact_headers_seen']=contact_count;report['full_assembly_accepted']=True;report['status']='SIMULATION_PASS'"
+    ]
+  ],
+  "unchanged_files": {
+    "design.json": "ca5e75051e98336e4598c6607309575fe89e92fa1e07947b942b11ff83975b7a",
+    "trial-mesh.json": "21a89d7ab57f698567f42995291d37a56942db4072a5eb1a4d2f1d6f6989890f",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "held_pose.py": "d42d83399b119b3a7a10b4eb6e49f30e938268640646befc36038c811dff687b",
+    "release_plan.py": "441543b23d97cc6960d93ba3f659a255be4f791a7ab3dfd7efc9586a7e818507"
+  },
+  "base_strategy_unchanged": true,
+  "tray_lid_strategy": "original known-pose CAD targets; no new perception claim",
+  "strict_limits_unchanged": true
+}

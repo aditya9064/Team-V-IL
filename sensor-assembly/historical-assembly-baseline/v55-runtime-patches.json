@@ -1,0 +1,47 @@
+[
+  {
+    "old": "Isolated lid grip solver-convergence diagnostic.",
+    "new": "Isolated lid post-height mechanical comparison.",
+    "label": "purpose"
+  },
+  {
+    "old": "ap.add_argument('--velocity-iterations',type=int,choices=[1,8,16],required=True)",
+    "new": "ap.add_argument('--velocity-iterations',type=int,choices=[1],required=True)\n    ap.add_argument('--geometry-variant',choices=['original','stem-plus3'],required=True)",
+    "label": "original_numerics_only_and_explicit_variant"
+  },
+  {
+    "old": "    physical_parts=['base','carrier','pcb','nest'] if a.case=='loaded-carrier' else ['base','carrier','pcb','cover','nest']",
+    "new": "    binding={'original':('nest-mesh.json','nest-design.json','verified-seating-mass-reference.json'),'stem-plus3':('lid-stem-mesh.json','lid-stem-design.json','lid-stem-mass-reference.json')}[a.geometry_variant]\n    if (meshpath.name,designpath.name)!=binding[:2]:raise ValueError('Geometry variant file binding mismatch')\n    physical_parts=['base','carrier','pcb','nest'] if a.case=='loaded-carrier' else ['base','carrier','pcb','cover','nest']",
+    "label": "explicit_geometry_reference_binding"
+  },
+  {
+    "old": "'task':'isolated_lid_grip_convergence_diagnostic'",
+    "new": "'task':'isolated_lid_grip_geometry_diagnostic'",
+    "label": "task_identity"
+  },
+  {
+    "old": "    report['velocity_iteration_experiment']={'requested':a.velocity_iterations,'original_control':1,'position_iterations':32,'unchanged_geometry_materials_masses_gains_timestep_preload_thresholds':True,'source':'NVIDIA OmniPhysics110.1 SimulationControl motivates convergence test, not a diagnosis'}",
+    "new": "    report['velocity_iteration_experiment']={'requested':a.velocity_iterations,'original_control':1,'position_iterations':32,'numerical_settings_unchanged':True}\n    report['grip_geometry_experiment']={'variant':a.geometry_variant,'extension_mm':0. if a.geometry_variant=='original' else 3.,'only_mechanical_feature_changed':'cover C054 flat stem top/chamfer height','fingers_materials_density_gains_timestep_preload_limits_unchanged':True,'mass_COM_inertia_follow_declared_geometry':True,'isolation_does_not_qualify_assembly':True}\n    report['mesh_source_filename']=binding[0]\n    report['design_source_filename']=binding[1]\n    report['mass_reference_source_filename']=binding[2]",
+    "label": "honest_geometry_and_mass_scope"
+  },
+  {
+    "old": "reference=json.loads(Path(__file__).with_name('verified-seating-mass-reference.json').read_text())",
+    "new": "reference=json.loads(Path(__file__).with_name(binding[2]).read_text())",
+    "label": "geometry_derived_mass_reference"
+  },
+  {
+    "old": "'Isolated lid-only original phases. Only articulation velocity iteration count varies. Omitted preceding base/tray robot prefix is explicit; no contact warm-start equivalence claim.'",
+    "new": "'Paired isolated old/new lid post geometry. Original PGS32:1 and original pickup phases in both cases; declared solid mass/COM/inertia follows changed CAD at unchanged density. No contact warm-start equivalence to full V53.'",
+    "label": "motion_and_physics_scope"
+  },
+  {
+    "old": "'V54 isolated convergence experiment; parentV53 and source artifacts preserved; no full assembly acceptance'",
+    "new": "'V55 isolated old/new lid post-height comparison; V54 numerical experiment demonstrated no repair; every earlier failure retained; no full assembly acceptance'",
+    "label": "provenance"
+  },
+  {
+    "old": "'SIMULATION | isolated lid grip | current fingers'",
+    "new": "'SIMULATION | lid post '+a.geometry_variant+' | current fingers'",
+    "label": "actual_video_case_label"
+  }
+]

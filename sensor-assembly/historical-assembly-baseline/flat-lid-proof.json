@@ -1,0 +1,16 @@
+{
+  "source_failure": 286155,
+  "scope": "Replace only lid pickup feature with translated flat shoulder, stem and anti-roll guides already used by accepted carrier286147; mechanical success remains pending.",
+  "existing_grippers_unchanged": true,
+  "all_numeric_gates_unchanged": true,
+  "geometry_translation_from_carrier_mm": 24.0,
+  "nonhandle_cover_difference_mm3": 0,
+  "collision_visual_difference_mm3": 5.16608934475471e-06,
+  "density_kg_m3": 1240,
+  "old_cover_mass_kg": 0.03410644417099034,
+  "new_cover_mass_kg": 0.03296638539956684,
+  "cad_clearance_checks": 156,
+  "fit_checks": 10,
+  "strict_failure_not_waived": true,
+  "print_release": false
+}

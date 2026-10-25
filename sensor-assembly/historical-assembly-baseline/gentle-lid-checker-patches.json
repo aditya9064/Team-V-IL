@@ -1,0 +1,14 @@
+[
+  [
+    "('bounded_nest_full_assembly_trial.py','trial_script_sha256')",
+    "('gentle_lid_full_assembly_trial.py','trial_script_sha256')"
+  ],
+  [
+    "sampling['only_duration_change']=={'2_carrier_carry':{'before_s':2.,'after_s':4.}}",
+    "sampling['only_duration_change']=={'2_carrier_carry':{'before_s':2.,'after_s':4.},'3_cover_release':{'before_s':1.,'after_s':3.}}"
+  ],
+  [
+    "    assert r['payload_transfer_schedule']['endpoint_acceleration_m_s2']==0.",
+    "    from lid_release_schedule import lid_release_bounds\n    assert r['lid_release_profile']==lid_release_bounds(abs(r['grip_commands']['cover']['closed_grasp_command_per_jaw_m']))\n    release_phase=next(p for p in sampling['phases'] if p['phase']=='3_cover_release');assert release_phase['requested_duration_s']==3. and release_phase['commands']==180\n    assert r['payload_transfer_schedule']['endpoint_acceleration_m_s2']==0."
+  ]
+]

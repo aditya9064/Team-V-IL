@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "isaaclab_release": "v2.3.0",
+  "isaaclab_commit": "3c6e67bb5c7ada942a6d1884ab69338f57596f77",
+  "factory_source": "https://github.com/isaac-sim/IsaacLab/tree/3c6e67bb5c7ada942a6d1884ab69338f57596f77/source/isaaclab_tasks/isaaclab_tasks/direct/factory",
+  "industreal_algorithm_source": "https://github.com/isaac-sim/IsaacGymEnvs/blob/main/isaacgymenvs/tasks/industreal/industreal_algo_utils.py",
+  "source_access_date": "2026-10-22",
+  "files": {
+    "vendor/factory/factory_env.py": "52d843bc0dac4c3661ecc0e9c84bfafcfa73d11623337b8c9a74032e1ecf6869",
+    "vendor/factory/factory_env_cfg.py": "58e55b4ec4aab7c486077a29daa396bd4b8c8e08ba657d81467c9f4bc76720d6",
+    "vendor/factory/factory_tasks_cfg.py": "7ec8b9a66025f757a22fc5629d74918a4aeebd6b1bd68c19234c76bcdabe1366",
+    "vendor/factory/factory_utils.py": "4551ac1e25c48972d672251b6390153713c3bde03e7cd39a419c83d886c9c002",
+    "vendor/factory/factory_control.py": "7fbbdea0b25f63864e5ee2684e5cd2f85c0baee36a9960192508919cd51c33f3",
+    "vendor/factory/LICENSE": "df351ebfa8af317bf5a9ad83df63a8b68e4f5c04b71f30767cdb27aa434eac62",
+    "vendor/factory/ppo.yaml": "3a6deecdb190bdfd1b585ac653b263c14f997ee8eec2bef7bbcdc2aee83c6fd2",
+    "vendor/train.py": "8fdf434c4e4cee0ba5a00bf24d555995f838589bf69f44541590124e30f2040c",
+    "vendor/industreal_algo_utils.py": "08edac0fe1c3ca8b94378f3c9e9f7fb814861be626a02fa2ac28d2d542900651"
+  },
+  "train_driver_sha256": "8fdf434c4e4cee0ba5a00bf24d555995f838589bf69f44541590124e30f2040c",
+  "licenses": "Upstream notices and full Factory BSD-3-Clause license retained; original algorithm file includes BSD-3-Clause notice",
+  "local_modifications": "Vendored source unchanged; local adaptation lives under team_v_industreal; PPO local name/one actor/minibatches adapted",
+  "runtime_compatibility_verified": false
+}

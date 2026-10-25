@@ -1,0 +1,61 @@
+{
+  "only_stem_height_changed": false,
+  "extension_mm": 3.0,
+  "lid_roof_clearance_mm": 2.6000000000000014,
+  "source_sections": [
+    {
+      "post_top_mm": 30.4,
+      "contact": {
+        "open": {
+          "area_mm2": 0.0,
+          "height_mm": 0.0
+        },
+        "nominal": {
+          "area_mm2": 0.0,
+          "height_mm": 0.0
+        },
+        "preload": {
+          "area_mm2": 0.11883124548764498,
+          "height_mm": 2.4029018468919823
+        }
+      }
+    },
+    {
+      "post_top_mm": 33.4,
+      "contact": {
+        "open": {
+          "area_mm2": 0.0,
+          "height_mm": 0.0
+        },
+        "nominal": {
+          "area_mm2": 0.0,
+          "height_mm": 0.0
+        },
+        "preload": {
+          "area_mm2": 0.26878546912045753,
+          "height_mm": 5.402901846891979
+        }
+      }
+    }
+  ],
+  "no_extra_preload": true,
+  "grip_commands_unchanged": true,
+  "limits_unchanged": true,
+  "other_parts_sha256": {
+    "pcb": "ead660e797139b2dab3577764a8df2b03958db7ec95e4212adc86ebb2d03e133",
+    "nest": "58f2061056fb86d779ae0b69f05d54a322f5723d674d96002d69ec78a6dc429b",
+    "cover": "6c224483885dd203354bd7a8a907ae6c39c9afeb4f74e6097c078c6a1159a905"
+  },
+  "runtime_sha256": {
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+    "check_holder_assembly.py": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46"
+  },
+  "gripper_geometry_unchanged": true,
+  "v25_note": "Flatgripunchangedfromv24; onlyfloor nowribbed",
+  "v26_scope": "Basecrosssectionunchangedinlocalgripcoordinates; basehandletranslated, carrierclearancenotchchanged, independentlycheckedcentred-base-proof",
+  "v27_scope": "Current pinned runtime; exact original code restored by inverse representation patch in representation-reference.json. No numeric/contact rule changes."
+}

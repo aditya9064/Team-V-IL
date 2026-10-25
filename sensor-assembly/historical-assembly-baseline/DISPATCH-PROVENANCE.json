@@ -1,0 +1,14 @@
+{
+  "parent_root": "base-rgb-multistart-v51",
+  "candidate_contract_sha256": "d06937133aa4bc77bb5a106f283f83b65dfccb3c7ae2347860f1ae2e1edcd851",
+  "dispatch_change": "Only unique launcher/review dispatch plus acquisition-only review wrapper and two negative-promotion tests. Parent strict motion checker and review builder unchanged; telemetry acquisition cannot promote mechanical acceptance. Candidate runtime/tests/CAD unchanged from independently reviewed seal.",
+  "gpu": "teaching oneT4,node2 exclude11,30min",
+  "runtime": "contact_trace_lid_precontact_trial.py",
+  "strict_motion_checker": "check_multistart_lid_precontact.py (unchanged parent; expected child hash rejection requires separate independent stage qualification)",
+  "acquisition_checker": "check_contact_trace_lid_precontact.py",
+  "run_prefix": "lid-contact-trace",
+  "new_test_modules": [
+    "test_lid_contact_trace",
+    "test_contact_trace_review"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "200": {
+    "environment": {
+      "python": "3.12.10 | packaged by conda-forge | (main, Apr 10 2025, 22:21:13) [GCC 13.3.0]",
+      "scipy": "1.17.0",
+      "numpy": "2.3.1",
+      "opencv": "4.13.0"
+    },
+    "samples": {
+      "a": {
+        "accepted": true,
+        "steps": 50,
+        "termination": "`xtol` termination condition is satisfied.",
+        "score": {
+          "position_mm": 0.11276310897955907,
+          "orientation_deg": 0.03821705797211076,
+          "pass": true
+        }
+      },
+      "b": {
+        "accepted": false,
+        "steps": 200,
+        "termination": "The maximum number of function evaluations is exceeded.",
+        "score": null
+      }
+    }
+  },
+  "400": {
+    "environment": {
+      "python": "3.12.10 | packaged by conda-forge | (main, Apr 10 2025, 22:21:13) [GCC 13.3.0]",
+      "scipy": "1.17.0",
+      "numpy": "2.3.1",
+      "opencv": "4.13.0"
+    },
+    "samples": {
+      "a": {
+        "accepted": true,
+        "steps": 50,
+        "termination": "`xtol` termination condition is satisfied.",
+        "score": {
+          "position_mm": 0.11276310897955907,
+          "orientation_deg": 0.03821705797211076,
+          "pass": true
+        }
+      },
+      "b": {
+        "accepted": true,
+        "steps": 222,
+        "termination": "`ftol` termination condition is satisfied.",
+        "score": {
+          "position_mm": 0.11313261731639672,
+          "orientation_deg": 0.026945401890319173,
+          "pass": true
+        }
+      }
+    },
+    "agreement": {
+      "mm": 0.02862788677346981,
+      "degrees": 0.025419154880849167,
+      "pass": true
+    }
+  },
+  "800": {
+    "environment": {
+      "python": "3.12.10 | packaged by conda-forge | (main, Apr 10 2025, 22:21:13) [GCC 13.3.0]",
+      "scipy": "1.17.0",
+      "numpy": "2.3.1",
+      "opencv": "4.13.0"
+    },
+    "samples": {
+      "a": {
+        "accepted": true,
+        "steps": 50,
+        "termination": "`xtol` termination condition is satisfied.",
+        "score": {
+          "position_mm": 0.11276310897955907,
+          "orientation_deg": 0.03821705797211076,
+          "pass": true
+        }
+      },
+      "b": {
+        "accepted": true,
+        "steps": 222,
+        "termination": "`ftol` termination condition is satisfied.",
+        "score": {
+          "position_mm": 0.11313261731639672,
+          "orientation_deg": 0.026945401890319173,
+          "pass": true
+        }
+      }
+    },
+    "agreement": {
+      "mm": 0.02862788677346981,
+      "degrees": 0.025419154880849167,
+      "pass": true
+    }
+  },
+  "scope": "CPU-only saved-image replay286470, not a robot/full assembly pass"
+}

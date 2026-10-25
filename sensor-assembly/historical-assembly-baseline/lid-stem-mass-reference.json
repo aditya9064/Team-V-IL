@@ -1,0 +1,89 @@
+{
+  "base": {
+    "mass_kg": 0.01862826570868492,
+    "centre_of_mass_local_m": [
+      0.003235237207263708,
+      -3.0692317177366535e-12,
+      0.0061126574873924255
+    ],
+    "diagonal_inertia_kg_m2": [
+      7.193878900579875e-06,
+      1.020945819618646e-05,
+      1.5760146197862923e-05
+    ],
+    "principal_axes_wxyz": [
+      0.9994933009147644,
+      0.0,
+      -0.03183002024888992,
+      0.0
+    ],
+    "validated": true,
+    "physics_time_advanced_s": 0.0,
+    "render_only_callback_updates": 0
+  },
+  "carrier": {
+    "mass_kg": 0.011067832820117474,
+    "centre_of_mass_local_m": [
+      -0.0020178882405161858,
+      0.0020163115113973618,
+      0.007236920762807131
+    ],
+    "diagonal_inertia_kg_m2": [
+      3.3439926028222544e-06,
+      1.6390223436246742e-06,
+      3.816584467131179e-06
+    ],
+    "principal_axes_wxyz": [
+      0.9890632629394531,
+      -0.0017266790382564068,
+      -0.14692488312721252,
+      -0.01280748937278986
+    ],
+    "validated": true,
+    "physics_time_advanced_s": 0.0,
+    "render_only_callback_updates": 0
+  },
+  "pcb": {
+    "mass_kg": 0.00265489355660975,
+    "centre_of_mass_local_m": [
+      -6.681376372302816e-12,
+      -0.001247691223397851,
+      0.0017248803051188588
+    ],
+    "diagonal_inertia_kg_m2": [
+      4.3554112494348374e-07,
+      5.873499731023912e-08,
+      4.847813102060172e-07
+    ],
+    "principal_axes_wxyz": [
+      0.9999592304229736,
+      -0.009032581001520157,
+      0.0,
+      0.0
+    ],
+    "validated": true,
+    "physics_time_advanced_s": 0.0,
+    "render_only_callback_updates": 0
+  },
+  "cover": {
+    "mass_kg": 0.03311518539229588,
+    "centre_of_mass_local_m": [
+      8.396044182415943e-21,
+      -8.30839338529863e-06,
+      0.02766175000846047
+    ],
+    "diagonal_inertia_kg_m2": [
+      2.0532164508170828e-05,
+      2.3240075035709445e-05,
+      3.8228745822551295e-05
+    ],
+    "principal_axes_wxyz": [
+      5.817287043055536e-05,
+      0.9999999983079586,
+      0.0,
+      0.0
+    ],
+    "reference_kind": "Analytic compound-hull prediction, not new PhysX readback",
+    "compound_collider_volume_mm3": 27081.047991556163
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "passed_reference_job": 285769,
+  "controller_sha256": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+  "checker_sha256": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5",
+  "source_physical_gate_sha256": {
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46"
+  },
+  "v22_geometry_unchanged": false,
+  "base_geometry_exact_passed_reference": false,
+  "payload_only_declared_horizontal_floor_pair_changed": true,
+  "original_phase_durations_restored": true,
+  "all_numeric_thresholds_unchanged": true,
+  "base_derived_from_passed_reference_with_extended_flat_grip": true,
+  "non_base_geometry_unchanged": false,
+  "v27_scope": "Current pinned runtime; exact original code restored by inverse representation patch in representation-reference.json. No numeric/contact rule changes.",
+  "source_reference_scope": "Originalpassedjob285769ishistorical; currentCADv26hastraynotchandtranslatedbasehandle. Runtime representation-only difference audited separately."
+}

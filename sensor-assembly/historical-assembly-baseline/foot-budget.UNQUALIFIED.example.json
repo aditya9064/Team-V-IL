@@ -1,0 +1,17 @@
+{
+  "translation_bounds_mm": null,
+  "rotation_bound_deg": null,
+  "calibration_height_error_mm": null,
+  "hold_drift_height_error_mm": null,
+  "support_height_error_mm": null,
+  "maximum_fk_foot_height_error_mm": null,
+  "qualified": false,
+  "evidence": {
+    "translation_bounds_mm": null,
+    "rotation_bound_deg": null,
+    "calibration_height_error_mm": null,
+    "hold_drift_height_error_mm": null,
+    "support_height_error_mm": null,
+    "maximum_fk_foot_height_error_mm": null
+  }
+}

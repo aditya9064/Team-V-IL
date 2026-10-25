@@ -1,0 +1,12 @@
+{
+  "stopped_job": 285807,
+  "reason": "Oldkeeperprobeorigininremovedcentraledge; no motion attempted",
+  "geometry_controller_checker_numeric_gates_unchanged": true,
+  "keeper_probe_y_mm": [
+    0,
+    18
+  ],
+  "expected_distance_mm": 94.35,
+  "unchanged_tolerance_mm": 0.03,
+  "empty_gap_negative_probe_retained": true
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "FULL_OBSERVED_ASSEMBLY_V60",
+  "runtime_file": "full_observed_assembly_trial.py",
+  "runtime_sha256": "dbbd5f6da49e710852e9c687e1931701a1facd31dac63997400e1b20fc168f8d",
+  "checker_sha256": "71ea557a6f904dc602a13af29a67fef8b32846feb88292980569e53b9e8e7538",
+  "checker_components": {
+    "full_motion_trace_integrity.py": "4e361ad76dddac97495f44b080a9b169369605666a29815d7d564b1b64819fb5",
+    "full_motion_command_integrity.py": "77c572a46fb0f25be4b584dcda7445766553de1c8828990dd86fc31396ffc4e8"
+  },
+  "policy_file": "full_motion_policy.json",
+  "policy_sha256": "f2309ed12851893b3ed45b912892acb731e52eeb46b55b5c203c344f8e84ab4f",
+  "base_tray_prefix_parent": {
+    "file": "full-prefix-parent-v53.py",
+    "sha256": "3f04770b8e4099fdaee59886b5af92521eafbe2c60f7f115da025d335c87a0e0",
+    "prior_job": 286893,
+    "scope": "Base and tray process checks passed; historical whole run FAILED later lid hold. Not a full pass."
+  },
+  "lid_control_parent": {
+    "file": "lid-parent-v59.py",
+    "sha256": "c315b3a399b47ea85bee81a660105234532f49b9f202e43dc421c284ad64100b",
+    "prior_job": 287758,
+    "scope": "Actual lid-only placement and release completed; strict force support evidence INCONCLUSIVE."
+  },
+  "physical_changes": false,
+  "PCB_separate_loose_dynamic": true,
+  "only_fixture_preplaced": [
+    "nest"
+  ],
+  "known_initial_coordinates": true,
+  "force_evidence_missing_means": "INCONCLUSIVE",
+  "full_assembly_accepted": false,
+  "remote_video_only": true,
+  "allocation_cap_minutes": 59,
+  "case_walltime_watchdog_s": 3390,
+  "packaging_revision": "V60c owner-writable 0644 files; prior287912 stopped55s during tests before simulator. Physical/runtime/checkers unchanged. Cumulative GPU caps55s+59min<60min."
+}

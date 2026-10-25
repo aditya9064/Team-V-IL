@@ -1,0 +1,10 @@
+[
+  [
+    "from held_pose_bounded import estimate,placement_from_held,project,front_edges",
+    "from held_pose_multistart import estimate\nfrom held_pose_bounded import placement_from_held,project,front_edges"
+  ],
+  [
+    "report['held_pose_estimator_sha256']=digest(Path(__file__).with_name('held_pose_bounded.py'))",
+    "report['held_pose_estimator_sha256']=digest(Path(__file__).with_name('held_pose_multistart.py'))\n    report['base_multistart_original_estimator_sha256']=digest(Path(__file__).with_name('held_pose_bounded.py'))\n    report['base_multistart_scope']='Fixed25 original-objective image-only multistart with mandatory original zero-seed image gate; cost is not an accuracy certificate. All original repeatability/accuracy and motion gates remain. Simulation precontact only.'"
+  ]
+]

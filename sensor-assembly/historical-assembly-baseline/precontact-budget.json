@@ -1,0 +1,29 @@
+{
+  "kind": "PRECONTACT_ONLY_SIMULATION",
+  "qualified": true,
+  "fit_foot_height_bounds_mm": [
+    0.05,
+    0.05,
+    0.05,
+    0.05
+  ],
+  "calibration_height_error_mm": 0.0,
+  "hold_drift_position_error_mm": 0.02,
+  "maximum_fk_position_error_mm": 0.05,
+  "support_z_error_mm": 0.35,
+  "support_tilt_deg": 1.0,
+  "support_xy_error_mm": 0.75,
+  "fit_position_error_mm": 0.15,
+  "fit_rotation_error_deg": 0.25,
+  "evidence": {
+    "fit_foot_height_bounds_mm": "Direct JOINT ideal-corrected foot-height empirical envelope, not independent pose-component bounds. Same sealed estimator cbbd2794fa469d800be64aab5efe56ca6f1b43b8973b03dfdc477caf28beb83c independently scored AFTER RGB fitting: 286486 max0.0447316671mm; 286472 max0.0423054870mm. Runtime independent corrected-frame foot-height veto remains<=0.05mm. This two-pair diagnostic envelope is not a statistical or physical guarantee.",
+    "calibration_height_error_mm": "EXPLICIT IDEAL-SIMULATION ASSUMPTION: same fixed USD camera intrinsics/extrinsics and pinhole convention generate and fit the observations. No additional camera calibration perturbation in this experiment. Archived pixel/systematic fit error included in direct empirical fit envelope. Zero is not a claim about real cameras.",
+    "hold_drift_position_error_mm": "NEW continuous veto of all16 actual CAD foot-corner 3D grasp-frame drift<=0.02mm after FINAL leveled RGB measurement. Truth may veto/scoring only, never steer or compute target. This conditional bound must be enforced and evidenced in the live pilot.",
+    "maximum_fk_position_error_mm": "NEW settled precontact endpoint veto: all16 CAD-foot 3D FK tracking discrepancy<=0.05mm. During approach, the actual current FK is incorporated in per-step predicted-clearance checks instead of assuming constant command tracking. This is not a continuous0.05mm motor-lag claim.",
+    "support_z_error_mm": "Original continuous inventory/placement bound for independently robot-placed base: absolute Z<=0.35mm, retained; conservative support-plane budget, not measured truth-fed target.",
+    "support_tilt_deg": "Original base tilt<=1degree retained and propagated over actual foot/support radius, including horizontal uncertainty.",
+    "support_xy_error_mm": "Original base XY-norm<=0.75mm retained; pad-edge budget must also account for its original yaw<=1degree.",
+    "fit_position_error_mm": "Existing additional independent fit-origin veto<=0.15mm retained for horizontal uncertainty; not combined with angle as a false0.05mm independent vertical pose bound.",
+    "fit_rotation_error_deg": "Existing independent fit-angle veto<=0.25degree retained for horizontal uncertainty; direct corrected-foot vertical envelope is separately measured and enforced."
+  }
+}

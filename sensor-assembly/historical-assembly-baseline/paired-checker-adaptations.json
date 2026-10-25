@@ -1,0 +1,95 @@
+{
+  "parent_checker_sha256": "f15c13b924e0075305e42cdca96dd91bc3cc7965caab1b0619143b5d59048342",
+  "changes": [
+    {
+      "label": "explicit_variant_inputs",
+      "old": "class AuditError(ValueError):pass",
+      "new": "VARIANTS={'original':('nest-mesh.json','nest-design.json','verified-seating-mass-reference.json'),'stem-plus3':('lid-stem-mesh.json','lid-stem-design.json','lid-stem-mass-reference.json')}\n\nclass AuditError(ValueError):pass"
+    },
+    {
+      "label": "source_variant_arg",
+      "old": "def verify_source(source,expected_runtime_sha256):",
+      "new": "def verify_source(source,expected_runtime_sha256,variant=\"original\"):"
+    },
+    {
+      "label": "load_bound_variant",
+      "old": "return json.loads((source/'nest-mesh.json').read_text()),json.loads((source/'nest-design.json').read_text())",
+      "new": "need(variant in VARIANTS,'Unknown variant')\n return json.loads((source/VARIANTS[variant][0]).read_text()),json.loads((source/VARIANTS[variant][1]).read_text())"
+    },
+    {
+      "label": "identity_variant_arg",
+      "old": "def check_identity(r,g,source,velocity):",
+      "new": "def check_identity(r,g,source,velocity,variant=\"original\"):"
+    },
+    {
+      "label": "variant_report_filename_and_hash_binding",
+      "old": " for key,name in [('mesh_sha256','nest-mesh.json'),('design_sha256','nest-design.json')",
+      "new": " mesh_file,design_file,mass_file=VARIANTS[variant]\n need(r['grip_geometry_experiment']['variant']==variant and r['grip_geometry_experiment']['extension_mm']==(0. if variant=='original' else 3.),'Report geometry variant mismatch')\n need((r['mesh_source_filename'],r['design_source_filename'],r['mass_reference_source_filename'])==(mesh_file,design_file,mass_file),'Report input file binding mismatch')\n for key,name in [('mesh_sha256',mesh_file),('design_sha256',design_file)"
+    },
+    {
+      "label": "new_explicit_task_scope",
+      "old": "r['task']=='isolated_lid_grip_convergence_diagnostic'",
+      "new": "r['task']=='isolated_lid_grip_geometry_diagnostic'"
+    },
+    {
+      "label": "mass_reference_variant_arg",
+      "old": "def check_original_physics(r,g,design,require_complete,source=None):",
+      "new": "def check_original_physics(r,g,design,require_complete,source=None,variant=\"original\"):"
+    },
+    {
+      "label": "actual_variant_mass_reference",
+      "old": "reference=json.loads((Path(source)/'verified-seating-mass-reference.json').read_text())",
+      "new": "reference=json.loads((Path(source)/VARIANTS[variant][2]).read_text())"
+    },
+    {
+      "label": "validate_variant_arg",
+      "old": "def validate_report(r,source,expected_runtime_sha256,velocity,check_media=True):",
+      "new": "def validate_report(r,source,expected_runtime_sha256,velocity,check_media=True,variant=\"original\"):"
+    },
+    {
+      "label": "no_simultaneous_solver_change",
+      "old": "need(velocity in [1,8,16],'Unexpected prospective case')",
+      "new": "need(velocity==1 and variant in VARIANTS,'Only original32:1 paired geometry cases permitted')"
+    },
+    {
+      "label": "bind_variant_source_and_raw_trace",
+      "old": "g,design=verify_source(source,expected_runtime_sha256)\n check_identity(r,g,source,velocity)\n from isolated_trace_integrity import validate_trace\n trace=validate_trace(r,source)",
+      "new": "g,design=verify_source(source,expected_runtime_sha256,variant)\n check_identity(r,g,source,velocity,variant)\n from paired_trace_integrity import validate_trace\n trace=validate_trace(r,source,VARIANTS[variant][0],VARIANTS[variant][1])"
+    },
+    {
+      "label": "bind_variant_full_tensor_expected",
+      "old": "check_original_physics(r,g,design,True,source);names=",
+      "new": "check_original_physics(r,g,design,True,source,variant);names="
+    },
+    {
+      "label": "audit_records_all_input_identities",
+      "old": "'classification':classification,'runtime_sha256':expected_runtime_sha256",
+      "new": "'classification':classification,'geometry_variant':variant,'runtime_sha256':expected_runtime_sha256,'source_manifest_sha256':digest(source/'snapshot-sha256.json'),'mesh_sha256':r['mesh_sha256'],'design_sha256':r['design_sha256'],'mass_reference_sha256':digest(source/VARIANTS[variant][2])"
+    },
+    {
+      "label": "control_role_is_geometry",
+      "old": "classification='NEGATIVE_CONTROL_REPRODUCED' if velocity==1 and corroborated else 'NONDIAGNOSTIC'",
+      "new": "classification='NEGATIVE_CONTROL_REPRODUCED' if variant=='original' and corroborated else 'NONDIAGNOSTIC'"
+    },
+    {
+      "label": "predeclared_paired_comparison",
+      "old": "def classify_comparison(audits):\n need(len(audits)==3 and {a['velocity_iterations'] for a in audits}=={1,8,16},'Need all three prospective cases')\n by={a['velocity_iterations']:a for a in audits}\n if by[1]['classification']!='NEGATIVE_CONTROL_REPRODUCED':return 'NONDIAGNOSTIC_CONTROL_DID_NOT_REPRODUCE'\n if all(by[n]['classification']=='ISOLATED_DIAGNOSTIC_PASS' for n in [8,16]):return 'LOCAL_ITERATION_SENSITIVITY_SUPPORTED_FULL_SEQUENCE_REQUIRED'\n return 'NO_CONVERGED_REPAIR_DEMONSTRATED'\n",
+      "new": "def classify_comparison(audits):\n need(len(audits)==2 and {a['geometry_variant'] for a in audits}==set(VARIANTS),'Need both predeclared geometry cases')\n by={a['geometry_variant']:a for a in audits}\n need(all(a['audit_integrity_valid'] and a['velocity_iterations']==1 for a in audits),'Invalid audit or changed numerics')\n need(by['original']['runtime_sha256']==by['stem-plus3']['runtime_sha256'] and by['original']['source_manifest_sha256']==by['stem-plus3']['source_manifest_sha256'],'Unmatched executable/source bundle')\n if by['original']['classification']!='NEGATIVE_CONTROL_REPRODUCED':return 'NONDIAGNOSTIC_CONTROL_DID_NOT_REPRODUCE'\n if by['stem-plus3']['classification']=='ISOLATED_DIAGNOSTIC_PASS':return 'LOCAL_GEOMETRY_CHANGE_SUPPORTED_FULL_SEQUENCE_REQUIRED'\n return 'NO_LOCAL_REPAIR_DEMONSTRATED'\n"
+    },
+    {
+      "label": "CLI_original_solver_and_variant",
+      "old": "ap.add_argument('--velocity-iterations',type=int,choices=[1,8,16],required=True);",
+      "new": "ap.add_argument('--velocity-iterations',type=int,choices=[1],required=True);ap.add_argument('--variant',choices=list(VARIANTS),required=True);"
+    },
+    {
+      "label": "CLI_variant_to_audit",
+      "old": "a.velocity_iterations,not a.skip_media);okay=",
+      "new": "a.velocity_iterations,not a.skip_media,a.variant);okay="
+    }
+  ],
+  "scope": "Source/geometry/mass identity and explicit two-geometry protocol only; quantitative gate functions retained except prospective mass reference selection.",
+  "additional_correctness_checks": [
+    "Experiment provenance matches explicit paired physical scope",
+    "Every reported cooked probe expected hit/distance/tolerance is checked against exact selected source mesh recipe; self-consistent stale expected/actual69.6mm no longer passes candidate66.6mm probe."
+  ]
+}

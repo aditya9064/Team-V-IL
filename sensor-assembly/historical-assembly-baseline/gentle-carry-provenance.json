@@ -1,0 +1,39 @@
+{
+  "parent_file": "full_assembly_trial.py",
+  "parent_sha256": "26d66a3e241f40e8e11afd7df1418f740df5244afa6bbf5824ba5f81f7deb0c0",
+  "failed_parent": 286142,
+  "hypothesis": "Reduce excitation of loose PCB by changing only the horizontal tray carry timing/profile; no thresholds or physical properties altered.",
+  "replacements": [
+    [
+      "from motion_schedule import motion_samples",
+      "from motion_schedule import motion_samples\nfrom payload_schedule import payload_carry_samples,profile_bounds"
+    ],
+    [
+      "'original_phase_durations_retained':True",
+      "'original_phase_durations_retained':False,'only_duration_change':{'2_carrier_carry':{'before_s':2.,'after_s':4.}}"
+    ],
+    [
+      "diagnostic_roots=[C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR']+[roots[n] for n in ORDER]",
+      "diagnostic_roots=[C.ROBOT_PRIM+'/JawL',C.ROBOT_PRIM+'/JawR']+[roots[n] for n in ORDER]+[roots['pcb']]"
+    ],
+    [
+      "state['phase']=label;start=goal.copy();j0=jaw;samples=motion_samples(duration,1/60);state['allow_active_table']=allow_table",
+      "state['phase']=label;start=goal.copy();j0=jaw;samples=(payload_carry_samples(duration,1/60) if label=='2_carrier_carry' else motion_samples(duration,1/60));state['allow_active_table']=allow_table"
+    ],
+    [
+      "            above_dest=np.array([*dest_xy,travel[2]]);move(prefix+'_carry',above_dest,jaw,2.)",
+      "            above_dest=np.array([*dest_xy,travel[2]])\n            if name=='carrier':\n                report['payload_transfer_schedule']=profile_bounds(float(np.linalg.norm(above_dest-travel)));persist()\n            move(prefix+'_carry',above_dest,jaw,4. if name=='carrier' else 2.)"
+    ]
+  ],
+  "unchanged_files": {
+    "design.json": "ca5e75051e98336e4598c6607309575fe89e92fa1e07947b942b11ff83975b7a",
+    "trial-mesh.json": "21a89d7ab57f698567f42995291d37a56942db4072a5eb1a4d2f1d6f6989890f",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "held_pose.py": "d42d83399b119b3a7a10b4eb6e49f30e938268640646befc36038c811dff687b",
+    "release_plan.py": "441543b23d97cc6960d93ba3f659a255be4f791a7ab3dfd7efc9586a7e818507",
+    "full_assembly_trial.py": "26d66a3e241f40e8e11afd7df1418f740df5244afa6bbf5824ba5f81f7deb0c0"
+  },
+  "not_a_pass": true
+}

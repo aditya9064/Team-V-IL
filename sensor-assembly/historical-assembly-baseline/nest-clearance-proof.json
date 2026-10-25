@@ -1,0 +1,25 @@
+{
+  "nest_opening_mm": [
+    68.6,
+    63.6
+  ],
+  "original_opening_mm": [
+    66.0,
+    61.0
+  ],
+  "base_outer_mm": [
+    65.0,
+    60.0
+  ],
+  "nominal_each_side_clearance_mm": 1.8,
+  "old_worst_xy_yaw_margin_mm": -0.8126340639034524,
+  "new_worst_xy_yaw_margin_mm": 0.4873659360965483,
+  "unchanged_placement_xy_limit_mm": 0.75,
+  "unchanged_yaw_limit_deg": 1.0,
+  "unchanged_combined_contact_offset_mm": 0.4,
+  "nest_floor_unchanged": true,
+  "base_and_other_product_parts_unchanged_from_v15": false,
+  "physical_wall_positions_changed": true,
+  "not_a_contact_gate_override": true,
+  "v26_scope": "Originalnestclearanceproofhistorical; currentbase/traychangeauditedbyCADsweepsandcentred-base-proof"
+}

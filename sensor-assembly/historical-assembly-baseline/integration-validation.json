@@ -1,0 +1,20 @@
+{
+  "local_unittest_discover": {
+    "passed": 170,
+    "failed": 0,
+    "inherited": 159,
+    "new_integration": 11
+  },
+  "python_compile_passed": [
+    "lid_pose_trial.py",
+    "check_lid_pose.py",
+    "lid_pose.py",
+    "lid_diagnostic_contract.py",
+    "foot_audit.py"
+  ],
+  "runtime_simulation_executed": false,
+  "gpu_job_submitted": false,
+  "package_created": false,
+  "qualified_budget_location": "root-owned; not written by integration agent",
+  "canonical_files_modified": false
+}

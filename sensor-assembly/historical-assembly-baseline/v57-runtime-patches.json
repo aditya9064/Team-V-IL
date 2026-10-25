@@ -1,0 +1,42 @@
+[
+  {
+    "label": "scope",
+    "old": "Isolated lid post-height mechanical comparison. No learned or real control.",
+    "new": "Isolated lid supported-saddle mechanical comparison. No learned or real control."
+  },
+  {
+    "label": "variant_choices",
+    "old": "choices=['original','stem-plus3']",
+    "new": "choices=['original','supported-saddle']"
+  },
+  {
+    "label": "source_binding",
+    "old": "'stem-plus3':('lid-stem-mesh.json','lid-stem-design.json','lid-stem-mass-reference.json')",
+    "new": "'supported-saddle':('lid-saddle-mesh.json','lid-saddle-design.json','lid-saddle-mass-reference.json')"
+  },
+  {
+    "label": "task",
+    "old": "'task':'isolated_lid_grip_geometry_diagnostic'",
+    "new": "'task':'isolated_lid_supported_saddle_diagnostic'"
+  },
+  {
+    "label": "mechanical_receipt",
+    "old": "'extension_mm':0. if a.geometry_variant=='original' else 3.,'only_mechanical_feature_changed':'cover C054 flat stem top/chamfer height'",
+    "new": "'extension_mm':0.,'only_mechanical_feature_changed':('none; original CAD' if a.geometry_variant=='original' else 'cover oldC053/C055/C056 supported pickup saddle; originalC054neck andbody exact'),'supported_saddle_proof_sha256':digest(Path(__file__).with_name('supported-saddle-proof.json')),'supported_saddle_clearance_sha256':digest(Path(__file__).with_name('supported-saddle-clearance.json'))"
+  },
+  {
+    "label": "honest_provenance",
+    "old": "V55 isolated old/new lid post-height comparison; V54 numerical experiment demonstrated no repair; every earlier failure retained; no full assembly acceptance",
+    "new": "V57 one lid-only supported-saddle hypothesis; V55 repair failed, V56 mirrors blocked before motion; original fingers/controller/PGS32:1/gates remain; no demonstrated fix or full assembly acceptance"
+  },
+  {
+    "label": "motion_description",
+    "old": "Paired isolated old/new lid post geometry. Original PGS32:1 and original pickup phases in both cases; declared solid mass/COM/inertia follows changed CAD at unchanged density. No contact warm-start equivalence to full V53.",
+    "new": "Paired original/supported-saddle lid geometry. Original PGS32:1, fingers, TCP, preload, timing, pickup phases and all gates in both cases. Declared lid mass/COM/inertia follows new CAD. No full V53 contact-history equivalence."
+  },
+  {
+    "label": "video_label",
+    "old": "'SIMULATION | lid post '+a.geometry_variant+' | current fingers'",
+    "new": "'SIMULATION | lid grip '+a.geometry_variant+' | current fingers'"
+  }
+]

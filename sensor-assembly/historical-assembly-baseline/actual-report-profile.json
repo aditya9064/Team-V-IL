@@ -1,0 +1,40 @@
+{
+  "schema": "CPU_ONLY_REPORT_SERIALIZATION_PROFILE",
+  "original_report": "<user-home>/team-v-runs/original-lid-placement-v58b-287657/original/report.json",
+  "original_report_sha256_before": "a96314086bef784d0482c781a0d948d0c63dd3d1efa2e7d4dcef69593b554c25",
+  "original_report_sha256_after": "a96314086bef784d0482c781a0d948d0c63dd3d1efa2e7d4dcef69593b554c25",
+  "original_preserved": true,
+  "all_fields_values_and_order_roundtrip_verified": true,
+  "pretty_exact_original_encoding": true,
+  "load_seconds": 5.062190257012844,
+  "pretty_encode_wall_s": 20.650996620301157,
+  "pretty_encode_CPU_s": 20.649434273,
+  "compact_encode_wall_s": 4.112917813938111,
+  "compact_encode_CPU_s": 4.112929299000001,
+  "pretty_bytes": 653431574,
+  "compact_bytes": 282545038,
+  "encoding_wall_speedup": 5.021008820141696,
+  "byte_reduction_fraction": 0.5675981246660725,
+  "compact_sha256": "0d9e20fa8a44f4c470677d2d5bc09d5d12adfd062f0e9c44d29c380ba9da81fb",
+  "peak_RSS": 4116300,
+  "peak_RSS_units": "KiB",
+  "python_version": "3.12.10 | packaged by conda-forge | (main, Apr 10 2025, 22:21:13) [GCC 13.3.0]",
+  "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+  "simulator_loaded": false,
+  "GPU_used": false,
+  "physics_or_commands_modified": false,
+  "disk_write_throughput_measured": true,
+  "pretty_write": {
+    "write_close_wall_s": 1.5191171527840197,
+    "write_close_CPU_s": 0.875066485000005,
+    "fsync": false
+  },
+  "compact_write": {
+    "write_close_wall_s": 0.6880280771292746,
+    "write_close_CPU_s": 0.4980504090000011,
+    "fsync": false
+  },
+  "encoder_iterencode_source": "    def iterencode(self, o, _one_shot=False):\n        \"\"\"Encode the given object and yield each string\n        representation as available.\n\n        For example::\n\n            for chunk in JSONEncoder().iterencode(bigobject):\n                mysocket.write(chunk)\n\n        \"\"\"\n        if self.check_circular:\n            markers = {}\n        else:\n            markers = None\n        if self.ensure_ascii:\n            _encoder = encode_basestring_ascii\n        else:\n            _encoder = encode_basestring\n\n        def floatstr(o, allow_nan=self.allow_nan,\n                _repr=float.__repr__, _inf=INFINITY, _neginf=-INFINITY):\n            # Check for specials.  Note that this type of test is processor\n            # and/or platform-specific, so do tests which don't depend on the\n            # internals.\n\n            if o != o:\n                text = 'NaN'\n            elif o == _inf:\n                text = 'Infinity'\n            elif o == _neginf:\n                text = '-Infinity'\n            else:\n                return _repr(o)\n\n            if not allow_nan:\n                raise ValueError(\n                    \"Out of range float values are not JSON compliant: \" +\n                    repr(o))\n\n            return text\n\n\n        if (_one_shot and c_make_encoder is not None\n                and self.indent is None):\n            _iterencode = c_make_encoder(\n                markers, self.default, _encoder, self.indent,\n                self.key_separator, self.item_separator, self.sort_keys,\n                self.skipkeys, self.allow_nan)\n        else:\n            _iterencode = _make_iterencode(\n                markers, self.default, _encoder, self.indent, floatstr,\n                self.key_separator, self.item_separator, self.sort_keys,\n                self.skipkeys, _one_shot)\n        return _iterencode(o, 0)\n",
+  "c_make_encoder_available": true,
+  "limitation": "Single preserved report encoding benchmark. Does not prove whole-run walltime, assembly success or suitability of future contact/model changes."
+}

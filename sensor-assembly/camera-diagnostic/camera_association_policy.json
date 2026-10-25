@@ -1,0 +1,30 @@
+{
+  "case": "camera-association",
+  "stage": "observation",
+  "reliability_case": "b",
+  "runtime_sha256": "7b233a793141b508f814179f2fcf872349728e1ba0e346a3800a519d5849a7ad",
+  "collector_sha256": "0d47de5323b877d7baaf4670a54edc9d691115fd9a51106e29e80c865180f273",
+  "terminal_helper_sha256": "e4a1edf9f5a239445bc7d13fe36da4c42d7f3cf9241e195ee1bbfda35922bc85",
+  "metadata_helper_sha256": "8784c4243118a658bb89217ab15a04c1fb6460459954dd0b1981c39f5a9da038",
+  "render_refreshes": 6,
+  "capture_transactions": 21,
+  "physics_during_probe": 0,
+  "pickup_dispatches": 0,
+  "proposed_gpu_cap_seconds": 300,
+  "watchdog_seconds": 240,
+  "kill_grace_seconds": 20,
+  "automatic_retries": 0,
+  "collection_completion_is_freshness_qualification": false,
+  "freshness_limit_seconds_unchanged": 0.033334333333333334,
+  "camera_order": [
+    "table",
+    "side",
+    "wrist"
+  ],
+  "refreshes_are_shared_across_cameras": true,
+  "resolution": [
+    640,
+    360
+  ],
+  "physical_calibration_qualified": false
+}

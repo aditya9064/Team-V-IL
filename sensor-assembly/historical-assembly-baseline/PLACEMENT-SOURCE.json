@@ -1,0 +1,15 @@
+{
+  "schema": "ORIGINAL_LID_OBSERVED_PLACEMENT_COMPACT_V59",
+  "runtime_sha256": "c315b3a399b47ea85bee81a660105234532f49b9f202e43dc421c284ad64100b",
+  "parent": "V58b287657 watchdog timeout afterhover, preserved; data-equivalent compact persistence only.",
+  "status": "LOGGING_ONLY_CORRECTION_REVIEW_PENDING_FINAL_SOURCE",
+  "no_CAD_or_physical_setup_changes_except_explicit_prepositioned_fixtures": true,
+  "old_020_and_derived_predictive_certification": "MEASURE_ONLY by explicit human request; no historical run relabeled",
+  "full_assembly_accepted": false,
+  "checker_sha256": "bb0ac35cefaf7ac31b83267502a6a96e8101ad7ceaa77c840810e2739535ae90",
+  "policy_sha256": "1aeb96c14c66613b9f4fcc556cce7833006ac4210da9d221e2fded232d329d11",
+  "walltime_only_watchdog_s": 3450,
+  "Slurm_allocation_cap_minutes": 60,
+  "walltime_adjustment_reason": "Measured original timeout1650s through30.7simsec; about12simsec remain. Linear conservative projection2295s plus50percent headroom3442.5s; measured fivefold serialization improvement ignored in margin. Same finite bounded T4 diagnostic, no simulation/control timing changes.",
+  "parent_runtime_sha256": "0504fb48d663a9226a597d2ce31e87a1374e5bbafe1d4399f7cd9f9ad9baccaa"
+}

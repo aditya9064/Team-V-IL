@@ -1,0 +1,368 @@
+{
+  "scope": "Existing frozen25 image audits read without rerun/rerank; new mandatoryzero gate does not change any selectedcleararchivedfit",
+  "aggregate_sha256": "15ec21cfce593dd5c806982312be7edceff9bac5eb58246deb5c5c56a170b5ee",
+  "observations": 24,
+  "all_zero_image_eligible": true,
+  "records": [
+    {
+      "evidence": "/private/tmp/team-v-held-fit-v42/evidence-286461",
+      "label": "1_base_held_inspection_a",
+      "record_sha256": "ffedc519631bcbea74266f6f306b897879171bad124a9e238ce10c9a4ba4a1cc",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5396807770556746,
+        0.0855370960378127,
+        -0.24173096914533942,
+        0.17645410872443618,
+        -1.1920944969832437,
+        0.039599496411328
+      ],
+      "zero_cost": 15.411193278688618
+    },
+    {
+      "evidence": "/private/tmp/team-v-held-fit-v42/evidence-286461",
+      "label": "1_base_held_inspection_b",
+      "record_sha256": "f7cce80a224d4551ec45a33749c72b82e7db0b2863d390bd54a9c49bddd127f1",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5122143289531108,
+        0.07977903275359995,
+        -0.25486321204998724,
+        0.19064448278251586,
+        -1.2086090076393714,
+        0.039056323164546
+      ],
+      "zero_cost": 15.928011348901505
+    },
+    {
+      "evidence": "/private/tmp/team-v-continuous-lid-v50-result-286834",
+      "label": "1_base_leveled_inspection_a",
+      "record_sha256": "38e39537abbdd45daa05bc75d98c23253ba995f543d7e73182b802b7b5453a3f",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.1440589938280432,
+        -0.002533035523624403,
+        0.012329399588956397,
+        0.05930593781209068,
+        -0.11072221484113356,
+        -0.04324669180096292
+      ],
+      "zero_cost": 19.72884865925615
+    },
+    {
+      "evidence": "/private/tmp/team-v-continuous-lid-v50-result-286834",
+      "label": "1_base_leveled_inspection_b",
+      "record_sha256": "dbfbcdd4e60777936c49535cc35d6bb3d656883f567c5d7988e2b7ef30fbfd46",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3528355692412394,
+        0.013492806394986488,
+        0.03405567815706573,
+        0.033965732426743174,
+        -0.21785899574845838,
+        0.02841011390377314
+      ],
+      "zero_cost": 14.259593783583098
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_held_inspection_a",
+      "record_sha256": "9248eb037b5e28d6b38891cf28b62ffb1bb71136e2e1b513e34646db58ae5e01",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5386023537443572,
+        0.08643742785055719,
+        -0.2422950434303801,
+        0.17767755398600868,
+        -1.1920621828257836,
+        0.036689701026312846
+      ],
+      "zero_cost": 15.229122542957015
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_held_inspection_b",
+      "record_sha256": "875f8a4a4c2d33df31564487ab5198881c9adc7b6343399b1b3abe71111bd9ca",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5103402195884592,
+        0.08062037585531324,
+        -0.25530632609935916,
+        0.19267210418749456,
+        -1.2085012792503818,
+        0.037453686156379735
+      ],
+      "zero_cost": 15.796939219583424
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_leveled_inspection_a",
+      "record_sha256": "63581f616a5048ac230c20eda0f9e240ee39b8578ebd8fee5e6fd87fab39e40a",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3162721001988905,
+        0.028175791207339863,
+        0.028783168152354162,
+        0.04758602199382552,
+        -0.20239740302587828,
+        0.01551034683299388
+      ],
+      "zero_cost": 14.54620265778327
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286796",
+      "label": "1_base_leveled_inspection_b",
+      "record_sha256": "328cbb0939aaef750162f89fa4f587db9cf2e6d6611bb5fef6503a5920370f87",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3519695904987155,
+        0.004710445546816914,
+        0.03342448844560125,
+        0.03409732756592839,
+        -0.21875915670302096,
+        0.05336887129283461
+      ],
+      "zero_cost": 13.993641304120565
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_held_inspection_a",
+      "record_sha256": "d81bbf6147671a1c25b3ddfbbd512d0a329649b1113ba1078307fe98edd1990c",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5381683732171414,
+        0.07493662861340224,
+        -0.24242226626627908,
+        0.17243936658072223,
+        -1.1919019014832868,
+        0.046202574645720904
+      ],
+      "zero_cost": 15.443673198883879
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_held_inspection_b",
+      "record_sha256": "afc5b013ae6e22af6759700c5d21eeb67492e7d02a7c9eec082ced66f5939716",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5103583780754842,
+        0.08063324853974217,
+        -0.2553035514602918,
+        0.1926726911586285,
+        -1.2085113590034051,
+        0.03748158192485337
+      ],
+      "zero_cost": 15.79688137914533
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_leveled_inspection_a",
+      "record_sha256": "81d670e0e715846a819656e5f4c8e796e309627be9a9f27ba7e0ab49d4a09112",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.33594979276935766,
+        0.01731911590590522,
+        0.030121781348173348,
+        0.04108795732072802,
+        -0.20958069953349265,
+        0.022395527065962557
+      ],
+      "zero_cost": 14.000442683072873
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286802",
+      "label": "1_base_leveled_inspection_b",
+      "record_sha256": "d729a5441674f9b8824c2f5671ccf4cc59afdac7e51b28da65c07b7cc46aabeb",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.30848203201337643,
+        0.026147458788955677,
+        0.03082148837764472,
+        0.03906912557171839,
+        -0.19576893498462913,
+        0.03701790032901769
+      ],
+      "zero_cost": 14.193039279997201
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_held_inspection_a",
+      "record_sha256": "5efb4aee8ae7ad2a112ed2f0491de5d8681a886ec232e7088cd2a2d69e14b9d8",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5386861652637404,
+        0.08620926781796283,
+        -0.2418842531959108,
+        0.17714916724502144,
+        -1.1914174719691757,
+        0.03757786648071222
+      ],
+      "zero_cost": 15.416863039338116
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_held_inspection_b",
+      "record_sha256": "c2a0cce1f918b368def4aa5875475ef22c6b4367b30f63cd63be19277862d934",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5006365666057428,
+        0.07622586836792822,
+        -0.2566715642256253,
+        0.19177369287667473,
+        -1.2033321886116757,
+        0.027175827049495584
+      ],
+      "zero_cost": 15.870678057953496
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_leveled_inspection_a",
+      "record_sha256": "6ace8a3f2626e888ace556bc76db2b2c3900daef030f946017e20faab5d4bfdc",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3168722164156142,
+        0.03180090286498416,
+        0.03005958413012149,
+        0.03803170631591502,
+        -0.20624116535351963,
+        0.03409117688992938
+      ],
+      "zero_cost": 13.715267370505615
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286826",
+      "label": "1_base_leveled_inspection_b",
+      "record_sha256": "bbf6cd14d10cf740cabd5aeb04f2b1965de1dc11f239448abb16e12d7a547e44",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.32473285517342954,
+        0.02712280625458382,
+        0.030958221021440285,
+        0.04079115523949543,
+        -0.2082854557269406,
+        0.028031832245689562
+      ],
+      "zero_cost": 13.852906674419561
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_held_inspection_a",
+      "record_sha256": "daeccbcaff3091c9b74e63a97ac6e84eb983fccaaf87e00a93eaa283ca0b1449",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5363446613971964,
+        0.08226916557310913,
+        -0.2423073811937036,
+        0.17625375299727114,
+        -1.1901315959762295,
+        0.0336746015525241
+      ],
+      "zero_cost": 15.317217665883742
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_held_inspection_b",
+      "record_sha256": "947e8de4a71d3e917cd8d3b242fd736bdc02a07b549b3b6ec72bb827b9798040",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5104620784630561,
+        0.07973730962376605,
+        -0.2555076868733394,
+        0.19198533811240767,
+        -1.2082922630705244,
+        0.03737122369126008
+      ],
+      "zero_cost": 15.908683020863988
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_leveled_inspection_a",
+      "record_sha256": "bb9e6222042c9d139c1630bda3dca5ae77857b21c4039ad143caac6f2ce4cb54",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3168057595375449,
+        0.033555977662500416,
+        0.03050871036127026,
+        0.0457847537800217,
+        -0.20490125702682607,
+        0.027848366833660158
+      ],
+      "zero_cost": 14.21190010117808
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286472",
+      "label": "1_base_leveled_inspection_b",
+      "record_sha256": "31ef012cc5b580198f14ab83259cf792a9c4b01e5c5bf0f84f4b7cfc0e39b6ae",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3452390431933761,
+        0.013647098548675463,
+        0.03264318822176673,
+        0.03184321883972702,
+        -0.21822891612098047,
+        0.0456243177431663
+      ],
+      "zero_cost": 14.088108934843898
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_held_inspection_a",
+      "record_sha256": "a3637b55274cb1b95339b251b989c39b1da981b734ca35f5e3d5838796c5d8c8",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.539663628666871,
+        0.08550239757116125,
+        -0.24174683079891768,
+        0.17647078346178036,
+        -1.1920494245807207,
+        0.03940765695594463
+      ],
+      "zero_cost": 15.411414734028316
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_held_inspection_b",
+      "record_sha256": "293a93a5e405a3bcd87da1540e245afea4fa2d6ce5622c2e9b4830c785385796",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.5086541038905528,
+        0.08173730833685838,
+        -0.2552342456839304,
+        0.19296846265933137,
+        -1.2080060671802515,
+        0.03792001976530186
+      ],
+      "zero_cost": 15.715250546132227
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_leveled_inspection_a",
+      "record_sha256": "9052e91eeb0f6c828f067a300973869f4697d3b317a51683cf12ee498520ca9b",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.30948892723411525,
+        0.025627511153252062,
+        0.02799753528186382,
+        0.04610524215148584,
+        -0.1972319723215642,
+        0.011726542053566592
+      ],
+      "zero_cost": 14.453172227360774
+    },
+    {
+      "evidence": "/private/tmp/team-v-base-rgb-regression-20261021/286486",
+      "label": "1_base_leveled_inspection_b",
+      "record_sha256": "4d27fd68bdf1f7feec58032a705e57e094710b873659dbba4fa540baed81c91a",
+      "zero_image_eligible": true,
+      "zero_seed": [
+        0.3262837874911495,
+        0.02867128280102253,
+        0.03249548643246895,
+        0.04128495573941655,
+        -0.20400174091840625,
+        0.026453615559365422
+      ],
+      "zero_cost": 14.087059105549244
+    }
+  ]
+}

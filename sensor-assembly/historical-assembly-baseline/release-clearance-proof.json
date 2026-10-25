@@ -1,0 +1,27 @@
+{
+  "old_recorded_gap_mm": -0.06493093135560457,
+  "new_recorded_gap_mm": 0.08506906864437269,
+  "source_job": 285610,
+  "source_report_sha256": "06d8bfe80407674c5885b4530534c859320c06fb82b1968fd30798b1ec65172a",
+  "read_only_counterfactual_not_runtime_pass": true,
+  "runtime_failure_preserved": true,
+  "opening_sweep": [
+    {
+      "x_offset_mm": -0.125,
+      "full_opening_interference_mm3": 0.0
+    },
+    {
+      "x_offset_mm": 0.0,
+      "full_opening_interference_mm3": 0.0
+    },
+    {
+      "x_offset_mm": 0.125,
+      "full_opening_interference_mm3": 0.0
+    },
+    {
+      "x_offset_mm": 0.3,
+      "full_opening_interference_mm3": 5.2195469127252405
+    }
+  ],
+  "grippers_unchanged": true
+}

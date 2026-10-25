@@ -1,0 +1,43 @@
+{
+  "reference_v25": {
+    "mass_kg": 0.019044905399566835,
+    "centre_mass_mm": [
+      3.6627804983048664,
+      -7.895538886669587e-16,
+      5.817421596988331
+    ],
+    "gravity_torque_about_grip_Nmm": 3.052291247036092
+  },
+  "new_v26": {
+    "mass_kg": 0.018628265399566836,
+    "centre_mass_mm": [
+      2.8377618318501114,
+      0.0,
+      5.802155133960019
+    ],
+    "gravity_torque_about_grip_Nmm": 2.496682263759686
+  },
+  "handle_x_mm": 16.5,
+  "pcb_intact_and_identical": true,
+  "other_parts_sha256": {
+    "pcb": "ead660e797139b2dab3577764a8df2b03958db7ec95e4212adc86ebb2d03e133",
+    "nest": "58f2061056fb86d779ae0b69f05d54a322f5723d674d96002d69ec78a6dc429b",
+    "cover": "6c224483885dd203354bd7a8a907ae6c39c9afeb4f74e6097c078c6a1159a905"
+  },
+  "unchanged_carrier_grip_sha256": "dd50caa0fa66ed921c7e801a7070d9dfe4693fcb0dced32744867d551f064749",
+  "runtime_sha256": {
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+    "check_holder_assembly.py": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46"
+  },
+  "limits_unchanged": true,
+  "grip_commands_unchanged": true,
+  "independent_relative_insertion_corners": 729,
+  "minimum_swept_insertion_gap_mm": 0.6428697921855182,
+  "material_density_kg_m3": 1240,
+  "scope": "Geometricandloadproofonly; physicsresultpending",
+  "v27_scope": "Current pinned runtime; exact original code restored by inverse representation patch in representation-reference.json. No numeric/contact rule changes."
+}

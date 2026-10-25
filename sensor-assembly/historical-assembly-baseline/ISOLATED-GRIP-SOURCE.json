@@ -1,0 +1,20 @@
+{
+  "schema": "REVIEWED_ISOLATED_GRIP_DIAGNOSTIC_V54",
+  "runtime_sha256": "dba4049c56b4579945bd62e60c1807dc6c6ca4f12d3c349185cd9d137efc2ac4",
+  "checker_sha256": "f15c13b924e0075305e42cdca96dd91bc3cc7965caab1b0619143b5d59048342",
+  "trace_checker_sha256": "e6623fa2d42a60f59ebeb222d3c32829b03f327e6f19d4bbc521e19483d6854a",
+  "parent_runtime_sha256": "3f04770b8e4099fdaee59886b5af92521eafbe2c60f7f115da025d335c87a0e0",
+  "parent_manifest_sha256": "ffb0590fcfdf9365ccecf52dff08c2fb7c4af8404f2630936684452af7293f3a",
+  "cases": {
+    "control-1": 1,
+    "velocity-8": 8,
+    "velocity-16": 16
+  },
+  "assembly_accepted_by_this_diagnostic": false,
+  "all_inherited_files_unchanged_except_packaging": [
+    "assembly_review_on_rosie.sh",
+    "assembly_suite_on_rosie.sh"
+  ],
+  "source_root_regression_passed": true,
+  "fixed_hold_and_original_contact_camera_motion_guards_ast_identical": true
+}

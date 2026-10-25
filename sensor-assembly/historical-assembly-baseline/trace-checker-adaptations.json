@@ -1,0 +1,26 @@
+{
+  "parent_checker_sha256": "5f2c60fb3d8239987a98a9a1ca0494c253b98010bec7b3810abbff0f9ca0413c",
+  "changes": [
+    {
+      "label": "isolated_source_identity_outer_checker",
+      "old": "def verify_source(source):\n    source=Path(source)\n    dispatch_only={'assembly_suite_on_rosie.sh','assembly_review_on_rosie.sh','DISPATCH-PROVENANCE.json','snapshot-sha256.json'}\n    changed=[]\n    for name,expected in json.loads((source/'telemetry-parent-sha256.json').read_text()).items():\n        if digest(source/name)!=expected:\n            assert name in dispatch_only,name;changed.append(name)\n    if changed:\n        provenance=json.loads((source/'DISPATCH-PROVENANCE.json').read_text())\n        assert provenance['candidate_contract_sha256']==digest(source/'CONTACT-TRACE-CANDIDATE-CONTRACT.json')\n        assert provenance['runtime']=='contact_trace_lid_precontact_trial.py' and provenance['acquisition_checker']=='check_contact_trace_lid_precontact.py'\n        for name,expected in json.loads((source/'snapshot-sha256.json').read_text()).items():assert digest(source/name)==expected,name\n    original=(source/'multistart_lid_precontact_trial.py').read_text();child=(source/'contact_trace_lid_precontact_trial.py').read_text()\n    for a,b in reversed(json.loads((source/'contact-trace-runtime-patches.json').read_text())):\n        assert child.count(b)==1;child=child.replace(b,a)\n    assert child==original,'Telemetry patches do not recover exact parent runtime'\n    return digest(source/'contact_trace_lid_precontact_trial.py')\n",
+      "new": "def verify_source(source):\n    # Runtime identity and full snapshot binding are enforced by outer checker.\n    return digest(Path(source)/'isolated_lid_grip_trial.py')\n"
+    },
+    {
+      "label": "isolation_scope",
+      "old": "assert r['diagnostic_stage']=='precontact' and r['full_assembly_accepted'] is False",
+      "new": "assert r['diagnostic_stage']=='isolated-grip' and r['full_assembly_accepted'] is False"
+    },
+    {
+      "label": "isolation_accepted_identity",
+      "old": "else:assert r['diagnostic_stage_accepted']=='precontact'",
+      "new": "else:assert r['diagnostic_stage_accepted']=='isolated-grip'"
+    },
+    {
+      "label": "expanded_capture_starts_first_close",
+      "old": "    incoming=r['incoming_lid_stability'];assert rows[0]['state_step']==incoming['start_step']+1\n    assert abs(rows[0]['pre_step_time_s']-incoming['start_sim_time'])<=2e-6",
+      "new": "    close=[v for v in r['diagnostic_trace'] if v['phase']=='3_cover_close'];assert close\n    assert rows[0]['state_step']==close[0]['step']\n    assert abs(rows[0]['pre_step_time_s']-close[0]['sim_time'])<=2e-6"
+    }
+  ],
+  "notes": "All row/header/point/ordering/event/counter/role/prepost validations unchanged. Outer checker pins reviewed child/source hash. No report fields modified."
+}

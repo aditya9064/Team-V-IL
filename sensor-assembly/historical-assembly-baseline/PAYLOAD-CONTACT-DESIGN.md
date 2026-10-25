@@ -1,0 +1,9 @@
+# V53 PCB/tray contact diagnostic
+
+V52 run 286856 failed at tray raise before lid telemetry. This diagnostic changes no command, target, gate, actor, mass, material, geometry, solver, step or render. It records all ordered PCB/tray headers, including zero-point events, and raw points from the first active carrier step to original termination. Before-step pose snapshots already queried by V52 are retained separately. No contact threshold, decimation, buffer cap or retry. Original lid telemetry remains unchanged.
+
+The cooking-service representation is requested synchronously only in finally, after the original terminal motion outcome. It stores source and cooked vertices plus mesh/actor/world transforms for each PCB/tray collider. NVIDIA 110 ConvexMeshDataDemo supplies the exact API. It may retrieve/recompute cached data; it is NOT direct active PxShape readback and cannot invalidate the raw contact gate. No forced physics load, stage authoring, simulation step, render or app update is added. Incomplete data is recorded explicitly and rejected for acquisition completeness, without changing the original failure.
+
+Acquisition return zero only establishes evidence integrity. Existing parent strict mechanical checker is retained and rejects an unqualified child runtime. Stage/full acceptance stays false. Final seating remains blocked by the existing budget contract. All old snapshots and canonical files are unchanged except an explicit terminal-status correction in the old ACTIVE document.
+
+GPU eligibility additionally requires baseline terminal audit and ownership transfer in parallel-work/GPU-COORDINATION.json, fresh all-state queue/requested+allocated resource admission, existing duplicate-safe submit receipt, teaching T4, 30-minute cap. This document is not submission authorization before that transfer.

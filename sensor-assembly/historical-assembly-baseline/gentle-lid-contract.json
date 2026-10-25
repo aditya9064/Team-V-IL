@@ -1,0 +1,13 @@
+{
+  "parent_failed_gpu": 286472,
+  "diagnostic_controls_gpu": 286483,
+  "geometry_fingers_unchanged": {
+    "nest-mesh.json": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+    "nest-design.json": "3808dbe0fd8bbda6f6990e46b796cde1d38055c4fdf84450cccd39a858acc62a",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "held_pose_bounded.py": "f6e1924961dff4703c78a881803538825edd263fc1bb5b6b34b6625800417df6",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d"
+  },
+  "only_change": "Lid jaw opening smoothstep1s to quintic3s, same start/end jaw displacement and fixed TCP goal. All other motion/CAD/physics/acceptance unchanged. No truth feedback."
+}

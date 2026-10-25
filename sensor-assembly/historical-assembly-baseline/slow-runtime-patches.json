@@ -1,0 +1,10 @@
+[
+  [
+    "    report['expected_motion_phases']=expected_phases(a.stage)",
+    "    report['motion_sampling']['only_duration_change']['3_cover_precontact']={'before_s':2.,'after_s':4.}\n    report['motion_sampling']['changes']+=' V48 only: precontact duration2s to4s, same cubic normalized path and full orientation endpoints; no grasp-reference reset or threshold change.'\n    report['expected_motion_phases']=expected_phases(a.stage)"
+  ],
+  [
+    "                move(prefix+'_precontact',precontact,jaw,2.,new_orientation=target_R)",
+    "                path_length=float(np.linalg.norm(precontact-goal))\n                report['slow_precontact_profile']={'phase':'3_cover_precontact','law':'s(u)=3u^2-2u^3; original motion_samples','commanded_start_robot_m':goal.tolist(),'commanded_end_robot_m':precontact.tolist(),'path_length_m':path_length,'before_duration_s':2.,'duration_s':4.,'duration_ratio':2.,'before_peak_speed_m_s':1.5*path_length/2.,'peak_speed_m_s':1.5*path_length/4.,'speed_ratio':.5,'before_peak_acceleration_m_s2':6*path_length/2.**2,'peak_acceleration_m_s2':6*path_length/4.**2,'acceleration_ratio':.25,'before_interior_jerk_m_s3':12*path_length/2.**3,'interior_jerk_m_s3':12*path_length/4.**3,'interior_jerk_ratio':.125,'endpoint_acceleration_discontinuity_retained':True,'orientation_endpoints_unchanged':True,'grasp_reference_unchanged':True,'thresholds_unchanged':True,'bounds_are_commanded_analytic_not_measured':True}\n                persist()\n                move(prefix+'_precontact',precontact,jaw,4.,new_orientation=target_R)"
+  ]
+]

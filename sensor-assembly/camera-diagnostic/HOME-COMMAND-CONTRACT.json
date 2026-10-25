@@ -1,0 +1,76 @@
+{
+  "provenance": {
+    "scene_config.py": "6d5d0c7df867986e78ff02b2888236dca6c00cc3bc6b7ecf60f9a49d75facc1b",
+    "cell.py": "cfde65b149d4c87add24793734d65d968b79ea70563c169e2f46b458b32a4260",
+    "ik.py": "6326a47a395c02944f4f2ae1231ee4bb082e5ceb06e039d79992f66d8673d795",
+    "fk.py": "f7aa7df14c8d2b8c2a4838846caa302fcc0976276d616769aa6730bcbff2abed"
+  },
+  "source_home_goal_xy_m": [
+    0.3,
+    -0.1
+  ],
+  "surface_dz_m": -0.0051,
+  "initial_home_seed_deg": [
+    0,
+    35,
+    -25,
+    0,
+    -80,
+    0
+  ],
+  "joint_limits_deg": [
+    [
+      -170,
+      170
+    ],
+    [
+      -110,
+      120
+    ],
+    [
+      -69,
+      205
+    ],
+    [
+      -190,
+      190
+    ],
+    [
+      -120,
+      120
+    ],
+    [
+      -360,
+      360
+    ]
+  ],
+  "tool_axis": [
+    1,
+    0,
+    0
+  ],
+  "spread_axis": [
+    0,
+    1,
+    0
+  ],
+  "desired_tool_axis": [
+    0,
+    0,
+    -1
+  ],
+  "desired_spread_axis": [
+    0,
+    1,
+    0
+  ],
+  "normal_home_IK_tolerance_m": 0.0001,
+  "normal_home_IK_rotation_tolerance_rad": 0.01,
+  "original_home_iterations": 500,
+  "jaw_open_per_side_m": 0.006,
+  "joint_targets_for_jaw_open": {
+    "jaw_l": 0.0,
+    "jaw_r": 0.0
+  },
+  "scope": "Original initialization command identity screen. Full-pose normal-convergence screen; does not admit a fallback-only home solution. No physical process/contact threshold changed."
+}

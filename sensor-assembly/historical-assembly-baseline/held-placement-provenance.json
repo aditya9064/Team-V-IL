@@ -1,0 +1,107 @@
+{
+  "parent": "seating-isolation-v28 / collision-scale-v27 original runner",
+  "task": "base only seating and release from calibrated RGB held pose",
+  "replacements": [
+    [
+      "import numpy as np",
+      "import numpy as np\nfrom scipy.spatial.transform import Rotation,Slerp\nfrom held_pose import estimate,placement_from_held,project,front_edges"
+    ],
+    [
+      "ORDER=('carrier',) if a.case=='loaded-carrier' else ('base','carrier','cover')",
+      "ORDER=('base',)\n    if a.case!='full-assembly':raise ValueError('Bounded base seating/release only')"
+    ],
+    [
+      "'task':'known_pose_pcb_holder_'+a.case",
+      "'task':'rgb_held_pose_base_seating_release'"
+    ],
+    [
+      "'vision_guided':False",
+      "'vision_guided':True"
+    ],
+    [
+      "'scope':'Known-pose '+a.case+' mechanical test. PCB is a separate loose dynamic body. No trained perception, real hardware or print validation.'",
+      "'scope':'Known starting pose; two calibrated simulation inspection cameras estimate held base from RGB. Base seating/release only. Other parts remain untouched; no full assembly, trained model, print or physical hardware validation.'"
+    ],
+    [
+      "'path_and_phase_durations_unchanged':True",
+      "'path_and_phase_durations_unchanged':False,'original_phase_durations_retained':True,'changes':'RGB-held-pose leveling phase and measured placement target'"
+    ],
+    [
+      "        state={'phase':'initial_settling'",
+      "        inspection_nominal=np.array([*layout['assembly_body_centre'],surface+layout['travel_tip_height_above_table']-design['base']['tcp_above_bottom_mm']*.001])\n        for key,offset in [('inspection_x',[.19,-.08,-.05]),('inspection_y',[-.08,-.19,-.05])]:\n            path='/World/'+key\n            cell.camera(stage,path,dict(eye=tuple(inspection_nominal+offset),look_at=tuple(inspection_nominal+[0,0,.01]),up=(0,0,1),resolution=(1920,1440),focal_length=35.,horiz_aperture=20.955))\n            cameras[key]=Camera(prim_path=path,resolution=(1920,1440))\n        state={'phase':'initial_settling'"
+    ],
+    [
+      "cv2.putText(rgb,'SIMULATION | base > loaded tray > lid | current fingers'",
+      "cv2.putText(rgb,'SIMULATION | RGB held-pose base seating/release | current fingers'"
+    ],
+    [
+      "        def move(label,newgoal,newjaw,duration,allow_table=False,new_support=False,new_spread=None):\n            nonlocal q,jaw,goal,spread",
+      "        def move(label,newgoal,newjaw,duration,allow_table=False,new_support=False,new_spread=None,new_orientation=None):\n            nonlocal q,jaw,goal,spread,down"
+    ],
+    [
+      "            active=state['active']\n            for elapsed,s in samples:",
+      "            active=state['active']\n            orientation_path=None\n            if new_orientation is not None:\n                start_R,_=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n                orientation_path=Slerp([0,1],Rotation.from_matrix(np.array([start_R,new_orientation])))\n            for elapsed,s in samples:"
+    ],
+    [
+      "                angle=start_angle+delta_angle*s;spread=np.array([math.cos(angle),math.sin(angle),0.])",
+      "                angle=start_angle+delta_angle*s;spread=np.array([math.cos(angle),math.sin(angle),0.])\n                if orientation_path is not None:\n                    desired_R=orientation_path(s).as_matrix();down=desired_R@np.asarray(C.TOOL_AXIS);spread=desired_R@np.asarray(C.FINGER_SPREAD_AXIS)"
+    ],
+    [
+      "        def score_placed(name,pose):",
+      "        def measure_held(label):\n            estimates=[]\n            for sample in ('a','b'):\n                shot=save(label+'_'+sample)\n                tip_world=np.asarray(shot['tip_robot_m'])+np.array([0,0,C.TABLE_TOP_Z])\n                nominal=tip_world-np.array([*np.asarray(design['base']['handle_centre_xy'])*.001,design['base']['tcp_above_bottom_mm']*.001])\n                images={};models={}\n                for key in ('inspection_x','inspection_y'):\n                    cam=cameras[key];rgba=cam.get_rgba();images[key]=np.ascontiguousarray(rgba[:,:,:3],dtype=np.uint8)\n                    gc=UsdGeom.Camera(stage.GetPrimAtPath('/World/'+key));xf=UsdGeom.Xformable(gc.GetPrim()).ComputeLocalToWorldTransform(0)\n                    models[key]={'resolution':[1920,1440],'focal_length_mm':float(gc.GetFocalLengthAttr().Get()),'horizontal_aperture_mm':float(gc.GetHorizontalApertureAttr().Get()),'vertical_aperture_mm':float(gc.GetVerticalApertureAttr().Get()),'camera_to_world':[list(row) for row in xf]}\n                observation=estimate(images,models,geometry['parts']['base']['visual']['vertices_mm'],nominal)\n                observation.update(label=label+'_'+sample,step=state['step'],tip_world_m=tip_world.tolist(),camera_models=models)\n                R=np.asarray(observation['rotation_world']);p=np.asarray(observation['position_world_m'])\n                for key in images:\n                    overlay=images[key].copy();edges=front_edges(geometry['parts']['base']['visual']['vertices_mm'],nominal,models[key]);uv=project(edges@R.T+p,models[key])\n                    for u,v in uv:cv2.circle(overlay,(round(u),round(v)),2,(255,60,20),-1)\n                    cv2.imwrite(str(out/(label+'_'+sample+'-'+key+'-fit.png')),cv2.cvtColor(overlay,cv2.COLOR_RGB2BGR))\n                estimates.append(observation);report.setdefault('held_pose_observations',[]).append(observation);persist()\n            delta=float(np.linalg.norm(np.array(estimates[0]['position_world_m'])-np.array(estimates[1]['position_world_m']))*1000)\n            angle=float(Rotation.from_matrix(np.array(estimates[0]['rotation_world']).T@np.array(estimates[1]['rotation_world'])).magnitude()*180/np.pi)\n            report.setdefault('held_pose_repeatability',[]).append({'label':label,'position_difference_mm':delta,'orientation_difference_deg':angle,'pass':delta<=.1 and angle<=.15})\n            if delta>.1 or angle>.15:raise RuntimeError('Held-pose two-frame agreement failed')\n            # Independent simulator score is read-only acceptance/stop evidence. It never adjusts the estimated pose or target.\n            actual=poses()['base'];actual_R=__import__('payload_checks').rotation(actual['orientation_wxyz'])\n            score={'label':label,'position_error_mm':float(np.linalg.norm(np.array(actual['position_world_m'])-p)*1000),'orientation_error_deg':float(Rotation.from_matrix(R.T@actual_R).magnitude()*180/np.pi),'purpose':'independent read-only stop/scoring; never target correction'}\n            report.setdefault('held_pose_independent_scores',[]).append(score);persist()\n            if score['position_error_mm']>.15 or score['orientation_error_deg']>.25:raise RuntimeError('RGB held-pose independent accuracy check failed')\n            return estimates[-1]\n        def score_placed(name,pose):"
+    ],
+    [
+      "            # Fixed CAD allowance (not truth correction): supported grips seat after\n            # nominal0.1282mm movement. 0.10mm avoids pushing it into the table.\n            allowance=.10 if design[name].get('support_shoulder') else 0.\n            report.setdefault('designed_placement_seating_allowance_mm',{})[name]=allowance\n            place=np.array([*dest_xy,C.SURFACE_DZ+design['assembly']['part_bottom_z'][name]*.001+design[name]['tcp_above_bottom_mm']*.001+allowance*.001])\n            lower=move(prefix+'_lower',place,jaw,2.,new_support=True)\n",
+      "            observed=measure_held('1_base_held_inspection')\n            actual_R,actual_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n            support_origin=np.array([*layout['assembly_body_centre'],surface+design['assembly']['part_bottom_z']['base']*.001])\n            planned=placement_from_held(observed['position_world_m'],observed['rotation_world'],np.asarray(actual_tip)+[0,0,C.TABLE_TOP_Z],actual_R,support_origin,geometry['parts']['base']['visual']['vertices_mm'])\n            level_R=np.asarray(planned['tool_rotation_world']);local=np.asarray(planned['part_origin_in_tool_m'])\n            # Level at carry height, preserving the observed part origin. No object coordinates enter this target.\n            level_tip=np.asarray(observed['position_world_m'])-level_R@local-np.array([0,0,C.TABLE_TOP_Z])\n            move(prefix+'_level_held',level_tip,jaw,2.,new_orientation=level_R)\n            observed=measure_held('1_base_leveled_inspection')\n            actual_R,actual_tip=fk.tool_pose(arm.get_joint_positions()[ai],tool)\n            planned=placement_from_held(observed['position_world_m'],observed['rotation_world'],np.asarray(actual_tip)+[0,0,C.TABLE_TOP_Z],actual_R,support_origin,geometry['parts']['base']['visual']['vertices_mm'])\n            report['measured_placement_plan']=planned;report['placement_input_contract']='RGB estimate + static camera calibration + unchanged CAD + measured arm FK + known fixture recipe only';persist()\n            place=np.asarray(planned['tip_world_m'])-np.array([0,0,C.TABLE_TOP_Z])\n            lower=move(prefix+'_lower',place,jaw,2.,new_support=True,new_orientation=np.asarray(planned['tool_rotation_world']))\n"
+    ],
+    [
+      "            release=move(prefix+'_release',place,C.JAW_OPEN,1.,allow_table=name=='base')",
+      "            state['released_reference']=lower['poses'][name]['position_world_m']\n            release=move(prefix+'_release',place,C.JAW_OPEN,1.,allow_table=name=='base')"
+    ],
+    [
+      "            state['released_reference']=release['poses'][name]['position_world_m']",
+      "            # Keep the pre-opening reference through exit/retreat; do not reset release drift."
+    ],
+    [
+      "            pos=np.asarray(final['poses'][name]['position_world_m']);released=np.asarray(release['poses'][name]['position_world_m']);follow=float(np.linalg.norm(pos-released)*1000)",
+      "            pos=np.asarray(final['poses'][name]['position_world_m']);released=np.asarray(lower['poses'][name]['position_world_m']);follow=float(np.linalg.norm(pos-released)*1000)"
+    ],
+    [
+      "        report['final_part_scores']={name:score_placed(name,final['poses'][name]) for name in physical_parts}",
+      "        report['final_part_scores']={name:score_placed(name,final['poses'][name]) for name in placed}\n        report['full_assembly_accepted']=False"
+    ],
+    [
+      "if set(placed)!=set(physical_parts) or len(report['part_results'])!=len(ORDER)",
+      "if set(placed)!={'base','nest'} or len(report['part_results'])!=len(ORDER)"
+    ],
+    [
+      "video=out/(a.case+'-SIMULATION-PASS.mp4')",
+      "video=out/'base-SEATING-RELEASE-PASS.mp4'"
+    ],
+    [
+      "report['contact_headers_seen']=contact_count;report['status']='SIMULATION_PASS'",
+      "report['contact_headers_seen']=contact_count;report['status']='BASE_SEATING_RELEASE_PASS'"
+    ],
+    [
+      "print('TEAM_V_PCB_HOLDER_SIMULATION_PASS',a.case,flush=True)",
+      "print('TEAM_V_BASE_SEATING_RELEASE_PASS',flush=True)"
+    ],
+    [
+      "from held_pose import estimate,placement_from_held,project,front_edges",
+      "from held_pose import estimate,placement_from_held,project,front_edges\nfrom release_plan import square_release_plan"
+    ],
+    [
+      "            state['released_reference']=lower['poses'][name]['position_world_m']\n            release=move(prefix+'_release',place,C.JAW_OPEN,1.,allow_table=name=='base')",
+      "            state['released_reference']=lower['poses'][name]['position_world_m']\n            release_plan=square_release_plan(support_origin,design['base']['handle_centre_xy'],design['base']['tcp_above_bottom_mm'],C.TOOL_AXIS,C.FINGER_SPREAD_AXIS,design['assembly']['preferred_jaw_closing_axis']['base'])\n            report['staged_release_plan']=release_plan;persist()\n            move(prefix+'_relax_clamp',place,release_plan['relaxed_per_jaw_m'],2.,allow_table=True)\n            square=np.asarray(release_plan['tip_world_m'])-np.array([0,0,C.TABLE_TOP_Z])\n            move(prefix+'_square_fingers',square,jaw,2.,allow_table=True,new_orientation=np.asarray(release_plan['tool_rotation_world']))\n            place=square\n            release=move(prefix+'_release',place,C.JAW_OPEN,1.,allow_table=name=='base')"
+    ]
+  ],
+  "unchanged_files": {
+    "design.json": "ca5e75051e98336e4598c6607309575fe89e92fa1e07947b942b11ff83975b7a",
+    "trial-mesh.json": "21a89d7ab57f698567f42995291d37a56942db4072a5eb1a4d2f1d6f6989890f",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5"
+  },
+  "not_full_assembly": true
+}

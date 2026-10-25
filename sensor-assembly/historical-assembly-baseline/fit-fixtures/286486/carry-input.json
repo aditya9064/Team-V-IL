@@ -1,0 +1,13 @@
+{
+  "phase": "3_cover_carry",
+  "step": 4680,
+  "tip_robot_m": [
+    0.29999031097954454,
+    0.1000147701976303,
+    0.1548744574065526
+  ],
+  "table_top_z_m": 0.9,
+  "nominal_tcp_above_part_bottom_mm": 37.22820100784302,
+  "measurement_input_contract": "RGB + fixed CAD + calibration + robot TCP, no simulator part pose",
+  "report_sha256": "1d2ca12f2184e8f73ed63610d2b605a05f9a6e02a0441a19f277472c96045e5e"
+}

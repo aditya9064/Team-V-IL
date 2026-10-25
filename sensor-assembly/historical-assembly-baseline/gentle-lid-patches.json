@@ -1,0 +1,18 @@
+[
+  [
+    "from held_pose_bounded import estimate,placement_from_held,project,front_edges",
+    "from held_pose_bounded import estimate,placement_from_held,project,front_edges\nfrom lid_release_schedule import lid_release_samples,lid_release_bounds"
+  ],
+  [
+    "'only_duration_change':{'2_carrier_carry':{'before_s':2.,'after_s':4.}}",
+    "'only_duration_change':{'2_carrier_carry':{'before_s':2.,'after_s':4.},'3_cover_release':{'before_s':1.,'after_s':3.}}"
+  ],
+  [
+    "samples=(payload_carry_samples(duration,1/60) if label=='2_carrier_carry' else motion_samples(duration,1/60))",
+    "samples=(lid_release_samples(duration,1/60) if label=='3_cover_release' else payload_carry_samples(duration,1/60) if label=='2_carrier_carry' else motion_samples(duration,1/60))"
+  ],
+  [
+    "            release=move(prefix+'_release',place,C.JAW_OPEN,1.,allow_table=name=='base')",
+    "            if name=='cover':\n                report['lid_release_profile']=lid_release_bounds(abs(jaw-C.JAW_OPEN));persist()\n            release=move(prefix+'_release',place,C.JAW_OPEN,3. if name=='cover' else 1.,allow_table=name=='base')"
+  ]
+]

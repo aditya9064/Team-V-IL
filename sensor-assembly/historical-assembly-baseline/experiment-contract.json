@@ -1,0 +1,21 @@
+{
+  "scope": "Isolated base lowering A-B-A, not assembly acceptance",
+  "cases": [
+    "present-a",
+    "removed",
+    "present-b"
+  ],
+  "single_changed_variable": "Static receiving holder pose; changed only after carry, present no-op setter0m, removed+1mX",
+  "unchanged": [
+    "All product CAD,gripper body,fingers,source geometry,drives,stroke,preload,mass,density,friction",
+    "Nominal robot/gripper commands and all phase durations",
+    "All raw contact,endpoint,stillness,payload,held-pose and inventory numeric ceilings"
+  ],
+  "diagnostic_inventory": "The intentionally relocated static fixture is checked against its new planned pose; all product scoring remains the reference code.",
+  "prediction_source": 285827,
+  "predicted_base_origin_below_support_mm": 0.4904925687183592,
+  "decision_rule": "If comparable present tests fail after support contact and removed completes, support interaction is implicated; exact mechanical cause still requires trace analysis. Otherwise report inconclusive or support not sufficient.",
+  "no_follow_on_design_or_assembly_jobs": true,
+  "printing_allowed": false,
+  "videos_remote_only": true
+}

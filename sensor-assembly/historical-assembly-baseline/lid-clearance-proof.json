@@ -1,0 +1,30 @@
+{
+  "source_failure": 286147,
+  "original_handle_span_mm": 6.8,
+  "new_handle_span_mm": 8.8,
+  "unchanged_finger_thickness_mm": 6.0,
+  "original_side_clearance_mm": 0.4,
+  "new_side_clearance_mm": 1.4,
+  "both_contact_offsets_mm": 0.2,
+  "combined_contact_envelope_mm": 0.4,
+  "saved_pre_contact_separating_gap_mm": 0.38262396870925386,
+  "raw_failed_contact_depth_mm": 5.0604757852852345,
+  "failure_not_waived": true,
+  "scope": "Actual CAD change only to lid handle axial span/endcap positions; not evidence of dynamic pickup/release success.",
+  "nonhandle_cover_difference_mm3": 0,
+  "cover_volume_before_mm3": 27505.19691208898,
+  "cover_volume_after_mm3": 27848.711721534306,
+  "mass_before_kg": 0.03410644417099034,
+  "mass_after_kg": 0.03453240253470254,
+  "material_density_kg_m3": 1240,
+  "other_parts_sha256": {
+    "base": "111f4b58b8c381dbb6bfe83bd172e28bd9b3b9138a2fc4faede3d5e4ed22d4bd",
+    "carrier": "ca1f9af15cb0e17d6cf422972383a228347daae1919510988243657c02a57073",
+    "pcb": "82d0bf7d8f18588b9d481868360086e8b730e47a6cd7f1a3f77dde008e302743",
+    "nest": "63cbbb1c1b573aeee39df9a618fad490d05743ee42402a19108bb3198285f28b"
+  },
+  "CAD_checks": 156,
+  "fit_checks": 10,
+  "new_gripper": false,
+  "print_release": false
+}

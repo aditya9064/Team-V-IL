@@ -1,0 +1,18 @@
+{
+  "reference_job": 285827,
+  "prediction": {
+    "assumption": "Tool orientation and held-part transform unchanged; score-only, never a command correction",
+    "captured_tip_above_base_origin_mm": 13.818693576561403,
+    "cad_tip_above_base_origin_mm": 13.228201007843017,
+    "captured_minus_cad_mm": 0.5904925687183855,
+    "requested_tip_above_support_mm": 13.328201007843044,
+    "predicted_free_base_origin_world_m": [
+      0.3005107292642914,
+      0.10007332419971501,
+      0.8974095074312817
+    ],
+    "predicted_base_origin_gap_to_support_mm": -0.4904925687183592,
+    "predicted_lowest_base_gap_to_support_mm": -1.4174080930481336
+  },
+  "not_a_control_input": true
+}

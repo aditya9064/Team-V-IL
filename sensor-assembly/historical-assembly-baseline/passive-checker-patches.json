@@ -1,0 +1,22 @@
+[
+  [
+    "def main():",
+    "def validate_passive_velocity(value):\n    assert value['available'] is True or value['available'] is False\n    assert value['source']=='finite_difference_existing_USD_pose_snapshots'\n    assert value['linear_reference']=='body origin, not center of mass'\n    assert value['angular_reference']=='world log(Rnow Rprev.T)/dt'\n    if value['available']:\n        assert isinstance(value['interval_s'],(int,float)) and not isinstance(value['interval_s'],bool) and math.isfinite(value['interval_s']) and value['interval_s']>0\n        for name in ('linear_world_m_s','angular_world_rad_s'):\n            vector=value[name];assert isinstance(vector,list) and len(vector)==3\n            assert all(isinstance(x,(int,float)) and not isinstance(x,bool) and math.isfinite(x) for x in vector)\n    else:\n        assert value['linear_world_m_s'] is None and value['angular_world_rad_s'] is None\n        assert (value.get('reason')=='first_sample' and value['interval_s'] is None) or (value.get('reason')=='same_simulation_time' and value['interval_s']==0)\n\n\ndef main():"
+  ],
+  [
+    "[('lid_pose_trial.py','trial_script_sha256')",
+    "[('passive_lid_precontact_trial.py','trial_script_sha256')"
+  ],
+  [
+    "        for body in v['body_velocities'].values():assert all(math.isfinite(x) for x in body['linear_world_m_s']+body['angular_world_rad_s'])",
+    "        for body in v['body_velocities'].values():validate_passive_velocity(body)"
+  ],
+  [
+    "    assert r['diagnostic_trace']",
+    "    assert r['body_velocity_telemetry']=={'source':'finite_difference_existing_USD_pose_snapshots','helper_sha256':digest(source/'passive_velocity.py'),'linear_reference':'body origin, not center of mass','angular_reference':'world log(Rnow Rprev.T)/dt','instantaneous_velocity_claim':False,'used_for_targets_or_motion_gates':False,'physical_scoring_input':False}\n    for shot in r['checkpoints']:\n        assert set(shot['body_velocities'])=={'base','carrier','pcb','cover'}\n        for body in shot['body_velocities'].values():validate_passive_velocity(body)\n    assert r['diagnostic_trace']"
+  ],
+  [
+    "'placements':len(order)",
+    "'placements':sum(bool(v['placement_verified']) for v in r['part_results']),'diagnostic_stage':stage,'full_assembly_accepted':r['full_assembly_accepted']"
+  ]
+]

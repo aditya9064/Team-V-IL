@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "kind": "V53_PAYLOAD_CONTACT_DIAGNOSTIC_ONLY",
+  "parent_manifest_sha256": "e01505364ac0ce94bcd88032f0ac99050333a6665eab5b9bfe20e49582b2a244",
+  "parent_runtime_sha256": "665e9fcc5174ef9c6e60dca3e20d33a27f1bffa4915db96dc7ebd4856da3f571",
+  "runtime": "payload_contact_lid_precontact_trial.py",
+  "acquisition_checker": "check_payload_contact_trace.py",
+  "immutable_candidate_sha256": {
+    "payload_contact_trace.py": "722dc41ad85978e62f954ddefcef405edb2f9ea45decdc8b3074eff00088afd0",
+    "cooked_payload_evidence.py": "d71064fc48078e4024143a26d6c407e0bc74293f2d719b359c412be98513b087",
+    "payload_contact_lid_precontact_trial.py": "3f04770b8e4099fdaee59886b5af92521eafbe2c60f7f115da025d335c87a0e0",
+    "payload-contact-runtime-patches.json": "9d0a9c79da72642548db874d94f47014d85388de43edabcc72774582524908f2",
+    "check_payload_contact_trace.py": "7aff69cbf7c77b14de1c83d5dd04b72712d3f5cd2dc1096ecebdf1571e40cbf2",
+    "test_payload_contact_trace.py": "d279c7f59c70b2f50c2b3e6f6d3e0494543061bc7d6d8571e70ecff820879f8f",
+    "build_payload_contact_review.py": "460eb56bded612493e9f51e2920a0c3b3d6b4b20cf31dc666b5d8cbefc7b2e36",
+    "PAYLOAD-CONTACT-DESIGN.md": "272be1bbc7e1870ab690339d01bb87be28f9f94c0b24d3784493cef6976f441e",
+    "v52-parent-sha256.json": "e01505364ac0ce94bcd88032f0ac99050333a6665eab5b9bfe20e49582b2a244",
+    "payload_convex_geometry.py": "b18cdb6fbd521e2ee01a33af95bee1919a41918f8ebc9c69afd590cfaa32280a",
+    "audit_payload_contact_outcome.py": "d99dae16c7159e7cc884dd4e2b82d43ea5431141fbd1d9cb5ab45a6da6f266c2"
+  },
+  "commands_gates_geometry_materials_masses_solver_steps_unchanged": true,
+  "parent_packaging_changes_only": [
+    "assembly_suite_on_rosie.sh",
+    "assembly_review_on_rosie.sh",
+    "snapshot-sha256.json"
+  ],
+  "cooked_geometry_semantics": "post-terminal cooking-service representation; not exact active PxShape readback",
+  "full_assembly_success_claim": false
+}

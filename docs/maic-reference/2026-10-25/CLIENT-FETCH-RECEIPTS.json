@@ -1,0 +1,44 @@
+[
+  {
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/README.md",
+    "sha256": "496a8546d4ce0ce601dc2b01f3a8db12edfed5a6c981c7b42a098572dfff426a",
+    "bytes": 7233
+  },
+  {
+    "path": "calibration/FRAMES.md",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/calibration/FRAMES.md",
+    "sha256": "f794e150c576f15dd202155d8997f194adc61d38af37dde51b2010caa9f5bb5a",
+    "bytes": 2457
+  },
+  {
+    "path": "calibration/cameras.json",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/calibration/cameras.json",
+    "sha256": "7a8df1da65f238a1445319d720c1a2ce143e344754d44e42ff2f82d6d68a29f3",
+    "bytes": 4090
+  },
+  {
+    "path": "cell_client.py",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/cell_client.py",
+    "sha256": "55680e989f2a8ba9d452bbdc9ec240865003c6aa5f19db96115cf7ee7fc38c73",
+    "bytes": 7861
+  },
+  {
+    "path": "policy.py",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/policy.py",
+    "sha256": "6ec4d8d6f0373b602e046bb6942b7eea7571e8073c355cc99aa1db292edcf6a7",
+    "bytes": 2620
+  },
+  {
+    "path": "submission/placement.yaml",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/submission/placement.yaml",
+    "sha256": "69cb406580a10e7d0cea36342e049f985b7be978d5dcdc2fe409d814db60302f",
+    "bytes": 1213
+  },
+  {
+    "path": "submission/submission.yaml",
+    "url": "https://raw.githubusercontent.com/SIDCLab/PhysicalAI-Hackathon-2026/ff7534e730f2b3db261c7f22d3d9b56a40c00eed/submission/submission.yaml",
+    "sha256": "72ab0cba4b22d7338bec9ebd35a115d7edec1d0070c2dce95ac52fc264bc544f",
+    "bytes": 1534
+  }
+]

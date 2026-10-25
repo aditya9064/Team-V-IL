@@ -1,0 +1,48 @@
+{
+  "status": "CPU_CAD_ONLY_NOT_ADMITTED_TO_SIMULATION",
+  "section_source_sha256": "4c57ff0fedeb01edd13b904d8b6f92dd6d217762260ec55277d3c54e3b28138d",
+  "new_mesh_sha256": "8ef4e31648e1291bf8341a16301210af96adea3865c25a012588673aa42441bd",
+  "new_design_sha256": "5d0efd65f2f473e29ce7939d4ff8a16727a161035ec8bb83de892c1945e441de",
+  "new_mass_reference_sha256": "6fb0f46273f8a96c60cbb70c2db1021a3f8afce9792c2d1d105994b4bc012063",
+  "old_feature_colliders_replaced": [
+    53,
+    55,
+    56
+  ],
+  "old_C054_and_all_cover0to52_exact": true,
+  "all_other_parts_exact": true,
+  "limits_grip_commands_layout_PCB_sourcefingers_unchanged": true,
+  "four_bands_vs48cells_difference_mm3": 0.0,
+  "physical_changes_outside_allowed_feature_region_mm3": 0.0,
+  "connected_solid": true,
+  "old_mass_kg": 0.03296638539956684,
+  "new_mass_kg": 0.03309526057787758,
+  "new_compound_properties": {
+    "mass_kg": 0.03309526057787758,
+    "centre_of_mass_local_m": [
+      0.0,
+      -8.35337330403742e-06,
+      0.027470083305500735
+    ],
+    "diagonal_inertia_kg_m2": [
+      2.0444054917068766e-05,
+      2.3145891206763304e-05,
+      3.8413416406076e-05
+    ],
+    "principal_axes_wxyz": [
+      0.9999999982523945,
+      -5.912030941815438e-05,
+      0.0,
+      0.0
+    ],
+    "reference_kind": "Prospective analytic compound prediction; live query required"
+  },
+  "cooked_probes_required": 79,
+  "GPU_tests_performed": false,
+  "requires": [
+    "Independent load/contact/release review",
+    "Approach/close and complete assembled-environment clearance",
+    "Originalstrict livepickup+hold gates and mass/probe readback",
+    "New CAD RGB visibility before laterfullsequence"
+  ]
+}

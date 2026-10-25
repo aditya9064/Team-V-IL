@@ -1,0 +1,15 @@
+{
+  "schema": "REVIEWED_PAIRED_GRIP_GEOMETRY_V55",
+  "runtime_sha256": "9428b238be02a08b73047b31d6325858c4ea33129aed7e59e6ff5c50faff9f7c",
+  "checker_sha256": "e32ca61ce1143a6e1ac4de71a90e6ea68356b2a57dc0715cc6a493bc7722e2b8",
+  "trace_checker_sha256": "af464b8343885d55bb44e61e8133f9c56a91d1119e9f56f28774f14aa80b4817",
+  "cases": [
+    "original",
+    "stem-plus3"
+  ],
+  "velocity_iterations": 1,
+  "purpose": "Only matched isolated lid pickup and fixed hold; all seating/release disabled; no full assembly acceptance",
+  "grippers_and_all_numeric_limits_unchanged": true,
+  "control_must_reproduce": true,
+  "full_assembly_accepted": false
+}

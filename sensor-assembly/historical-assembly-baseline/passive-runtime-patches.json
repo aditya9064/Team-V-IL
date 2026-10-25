@@ -1,0 +1,30 @@
+[
+  [
+    "from lid_release_schedule import lid_release_samples,lid_release_bounds",
+    "from lid_release_schedule import lid_release_samples,lid_release_bounds\nfrom passive_velocity import PassiveVelocity"
+  ],
+  [
+    "        from isaacsim.core.prims import SingleArticulation,SingleXFormPrim,SingleRigidPrim",
+    "        from isaacsim.core.prims import SingleArticulation,SingleXFormPrim"
+  ],
+  [
+    "        issued_jaw=None;issued_jaw_targets={};velocity_readers={};lid_orientation=None",
+    "        issued_jaw=None;issued_jaw_targets={};lid_orientation=None\n        passive_velocity=PassiveVelocity({name:roots[name] for name in ('base','carrier','pcb','cover')})"
+  ],
+  [
+    "            return {'step':state['step'],'sim_time':float(world.current_time),",
+    "            snapshot={'step':state['step'],'sim_time':float(world.current_time),"
+  ],
+  [
+    "                'issued_jaw_joint_targets_m':dict(issued_jaw_targets),\n                'body_velocities':{name:{'linear_world_m_s':v.get_linear_velocity().tolist(),'angular_world_rad_s':v.get_angular_velocity().tolist()} for name,v in velocity_readers.items()}}",
+    "                'issued_jaw_joint_targets_m':dict(issued_jaw_targets)}\n            snapshot['body_velocities']=passive_velocity.sample(snapshot['sim_time'],snapshot['actor_world_matrices'])\n            return snapshot"
+  ],
+  [
+    "        # Existing dynamic bodies only; no mass/material/pose/velocity setters.\n        velocity_readers={name:SingleRigidPrim(path,name='velocity_'+name,reset_xform_properties=False) for name,path in roots.items() if name!='nest'}\n        for reader in velocity_readers.values():reader.initialize()",
+    "        # Passive estimates reuse existing pose snapshots; no rigid observer registration."
+  ],
+  [
+    "    report['diagnostic_trace']=[]",
+    "    report['diagnostic_trace']=[]\n    report['body_velocity_telemetry']={'source':'finite_difference_existing_USD_pose_snapshots','helper_sha256':digest(Path(__file__).with_name('passive_velocity.py')),'linear_reference':'body origin, not center of mass','angular_reference':'world log(Rnow Rprev.T)/dt','instantaneous_velocity_claim':False,'used_for_targets_or_motion_gates':False,'physical_scoring_input':False}\n    report['candidate_provenance']='Conditional passive observer replacement; eligibility depends on independent interpretation of comparison286764. No repaired/physical/full-assembly claim.'"
+  ]
+]

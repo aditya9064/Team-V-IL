@@ -1,0 +1,114 @@
+[
+  {
+    "path": "competitions/Innovation Labs/Rockwell-NVIDIA-Fall-2026/Rockwell-NVIDIA-Fall-2026.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/competitions/Innovation%20Labs/Rockwell-NVIDIA-Fall-2026/Rockwell-NVIDIA-Fall-2026.md",
+    "status": 200,
+    "bytes": 21408,
+    "sha256": "d1491fb8dc2e69d824eb53799f3f288fd36584432502a835dbdae1d940da4db5"
+  },
+  {
+    "path": "competitions/Innovation Labs/Rockwell-NVIDIA-Fall-2026/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/competitions/Innovation%20Labs/Rockwell-NVIDIA-Fall-2026/metadata.json",
+    "status": 200,
+    "bytes": 599,
+    "sha256": "140c9ac297f687103c53ce53c549c823f5b86ff6b969d9701d06365d815b64a2"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Coding-Agents/Rockwell-NVIDIA-Fall-2026-Coding-Agents.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Coding-Agents/Rockwell-NVIDIA-Fall-2026-Coding-Agents.md",
+    "status": 200,
+    "bytes": 3807,
+    "sha256": "7bcc71abdef905c882d1c6aac5bcc2270345792e968f417399bdcc4224c3d210"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Coding-Agents/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Coding-Agents/metadata.json",
+    "status": 200,
+    "bytes": 313,
+    "sha256": "47295068a716454bc166c6792585cb9272b016ebf0fa0c77d35564fe94a02134"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Compute/Rockwell-NVIDIA-Fall-2026-Compute.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Compute/Rockwell-NVIDIA-Fall-2026-Compute.md",
+    "status": 200,
+    "bytes": 7643,
+    "sha256": "92d79f59188ec7dd94d54f052fb796e932448f2acf727343b32b9fe01d93371a"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Compute/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Compute/metadata.json",
+    "status": 200,
+    "bytes": 318,
+    "sha256": "dbd201353df95f257e7cd4e79b01ca42e19c024bebc17b912351b5c8a78b645b"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Data-Collection/Rockwell-NVIDIA-Fall-2026-Data-Collection.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Data-Collection/Rockwell-NVIDIA-Fall-2026-Data-Collection.md",
+    "status": 200,
+    "bytes": 6025,
+    "sha256": "ba02201dfba0bc40ce6ec2fc97b1b8d76ff366e6737e2de8190eac126dbbce68"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Data-Collection/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Data-Collection/metadata.json",
+    "status": 200,
+    "bytes": 312,
+    "sha256": "7d1c8aab2947315562f3f8eca03cf15a6e6a1b34268fad984cd6be97e3f3a1e4"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Fluid-Mixing/Rockwell-NVIDIA-Fall-2026-Fluid-Mixing.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Fluid-Mixing/Rockwell-NVIDIA-Fall-2026-Fluid-Mixing.md",
+    "status": 200,
+    "bytes": 13195,
+    "sha256": "b151867ae0da169652b37dd43caee5e434eeefc1cfb4ffe2279b6b8a8b7195a6"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Fluid-Mixing/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Fluid-Mixing/metadata.json",
+    "status": 200,
+    "bytes": 330,
+    "sha256": "b2a8bb9f41b7a04fafe90c89e405b9608b6534d35fd9593b71157fee53bbb36c"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Grasping-Sorting/Rockwell-NVIDIA-Fall-2026-Grasping-Sorting.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Grasping-Sorting/Rockwell-NVIDIA-Fall-2026-Grasping-Sorting.md",
+    "status": 200,
+    "bytes": 5068,
+    "sha256": "26fdd6f094a95db9dbfadb22b20e020f8bbf5a98699a6c5bbc5b042ff891a3b5"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Grasping-Sorting/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Grasping-Sorting/metadata.json",
+    "status": 200,
+    "bytes": 325,
+    "sha256": "cecd72f88afa43ba9b1e2bf37268101f7d33888f00cdb3447aa12726cd02b30b"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Resources/Rockwell-NVIDIA-Fall-2026-Resources.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Resources/Rockwell-NVIDIA-Fall-2026-Resources.md",
+    "status": 200,
+    "bytes": 14953,
+    "sha256": "df584b2d304f97c9a8e1f3465c0bdc006c9e7ef70676cb215fb36540214a6324"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Resources/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Resources/metadata.json",
+    "status": 200,
+    "bytes": 404,
+    "sha256": "59826926770fc8368b90a64d0773eaeb56d00f2ce658cf11a0bdedc3f0cf6374"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Vial-Inspection/Rockwell-NVIDIA-Fall-2026-Vial-Inspection.md",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Vial-Inspection/Rockwell-NVIDIA-Fall-2026-Vial-Inspection.md",
+    "status": 200,
+    "bytes": 11953,
+    "sha256": "1f76383106093dc359db2f6812982ab427922ed801f40bb3bc52ef6e7a435949"
+  },
+  {
+    "path": "unlisted/Rockwell-NVIDIA-Fall-2026-Vial-Inspection/metadata.json",
+    "url": "https://msoe-ai-club.github.io/maic-content/unlisted/Rockwell-NVIDIA-Fall-2026-Vial-Inspection/metadata.json",
+    "status": 200,
+    "bytes": 337,
+    "sha256": "5b21560ba24f7c064b2d0ff763a819ee433b0c28bfd1c27fcb596e4c00bff614"
+  }
+]

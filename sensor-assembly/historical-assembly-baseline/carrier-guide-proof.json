@@ -1,0 +1,58 @@
+{
+  "unchanged_parts_sha256": {
+    "pcb": "ead660e797139b2dab3577764a8df2b03958db7ec95e4212adc86ebb2d03e133",
+    "nest": "58f2061056fb86d779ae0b69f05d54a322f5723d674d96002d69ec78a6dc429b"
+  },
+  "old_carrier_sha256": "c93cc7dd67e5badfdcc2dea4fc13d9fec959fea28a4c2a1596e72c18e77079e6",
+  "new_carrier_sha256": "08a2d856645a9c3f364ef3ff11378fef389a40a4de2b5388fe3ad8d4622e11bc",
+  "non_grip_carrier_unchanged": false,
+  "base_grip_translated_to_carrier": true,
+  "slot_mm": 6.4,
+  "blade_mm": 6.0,
+  "per_side_mm": 0.2,
+  "post_xy_mm": [
+    10,
+    4
+  ],
+  "shoulder_xy_mm": [
+    10,
+    16
+  ],
+  "opening_sweeps": [
+    {
+      "x_offset_mm": -0.125,
+      "interference_mm3": 0.0
+    },
+    {
+      "x_offset_mm": 0.0,
+      "interference_mm3": 0.0
+    },
+    {
+      "x_offset_mm": 0.125,
+      "interference_mm3": 0.0
+    },
+    {
+      "x_offset_mm": 0.3,
+      "interference_mm3": 5.2195842461187825
+    }
+  ],
+  "source_profile_seating_drop_mm": 0.15522721391880623,
+  "protected_runtime_sha256": {
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+    "check_holder_assembly.py": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46"
+  },
+  "limits_unchanged": true,
+  "payload_limits_unchanged": true,
+  "prior_failed_run_preserved": 285698,
+  "cad_checks": 126,
+  "source_gripper_unchanged": true,
+  "scope": "Traygrip unchanged, floor onlynotched forlidfeet",
+  "runtime_update": "v19 slower loaded phases; original physical gates unchanged, explicit independently verified timing scale2",
+  "v23_scope": "Exactoriginalv16controller/checkerrestored. Onlynewlidfeet/traynotches/supportsurface fromv22; originalphase durations restored.",
+  "v26_scope": "Onlygripandbridgeunchanged; rightclearancenotchandcentralrightwallkeeperchanged",
+  "v27_scope": "Current pinned runtime; exact original code restored by inverse representation patch in representation-reference.json. No numeric/contact rule changes."
+}

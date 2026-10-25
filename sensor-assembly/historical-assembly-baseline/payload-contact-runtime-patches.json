@@ -1,0 +1,42 @@
+[
+  [
+    "from lid_contact_trace import ContactTrace",
+    "from lid_contact_trace import ContactTrace\nfrom payload_contact_trace import PayloadContactTrace\nfrom cooked_payload_evidence import read_cooked_payload"
+  ],
+  [
+    "    report['candidate_provenance']=",
+    "    report['payload_contact_trace_provenance']={'scope':'READONLY PCB/TRAY TELEMETRY; commands and gates unchanged','helper_sha256':digest(Path(__file__).with_name('payload_contact_trace.py')),'cooked_reader_sha256':digest(Path(__file__).with_name('cooked_payload_evidence.py')),'parent_runtime_sha256':digest(Path(__file__).with_name('contact_trace_lid_precontact_trial.py')),'control_or_truth_steering':False,'runtime_logging_IO_per_step':False,'extra_physics_queries_or_registration':False,'cooked_readback_timing':'finally after original terminal outcome; no further physics or commands'}\n    report['payload_contact_pose_trace']=[]\n    report['candidate_provenance']="
+  ],
+  [
+    "        report['lid_contact_trace']=lid_contact_trace.value",
+    "        report['lid_contact_trace']=lid_contact_trace.value\n        payload_contact_trace=PayloadContactTrace(roots['pcb'],[roots['carrier']])\n        report['payload_contact_trace']=payload_contact_trace.value"
+  ],
+  [
+    "            lid_contact_trace.note_existing_snapshot(snapshot)",
+    "            lid_contact_trace.note_existing_snapshot(snapshot)\n            payload_contact_trace.note_existing_snapshot(snapshot)"
+  ],
+  [
+    "            telemetry_callback=lid_contact_trace.begin_callback(state['step'],state['phase'],lambda:float(world.current_time))",
+    "            telemetry_callback=lid_contact_trace.begin_callback(state['step'],state['phase'],lambda:float(world.current_time))\n            payload_callback=payload_contact_trace.begin_callback(state['step'],state['phase'],lambda:float(world.current_time))"
+  ],
+  [
+    "                lid_contact_trace.observe_header(telemetry_callback,h,data,lambda raw:str(PhysicsSchemaTools.intToSdfPath(raw)),collider_roles)",
+    "                lid_contact_trace.observe_header(telemetry_callback,h,data,lambda raw:str(PhysicsSchemaTools.intToSdfPath(raw)),collider_roles)\n                payload_contact_trace.observe_header(payload_callback,h,data,lambda raw:str(PhysicsSchemaTools.intToSdfPath(raw)),collider_roles)"
+  ],
+  [
+    "            lid_contact_trace.end_callback(telemetry_callback)",
+    "            lid_contact_trace.end_callback(telemetry_callback)\n            payload_contact_trace.end_callback(payload_callback)"
+  ],
+  [
+    "                lid_contact_trace.begin_step(snapshot,len(report['diagnostic_trace'])-1,state['phase'],bool(state.get('incoming_lid_capture')))",
+    "                lid_contact_trace.begin_step(snapshot,len(report['diagnostic_trace'])-1,state['phase'],bool(state.get('incoming_lid_capture')))\n                if state['active']=='carrier' or payload_contact_trace.active:\n                    report['payload_contact_pose_trace'].append(dict(snapshot,phase=state['phase']))\n                    payload_contact_trace.begin_step(snapshot,len(report['payload_contact_pose_trace'])-1,state['phase'],True)"
+  ],
+  [
+    "                after_step=float(world.current_time);lid_contact_trace.end_step(state['step'],after_step)",
+    "                after_step=float(world.current_time);lid_contact_trace.end_step(state['step'],after_step)\n                payload_contact_trace.end_step(state['step'],after_step)"
+  ],
+  [
+    "        if 'lid_contact_trace' in locals():lid_contact_trace.finalize(report['status'],report.get('error'))",
+    "        if 'lid_contact_trace' in locals():lid_contact_trace.finalize(report['status'],report.get('error'))\n        if 'payload_contact_trace' in locals():payload_contact_trace.finalize(report['status'],report.get('error'))\n        if 'stage' in locals() and 'world' in locals():\n            report['payload_cooked_geometry']=read_cooked_payload(stage,world,roots,report['status'])"
+  ]
+]

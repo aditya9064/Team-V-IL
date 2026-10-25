@@ -1,54 +1,41 @@
-# Team V — Adaptive small-part kitting
+# Team V — adaptable small-part assembly
 
-Physical AI for the Factory Floor Hackathon, UWM/MSOE, 2026. We are building camera-supervised kit preparation using the FANUC ER-4iA digital twin and SMC MHZL2-16D2 gripper.
+Physical AI for the Factory Floor Hackathon, UWM/MSOE, 2026. FANUC ER-4iA with the supplied SMC MHZL2-16D2 gripper and current fingers.
 
-**Start with [the shared project context](docs/START-HERE.md)** for the goal, architecture, verified progress, limitations and instructions for teammates or AI assistants.
+**Start with [the shared context](docs/START-HERE.md)** and [the project checklist](docs/PROJECT-CHECKLIST.md).
 
-## Status — October 15, 2026
+## Status — 25 October 2026
 
-- Original stacking demo: six successful simulated pickups and placements; a 55.2-second video.
-- Corrected training pilot: 78 scenes / 432 cube labels, packaged for the mentor. Training results are pending.
-- Adaptive flat-slot kitting: six camera-verified pickups and placements on Rosie, with independent simulator scoring agreeing (job 284300).
-- Single-miss recovery, repeated-miss HOLD and moved-target REPLAN/COMPLETE passed under the current configuration. Earlier empty/missing/stale gate tests retain explicit provenance. See [the validation report](dynamic-loop/validation-report.md).
-- Detector plug-in prepared; five additional situation tests and a six-part regression passed in simulation. See [results, retained failure and limits](dynamic-loop/additional-validation-report.md). Thirty-three plug-in/fixture tests and an untrained CUDA interface smoke passed. Trained-checkpoint validation remains pending.
-- No physical-arm calibration or execution has been validated.
+- Larger enclosure: five CAD models and 63 CPU checks pass. Actual larger-part pickup tests remain pending.
+- Original-size enclosure: one nominal three-part motion sequence completed; strict final support-force evidence was inconclusive. Offset variations failed contact checks.
+- IndustReal: one calibrated preheld deterministic insertion/release baseline passed. Learned insertion remains experimental, with failures and no held-out reliability result.
+- Cube kitting: six camera-verified simulated pickups/placements and bounded recovery tests were validated earlier.
+- No complete enclosure assembly, print readiness or physical-robot success is qualified.
 
 ## Repository map
 
 | Directory | Purpose |
 |---|---|
-| [dynamic-loop](dynamic-loop/README.md) | Fresh observations, per-pick planning, outcome verification and bounded recovery |
-| [dataset-tools](dataset-tools/README.md) | Scene variation, persistent Isaac capture, corrected labels and QA |
-| [mentor-training](mentor-training/README.md) | Training-data packaging, detector training/evaluation and smoke tests |
-| [benchmark-tools](benchmark-tools/README.md) | Limited Rosie/Brev image-capture benchmarks |
-| [src/team_v](src/team_v) | Earlier simulator-independent replay/evaluation foundation |
-| [docs](docs) | Requirements, research and historical proposals |
-| [data](data/README.md) | External-data instructions; raw assets are not in Git |
+| [sensor-assembly/option-a](sensor-assembly/option-a/README.md) | Current larger-part CAD, known-fixture pickup protocol and independent checks |
+| [sensor-assembly/historical-assembly-baseline](sensor-assembly/historical-assembly-baseline/README.md) | Retained original-size source and regression fixtures |
+| [sensor-assembly/camera-diagnostic](sensor-assembly/camera-diagnostic/README.md) | CPU-reviewed observation-only camera preparation |
+| [industreal](industreal/README.md) | Deterministic insertion port and separate runtime requirements |
+| [industreal-policy](industreal-policy/README.md) | Experimental learned insertion source; no reliable policy claim |
+| [dynamic-loop](dynamic-loop/README.md) | Cube kitting, observation gates and bounded recovery |
+| [dataset-tools](dataset-tools/README.md) | Synthetic scene generation and label QA |
+| [mentor-training](mentor-training/README.md) | Detector training and evaluation tools |
+| [benchmark-tools](benchmark-tools/README.md) | Limited Rosie/Brev capture benchmarks |
+| [docs](docs/START-HERE.md) | Shared context, checklist and official requirements review |
 
-Historical proposals describe earlier decisions. The shared context and actual execution evidence take precedence for current status. Legacy `synthetic-v1` and `synthetic-crops-v1` labels are obsolete; use the corrected mentor v2 package.
+## Quick host checks
 
-## Get started
+    git clone https://github.com/aditya9064/Team-V-IL.git
+    cd Team-V-IL
+    PYTHONPATH=src python3 -m unittest discover -s tests -v
+    (cd dynamic-loop && python3 -m unittest test_supervisor test_detector_contract)
 
-```bash
-git clone https://github.com/aditya9064/Team-V-IL.git
-cd Team-V-IL
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-python -m unittest discover -s tests -v
-(cd dynamic-loop && python -m unittest -v test_supervisor)
-```
+The 28 checks above do not launch a simulator. Follow the component README for its dependencies and tests. Assembly rendering requires the separately obtained official starter and Isaac-compatible environment. The learning port requires a separate pinned environment; preserve the working assembly installation.
 
-Replay and supervisor tests use the standard library. Rendering/physics require the separate Isaac-compatible Python environment and official FANUC v05 starter. Follow the component READMEs; a plain host Python cannot run simulation scripts.
+Credentials, private correspondence, datasets, weights, supplied licensed assets and videos are excluded. See [publication scope](docs/PUBLICATION-SCOPE.md) and [third-party notices](THIRD-PARTY.md). The current larger-part publication is a metadata-redacted derivative of the retained reviewed candidate, not a newly executed simulator result. Historical debug fixtures may have private paths redacted and are not replacements for original run evidence.
 
-## Updating an existing clone
-
-```bash
-git fetch origin
-git switch main
-git pull --ff-only origin main
-```
-
-If an older empty checkout has no local `main`, use `git switch -c main --track origin/main` after fetching. Preserve local work before switching branches. Use feature branches and review new changes before merging.
-
-Credentials, private correspondence, raw organizer assets, generated datasets/videos, model weights, caches and Python environments are excluded. Training images and larger visual deliverables are shared separately; cloning this repository does not download them.
+Legacy synthetic-v1 labels are obsolete; use the corrected training package and its component instructions. Preserve local work before pulling or switching branches.

@@ -1,0 +1,17 @@
+V54 isolated lid grip convergence diagnostic. No assembly acceptance.
+Run three fresh-process conditions serially: PGS32:1,32:8,32:16.
+All source geometry, grippers, masses, gains, friction, nominal motion phases,
+time steps, preload and physical acceptance limits remain identical.
+Only articulation velocity-iteration count differs, with actual readback.
+The original all16foot .020mm fixed120step/last25sample and following-sample
+readiness test applies to every condition. Original camera/contact/PCB/TCP gates
+remain. No camera fitting, final seating, release or transport is exercised.
+Omitting the base/tray prefix changes contact history and the incoming robot
+seed. If32:1 does not reproduce the original readiness failure, classify the
+comparison NONDIAGNOSTIC even if all three isolated tests pass.
+If32:1 reproduces and both8/16 satisfy all original applicable checks, classify
+solver-sensitivity evidence only; a subsequent full pipeline trial is required.
+No automatic selection or promotion of whichever case happens to pass.
+No simulator object pose feeds a target, adaptive wait or live reference reset.
+Truth remains scoring/STOP only. Fixed task fixtures are explicitly simulation.
+All videos remain on Rosie, including failures. All failed reports are retained.

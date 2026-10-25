@@ -1,0 +1,9 @@
+{
+  "scope": "Precontact hover only. Not final seating, release or full assembly acceptance.",
+  "parent_trial": 286486,
+  "parent_report_sha256": "1d2ca12f2184e8f73ed63610d2b605a05f9a6e02a0441a19f277472c96045e5e",
+  "estimator_sha256": "cbbd2794fa469d800be64aab5efe56ca6f1b43b8973b03dfdc477caf28beb83c",
+  "original_hardware_geometry_physics_and_numerical_gates_preserved": true,
+  "qualification": "Two archived RGB pairs plus independent foot audit and negative tests; live hover remains unverified.",
+  "new_stop_gates": "Evidence-backed precontact foot budget; live fit/FK/grasp checks. No truth-fed commands."
+}

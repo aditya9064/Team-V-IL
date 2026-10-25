@@ -33,3 +33,17 @@ dataset-results/
 *.log
 # Internal connection troubleshooting is not needed for reproducibility.
 dataset-tools/ROSIE-ACCESS-STATUS.md
+
+# Separately obtained simulator dependencies and local execution manifests.
+sensor-assembly/**/pinned-sdk/
+sensor-assembly/**/snapshot-sha256.json
+industreal/fixtures/
+industreal-policy/fixtures/
+*.usd
+*.usda
+*.usdc
+*.urdf
+*.tar.gz
+*AUTHORIZATION*.json
+*PERMISSION*.json
+*DELIVERY-RECEIPT*.json

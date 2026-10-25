@@ -1,0 +1,31 @@
+{
+  "base_exact_passed_job": null,
+  "base_sha256": "6f398dead623eb3954287ee98031cd5139ba3f56eaf03bd93589c550edbf64d9",
+  "unchanged_parts_sha256": {
+    "pcb": "ead660e797139b2dab3577764a8df2b03958db7ec95e4212adc86ebb2d03e133",
+    "nest": "58f2061056fb86d779ae0b69f05d54a322f5723d674d96002d69ec78a6dc429b"
+  },
+  "source_runtime_sha256": {
+    "holder_assembly_trial.py": "bfb473985adc4331d4daaf25381c0344434e61ee5e6daf4c2f4296f53cdfbbd5",
+    "check_holder_assembly.py": "78701fee5a332e6cb7777373c925f8d40442fbbb88000fbd88655b01cd0e6eb5",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46"
+  },
+  "relative_placement_corners": 729,
+  "minimum_all_corner_margin_mm": 0.8314155624793855,
+  "minimum_base_floor_margin_mm": 2.3314155624793855,
+  "minimum_tray_clearance_mm": 0.8314155624793855,
+  "actual_support_area_mm2": 25.0,
+  "wrong5mm_tray_collision_area_mm2": 8.75,
+  "limits_unchanged": true,
+  "payload_limits_unchanged": true,
+  "grip_commands_unchanged": true,
+  "only_support_pair_change": "coverear/basewall -> coverear/basefloor; horizontalonlyphasegated",
+  "no_extra_support_exemption": true,
+  "pcb_unchanged": true,
+  "v23_scope": "Exactoriginalv16controller/checkerrestored. Onlynewlidfeet/traynotches/supportsurface fromv22; originalphase durations restored.",
+  "base_extended_flat_v24": true,
+  "base_ribbed_floor_v25": true,
+  "v27_scope": "Current pinned runtime; exact original code restored by inverse representation patch in representation-reference.json. No numeric/contact rule changes."
+}

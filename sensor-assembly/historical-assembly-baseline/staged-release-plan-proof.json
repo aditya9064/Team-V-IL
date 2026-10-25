@@ -1,0 +1,431 @@
+{
+  "scope": "Read-only 33 sampled poses, not continuous proof or runtime pass. Current actual base pose held fixed for geometric counterfactual. Raw failure retained.",
+  "stages": [
+    "relax jaw to2.3mm/side",
+    "square fingers to CAD release pose with relaxed stem",
+    "open to6mm/side"
+  ],
+  "unchanged_geometry": true,
+  "no_gate_changes": true,
+  "summary": {
+    "relax": {
+      "floor": 0,
+      "grip_support": 0.13866018018564788,
+      "grip_stem": 5.403220969282752,
+      "grip_root": 0,
+      "wall": 0
+    },
+    "square": {
+      "floor": 0,
+      "grip_support": 0.08891306670039273,
+      "grip_stem": 0,
+      "grip_root": 0,
+      "wall": 0
+    },
+    "open": {
+      "floor": 0,
+      "grip_support": 0,
+      "grip_stem": 0,
+      "grip_root": 0,
+      "wall": 0
+    }
+  },
+  "samples": [
+    {
+      "stage": "relax",
+      "fraction": 0.0,
+      "per_jaw_mm": 1.950015258789,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.13866018018564788,
+        "grip_stem": 5.403220969282752,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.1,
+      "per_jaw_mm": 1.9850137329101,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.11749220741549547,
+        "grip_stem": 4.270119743234327,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.2,
+      "per_jaw_mm": 2.0200122070312,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.10635856997133188,
+        "grip_stem": 3.144801914901942,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.30000000000000004,
+      "per_jaw_mm": 2.0550106811523,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.1013987883746264,
+        "grip_stem": 2.0270546729747974,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.4,
+      "per_jaw_mm": 2.0900091552734,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.09928336412346934,
+        "grip_stem": 0.9166317999931618,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.5,
+      "per_jaw_mm": 2.1250076293945,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.09753542560790798,
+        "grip_stem": 0.015046690214717495,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.6000000000000001,
+      "per_jaw_mm": 2.1600061035155997,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.0958090321964757,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.7000000000000001,
+      "per_jaw_mm": 2.1950045776366998,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.09408859111851336,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.8,
+      "per_jaw_mm": 2.2300030517578,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.09236656762080231,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 0.9,
+      "per_jaw_mm": 2.2650015258789,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.09064171789954865,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "relax",
+      "fraction": 1.0,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.08891306670039273,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.0,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.08891306670039273,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.1,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0.009089500468634696,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.2,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.30000000000000004,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.4,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.5,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.6000000000000001,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.7000000000000001,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.8,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 0.9,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "square",
+      "fraction": 1.0,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.0,
+      "per_jaw_mm": 2.3,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.1,
+      "per_jaw_mm": 2.67,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.2,
+      "per_jaw_mm": 3.04,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.30000000000000004,
+      "per_jaw_mm": 3.41,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.4,
+      "per_jaw_mm": 3.7800000000000002,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.5,
+      "per_jaw_mm": 4.15,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.6000000000000001,
+      "per_jaw_mm": 4.5200000000000005,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.7000000000000001,
+      "per_jaw_mm": 4.890000000000001,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.8,
+      "per_jaw_mm": 5.26,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 0.9,
+      "per_jaw_mm": 5.63,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    },
+    {
+      "stage": "open",
+      "fraction": 1.0,
+      "per_jaw_mm": 6.0,
+      "overlap_mm3_by_role": {
+        "floor": 0,
+        "grip_support": 0,
+        "grip_stem": 0,
+        "grip_root": 0,
+        "wall": 0
+      }
+    }
+  ]
+}

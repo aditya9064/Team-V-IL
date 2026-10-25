@@ -1,0 +1,40 @@
+{
+  "scope": "PRECONTACT_ONLY_SIMULATION; no final seating/release authorization; no physical/print qualification",
+  "sealed_for_root_review": true,
+  "dispatch_requires_root_reviewed_precontact_budget": true,
+  "parent_script": "gentle_lid_full_assembly_trial.py",
+  "parent_sha256": "52915938025ec44e10205319f14b8b3dc1ab9c06918ec2af8d2d934ba36e2be0",
+  "candidate_script": "lid_pose_trial.py",
+  "candidate_sha256": "ede337e5fc661cf6a8b06369086d9dc0c355a4b484aff3d7598176c3975b062e",
+  "checker_script": "check_lid_pose.py",
+  "checker_sha256": "51418b24345319ab82a8f095b1177f049bf4cce62314cd08bd1bc1ac5c81c173",
+  "runtime_patches_sha256": "a84221e3a913787d59976661b1e39b9397d7eb876f59cd9ca865a7765c01f405",
+  "checker_patches_sha256": "ce427060a4363a9dbc7f52500d7cc69d79acb7f22d914dad61bfc4c5b82cde86",
+  "new_module_hashes": {
+    "lid_pose.py": "cbbd2794fa469d800be64aab5efe56ca6f1b43b8973b03dfdc477caf28beb83c",
+    "foot_audit.py": "6fdc7feba50a4586986bf89816e9d861af8831d9ad0b4c30a212fa416f74b050",
+    "lid_diagnostic_contract.py": "001b99ee518e0ca789e77d48793a8064b7a71b26d1d3c428cac9c42aee301d56",
+    "test_lid_pose_integration.py": "6c4617c749d61c5cbdfbea54d72e410d66fd53116cf7dab8629c0f328d41806a"
+  },
+  "unchanged_assets": {
+    "nest-mesh.json": "728f96ba4be877e8d768ab57a5505a5c2c6be08e750791014274241d3bb9fcd5",
+    "nest-design.json": "3808dbe0fd8bbda6f6990e46b796cde1d38055c4fdf84450cccd39a858acc62a",
+    "finger_cooking.py": "185c1a1e5f0ecc28235ca31dd721237ae1af34d3f7b902348750db3d0fd81beb",
+    "assembly_checks.py": "86f1c32ce6003798ff0c893d1936eb64ad9fbae7a15a2b6fb42498f7aaf0e79d",
+    "payload_checks.py": "2fba35f1f25f836ee5569bd91cf260393e6272c6590ff64babe7e3cbef1bc0f4",
+    "fixture_contacts.py": "a54dafeb3915742edd52c04f4a0902b32c7dde96b4dd230699dacbf4069112d0",
+    "motion_schedule.py": "b2b1c29469f7c4160285301c21fdc502b2f3936ce7c865dac2eb5db0114bcf46",
+    "lid_release_schedule.py": "1f88124c8316dc943ee68e8054d1adcdd2e238f2c36ff9b3408b206d11931f12",
+    "held_pose_bounded.py": "f6e1924961dff4703c78a881803538825edd263fc1bb5b6b34b6625800417df6"
+  },
+  "permitted_stage": "precontact",
+  "expected_motion_phases": 37,
+  "expected_checkpoints": 46,
+  "height_intent_mm": 1.1,
+  "fit_qualification": "Empirical corrected-foot vertical bound .05mm from both archived RGB pairs, independent simulation veto on each new estimate; not a physical confidence bound",
+  "fk_semantics": "Each physics step after final leveled measurement uses current observed FK and conservative per-foot clearance; .05mm3D command tracking is a settled precontact endpoint criterion only",
+  "drift_semantics": ".02mm per-foot3D independent drift veto starts after final leveled measurement; original held limits remain active during leveling",
+  "final_seating_and_release": "BLOCKED before runtime by budget stage contract",
+  "hardware_and_physics": "Current SMC/fingers, geometry, material, PGS60Hz/30Hz,32/1iterations and all original numeric/contact/PCB/inventory gates retained",
+  "root_owned_budget_location": "/private/tmp/team-v-lid-pose-v45-root/precontact-budget.json"
+}

@@ -1,0 +1,2750 @@
+[
+  {
+    "part": "base",
+    "label": "collider_000_floor_exposed_face",
+    "collider_index": 0,
+    "start_m": [
+      -0.021666666666666667,
+      0.02,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_001_floor_exposed_face",
+    "collider_index": 1,
+    "start_m": [
+      -0.057,
+      -0.02,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_002_floor_exposed_face",
+    "collider_index": 2,
+    "start_m": [
+      0.01966666666666667,
+      -0.062,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_003_floor_exposed_face",
+    "collider_index": 3,
+    "start_m": [
+      0.067,
+      -0.02,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_004_floor_exposed_face",
+    "collider_index": 4,
+    "start_m": [
+      0.01966666666666667,
+      0.052000000000000005,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_005_floor_exposed_face",
+    "collider_index": 5,
+    "start_m": [
+      -0.01966666666666667,
+      -0.001,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_006_floor_exposed_face",
+    "collider_index": 6,
+    "start_m": [
+      -0.001,
+      -0.018000000000000002,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_007_floor_exposed_face",
+    "collider_index": 7,
+    "start_m": [
+      0.044,
+      -0.014,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_008_floor_exposed_face",
+    "collider_index": 8,
+    "start_m": [
+      -0.052000000000000005,
+      -0.044,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_009_floor_exposed_face",
+    "collider_index": 9,
+    "start_m": [
+      -0.052000000000000005,
+      0.036000000000000004,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_010_floor_exposed_face",
+    "collider_index": 10,
+    "start_m": [
+      0.044,
+      -0.044,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_011_floor_exposed_face",
+    "collider_index": 11,
+    "start_m": [
+      0.044,
+      0.036000000000000004,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_012_wall_exposed_face",
+    "collider_index": 12,
+    "start_m": [
+      -0.057,
+      -0.02,
+      0.012
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_013_wall_exposed_face",
+    "collider_index": 13,
+    "start_m": [
+      -0.03166666666666667,
+      -0.062,
+      0.012
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_014_wall_exposed_face",
+    "collider_index": 14,
+    "start_m": [
+      0.04533333333333334,
+      -0.062,
+      0.012
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_015_wall_exposed_face",
+    "collider_index": 15,
+    "start_m": [
+      0.067,
+      -0.02,
+      0.012
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_016_wall_exposed_face",
+    "collider_index": 16,
+    "start_m": [
+      -0.03166666666666667,
+      0.052000000000000005,
+      0.012
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_017_wall_exposed_face",
+    "collider_index": 17,
+    "start_m": [
+      0.04533333333333334,
+      0.052000000000000005,
+      0.012
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_018_grip_root_exposed_face",
+    "collider_index": 18,
+    "start_m": [
+      0.046,
+      -0.004,
+      0.010666666666666666
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_019_grip_support_exposed_face",
+    "collider_index": 19,
+    "start_m": [
+      0.036333333333333336,
+      -0.012,
+      0.03338666788736979
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_020_grip_stem_exposed_face",
+    "collider_index": 20,
+    "start_m": [
+      0.036333333333333336,
+      -0.006,
+      0.035199999491373694
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "base",
+    "label": "collider_021_grip_support_exposed_face",
+    "collider_index": 21,
+    "start_m": [
+      0.028733333333333333,
+      -0.007966564005362716,
+      0.035724178545238114
+    ],
+    "direction": [
+      -0.0,
+      0.9832820026813583,
+      -0.1820892726190562
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0000000000000004
+  },
+  {
+    "part": "base",
+    "label": "collider_022_grip_support_exposed_face",
+    "collider_index": 22,
+    "start_m": [
+      0.03793333333333334,
+      -0.007966564005362716,
+      0.035724178545238114
+    ],
+    "direction": [
+      -0.0,
+      0.9832820026813583,
+      -0.1820892726190562
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0000000000000004
+  },
+  {
+    "part": "base",
+    "label": "empty_blade_slot_y_-6.0",
+    "start_m": [
+      0.033,
+      -0.006,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "base",
+    "label": "empty_blade_slot_y_-5.0",
+    "start_m": [
+      0.033,
+      -0.005,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "base",
+    "label": "empty_blade_slot_y_5.0",
+    "start_m": [
+      0.033,
+      0.005,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "base",
+    "label": "empty_blade_slot_y_6.0",
+    "start_m": [
+      0.033,
+      0.006,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "carrier",
+    "label": "collider_000_floor_exposed_face",
+    "collider_index": 0,
+    "start_m": [
+      -0.04466666666666667,
+      -0.052000000000000005,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_001_floor_exposed_face",
+    "collider_index": 1,
+    "start_m": [
+      -0.050333333333333334,
+      -0.026333333333333334,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_002_floor_exposed_face",
+    "collider_index": 2,
+    "start_m": [
+      -0.050333333333333334,
+      0.008,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_003_floor_exposed_face",
+    "collider_index": 3,
+    "start_m": [
+      -0.050333333333333334,
+      0.02866666666666667,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_004_floor_exposed_face",
+    "collider_index": 4,
+    "start_m": [
+      -0.04466666666666667,
+      0.0465,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_005_floor_exposed_face",
+    "collider_index": 5,
+    "start_m": [
+      -0.0016666666666666668,
+      -0.052000000000000005,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_006_floor_exposed_face",
+    "collider_index": 6,
+    "start_m": [
+      -0.02033333333333333,
+      -0.037,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_007_floor_exposed_face",
+    "collider_index": 7,
+    "start_m": [
+      -0.02033333333333333,
+      -0.026333333333333334,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_008_floor_exposed_face",
+    "collider_index": 8,
+    "start_m": [
+      -0.02033333333333333,
+      0.008,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_009_floor_exposed_face",
+    "collider_index": 9,
+    "start_m": [
+      -0.02033333333333333,
+      0.02866666666666667,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_010_floor_exposed_face",
+    "collider_index": 10,
+    "start_m": [
+      -0.02033333333333333,
+      0.043000000000000003,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_011_floor_exposed_face",
+    "collider_index": 11,
+    "start_m": [
+      -0.02033333333333333,
+      0.052000000000000005,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      -1.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_012_floor_exposed_face",
+    "collider_index": 12,
+    "start_m": [
+      0.03166666666666667,
+      -0.052000000000000005,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_013_floor_exposed_face",
+    "collider_index": 13,
+    "start_m": [
+      0.024333333333333332,
+      -0.037,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_014_floor_exposed_face",
+    "collider_index": 14,
+    "start_m": [
+      0.024333333333333332,
+      -0.026333333333333334,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_015_floor_exposed_face",
+    "collider_index": 15,
+    "start_m": [
+      0.024333333333333332,
+      0.02866666666666667,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_016_floor_exposed_face",
+    "collider_index": 16,
+    "start_m": [
+      0.024333333333333332,
+      0.043000000000000003,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_017_floor_exposed_face",
+    "collider_index": 17,
+    "start_m": [
+      0.024333333333333332,
+      0.052000000000000005,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      -1.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_018_floor_exposed_face",
+    "collider_index": 18,
+    "start_m": [
+      0.050333333333333334,
+      -0.052000000000000005,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_019_floor_exposed_face",
+    "collider_index": 19,
+    "start_m": [
+      0.04466666666666667,
+      -0.026333333333333334,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_020_floor_exposed_face",
+    "collider_index": 20,
+    "start_m": [
+      0.04466666666666667,
+      0.02866666666666667,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_021_floor_exposed_face",
+    "collider_index": 21,
+    "start_m": [
+      0.050333333333333334,
+      0.0465,
+      0.0013333333333333333
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_022_wall_exposed_face",
+    "collider_index": 22,
+    "start_m": [
+      -0.016360000610351564,
+      -0.01591999944051107,
+      0.0055333333333333345
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_023_wall_exposed_face",
+    "collider_index": 23,
+    "start_m": [
+      0.024360000610351564,
+      -0.03983999888102213,
+      0.0055333333333333345
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_024_wall_exposed_face",
+    "collider_index": 24,
+    "start_m": [
+      0.024360000610351564,
+      0.03191999944051107,
+      0.0055333333333333345
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_025_wall_exposed_face",
+    "collider_index": 25,
+    "start_m": [
+      0.006120000203450521,
+      0.0417599983215332,
+      0.0055333333333333345
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_026_wall_exposed_face",
+    "collider_index": 26,
+    "start_m": [
+      -0.015573333740234375,
+      -0.0497599983215332,
+      0.007066666666666666
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_027_wall_exposed_face",
+    "collider_index": 27,
+    "start_m": [
+      0.015573333740234375,
+      -0.0497599983215332,
+      0.0055333333333333345
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_028_pcb_keeper_exposed_face",
+    "collider_index": 28,
+    "start_m": [
+      -0.01769333330790202,
+      -0.01591999944051107,
+      0.0066
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_029_pcb_keeper_exposed_face",
+    "collider_index": 29,
+    "start_m": [
+      0.01769333330790202,
+      -0.03191999944051107,
+      0.0066
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_030_pcb_keeper_exposed_face",
+    "collider_index": 30,
+    "start_m": [
+      0.01769333330790202,
+      0.03983999888102213,
+      0.0066
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_031_pcb_keeper_exposed_face",
+    "collider_index": 31,
+    "start_m": [
+      0.005119999885559082,
+      0.04309333165486654,
+      0.0066
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_032_pcb_keeper_exposed_face",
+    "collider_index": 32,
+    "start_m": [
+      -0.013573333104451498,
+      -0.04309333165486654,
+      0.0066
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_033_pcb_keeper_exposed_face",
+    "collider_index": 33,
+    "start_m": [
+      0.011786666552225749,
+      -0.04309333165486654,
+      0.0066
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_034_bridge_leg_exposed_face",
+    "collider_index": 34,
+    "start_m": [
+      0.004666666666666667,
+      0.044,
+      0.011333333333333334
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_035_bridge_leg_exposed_face",
+    "collider_index": 35,
+    "start_m": [
+      -0.008,
+      -0.054,
+      0.011333333333333334
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_036_bridge_leg_exposed_face",
+    "collider_index": 36,
+    "start_m": [
+      0.016,
+      -0.054,
+      0.011333333333333334
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_037_bridge_beam_exposed_face",
+    "collider_index": 37,
+    "start_m": [
+      -0.004666666666666667,
+      0.01933333333333333,
+      0.016
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_038_grip_support_exposed_face",
+    "collider_index": 38,
+    "start_m": [
+      0.0033333333333333335,
+      -0.012,
+      0.03338666788736979
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_039_grip_stem_exposed_face",
+    "collider_index": 39,
+    "start_m": [
+      -0.0033333333333333335,
+      -0.006,
+      0.047066665649414065
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "carrier",
+    "label": "collider_040_grip_support_exposed_face",
+    "collider_index": 40,
+    "start_m": [
+      -0.004266666587193806,
+      -0.007966564005362718,
+      0.035724178545238114
+    ],
+    "direction": [
+      -0.0,
+      0.9832820026813586,
+      -0.18208927261905622
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0000000000000013
+  },
+  {
+    "part": "carrier",
+    "label": "collider_041_grip_support_exposed_face",
+    "collider_index": 41,
+    "start_m": [
+      0.004933333174387614,
+      -0.007966564005362718,
+      0.035724178545238114
+    ],
+    "direction": [
+      -0.0,
+      0.9832820026813586,
+      -0.18208927261905622
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0000000000000013
+  },
+  {
+    "part": "carrier",
+    "label": "empty_blade_slot_y_-6.0",
+    "start_m": [
+      0.0,
+      -0.006,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "carrier",
+    "label": "empty_blade_slot_y_-5.0",
+    "start_m": [
+      0.0,
+      -0.005,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "carrier",
+    "label": "empty_blade_slot_y_5.0",
+    "start_m": [
+      0.0,
+      0.005,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "carrier",
+    "label": "empty_blade_slot_y_6.0",
+    "start_m": [
+      0.0,
+      0.006,
+      0.04558820100784302
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "pcb",
+    "label": "collider_000_substrate_exposed_face",
+    "collider_index": 0,
+    "start_m": [
+      -0.005920000076293945,
+      0.014386666615804037,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "pcb",
+    "label": "collider_001_component_exposed_face",
+    "collider_index": 1,
+    "start_m": [
+      -0.0026666666666666666,
+      0.012,
+      0.012
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "pcb",
+    "label": "collider_002_component_exposed_face",
+    "collider_index": 2,
+    "start_m": [
+      -0.0026666666666666666,
+      -0.018666666666666668,
+      0.01
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "pcb",
+    "label": "collider_003_component_exposed_face",
+    "collider_index": 3,
+    "start_m": [
+      -0.0026666666666666666,
+      -0.04315999984741211,
+      0.014
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_000_floor_exposed_face",
+    "collider_index": 0,
+    "start_m": [
+      -0.029333333333333333,
+      0.02733333333333333,
+      -0.002
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_001_floor_exposed_face",
+    "collider_index": 1,
+    "start_m": [
+      -0.056666666666666664,
+      -0.05,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_002_floor_exposed_face",
+    "collider_index": 2,
+    "start_m": [
+      0.051333333333333335,
+      -0.05,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_003_floor_exposed_face",
+    "collider_index": 3,
+    "start_m": [
+      -0.0026666666666666666,
+      0.052000000000000005,
+      0.008
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_004_fixture_guide_exposed_face",
+    "collider_index": 4,
+    "start_m": [
+      -0.0643,
+      -0.036000000000000004,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_005_fixture_guide_exposed_face",
+    "collider_index": 5,
+    "start_m": [
+      -0.06588422296010353,
+      -0.036000000000000004,
+      0.013114962052509518
+    ],
+    "direction": [
+      -0.9745551866148996,
+      -0.0,
+      -0.22414769292142664
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 1.999999999999993
+  },
+  {
+    "part": "nest",
+    "label": "collider_006_fixture_guide_exposed_face",
+    "collider_index": 6,
+    "start_m": [
+      0.0643,
+      -0.036000000000000004,
+      0.0033333333333333335
+    ],
+    "direction": [
+      1.0,
+      -0.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_007_fixture_guide_exposed_face",
+    "collider_index": 7,
+    "start_m": [
+      0.06588422296010353,
+      -0.036000000000000004,
+      0.013114962052509518
+    ],
+    "direction": [
+      0.9745551866148996,
+      -0.0,
+      -0.22414769292142664
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 1.999999999999993
+  },
+  {
+    "part": "nest",
+    "label": "collider_008_fixture_guide_exposed_face",
+    "collider_index": 8,
+    "start_m": [
+      -0.0643,
+      0.044,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_009_fixture_guide_exposed_face",
+    "collider_index": 9,
+    "start_m": [
+      -0.06511755629343687,
+      0.044,
+      0.009781628719176186
+    ],
+    "direction": [
+      -0.9745551866148996,
+      -0.0,
+      -0.22414769292142664
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_010_fixture_guide_exposed_face",
+    "collider_index": 10,
+    "start_m": [
+      0.0643,
+      0.044,
+      0.0033333333333333335
+    ],
+    "direction": [
+      1.0,
+      -0.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_011_fixture_guide_exposed_face",
+    "collider_index": 11,
+    "start_m": [
+      0.06511755629343687,
+      0.044,
+      0.009781628719176186
+    ],
+    "direction": [
+      0.9745551866148996,
+      -0.0,
+      -0.22414769292142664
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_012_fixture_guide_exposed_face",
+    "collider_index": 12,
+    "start_m": [
+      0.004,
+      -0.05929999999999999,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -0.0,
+      -1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.000000000000007
+  },
+  {
+    "part": "nest",
+    "label": "collider_013_fixture_guide_exposed_face",
+    "collider_index": 13,
+    "start_m": [
+      0.004,
+      -0.06011755629343686,
+      0.009781628719176188
+    ],
+    "direction": [
+      -0.0,
+      -0.9745551866148995,
+      -0.2241476929214273
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.000000000000007
+  },
+  {
+    "part": "nest",
+    "label": "collider_014_fixture_guide_exposed_face",
+    "collider_index": 14,
+    "start_m": [
+      0.004,
+      0.07200000000000001,
+      0.0033333333333333335
+    ],
+    "direction": [
+      -0.0,
+      -1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "nest",
+    "label": "collider_015_fixture_guide_exposed_face",
+    "collider_index": 15,
+    "start_m": [
+      0.004,
+      0.06011755629343686,
+      0.009781628719176188
+    ],
+    "direction": [
+      0.0,
+      0.9745551866148995,
+      -0.2241476929214273
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.000000000000007
+  },
+  {
+    "part": "cover",
+    "label": "collider_000_wall_exposed_face",
+    "collider_index": 0,
+    "start_m": [
+      -0.066,
+      -0.022333333333333334,
+      0.03666666666666667
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_001_wall_exposed_face",
+    "collider_index": 1,
+    "start_m": [
+      0.02266666666666667,
+      -0.069,
+      0.03666666666666667
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_002_wall_exposed_face",
+    "collider_index": 2,
+    "start_m": [
+      0.075,
+      -0.022333333333333334,
+      0.03666666666666667
+    ],
+    "direction": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_003_wall_exposed_face",
+    "collider_index": 3,
+    "start_m": [
+      0.02266666666666667,
+      0.06,
+      0.03666666666666667
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_004_ear_exposed_face",
+    "collider_index": 4,
+    "start_m": [
+      -0.04716666666666666,
+      -0.0445,
+      0.022
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_005_ear_exposed_face",
+    "collider_index": 5,
+    "start_m": [
+      -0.04716666666666666,
+      0.035500000000000004,
+      0.022
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_006_ear_exposed_face",
+    "collider_index": 6,
+    "start_m": [
+      0.04883333333333334,
+      -0.0445,
+      0.022
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_007_ear_exposed_face",
+    "collider_index": 7,
+    "start_m": [
+      0.04883333333333334,
+      0.035500000000000004,
+      0.022
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_008_panel_exposed_face",
+    "collider_index": 8,
+    "start_m": [
+      -0.06666666666666668,
+      -0.03833333333333334,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_009_panel_exposed_face",
+    "collider_index": 9,
+    "start_m": [
+      -0.06666666666666668,
+      -0.022,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_010_panel_exposed_face",
+    "collider_index": 10,
+    "start_m": [
+      -0.06666666666666668,
+      -0.015,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_011_panel_exposed_face",
+    "collider_index": 11,
+    "start_m": [
+      -0.06666666666666668,
+      -0.01,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_012_panel_exposed_face",
+    "collider_index": 12,
+    "start_m": [
+      -0.06666666666666668,
+      -0.003,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_013_panel_exposed_face",
+    "collider_index": 13,
+    "start_m": [
+      -0.06666666666666668,
+      0.002,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_014_panel_exposed_face",
+    "collider_index": 14,
+    "start_m": [
+      -0.06666666666666668,
+      0.009000000000000001,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_015_panel_exposed_face",
+    "collider_index": 15,
+    "start_m": [
+      -0.06666666666666668,
+      0.014,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_016_panel_exposed_face",
+    "collider_index": 16,
+    "start_m": [
+      -0.06666666666666668,
+      0.021,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_017_panel_exposed_face",
+    "collider_index": 17,
+    "start_m": [
+      -0.06666666666666668,
+      0.026000000000000002,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_018_panel_exposed_face",
+    "collider_index": 18,
+    "start_m": [
+      -0.06666666666666668,
+      0.05366666666666667,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_019_panel_exposed_face",
+    "collider_index": 19,
+    "start_m": [
+      -0.04066666666666666,
+      -0.05266666666666667,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_020_panel_exposed_face",
+    "collider_index": 20,
+    "start_m": [
+      -0.04733333333333334,
+      -0.015,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_021_panel_exposed_face",
+    "collider_index": 21,
+    "start_m": [
+      -0.04733333333333334,
+      -0.003,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_022_panel_exposed_face",
+    "collider_index": 22,
+    "start_m": [
+      -0.04733333333333334,
+      0.009000000000000001,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_023_panel_exposed_face",
+    "collider_index": 23,
+    "start_m": [
+      -0.04733333333333334,
+      0.021,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_024_panel_exposed_face",
+    "collider_index": 24,
+    "start_m": [
+      -0.04733333333333334,
+      0.05366666666666667,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_025_panel_exposed_face",
+    "collider_index": 25,
+    "start_m": [
+      -0.011333333333333334,
+      -0.03833333333333334,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_026_panel_exposed_face",
+    "collider_index": 26,
+    "start_m": [
+      -0.011333333333333334,
+      -0.022,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_027_panel_exposed_face",
+    "collider_index": 27,
+    "start_m": [
+      -0.011333333333333334,
+      -0.015,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_028_panel_exposed_face",
+    "collider_index": 28,
+    "start_m": [
+      -0.011333333333333334,
+      -0.01,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_029_panel_exposed_face",
+    "collider_index": 29,
+    "start_m": [
+      -0.011333333333333334,
+      -0.003,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_030_panel_exposed_face",
+    "collider_index": 30,
+    "start_m": [
+      -0.011333333333333334,
+      0.002,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_031_panel_exposed_face",
+    "collider_index": 31,
+    "start_m": [
+      -0.011333333333333334,
+      0.009000000000000001,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_032_panel_exposed_face",
+    "collider_index": 32,
+    "start_m": [
+      -0.011333333333333334,
+      0.014,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_033_panel_exposed_face",
+    "collider_index": 33,
+    "start_m": [
+      -0.011333333333333334,
+      0.021,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_034_panel_exposed_face",
+    "collider_index": 34,
+    "start_m": [
+      -0.011333333333333334,
+      0.026000000000000002,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_035_panel_exposed_face",
+    "collider_index": 35,
+    "start_m": [
+      -0.011333333333333334,
+      0.05366666666666667,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_036_panel_exposed_face",
+    "collider_index": 36,
+    "start_m": [
+      0.04066666666666666,
+      -0.03833333333333334,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_037_panel_exposed_face",
+    "collider_index": 37,
+    "start_m": [
+      0.04066666666666666,
+      -0.015,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_038_panel_exposed_face",
+    "collider_index": 38,
+    "start_m": [
+      0.04066666666666666,
+      -0.003,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_039_panel_exposed_face",
+    "collider_index": 39,
+    "start_m": [
+      0.04066666666666666,
+      0.009000000000000001,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_040_panel_exposed_face",
+    "collider_index": 40,
+    "start_m": [
+      0.04066666666666666,
+      0.021,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_041_panel_exposed_face",
+    "collider_index": 41,
+    "start_m": [
+      0.04066666666666666,
+      0.05366666666666667,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_042_panel_exposed_face",
+    "collider_index": 42,
+    "start_m": [
+      0.060333333333333336,
+      -0.03833333333333334,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_043_panel_exposed_face",
+    "collider_index": 43,
+    "start_m": [
+      0.060333333333333336,
+      -0.022,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_044_panel_exposed_face",
+    "collider_index": 44,
+    "start_m": [
+      0.060333333333333336,
+      -0.015,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_045_panel_exposed_face",
+    "collider_index": 45,
+    "start_m": [
+      0.060333333333333336,
+      -0.01,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_046_panel_exposed_face",
+    "collider_index": 46,
+    "start_m": [
+      0.060333333333333336,
+      -0.003,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_047_panel_exposed_face",
+    "collider_index": 47,
+    "start_m": [
+      0.060333333333333336,
+      0.002,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_048_panel_exposed_face",
+    "collider_index": 48,
+    "start_m": [
+      0.060333333333333336,
+      0.009000000000000001,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_049_panel_exposed_face",
+    "collider_index": 49,
+    "start_m": [
+      0.060333333333333336,
+      0.014,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_050_panel_exposed_face",
+    "collider_index": 50,
+    "start_m": [
+      0.060333333333333336,
+      0.021,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_051_panel_exposed_face",
+    "collider_index": 51,
+    "start_m": [
+      0.060333333333333336,
+      0.026000000000000002,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_052_panel_exposed_face",
+    "collider_index": 52,
+    "start_m": [
+      0.060333333333333336,
+      0.05366666666666667,
+      0.064
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_053_grip_support_exposed_face",
+    "collider_index": 53,
+    "start_m": [
+      0.0033333333333333335,
+      -0.012,
+      0.0813866678873698
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_054_grip_stem_exposed_face",
+    "collider_index": 54,
+    "start_m": [
+      -0.0033333333333333335,
+      -0.006,
+      0.09506666564941406
+    ],
+    "direction": [
+      -0.0,
+      1.0,
+      -0.0
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 2.0
+  },
+  {
+    "part": "cover",
+    "label": "collider_055_grip_support_exposed_face",
+    "collider_index": 55,
+    "start_m": [
+      -0.004266666587193806,
+      -0.007966564013039723,
+      0.08372417723221655
+    ],
+    "direction": [
+      -0.0,
+      0.9832820065198611,
+      -0.18208925189114253
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 1.9999999999999996
+  },
+  {
+    "part": "cover",
+    "label": "collider_056_grip_support_exposed_face",
+    "collider_index": 56,
+    "start_m": [
+      0.004933333174387614,
+      -0.007966564013039723,
+      0.08372417723221655
+    ],
+    "direction": [
+      -0.0,
+      0.9832820065198611,
+      -0.18208925189114253
+    ],
+    "maximum_distance_m": 0.003,
+    "hit": true,
+    "expected_distance_mm": 1.9999999999999996
+  },
+  {
+    "part": "cover",
+    "label": "empty_blade_slot_y_-6.0",
+    "start_m": [
+      0.0,
+      -0.006,
+      0.09358820100784303
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "cover",
+    "label": "empty_blade_slot_y_-5.0",
+    "start_m": [
+      0.0,
+      -0.005,
+      0.09358820100784303
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "cover",
+    "label": "empty_blade_slot_y_5.0",
+    "start_m": [
+      0.0,
+      0.005,
+      0.09358820100784303
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  },
+  {
+    "part": "cover",
+    "label": "empty_blade_slot_y_6.0",
+    "start_m": [
+      0.0,
+      0.006,
+      0.09358820100784303
+    ],
+    "direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "maximum_distance_m": 0.01,
+    "hit": false
+  }
+]

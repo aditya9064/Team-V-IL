@@ -1,0 +1,402 @@
+{
+  "revision": "print-first-base-v15b-nest-clearance",
+  "source_profile_seating_drop_mm": 0.15522721391880623,
+  "nominal_initial_ledge_interference_area_mm2": 0.0,
+  "wrong_tip_plus_1mm_interference_area_mm2": 0.26166150271498156,
+  "unchanged_part_hashes": {
+    "pcb": "ead660e797139b2dab3577764a8df2b03958db7ec95e4212adc86ebb2d03e133",
+    "nest": "58f2061056fb86d779ae0b69f05d54a322f5723d674d96002d69ec78a6dc429b"
+  },
+  "minimum_notch_tolerance_corner_margin_mm": 0.814908277816782,
+  "notch_tolerance_checks": [
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.1431532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 0.814908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.1431532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.5130045353081236
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": 0,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.1431532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": 0,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.564908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": 0,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": 0,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 2.0
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": 0,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.1431532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": 0,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.564908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.1431532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.5130045353081236
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "root",
+      "dx_mm": -0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.1431532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": -0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 0.814908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": -0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.8931532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": -0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 0.814908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": -0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 2.0
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": -0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": -0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.8931532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": -0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.5130045353081236
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.8931532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.564908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 2.0
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 2.0
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.8931532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.564908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": 0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.8931532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": 0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.5130045353081236
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": 0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 2.0
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": 0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "root",
+      "dx_mm": 0,
+      "dy_mm": 0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.8931532935657778
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0,
+      "dy_mm": 0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 0.814908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.1492454873101252
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 0.814908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.1492454873101252
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": -0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.5130045353081236
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": 0,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.1492454873101252
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": 0,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.564908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": 0,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": 0,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 2.0
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": 0,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.1492454873101252
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": 0,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.564908277816782
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.1492454873101252
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": -1,
+      "minimum_notch_margin_mm": 1.5130045353081236
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 0,
+      "minimum_notch_margin_mm": 1.25
+    },
+    {
+      "part": "root",
+      "dx_mm": 0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 1.1492454873101252
+    },
+    {
+      "part": "ledge",
+      "dx_mm": 0.75,
+      "dy_mm": 0.75,
+      "yaw_deg": 1,
+      "minimum_notch_margin_mm": 0.814908277816782
+    }
+  ],
+  "post_cross_section_mm": [
+    10,
+    4
+  ],
+  "ledge_cross_section_mm": [
+    10,
+    16
+  ],
+  "base_and_nest_geometry_change": true,
+  "hardware_and_gates_unchanged": true,
+  "carrier_changed_in_v16": true
+}

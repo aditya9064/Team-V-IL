@@ -1,0 +1,68 @@
+{
+  "parent": "gentle_full_assembly_trial.py",
+  "parent_sha256": "2ed1d67554635373a53b447e466972f496f7290e3d475d8eb6e0402b920e9958",
+  "replacements": [
+    [
+      "ORDER=('base','carrier','cover')",
+      "ORDER=('cover',)"
+    ],
+    [
+      "'task':'full_assembly_with_verified_base_held_pose_fix'",
+      "'task':'isolated_lid_clearance_pick_place_release'"
+    ],
+    [
+      "'vision_guided':True",
+      "'vision_guided':False"
+    ],
+    [
+      "xy=layout['assembly_body_centre'] if name in ('base','nest') and a.case=='loaded-carrier' else layout['pickup_body_centres'][name]",
+      "xy=layout['pickup_body_centres']['cover'] if name=='cover' else layout['assembly_body_centre']"
+    ],
+    [
+      "z=surface+(0. if name=='nest' else .0033 if name=='base' and a.case=='loaded-carrier' else .0003)",
+      "z=surface+(.0003 if name=='cover' else design['assembly']['part_bottom_z']['carrier' if name=='pcb' else name]*.001)"
+    ],
+    [
+      "support_pairs=initial_supports_for_case(a.case);placed=['nest'];contact_count=0",
+      "support_pairs=initial_supports_for_case(a.case);placed=['nest','base','carrier','pcb'];contact_count=0"
+    ],
+    [
+      "planned_supports=placement_supports()",
+      "planned_supports=placement_supports()\n        support_pairs.update(planned_supports['base']|planned_supports['carrier'])"
+    ],
+    [
+      "'only_preplaced_fixture':(['base','nest'] if a.case=='loaded-carrier' else ['nest'])",
+      "'only_preplaced_fixture':['nest','base','carrier','pcb'],'prepositioned_product_parts_are_dynamic':True"
+    ],
+    [
+      "report['preplaced_fixture_parts']=['nest'];check_inventory(initial)",
+      "report['preplaced_fixture_parts']=['nest','base','carrier','pcb'];check_inventory(initial)"
+    ],
+    [
+      "'original_phase_durations_retained':False,'only_duration_change':{'2_carrier_carry':{'before_s':2.,'after_s':4.}}",
+      "'original_phase_durations_retained':True,'only_duration_change':{}"
+    ],
+    [
+      "'scope':'Known-pose base, loaded tray, lid assembly. Base uses RGB held-pose correction and staged release from accepted286139. Tray/lid use existing CAD recipe targets. PCB separate loose dynamic body. No trained detector, random-pose, print or physical-hardware qualification.'",
+      "'scope':'ISOLATED LID ONLY. Base/tray/loosePCB/nest begin at known assembly recipe as fixtures, all product parts remain freely dynamic. No accepted base/tray robot placement is claimed here. Current fingers and unchanged strict gates. Not full assembly/printing/real hardware qualification.'"
+    ],
+    [
+      "cv2.putText(rgb,'SIMULATION | base > loaded tray > lid | current fingers'",
+      "cv2.putText(rgb,'SIMULATION | isolated lid trial | current fingers'"
+    ],
+    [
+      "video=out/'full-assembly-SIMULATION-PASS.mp4'",
+      "video=out/'lid-only-SIMULATION-PASS.mp4'"
+    ],
+    [
+      "report['full_assembly_accepted']=True;report['status']='SIMULATION_PASS'",
+      "report['full_assembly_accepted']=False;report['isolated_lid_accepted']=True;report['status']='LID_ONLY_PASS'"
+    ],
+    [
+      "print('TEAM_V_FULL_HELD_FIX_ASSEMBLY_PASS',flush=True)",
+      "print('TEAM_V_ISOLATED_LID_PASS_NOT_FULL_ASSEMBLY',flush=True)"
+    ]
+  ],
+  "isolated_only": true,
+  "fixture_dynamic_not_attached": true
+}

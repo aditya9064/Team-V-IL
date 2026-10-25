@@ -1,0 +1,55 @@
+{
+  "acquisition_checker": "check_contact_trace_lid_precontact.py",
+  "acquisition_checker_sha256": "5f2c60fb3d8239987a98a9a1ca0494c253b98010bec7b3810abbff0f9ca0413c",
+  "added_files_sha256": {
+    "CONTACT-TRACE-DESIGN.md": "b43f1e96742427edaf6d443df8bedc9e3e673ad5da5b7b22596019576a010fa6",
+    "build_contact_trace.py": "ee7cc935558e3d66c978e8f66592cf984b193a2e3b15656ba6a2ca3bdc867542",
+    "check_contact_trace_lid_precontact.py": "5f2c60fb3d8239987a98a9a1ca0494c253b98010bec7b3810abbff0f9ca0413c",
+    "contact-trace-local-tests.txt": "bfe1f3c8ebf60913a09f0b787a810502eef3b932bf4127b2a0a17b4a62fa5017",
+    "contact-trace-runtime-patches.json": "1f60191a663f4bb6c14f106305c6e235e255f5ed3e9246fd6fc33ee0d42f887c",
+    "contact_trace_lid_precontact_trial.py": "665e9fcc5174ef9c6e60dca3e20d33a27f1bffa4915db96dc7ebd4856da3f571",
+    "export_finger_geometry.py": "a012cb9614e518accb140a13f2c2b78bf0a6a00c1a3653e68250f735bd9232ad",
+    "lid_contact_trace.py": "4402588f0f20b498e895c688ffacd72ef5204a204b2ec5926dc636bbcd94da88",
+    "telemetry-finger-geometry.json": "5cb317c37cdfc5ae7084a86a15f388fcd2f10d016640806b764f8a0363b46047",
+    "telemetry-parent-sha256.json": "a0f01eecff2c71537bf74bbe226c0e67ff9ec15f911841a59c1d6fdea2bbf12a",
+    "test_lid_contact_trace.py": "cb89cb0c3bfec45741e9b95bde7d77fb22aababfe8e87b6f822b179da49e0e7f"
+  },
+  "dispatch_additions_owned_by_root": [
+    "build_contact_trace_review.py",
+    "test_contact_trace_review.py"
+  ],
+  "dispatch_mutable_parent_files_only": [
+    "assembly_suite_on_rosie.sh",
+    "assembly_review_on_rosie.sh",
+    "DISPATCH-PROVENANCE.json",
+    "snapshot-sha256.json"
+  ],
+  "helper": "lid_contact_trace.py",
+  "helper_sha256": "4402588f0f20b498e895c688ffacd72ef5204a204b2ec5926dc636bbcd94da88",
+  "independent_review_still_required": true,
+  "jobs_submitted": false,
+  "kind": "V52_TELEMETRY_ONLY_CANDIDATE",
+  "mechanical_success_checked_by_acquisition": false,
+  "no_new_pose_queries_or_physics_APIs": true,
+  "no_truncation_or_sampling": true,
+  "parent_root": "/private/tmp/team-v-base-rgb-multistart-v51-root/snapshot",
+  "parent_runtime_sha256": "2eb82dda41673cffd77cb717bcfa6056c333d6c59cf1408d0f37da735460f2ac",
+  "physical_commands_gates_CAD_callbacks_registration_solver_timeline_unchanged": true,
+  "runtime": "contact_trace_lid_precontact_trial.py",
+  "runtime_sha256": "665e9fcc5174ef9c6e60dca3e20d33a27f1bffa4915db96dc7ebd4856da3f571",
+  "scope": "Incoming fixedhold firststep through finalRGB/precontact originalfailure/pass; no earliergrasp evolution claim",
+  "serialization_only_existing_callback_and_report": true,
+  "status": "SEALED_FOR_INDEPENDENT_REVIEW_NOT_SUBMITTED",
+  "strict_motion_success_checker": "unchanged parent check_multistart_lid_precontact.py remains separate; child runtime hash is unqualified by that checker",
+  "telemetry_errors_only_in_own_report_no_new_motion_gate": true,
+  "unchanged_parent_file_count": 218,
+  "unchanged_parent_hash_manifest": "telemetry-parent-sha256.json",
+  "verification": {
+    "full_local_tests": 245,
+    "full_local_tests_pass": true,
+    "new_pure_tests": 6,
+    "offline_finger_map_reexport_byte_identical": true,
+    "parent_file_identity": true,
+    "six_new_modules_compile_in_memory": true
+  }
+}
